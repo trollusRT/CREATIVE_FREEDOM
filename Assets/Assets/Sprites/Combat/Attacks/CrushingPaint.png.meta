@@ -1,0 +1,724 @@
+fileFormatVersion: 2
+guid: 8b10629916b678c44b8f6a48a3f47d5a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6936014767089139172
+    second: CrushingPaint_0
+  - first:
+      213: -7671484357992681024
+    second: CrushingPaint_1
+  - first:
+      213: 3359724150167164765
+    second: CrushingPaint_2
+  - first:
+      213: 6409788898102230166
+    second: CrushingPaint_3
+  - first:
+      213: 6447275038097910991
+    second: CrushingPaint_4
+  - first:
+      213: 2499091196617188948
+    second: CrushingPaint_5
+  - first:
+      213: -6111510728910970559
+    second: CrushingPaint_6
+  - first:
+      213: -3311904711335244481
+    second: CrushingPaint_7
+  - first:
+      213: -7521265868575195580
+    second: CrushingPaint_8
+  - first:
+      213: 1102199910883422404
+    second: CrushingPaint_9
+  - first:
+      213: -273018473436873404
+    second: CrushingPaint_10
+  - first:
+      213: -6644304991129057092
+    second: CrushingPaint_11
+  - first:
+      213: -600066117058597008
+    second: CrushingPaint_12
+  - first:
+      213: -3241652889217010858
+    second: CrushingPaint_13
+  - first:
+      213: -2196655368685191266
+    second: CrushingPaint_14
+  - first:
+      213: -2585063801726659921
+    second: CrushingPaint_15
+  - first:
+      213: 7116190560280311265
+    second: CrushingPaint_16
+  - first:
+      213: 1233962018254220446
+    second: CrushingPaint_17
+  - first:
+      213: 6877880044183443788
+    second: CrushingPaint_18
+  - first:
+      213: -2380394385474065270
+    second: CrushingPaint_19
+  - first:
+      213: 7472796557323977844
+    second: CrushingPaint_20
+  - first:
+      213: -4635558061077531763
+    second: CrushingPaint_21
+  - first:
+      213: 1145079590807982138
+    second: CrushingPaint_22
+  - first:
+      213: -5893343090826709379
+    second: CrushingPaint_23
+  - first:
+      213: -829592949571733364
+    second: CrushingPaint_24
+  - first:
+      213: -8146090464625401318
+    second: CrushingPaint_25
+  - first:
+      213: 5985772843602220832
+    second: CrushingPaint_26
+  - first:
+      213: -425613751815101968
+    second: CrushingPaint_27
+  - first:
+      213: 4243571508077022316
+    second: CrushingPaint_28
+  - first:
+      213: -5794687588239491596
+    second: CrushingPaint_29
+  - first:
+      213: -4414961898257762980
+    second: CrushingPaint_30
+  - first:
+      213: -3210407472071638451
+    second: CrushingPaint_31
+  - first:
+      213: 1875614844824867065
+    second: CrushingPaint_32
+  - first:
+      213: 4861734135209039246
+    second: CrushingPaint_33
+  - first:
+      213: -5630793933616951035
+    second: CrushingPaint_34
+  - first:
+      213: -3396669137346736969
+    second: CrushingPaint_35
+  - first:
+      213: 5077597284379806803
+    second: CrushingPaint_36
+  - first:
+      213: 7635149390703642734
+    second: CrushingPaint_37
+  - first:
+      213: 8573584690914408304
+    second: CrushingPaint_38
+  - first:
+      213: -5416037293619210440
+    second: CrushingPaint_39
+  - first:
+      213: 6181203463881997951
+    second: CrushingPaint_40
+  - first:
+      213: -1266510260999186779
+    second: CrushingPaint_41
+  - first:
+      213: 1580881772817694221
+    second: CrushingPaint_42
+  - first:
+      213: -1033347307865587516
+    second: CrushingPaint_43
+  - first:
+      213: -7757304624556542629
+    second: CrushingPaint_44
+  - first:
+      213: 1093948700548400793
+    second: CrushingPaint_45
+  - first:
+      213: 1627601894469387399
+    second: CrushingPaint_46
+  - first:
+      213: 4454554375943011692
+    second: CrushingPaint_47
+  - first:
+      213: -8678054586982261634
+    second: CrushingPaint_48
+  - first:
+      213: 2723632971266440701
+    second: CrushingPaint_49
+  - first:
+      213: 8553514973393111632
+    second: CrushingPaint_50
+  - first:
+      213: 3632446131759135960
+    second: CrushingPaint_51
+  - first:
+      213: -4221519138432631793
+    second: CrushingPaint_52
+  - first:
+      213: -2527986445929017222
+    second: CrushingPaint_53
+  - first:
+      213: 5411443496933689389
+    second: CrushingPaint_54
+  - first:
+      213: -5223521909770654593
+    second: CrushingPaint_55
+  - first:
+      213: -7703285472235442590
+    second: CrushingPaint_56
+  - first:
+      213: -340217805646777615
+    second: CrushingPaint_57
+  - first:
+      213: 2464876425962152098
+    second: CrushingPaint_58
+  - first:
+      213: 6139905044656050237
+    second: CrushingPaint_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CrushingPaint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da65d3074eb9e5c43b8bc11287b89376
+      internalID: 2000309194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305a3b663ef6aa941b10144ae7f0281c
+      internalID: 1995349247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4e26388ba42c548a366cc962d3cea1
+      internalID: 1974976976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1dc593dad44ba439d061c95ea9ba77
+      internalID: 2076093488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4933a9f808e4f946ad3c35c8332c1fc
+      internalID: 1195995565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486e0df8ea0c4e1489417f957e70afcd
+      internalID: 623208613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a295d7598a7eb8f4ca96a55723b39525
+      internalID: 1216009444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23e6ab0ca3c92cc45b5b3d5ddc561f61
+      internalID: -216216372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69532675cbfae92469f80c9264de07f8
+      internalID: -518688646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8a0a1ed8d394e4e9a880ea34f9ae19
+      internalID: 2082261561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702563ba9f498e14883b304f1c2e123e
+      internalID: 1913219659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd69f5ea48ad8d44bcbf04364c452c2
+      internalID: -1189906572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3341e676d59bbb43995f0624f63dc2f
+      internalID: 866827759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00bd482beff503d45ba789aed4698920
+      internalID: 419234298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb09c8883fc950a4b8f45447d3161140
+      internalID: -2132368603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_15
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ba7ec9e6f105c4eb7258bc3b266c09
+      internalID: 14624743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76f3aa9c1ce2de4ea3e38f72491f41d
+      internalID: -2010379346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushingPaint_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f5692ac3c8b8d4d866600142c8aa4b
+      internalID: 588748446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2dcf1f7d6b343c24baa81dbf82203239
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CrushingPaint_0: 2000309194
+      CrushingPaint_1: 1995349247
+      CrushingPaint_10: 1913219659
+      CrushingPaint_11: -1189906572
+      CrushingPaint_12: 866827759
+      CrushingPaint_13: 419234298
+      CrushingPaint_14: -2132368603
+      CrushingPaint_15: 14624743
+      CrushingPaint_16: -2010379346
+      CrushingPaint_17: 588748446
+      CrushingPaint_2: 1974976976
+      CrushingPaint_3: 2076093488
+      CrushingPaint_4: 1195995565
+      CrushingPaint_5: 623208613
+      CrushingPaint_6: 1216009444
+      CrushingPaint_7: -216216372
+      CrushingPaint_8: -518688646
+      CrushingPaint_9: 2082261561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

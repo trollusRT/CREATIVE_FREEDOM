@@ -1,0 +1,699 @@
+fileFormatVersion: 2
+guid: c0a8512a863074640adebc104a8b6173
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5152035617406574032
+    second: ToxicPaint_0
+  - first:
+      213: 414448877218275878
+    second: ToxicPaint_1
+  - first:
+      213: -8204687064836388339
+    second: ToxicPaint_2
+  - first:
+      213: -3560678542882126806
+    second: ToxicPaint_3
+  - first:
+      213: 3037657506702545326
+    second: ToxicPaint_4
+  - first:
+      213: -6009841854038197988
+    second: ToxicPaint_5
+  - first:
+      213: 4191324979147259451
+    second: ToxicPaint_6
+  - first:
+      213: 5862791842283829717
+    second: ToxicPaint_7
+  - first:
+      213: -205942143320763399
+    second: ToxicPaint_8
+  - first:
+      213: -8667963588860165461
+    second: ToxicPaint_9
+  - first:
+      213: -4931585369666997413
+    second: ToxicPaint_10
+  - first:
+      213: 7706665972579287034
+    second: ToxicPaint_11
+  - first:
+      213: 6930204369651455954
+    second: ToxicPaint_12
+  - first:
+      213: 3748975716454776755
+    second: ToxicPaint_13
+  - first:
+      213: 8424663231895441399
+    second: ToxicPaint_14
+  - first:
+      213: 6030550083494701636
+    second: ToxicPaint_15
+  - first:
+      213: -6410175262148324113
+    second: ToxicPaint_16
+  - first:
+      213: -2380245512731095280
+    second: ToxicPaint_17
+  - first:
+      213: 3920256364292932305
+    second: ToxicPaint_18
+  - first:
+      213: -5579845674613983197
+    second: ToxicPaint_19
+  - first:
+      213: -4120529338015159312
+    second: ToxicPaint_20
+  - first:
+      213: -6257147679477722512
+    second: ToxicPaint_21
+  - first:
+      213: -1516139166986958229
+    second: ToxicPaint_22
+  - first:
+      213: -4430102585599510839
+    second: ToxicPaint_23
+  - first:
+      213: -3366307601560236992
+    second: ToxicPaint_24
+  - first:
+      213: 3851755795364027544
+    second: ToxicPaint_25
+  - first:
+      213: 2863030322956233258
+    second: ToxicPaint_26
+  - first:
+      213: -7451572758677401127
+    second: ToxicPaint_27
+  - first:
+      213: -5386084743389658977
+    second: ToxicPaint_28
+  - first:
+      213: 8669997921916871994
+    second: ToxicPaint_29
+  - first:
+      213: -5614582319220651019
+    second: ToxicPaint_30
+  - first:
+      213: -3933921711963973661
+    second: ToxicPaint_31
+  - first:
+      213: 3043851097939216351
+    second: ToxicPaint_32
+  - first:
+      213: -8052291304829678369
+    second: ToxicPaint_33
+  - first:
+      213: -1530389474369945475
+    second: ToxicPaint_34
+  - first:
+      213: -1428385622562750182
+    second: ToxicPaint_35
+  - first:
+      213: -5340581249030341718
+    second: ToxicPaint_36
+  - first:
+      213: 859995781305516299
+    second: ToxicPaint_37
+  - first:
+      213: -3187149293184108216
+    second: ToxicPaint_38
+  - first:
+      213: 3141586027549455230
+    second: ToxicPaint_39
+  - first:
+      213: -8321789787991548788
+    second: ToxicPaint_40
+  - first:
+      213: 2299886092965719516
+    second: ToxicPaint_41
+  - first:
+      213: 4048930469452338077
+    second: ToxicPaint_42
+  - first:
+      213: -8054909100420973147
+    second: ToxicPaint_43
+  - first:
+      213: 2028807354400877062
+    second: ToxicPaint_44
+  - first:
+      213: 1019832840271587397
+    second: ToxicPaint_45
+  - first:
+      213: 6659595640955752153
+    second: ToxicPaint_46
+  - first:
+      213: -2129379936081036133
+    second: ToxicPaint_47
+  - first:
+      213: 5764182467411138324
+    second: ToxicPaint_48
+  - first:
+      213: -6780429869103320682
+    second: ToxicPaint_49
+  - first:
+      213: -8055275414429156826
+    second: ToxicPaint_50
+  - first:
+      213: -7468616709714899799
+    second: ToxicPaint_51
+  - first:
+      213: -4779731521019969799
+    second: ToxicPaint_52
+  - first:
+      213: 714846316564864966
+    second: ToxicPaint_53
+  - first:
+      213: 3588799905687387356
+    second: ToxicPaint_54
+  - first:
+      213: -1338740634548536986
+    second: ToxicPaint_55
+  - first:
+      213: 714836358246136311
+    second: ToxicPaint_56
+  - first:
+      213: 4188156333604649973
+    second: ToxicPaint_57
+  - first:
+      213: -3120077137620286110
+    second: ToxicPaint_58
+  - first:
+      213: 5767891682102404549
+    second: ToxicPaint_59
+  - first:
+      213: 4883229911844627446
+    second: ToxicPaint_60
+  - first:
+      213: 8578664410482440235
+    second: ToxicPaint_61
+  - first:
+      213: -5936780489678483097
+    second: ToxicPaint_62
+  - first:
+      213: -6258763406927136215
+    second: ToxicPaint_63
+  - first:
+      213: 2310221429313587969
+    second: ToxicPaint_64
+  - first:
+      213: -7960039789265152465
+    second: ToxicPaint_65
+  - first:
+      213: 3390109122204903688
+    second: ToxicPaint_66
+  - first:
+      213: 2071696762017186008
+    second: ToxicPaint_67
+  - first:
+      213: 6676583217094675389
+    second: ToxicPaint_68
+  - first:
+      213: 8218417378779401956
+    second: ToxicPaint_69
+  - first:
+      213: -1757936848238728374
+    second: ToxicPaint_70
+  - first:
+      213: 3419150711816216255
+    second: ToxicPaint_71
+  - first:
+      213: -4596718861770773162
+    second: ToxicPaint_72
+  - first:
+      213: -3682250619291665220
+    second: ToxicPaint_73
+  - first:
+      213: 7920077920546089855
+    second: ToxicPaint_74
+  - first:
+      213: 7556357242904304290
+    second: ToxicPaint_75
+  - first:
+      213: -8446934490350676725
+    second: ToxicPaint_76
+  - first:
+      213: -578950302730667672
+    second: ToxicPaint_77
+  - first:
+      213: -1970791347038854804
+    second: ToxicPaint_78
+  - first:
+      213: -224837047800397949
+    second: ToxicPaint_79
+  - first:
+      213: -512305336414251235
+    second: ToxicPaint_80
+  - first:
+      213: -62946321777863040
+    second: ToxicPaint_81
+  - first:
+      213: -4758722699663781998
+    second: ToxicPaint_82
+  - first:
+      213: 4768395010226027390
+    second: ToxicPaint_83
+  - first:
+      213: -3085598101480249983
+    second: ToxicPaint_84
+  - first:
+      213: -7401335547083221916
+    second: ToxicPaint_85
+  - first:
+      213: 9100581659098730063
+    second: ToxicPaint_86
+  - first:
+      213: -5650502295045183243
+    second: ToxicPaint_87
+  - first:
+      213: 3495208567447826335
+    second: ToxicPaint_88
+  - first:
+      213: 3679763844977848057
+    second: ToxicPaint_89
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ToxicPaint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa10fdd789dd4b408fc585873ad862b
+      internalID: 368351457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a6f396105abc34c81ae8166ecd8d8e
+      internalID: 19507319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a31f6ff2f43fc41a7fa7a4764968bd
+      internalID: 464592081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57cb75d030c65f54dbbdee6ed680bc00
+      internalID: -1328350490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ca99d01bbbf55418ca10de35382776
+      internalID: 1086765586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6405a661c5e85b04b823ad0eccf6e478
+      internalID: 1416635361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34abcc672740b0742b3991d413b71871
+      internalID: 974022902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415048da8f2b79046977b3a95ddd26df
+      internalID: 1760754503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2d34385893d504390c34755b2995fa
+      internalID: 1670085239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ef05e4de863f34cab5bb520595bccc
+      internalID: -1426645649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5ab4af3c6ed0c49a4604c568aab2e4
+      internalID: 677165658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd46eeedfc1f1345a9fc94dd80906ba
+      internalID: 600750069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToxicPaint_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac0de86800767b419c6472537faeae9
+      internalID: 63821888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 00edfe75cb1d0724797d51ee0c11713f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ToxicPaint_0: 368351457
+      ToxicPaint_1: 19507319
+      ToxicPaint_10: 677165658
+      ToxicPaint_11: 600750069
+      ToxicPaint_12: 63821888
+      ToxicPaint_2: 464592081
+      ToxicPaint_3: -1328350490
+      ToxicPaint_4: 1086765586
+      ToxicPaint_5: 1416635361
+      ToxicPaint_6: 974022902
+      ToxicPaint_7: 1760754503
+      ToxicPaint_8: 1670085239
+      ToxicPaint_9: -1426645649
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

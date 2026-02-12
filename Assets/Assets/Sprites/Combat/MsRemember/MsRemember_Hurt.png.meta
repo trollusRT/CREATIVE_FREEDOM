@@ -1,0 +1,578 @@
+fileFormatVersion: 2
+guid: 61362cf99cda82e48be1c21eac95e622
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3001992355177145441
+    second: MsRemember_Hurt_0
+  - first:
+      213: 4471676414751430050
+    second: MsRemember_Hurt_1
+  - first:
+      213: -6238955167589016475
+    second: MsRemember_Hurt_2
+  - first:
+      213: 8251062564479098509
+    second: MsRemember_Hurt_3
+  - first:
+      213: -4638623597772358599
+    second: MsRemember_Hurt_4
+  - first:
+      213: 3827274623832189385
+    second: MsRemember_Hurt_5
+  - first:
+      213: 2534905804775189095
+    second: MsRemember_Hurt_6
+  - first:
+      213: 7773952285127762878
+    second: MsRemember_Hurt_7
+  - first:
+      213: 8011295638161620158
+    second: MsRemember_Hurt_8
+  - first:
+      213: -5830846442669884682
+    second: MsRemember_Hurt_9
+  - first:
+      213: -2051125793701906068
+    second: MsRemember_Hurt_10
+  - first:
+      213: -4459784217084445391
+    second: MsRemember_Hurt_11
+  - first:
+      213: 5878558636509495798
+    second: MsRemember_Hurt_12
+  - first:
+      213: -1498882966690633013
+    second: MsRemember_Hurt_13
+  - first:
+      213: -587531499371152969
+    second: MsRemember_Hurt_14
+  - first:
+      213: -4555620412428916676
+    second: MsRemember_Hurt_15
+  - first:
+      213: -4156605061622949463
+    second: MsRemember_Hurt_16
+  - first:
+      213: -7580415141531232280
+    second: MsRemember_Hurt_17
+  - first:
+      213: -3749764946817544805
+    second: MsRemember_Hurt_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MsRemember_Hurt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1548
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8f4007f0a86844b9e24db8d38b079b
+      internalID: 1275699955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1548
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffb664e68da9334aae9c1b69de8433a
+      internalID: 1805625490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_2
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1548
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9350f7780c9fe3846b7f90a8bb4bb7f7
+      internalID: 196262480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_3
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1548
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1da67066d01b84385bb67111535f7c
+      internalID: 100856188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_4
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1548
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0288138f04bb55b42add3188a2b9f5ca
+      internalID: 362369008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1032
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268fc091e893a3441a47a8cdb074b73e
+      internalID: 449841930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_6
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1032
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0341e362bcf4141a6b136bf1eac7c9
+      internalID: 1541186772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_7
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1032
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162e70985929fc64da835f0a71174ec9
+      internalID: -1601274586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_8
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1032
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3721f68528c644d89d5de7e9cc9ada
+      internalID: -1941323996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1032
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e222997c025e7d44afbf6901817cd60
+      internalID: -531537876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 516
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63eac57cf66ce1a44afb6fd51c2daf1a
+      internalID: 1199326244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 516
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436228c4063a54d4daaa33c12a1177bc
+      internalID: 402240935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_12
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 516
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d20725aad4ef040b442071f5ec8bae
+      internalID: 1713609703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_13
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 516
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e691ff690a21ee041b368a139bdff9fe
+      internalID: -2119211014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_14
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 516
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b44969f865f184884dcbe2282b1778
+      internalID: -57948094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a792c07f5639d234b939c15bb92e952a
+      internalID: 1302204203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MsRemember_Hurt_16
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 360
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877281b93212c2f44bce8145c8e8cbbc
+      internalID: 1285447491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae2c1cc02101c6d49ba47b3f7c965efb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MsRemember_Hurt_0: 1275699955
+      MsRemember_Hurt_1: 1805625490
+      MsRemember_Hurt_10: 1199326244
+      MsRemember_Hurt_11: 402240935
+      MsRemember_Hurt_12: 1713609703
+      MsRemember_Hurt_13: -2119211014
+      MsRemember_Hurt_14: -57948094
+      MsRemember_Hurt_15: 1302204203
+      MsRemember_Hurt_16: 1285447491
+      MsRemember_Hurt_2: 196262480
+      MsRemember_Hurt_3: 100856188
+      MsRemember_Hurt_4: 362369008
+      MsRemember_Hurt_5: 449841930
+      MsRemember_Hurt_6: 1541186772
+      MsRemember_Hurt_7: -1601274586
+      MsRemember_Hurt_8: -1941323996
+      MsRemember_Hurt_9: -531537876
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

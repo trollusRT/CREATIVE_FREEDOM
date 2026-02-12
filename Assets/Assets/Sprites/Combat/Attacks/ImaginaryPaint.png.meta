@@ -1,0 +1,859 @@
+fileFormatVersion: 2
+guid: c51ef2a7ae0de2c44bc420ef8eb69913
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8916424194599776964
+    second: ImaginaryPaint_0
+  - first:
+      213: -6079725480248103299
+    second: ImaginaryPaint_1
+  - first:
+      213: -9080223452786485883
+    second: ImaginaryPaint_2
+  - first:
+      213: -1964286021125922510
+    second: ImaginaryPaint_3
+  - first:
+      213: -3526970857872729867
+    second: ImaginaryPaint_4
+  - first:
+      213: 796645786906318925
+    second: ImaginaryPaint_5
+  - first:
+      213: 5115471614927806514
+    second: ImaginaryPaint_6
+  - first:
+      213: -4264350712011753497
+    second: ImaginaryPaint_7
+  - first:
+      213: 1023193910499987801
+    second: ImaginaryPaint_8
+  - first:
+      213: 7687733747761917854
+    second: ImaginaryPaint_9
+  - first:
+      213: -3421929994717201638
+    second: ImaginaryPaint_10
+  - first:
+      213: -1916096173748892842
+    second: ImaginaryPaint_11
+  - first:
+      213: 9169307181801334099
+    second: ImaginaryPaint_12
+  - first:
+      213: -2994597949645612864
+    second: ImaginaryPaint_13
+  - first:
+      213: 4981846072616619689
+    second: ImaginaryPaint_14
+  - first:
+      213: 2911461062986403098
+    second: ImaginaryPaint_15
+  - first:
+      213: -4485225847378722715
+    second: ImaginaryPaint_16
+  - first:
+      213: -3377828612343808515
+    second: ImaginaryPaint_17
+  - first:
+      213: 4527881085611221990
+    second: ImaginaryPaint_18
+  - first:
+      213: -3886185270900321841
+    second: ImaginaryPaint_19
+  - first:
+      213: 6908659772069021709
+    second: ImaginaryPaint_20
+  - first:
+      213: -5450002430457506840
+    second: ImaginaryPaint_21
+  - first:
+      213: 3583839624774058667
+    second: ImaginaryPaint_22
+  - first:
+      213: -2976227855170500454
+    second: ImaginaryPaint_23
+  - first:
+      213: -2910480949306196434
+    second: ImaginaryPaint_24
+  - first:
+      213: 3045897850965197874
+    second: ImaginaryPaint_25
+  - first:
+      213: 599825174097398085
+    second: ImaginaryPaint_26
+  - first:
+      213: -2015856604511687139
+    second: ImaginaryPaint_27
+  - first:
+      213: -4581900549402390754
+    second: ImaginaryPaint_28
+  - first:
+      213: 6361592390947619378
+    second: ImaginaryPaint_29
+  - first:
+      213: 841092055986416631
+    second: ImaginaryPaint_30
+  - first:
+      213: 8495486826253762095
+    second: ImaginaryPaint_31
+  - first:
+      213: -4260363400356430461
+    second: ImaginaryPaint_32
+  - first:
+      213: 22757850842362944
+    second: ImaginaryPaint_33
+  - first:
+      213: -2562086013504089670
+    second: ImaginaryPaint_34
+  - first:
+      213: -1840317803785052358
+    second: ImaginaryPaint_35
+  - first:
+      213: 249652683297751922
+    second: ImaginaryPaint_36
+  - first:
+      213: 2771922208649043021
+    second: ImaginaryPaint_37
+  - first:
+      213: 4652077846059541354
+    second: ImaginaryPaint_38
+  - first:
+      213: -1963996567153402809
+    second: ImaginaryPaint_39
+  - first:
+      213: 1150494183702728381
+    second: ImaginaryPaint_40
+  - first:
+      213: -3547462557155744653
+    second: ImaginaryPaint_41
+  - first:
+      213: -8600010625778727957
+    second: ImaginaryPaint_42
+  - first:
+      213: -9051795724027254729
+    second: ImaginaryPaint_43
+  - first:
+      213: 5975475167126074670
+    second: ImaginaryPaint_44
+  - first:
+      213: -2940760899209743
+    second: ImaginaryPaint_45
+  - first:
+      213: 3097294108585134565
+    second: ImaginaryPaint_46
+  - first:
+      213: -4548716433633536234
+    second: ImaginaryPaint_47
+  - first:
+      213: 6268815176038669732
+    second: ImaginaryPaint_48
+  - first:
+      213: 6070524152907659767
+    second: ImaginaryPaint_49
+  - first:
+      213: -6309422666139358085
+    second: ImaginaryPaint_50
+  - first:
+      213: 7800762138724015810
+    second: ImaginaryPaint_51
+  - first:
+      213: 4830921375641690483
+    second: ImaginaryPaint_52
+  - first:
+      213: -7546147559300357248
+    second: ImaginaryPaint_53
+  - first:
+      213: -8896320386629771984
+    second: ImaginaryPaint_54
+  - first:
+      213: -2464112230659040202
+    second: ImaginaryPaint_55
+  - first:
+      213: 148737430019742965
+    second: ImaginaryPaint_56
+  - first:
+      213: 7807493989319399181
+    second: ImaginaryPaint_57
+  - first:
+      213: -1533725716111890631
+    second: ImaginaryPaint_58
+  - first:
+      213: 3703050995317854341
+    second: ImaginaryPaint_59
+  - first:
+      213: -8248900415540804249
+    second: ImaginaryPaint_60
+  - first:
+      213: 3594660055103754481
+    second: ImaginaryPaint_61
+  - first:
+      213: 7121457775442391891
+    second: ImaginaryPaint_62
+  - first:
+      213: -4751976320437236627
+    second: ImaginaryPaint_63
+  - first:
+      213: 3659972199295336147
+    second: ImaginaryPaint_64
+  - first:
+      213: -8986162060667571181
+    second: ImaginaryPaint_65
+  - first:
+      213: -4404473345585967575
+    second: ImaginaryPaint_66
+  - first:
+      213: 3086882982568136922
+    second: ImaginaryPaint_67
+  - first:
+      213: 5868949458798193577
+    second: ImaginaryPaint_68
+  - first:
+      213: 1257930272917084522
+    second: ImaginaryPaint_69
+  - first:
+      213: 5800907556267378804
+    second: ImaginaryPaint_70
+  - first:
+      213: 5129278467099225476
+    second: ImaginaryPaint_71
+  - first:
+      213: -8961516672526658580
+    second: ImaginaryPaint_72
+  - first:
+      213: -2441023773612776847
+    second: ImaginaryPaint_73
+  - first:
+      213: -115654392940959718
+    second: ImaginaryPaint_74
+  - first:
+      213: 8625823320046967768
+    second: ImaginaryPaint_75
+  - first:
+      213: -8030825509751963217
+    second: ImaginaryPaint_76
+  - first:
+      213: 1646117519531267649
+    second: ImaginaryPaint_77
+  - first:
+      213: -5166742498431550994
+    second: ImaginaryPaint_78
+  - first:
+      213: -6886020501730564652
+    second: ImaginaryPaint_79
+  - first:
+      213: 4859395091321443250
+    second: ImaginaryPaint_80
+  - first:
+      213: -2129157863175982378
+    second: ImaginaryPaint_81
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ImaginaryPaint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b198f76f211b5e4eae63c5c456c99c6
+      internalID: -1563981225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2700
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7cb08c452fde5b4e86aa5fc23c5d13e
+      internalID: -1953130392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2700
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5985e3e4327bb44b54f60ccc9ebd41
+      internalID: 1284282892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2250
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fd91a7cb957864f8807f270c83c367
+      internalID: 1409218987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2250
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7c8df4f0851934f9be0115268cc569
+      internalID: -1878639008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2250
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c5afaf29f6b49429db9ea3aed5193c
+      internalID: -225771716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc49f94af18ebc408044e7d95d3cd7c
+      internalID: -1254050794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763e36bef391f7d47bcc8025d228843b
+      internalID: 1096784266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56626384620669d4fbd9ffeeb26f81b1
+      internalID: 1805468095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b67b0a85ab6cda49958081c8d7f799d
+      internalID: -1846199391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_10
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e5faee5917a3b4c9133457841e4220
+      internalID: -219059994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_11
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790dcb7fb3120864987ef4fe1b35ac6f
+      internalID: 828131764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb686a896980d444da9b28072fa7bd64
+      internalID: -1446159570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_13
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 373a03fe93b7581429b6b1ddb37c5340
+      internalID: -357913073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_14
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd514bb14f873846baee770b84e17a3
+      internalID: 1280244232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be148ac518f40f848afeb1a80e2f511f
+      internalID: 1379750982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_16
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58087f2141d7264ea47288d9b2e036d
+      internalID: -1915913337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_17
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc7faaa6744afa4f9e32f4b71f20088
+      internalID: 905279107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67078829efcebf94dbcb3861b733bdae
+      internalID: 67696738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_19
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba6cc22a1093674c99e464972a1b247
+      internalID: 1883362901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ImaginaryPaint_20
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96307cdd9ea359a4f9a5ebd929caf979
+      internalID: -1238018715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ec778b24fba3c4647b0e2601585d4935
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ImaginaryPaint_0: -1563981225
+      ImaginaryPaint_1: -1953130392
+      ImaginaryPaint_10: -219059994
+      ImaginaryPaint_11: 828131764
+      ImaginaryPaint_12: -1446159570
+      ImaginaryPaint_13: -357913073
+      ImaginaryPaint_14: 1280244232
+      ImaginaryPaint_15: 1379750982
+      ImaginaryPaint_16: -1915913337
+      ImaginaryPaint_17: 905279107
+      ImaginaryPaint_18: 67696738
+      ImaginaryPaint_19: 1883362901
+      ImaginaryPaint_2: 1284282892
+      ImaginaryPaint_20: -1238018715
+      ImaginaryPaint_3: 1409218987
+      ImaginaryPaint_4: -1878639008
+      ImaginaryPaint_5: -225771716
+      ImaginaryPaint_6: -1254050794
+      ImaginaryPaint_7: 1096784266
+      ImaginaryPaint_8: 1805468095
+      ImaginaryPaint_9: -1846199391
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

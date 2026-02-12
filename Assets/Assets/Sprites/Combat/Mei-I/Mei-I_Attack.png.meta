@@ -1,0 +1,733 @@
+fileFormatVersion: 2
+guid: 6a950458454b4f643a72cf3e16752fee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -663910209848564420
+    second: Mei-I_Attack_0
+  - first:
+      213: 8766529012869444376
+    second: Mei-I_Attack_1
+  - first:
+      213: -8850696960593800777
+    second: Mei-I_Attack_2
+  - first:
+      213: -225781370151819762
+    second: Mei-I_Attack_3
+  - first:
+      213: -586834725038447604
+    second: Mei-I_Attack_4
+  - first:
+      213: -8300270714744522506
+    second: Mei-I_Attack_5
+  - first:
+      213: 50030125612906417
+    second: Mei-I_Attack_6
+  - first:
+      213: -9003717475799311103
+    second: Mei-I_Attack_7
+  - first:
+      213: -7920804443789367101
+    second: Mei-I_Attack_8
+  - first:
+      213: 9022638742929314422
+    second: Mei-I_Attack_9
+  - first:
+      213: 7817927919622473905
+    second: Mei-I_Attack_10
+  - first:
+      213: 5144744699981482491
+    second: Mei-I_Attack_11
+  - first:
+      213: 1812269332378053165
+    second: Mei-I_Attack_12
+  - first:
+      213: 6729012274292891891
+    second: Mei-I_Attack_13
+  - first:
+      213: 2648875594394219883
+    second: Mei-I_Attack_14
+  - first:
+      213: -8852342692144129757
+    second: Mei-I_Attack_15
+  - first:
+      213: -2263602313842392747
+    second: Mei-I_Attack_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mei-I_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9104a373c58b1449097131abddab79
+      internalID: 1005062894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311fd6b998bd84f49afda3cab2e4a002
+      internalID: -813866584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4241f9889fe6b94a803569c756c291f
+      internalID: 661912966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c4db0f3bd687b4c94649e8500e19ee
+      internalID: 639771162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a6909ece010ff4580001551aa1ad75
+      internalID: -30375104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd5c61d7386ea141ad8b80d75ec207e
+      internalID: -973565036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a814bc66fa9d5444874ec7b0a89d335
+      internalID: -981092353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727d9210ed9d8bf4fac5e5ff841618e7
+      internalID: -280904514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3308b788565354e9e23faa4b7ca82e
+      internalID: 1055888194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15483ccd48b242a40b07059899bb2a05
+      internalID: -2143836440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acabe5d5430111f4ebb19518e5388be3
+      internalID: 613136926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc56836140627747945974df5163463
+      internalID: 121961758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3766a83348bdabf4db80822b3976dbb7
+      internalID: 447949713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f43b4b43dbd0d34fb9dbdfbaba7843a
+      internalID: 1967456815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0550667b711fb645ae938c72d839549
+      internalID: 1920326155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948033aec9eea5642919aa1ef2892788
+      internalID: -239793804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc37aecfad623a468f665ff18159527
+      internalID: -1484502339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf795c875851cde46b254bdad4fcee3a
+      internalID: -1871959623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989a43b387da87c479e2e23ecb9a4099
+      internalID: -442548966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d7cf8434cba8c429235f3c1f163aad
+      internalID: 1363655891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b145f1d73a760614c92b1992626c1616
+      internalID: 1755624630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241ac35d7ce618041af92877ae33b234
+      internalID: 1379808786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ca44e1af1c1b548bb1dd3e0331d187
+      internalID: 203972630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5eeb88b8c07b64ba531a535738b9a8
+      internalID: 830712938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8958c255632c9244eb2c063c8eccab4c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mei-I_Attack_0: -442548966
+      Mei-I_Attack_1: 1363655891
+      Mei-I_Attack_10: -30375104
+      Mei-I_Attack_11: -973565036
+      Mei-I_Attack_12: -981092353
+      Mei-I_Attack_13: -280904514
+      Mei-I_Attack_14: 1055888194
+      Mei-I_Attack_15: -2143836440
+      Mei-I_Attack_16: 613136926
+      Mei-I_Attack_17: 121961758
+      Mei-I_Attack_18: 447949713
+      Mei-I_Attack_19: 1967456815
+      Mei-I_Attack_2: 1755624630
+      Mei-I_Attack_20: 1920326155
+      Mei-I_Attack_21: -239793804
+      Mei-I_Attack_22: -1484502339
+      Mei-I_Attack_23: -1871959623
+      Mei-I_Attack_3: 1379808786
+      Mei-I_Attack_4: 203972630
+      Mei-I_Attack_5: 830712938
+      Mei-I_Attack_6: 1005062894
+      Mei-I_Attack_7: -813866584
+      Mei-I_Attack_8: 661912966
+      Mei-I_Attack_9: 639771162
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1246 @@
+fileFormatVersion: 2
+guid: 649a6d4ad1e22d244a9fdbbfe608879e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8260873023425053668
+    second: JuniorDeath_0
+  - first:
+      213: 4450922237144109897
+    second: JuniorDeath_1
+  - first:
+      213: 1862458495427538179
+    second: JuniorDeath_2
+  - first:
+      213: -435280549254251929
+    second: JuniorDeath_3
+  - first:
+      213: -3702526192903608006
+    second: JuniorDeath_4
+  - first:
+      213: -5955949245372043704
+    second: JuniorDeath_5
+  - first:
+      213: 6404215006947548683
+    second: JuniorDeath_6
+  - first:
+      213: 7533359746734331085
+    second: JuniorDeath_7
+  - first:
+      213: -7146119227082811457
+    second: JuniorDeath_8
+  - first:
+      213: 8070272017921403646
+    second: JuniorDeath_9
+  - first:
+      213: -7874469332816100230
+    second: JuniorDeath_10
+  - first:
+      213: -8532969582784567835
+    second: JuniorDeath_11
+  - first:
+      213: -6366398635871720255
+    second: JuniorDeath_12
+  - first:
+      213: 8823872672767419566
+    second: JuniorDeath_13
+  - first:
+      213: 7055217743586361796
+    second: JuniorDeath_14
+  - first:
+      213: 8038792643488392647
+    second: JuniorDeath_15
+  - first:
+      213: 8508546140585362293
+    second: JuniorDeath_16
+  - first:
+      213: -6435116281063566081
+    second: JuniorDeath_17
+  - first:
+      213: 9169836002605821931
+    second: JuniorDeath_18
+  - first:
+      213: -1010342889983026366
+    second: JuniorDeath_19
+  - first:
+      213: -389981367546679420
+    second: JuniorDeath_20
+  - first:
+      213: 8203852141327791520
+    second: JuniorDeath_21
+  - first:
+      213: 6815533707090000794
+    second: JuniorDeath_22
+  - first:
+      213: 3787836861233672805
+    second: JuniorDeath_23
+  - first:
+      213: 6969979533707942061
+    second: JuniorDeath_24
+  - first:
+      213: -3273353327307697702
+    second: JuniorDeath_25
+  - first:
+      213: -7986802486774273932
+    second: JuniorDeath_26
+  - first:
+      213: -8009320770411165548
+    second: JuniorDeath_27
+  - first:
+      213: 5392273576244034840
+    second: JuniorDeath_28
+  - first:
+      213: 8342358102546557066
+    second: JuniorDeath_29
+  - first:
+      213: -1580770963532573256
+    second: JuniorDeath_30
+  - first:
+      213: 3462350543072066686
+    second: JuniorDeath_31
+  - first:
+      213: 8724247383676882861
+    second: JuniorDeath_32
+  - first:
+      213: 777069672095299918
+    second: JuniorDeath_33
+  - first:
+      213: -3671892866494332353
+    second: JuniorDeath_34
+  - first:
+      213: -4309624380123204314
+    second: JuniorDeath_35
+  - first:
+      213: 3303110688411930737
+    second: JuniorDeath_36
+  - first:
+      213: 9080889353161832752
+    second: JuniorDeath_37
+  - first:
+      213: -4042060149855346756
+    second: JuniorDeath_38
+  - first:
+      213: 1606140654606353931
+    second: JuniorDeath_39
+  - first:
+      213: -8071574408081766887
+    second: JuniorDeath_40
+  - first:
+      213: -4569091004123069711
+    second: JuniorDeath_41
+  - first:
+      213: 6367535395501461521
+    second: JuniorDeath_42
+  - first:
+      213: -3643015660966555506
+    second: JuniorDeath_43
+  - first:
+      213: -5320176990447809765
+    second: JuniorDeath_44
+  - first:
+      213: -5529687459530213245
+    second: JuniorDeath_45
+  - first:
+      213: -8399538458857013199
+    second: JuniorDeath_46
+  - first:
+      213: -8326460911790779974
+    second: JuniorDeath_47
+  - first:
+      213: 8179780516054855280
+    second: JuniorDeath_48
+  - first:
+      213: 4809774446349514248
+    second: JuniorDeath_49
+  - first:
+      213: -3159343058065458702
+    second: JuniorDeath_50
+  - first:
+      213: 7510310728287940954
+    second: JuniorDeath_51
+  - first:
+      213: 1239561213814612076
+    second: JuniorDeath_52
+  - first:
+      213: -6222569899420602216
+    second: JuniorDeath_53
+  - first:
+      213: 1935900441949504260
+    second: JuniorDeath_54
+  - first:
+      213: 1064151833200811165
+    second: JuniorDeath_55
+  - first:
+      213: -1429151786433623429
+    second: JuniorDeath_56
+  - first:
+      213: -5851999556939085223
+    second: JuniorDeath_57
+  - first:
+      213: -2775974974519543585
+    second: JuniorDeath_58
+  - first:
+      213: -2501960154758162398
+    second: JuniorDeath_59
+  - first:
+      213: -739566015263403641
+    second: JuniorDeath_60
+  - first:
+      213: 1096408862684033822
+    second: JuniorDeath_61
+  - first:
+      213: 3763092994472824544
+    second: JuniorDeath_62
+  - first:
+      213: 4840452911430694311
+    second: JuniorDeath_63
+  - first:
+      213: -7513632075161637695
+    second: JuniorDeath_64
+  - first:
+      213: -821586388607951670
+    second: JuniorDeath_65
+  - first:
+      213: 5554800133544410076
+    second: JuniorDeath_66
+  - first:
+      213: -6772674104036551843
+    second: JuniorDeath_67
+  - first:
+      213: 9191473934881525118
+    second: JuniorDeath_68
+  - first:
+      213: -2085847758034419918
+    second: JuniorDeath_69
+  - first:
+      213: -2037679317559224965
+    second: JuniorDeath_70
+  - first:
+      213: 8637966915059252714
+    second: JuniorDeath_71
+  - first:
+      213: 4068038156098281937
+    second: JuniorDeath_72
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JuniorDeath_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fdb936e2e738c244a69fab7ce10f7f4
+      internalID: 737711335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1728
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d081293e05f5843bf940611c19f7b7
+      internalID: 2046167636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1728
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3384696c4efc2cf47a388d7d89cd801d
+      internalID: 325466152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1728
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed69a5594852df644838ed13e77480a5
+      internalID: 1586214584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5bc9d74c2835d846b1ef04de1aed8ac
+      internalID: -1392406578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1536
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab895d08faafee04cbc5f55e050842c9
+      internalID: -119839855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76582f0ef7f1b944ebd8ad36e31529ac
+      internalID: -2004089604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_7
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1536
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a964a0a79779364287dcad92f710c58
+      internalID: 1041987006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a02c9982eba37458a8c77162c62607
+      internalID: 2033971761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439a1145f45db9a44b402fe744763257
+      internalID: 1881320667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6b3b997dae633428890892b9fb322a
+      internalID: 707154267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_11
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7ab249fe5190044adbf2b47d3d1379
+      internalID: -1001498620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb0dbe5ae3255b4aabc85e6196f3dae
+      internalID: 796189694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e60ae3b48fe62148aaa1cdae8b44a6b
+      internalID: 1402593211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be9d8a61e91067409c101153937702d
+      internalID: 1931136206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_15
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b94e2a0f15881644a0d6c20351e9dab
+      internalID: 1231085461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af10eca0c57815c4d8acf82067785673
+      internalID: -692598487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_17
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f8f6d5cb02e234f84971eed755a65c
+      internalID: 2018190531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a871b4e615a0bda4db07a0a440bcc8fc
+      internalID: 665569670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_19
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696582874028ba54d8d65be1b42d5637
+      internalID: -388529128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1dcfe5df0efd641b167cb2661779c1
+      internalID: -1165674025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a346f54f9d7115e4688939d6e1eca9ab
+      internalID: -1066404469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098ac91bd2f7f62498acc9fce9ac0c7d
+      internalID: -1898292850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_23
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dce636002ccc042ad9503f430e028f
+      internalID: -2046594863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448184626ff1ea44894134f3dd24f7e6
+      internalID: 1043890375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808b9ce488e87534d8adda80fece793a
+      internalID: 854607462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_26
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d654f2ceb0161db42900d2b032978cd0
+      internalID: -949090869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_27
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8838890f73f098c47a79883340bdacad
+      internalID: 1736517856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fadfe69b9400fb4ebde2afb461a674c
+      internalID: -678188809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_29
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037056646831ccd41979462a97b7116c
+      internalID: 246961626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_30
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba145e522c0f284db47985b4ad15502
+      internalID: -646885273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_31
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c63d95e9a24b6d41ac6cc028e8ba8e4
+      internalID: -1565604742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52db88b8452d6494294acb1003e90ed9
+      internalID: 959210743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccfbd9eb0651ea408a435b61e1702d3
+      internalID: -74263174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_34
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d13ce2ec79d9e4d8694751ec8284b7
+      internalID: 1205039590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_35
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d4bed7f8333544eb63fa9ffc4c23f2
+      internalID: 1248085439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6ab67ad2e97914e815630f9f1d1064
+      internalID: -642367063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7fda9c074b58a348a21320928ef0f38
+      internalID: -21688313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorDeath_38
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 384
+        height: 192
+      alignment: 9
+      pivot: {x: 0.9, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d42abf48125154f8a011d4468a3cd9
+      internalID: 607422536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1293e856a3d7b984c8ce0a187677f09d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JuniorDeath_0: 737711335
+      JuniorDeath_1: 2046167636
+      JuniorDeath_10: 707154267
+      JuniorDeath_11: -1001498620
+      JuniorDeath_12: 796189694
+      JuniorDeath_13: 1402593211
+      JuniorDeath_14: 1931136206
+      JuniorDeath_15: 1231085461
+      JuniorDeath_16: -692598487
+      JuniorDeath_17: 2018190531
+      JuniorDeath_18: 665569670
+      JuniorDeath_19: -388529128
+      JuniorDeath_2: 325466152
+      JuniorDeath_20: -1165674025
+      JuniorDeath_21: -1066404469
+      JuniorDeath_22: -1898292850
+      JuniorDeath_23: -2046594863
+      JuniorDeath_24: 1043890375
+      JuniorDeath_25: 854607462
+      JuniorDeath_26: -949090869
+      JuniorDeath_27: 1736517856
+      JuniorDeath_28: -678188809
+      JuniorDeath_29: 246961626
+      JuniorDeath_3: 1586214584
+      JuniorDeath_30: -646885273
+      JuniorDeath_31: -1565604742
+      JuniorDeath_32: 959210743
+      JuniorDeath_33: -74263174
+      JuniorDeath_34: 1205039590
+      JuniorDeath_35: 1248085439
+      JuniorDeath_36: -642367063
+      JuniorDeath_37: -21688313
+      JuniorDeath_38: 607422536
+      JuniorDeath_4: -1392406578
+      JuniorDeath_5: -119839855
+      JuniorDeath_6: -2004089604
+      JuniorDeath_7: 1041987006
+      JuniorDeath_8: 2033971761
+      JuniorDeath_9: 1881320667
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

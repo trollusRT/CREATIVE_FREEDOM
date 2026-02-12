@@ -1,0 +1,706 @@
+fileFormatVersion: 2
+guid: 79abb050f06818a46b87dded14477319
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4440232420012255624
+    second: SecondWind_0
+  - first:
+      213: -6494305069808026761
+    second: SecondWind_1
+  - first:
+      213: 7413630632769950730
+    second: SecondWind_2
+  - first:
+      213: -4407806709418438209
+    second: SecondWind_3
+  - first:
+      213: 4394652709851583215
+    second: SecondWind_4
+  - first:
+      213: -3293614134570215869
+    second: SecondWind_5
+  - first:
+      213: -8410778966409653877
+    second: SecondWind_6
+  - first:
+      213: -3174806542175224159
+    second: SecondWind_7
+  - first:
+      213: -4851073909186623024
+    second: SecondWind_8
+  - first:
+      213: 9108882034179236557
+    second: SecondWind_9
+  - first:
+      213: 2071103212710299885
+    second: SecondWind_10
+  - first:
+      213: -610926731523583159
+    second: SecondWind_11
+  - first:
+      213: -2869088112111548100
+    second: SecondWind_12
+  - first:
+      213: 2903953454988148634
+    second: SecondWind_13
+  - first:
+      213: 7567732044515301974
+    second: SecondWind_14
+  - first:
+      213: -159920556060646826
+    second: SecondWind_15
+  - first:
+      213: 5268446540087167174
+    second: SecondWind_16
+  - first:
+      213: 7835890514235303604
+    second: SecondWind_17
+  - first:
+      213: 8007015786799533169
+    second: SecondWind_18
+  - first:
+      213: 49954095618753737
+    second: SecondWind_19
+  - first:
+      213: -2255918143807053121
+    second: SecondWind_20
+  - first:
+      213: -242635509287993583
+    second: SecondWind_21
+  - first:
+      213: 4614637777838030299
+    second: SecondWind_22
+  - first:
+      213: 4558685717186866304
+    second: SecondWind_23
+  - first:
+      213: 2117478138877399107
+    second: SecondWind_24
+  - first:
+      213: 2358231831245499438
+    second: SecondWind_25
+  - first:
+      213: -5680272702070305528
+    second: SecondWind_26
+  - first:
+      213: -3863760550940155055
+    second: SecondWind_27
+  - first:
+      213: 8618285579660753913
+    second: SecondWind_28
+  - first:
+      213: 2433230721730714764
+    second: SecondWind_29
+  - first:
+      213: 6692703683640949053
+    second: SecondWind_30
+  - first:
+      213: -3761021779119321885
+    second: SecondWind_31
+  - first:
+      213: 2154775913447113819
+    second: SecondWind_32
+  - first:
+      213: 8997875759788766990
+    second: SecondWind_33
+  - first:
+      213: 4071410950126551140
+    second: SecondWind_34
+  - first:
+      213: 347738938245296209
+    second: SecondWind_35
+  - first:
+      213: -6170436186361768377
+    second: SecondWind_36
+  - first:
+      213: -4728086781231653438
+    second: SecondWind_37
+  - first:
+      213: 2890510752157117239
+    second: SecondWind_38
+  - first:
+      213: 5969095124531688395
+    second: SecondWind_39
+  - first:
+      213: 976208135541498907
+    second: SecondWind_40
+  - first:
+      213: -6742834803314574532
+    second: SecondWind_41
+  - first:
+      213: 6860079636683053956
+    second: SecondWind_42
+  - first:
+      213: -7180513759021023195
+    second: SecondWind_43
+  - first:
+      213: -5413226465802658687
+    second: SecondWind_44
+  - first:
+      213: -8389842341455733389
+    second: SecondWind_45
+  - first:
+      213: -2567039572836400127
+    second: SecondWind_46
+  - first:
+      213: -1908395152417582216
+    second: SecondWind_47
+  - first:
+      213: 5172216224700408220
+    second: SecondWind_48
+  - first:
+      213: -4764430513465232996
+    second: SecondWind_49
+  - first:
+      213: -1286399972132705823
+    second: SecondWind_50
+  - first:
+      213: 3660559955678295571
+    second: SecondWind_51
+  - first:
+      213: 1168453851074384833
+    second: SecondWind_52
+  - first:
+      213: -7621920938115191532
+    second: SecondWind_53
+  - first:
+      213: 5866556902846898496
+    second: SecondWind_54
+  - first:
+      213: -8539796773152131995
+    second: SecondWind_55
+  - first:
+      213: -5443186630009488836
+    second: SecondWind_56
+  - first:
+      213: -6307435907048461483
+    second: SecondWind_57
+  - first:
+      213: -8333837132451260728
+    second: SecondWind_58
+  - first:
+      213: 6055922708157059270
+    second: SecondWind_59
+  - first:
+      213: -8626762760602400026
+    second: SecondWind_60
+  - first:
+      213: 3796427256490777922
+    second: SecondWind_61
+  - first:
+      213: -5686117139398564662
+    second: SecondWind_62
+  - first:
+      213: -4216776129914103830
+    second: SecondWind_63
+  - first:
+      213: 4580925731242485093
+    second: SecondWind_64
+  - first:
+      213: -6789259854406826298
+    second: SecondWind_65
+  - first:
+      213: 2633146466989398281
+    second: SecondWind_66
+  - first:
+      213: -855948447042446179
+    second: SecondWind_67
+  - first:
+      213: 8283662440074407014
+    second: SecondWind_68
+  - first:
+      213: 6848487831985098870
+    second: SecondWind_69
+  - first:
+      213: -4529829311402889078
+    second: SecondWind_70
+  - first:
+      213: 1305850321585221675
+    second: SecondWind_71
+  - first:
+      213: -8047525710587824766
+    second: SecondWind_72
+  - first:
+      213: 3161080419388207380
+    second: SecondWind_73
+  - first:
+      213: 922520255618269138
+    second: SecondWind_74
+  - first:
+      213: -2461663139136907454
+    second: SecondWind_75
+  - first:
+      213: 2005796504702312320
+    second: SecondWind_76
+  - first:
+      213: 3363097286091573067
+    second: SecondWind_77
+  - first:
+      213: 7548957952924188314
+    second: SecondWind_78
+  - first:
+      213: 4384790714636206967
+    second: SecondWind_79
+  - first:
+      213: -8046019264238284561
+    second: SecondWind_80
+  - first:
+      213: 5333840226388449112
+    second: SecondWind_81
+  - first:
+      213: -8474062417814385504
+    second: SecondWind_82
+  - first:
+      213: -984365742259137078
+    second: SecondWind_83
+  - first:
+      213: 2623829425198990251
+    second: SecondWind_84
+  - first:
+      213: -6794656254511786001
+    second: SecondWind_85
+  - first:
+      213: -8484868881492099006
+    second: SecondWind_86
+  - first:
+      213: 4843031419040053304
+    second: SecondWind_87
+  - first:
+      213: -4738582095549146906
+    second: SecondWind_88
+  - first:
+      213: 2931016118813611614
+    second: SecondWind_89
+  - first:
+      213: 7941599355199048786
+    second: SecondWind_90
+  - first:
+      213: -8064661821627729779
+    second: SecondWind_91
+  - first:
+      213: -3539690133601423866
+    second: SecondWind_92
+  - first:
+      213: 3652278040917386517
+    second: SecondWind_93
+  - first:
+      213: -6126763579462303623
+    second: SecondWind_94
+  - first:
+      213: 903235418605539969
+    second: SecondWind_95
+  - first:
+      213: -4171691002331463028
+    second: SecondWind_96
+  - first:
+      213: -5645672260243624346
+    second: SecondWind_97
+  - first:
+      213: -4936412700292596180
+    second: SecondWind_98
+  - first:
+      213: -3119493571548541877
+    second: SecondWind_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SecondWind_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d54fb7003eb4f54cb0ef656c7595710
+      internalID: 517327352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9218db512062b429a9594148d265c6
+      internalID: 1695754211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502fb2480c6955a45991daf14c90e81b
+      internalID: -1003327492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4afeb3bdbe2cae4aa0468d264bc4e82
+      internalID: 480313434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce566107f45f67041bbcda3459834fd3
+      internalID: -446433925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293363ccc8075a3439d5ed03ffeb7501
+      internalID: -677139354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a5ec0f1224e66439355f2f4966218d
+      internalID: -676074685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024687a8aadd95c41923756f787d53b0
+      internalID: -226764304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1b2b749550311459d017a7e3894cfe
+      internalID: 1405365592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35979138d2d3f6541a69c34acea46e7e
+      internalID: 855107771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9467283dd7d083d4c98a72d5e0f1f216
+      internalID: 1287815850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SecondWind_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437f4b2bf5d12ea4696e054ae984775f
+      internalID: 1763491723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 40cbc28194d4332488fa3c2e760e5eab
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SecondWind_0: 517327352
+      SecondWind_1: 1695754211
+      SecondWind_10: 1287815850
+      SecondWind_11: 1763491723
+      SecondWind_2: -1003327492
+      SecondWind_3: 480313434
+      SecondWind_4: -446433925
+      SecondWind_5: -677139354
+      SecondWind_6: -676074685
+      SecondWind_7: -226764304
+      SecondWind_8: 1405365592
+      SecondWind_9: 855107771
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

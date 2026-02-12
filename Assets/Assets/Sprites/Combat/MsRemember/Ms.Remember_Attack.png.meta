@@ -1,0 +1,727 @@
+fileFormatVersion: 2
+guid: cd0bca5a49680e94ea8b19234a5c212e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6618821306949302690
+    second: Ms.Remember_Attack_0
+  - first:
+      213: 4445737901580915423
+    second: Ms.Remember_Attack_1
+  - first:
+      213: -7081673518861284766
+    second: Ms.Remember_Attack_2
+  - first:
+      213: 5675233594974590300
+    second: Ms.Remember_Attack_3
+  - first:
+      213: -624584365092109042
+    second: Ms.Remember_Attack_4
+  - first:
+      213: 5839292889204668413
+    second: Ms.Remember_Attack_5
+  - first:
+      213: -3634829603103287294
+    second: Ms.Remember_Attack_6
+  - first:
+      213: 6742245576224914245
+    second: Ms.Remember_Attack_7
+  - first:
+      213: -8098338624607927761
+    second: Ms.Remember_Attack_8
+  - first:
+      213: -5883218222258758646
+    second: Ms.Remember_Attack_9
+  - first:
+      213: 3836712473852326746
+    second: Ms.Remember_Attack_10
+  - first:
+      213: 5319490748527769549
+    second: Ms.Remember_Attack_11
+  - first:
+      213: 6611765799105426432
+    second: Ms.Remember_Attack_12
+  - first:
+      213: -6597922168141997242
+    second: Ms.Remember_Attack_13
+  - first:
+      213: 7727836804292272837
+    second: Ms.Remember_Attack_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5f3214d509d5a4e8e536536fadd101
+      internalID: -1827795212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5624849b137eca4ca9a44378a98e38b
+      internalID: -196714596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928b0610bed97a747881537cb43eea13
+      internalID: 1746040486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65658e0aae8f4ae4c8e21220123b3315
+      internalID: 1428574121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c48e100034ef64e801beb8a7c13f79
+      internalID: -698392003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1080
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefcc4b57a28cc248b2f09fc6c69b5b7
+      internalID: 1864267482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6d04bd5d07d0c4c86c570d2e9c906c
+      internalID: -1171707696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f4ecbc3eae47141b0add5413ad0909
+      internalID: 1209591077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9488a9ef88e0804fb88bdc0ca833df7
+      internalID: 320036980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1098cf8e81b8549ad326b219edff5f
+      internalID: -1685296400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b77cf5bc13efd74da621c84fd1f32b7
+      internalID: 1632181605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896f4f2dfa07a5b46a7d0bfa7f419154
+      internalID: -288435234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57d326f7982aa14aa6a041ea3ba1321
+      internalID: 907111420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fce05f582af8b542b899378afe450fb
+      internalID: 224231095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001108a1bd8abc4419aa552d3ee9e719
+      internalID: 831173973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f931a9a5290808840bafc1e5ecc35ec7
+      internalID: 112210519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ff417df6c0ae94bbb30722d52a98b1
+      internalID: -1037868604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5719ed9a0e2bd41adc148291481c12
+      internalID: 866270681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6461cc433a437d49a2ef69e12d08ffe
+      internalID: 1116096864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405f56fabe8c28749a0dae15b6f90b50
+      internalID: 1942779481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0adf3c3a4c5dd4dace9a6cae23cffb
+      internalID: -1154548821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7018b1435a21e3f46a9a146724c7a51b
+      internalID: -1615294846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fac78651c97e946808f95075d33a42
+      internalID: 1535054548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms.Remember_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb96695b3f0d6804b9c05b0743b2d5c2
+      internalID: 1209185270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ce0af91cde0ffcf4ab8ccd5fd33353c1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ms.Remember_Attack_0: -1827795212
+      Ms.Remember_Attack_1: -196714596
+      Ms.Remember_Attack_10: 1632181605
+      Ms.Remember_Attack_11: -288435234
+      Ms.Remember_Attack_12: 907111420
+      Ms.Remember_Attack_13: 224231095
+      Ms.Remember_Attack_14: 831173973
+      Ms.Remember_Attack_15: 112210519
+      Ms.Remember_Attack_16: -1037868604
+      Ms.Remember_Attack_17: 866270681
+      Ms.Remember_Attack_18: 1116096864
+      Ms.Remember_Attack_19: 1942779481
+      Ms.Remember_Attack_2: 1746040486
+      Ms.Remember_Attack_20: -1154548821
+      Ms.Remember_Attack_21: -1615294846
+      Ms.Remember_Attack_22: 1535054548
+      Ms.Remember_Attack_23: 1209185270
+      Ms.Remember_Attack_3: 1428574121
+      Ms.Remember_Attack_4: -698392003
+      Ms.Remember_Attack_5: 1864267482
+      Ms.Remember_Attack_6: -1171707696
+      Ms.Remember_Attack_7: 1209591077
+      Ms.Remember_Attack_8: 320036980
+      Ms.Remember_Attack_9: -1685296400
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

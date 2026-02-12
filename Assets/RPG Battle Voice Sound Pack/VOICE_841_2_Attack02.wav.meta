@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 9bde78504a3b65540b4ea058f98e919e
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 232438
+  packageName: RPG Battle Voice Sound Pack
+  packageVersion: 1.0
+  assetPath: Assets/RPG Battle Voice Sound Pack/VOICE_841_2_Attack02.wav
+  uploadId: 524977

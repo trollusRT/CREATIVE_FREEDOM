@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dd9147cedd6ab41b1830b2c54e1f82, type: 3}
+  m_Name: Just Give Me a Second
+  m_EditorClassIdentifier: 
+  cardName: Just Give Me a Second
+  cardType: Green
+  cardEffect: Heal + Status Effect Removal
+  cardCost: 2
+  minValue: 10
+  maxValue: 10
+  canTargetPlayer: 1
+  canTargetEnemy: 0
+  isConditional: 0
+  cardSprite: {fileID: 21300000, guid: b9513c7c490507448aaea3c422f5ab68, type: 3}

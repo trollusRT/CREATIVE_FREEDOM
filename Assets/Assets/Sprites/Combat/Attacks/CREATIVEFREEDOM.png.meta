@@ -1,0 +1,604 @@
+fileFormatVersion: 2
+guid: 440d549717435b64c9a26f1c6e05404f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7503984029147737779
+    second: CREATIVEFREEDOM_0
+  - first:
+      213: 6909795127781367305
+    second: CREATIVEFREEDOM_1
+  - first:
+      213: -4928271323314807652
+    second: CREATIVEFREEDOM_2
+  - first:
+      213: -2211905761236123067
+    second: CREATIVEFREEDOM_3
+  - first:
+      213: 8235484494233290127
+    second: CREATIVEFREEDOM_4
+  - first:
+      213: -3844824178148442848
+    second: CREATIVEFREEDOM_5
+  - first:
+      213: 8637361174435084684
+    second: CREATIVEFREEDOM_6
+  - first:
+      213: -29155949369122969
+    second: CREATIVEFREEDOM_7
+  - first:
+      213: -2335256901982213474
+    second: CREATIVEFREEDOM_8
+  - first:
+      213: -3407603820782360029
+    second: CREATIVEFREEDOM_9
+  - first:
+      213: 8817642033788562940
+    second: CREATIVEFREEDOM_10
+  - first:
+      213: -999402600804701358
+    second: CREATIVEFREEDOM_11
+  - first:
+      213: 7426749158890883321
+    second: CREATIVEFREEDOM_12
+  - first:
+      213: -4607199373277311292
+    second: CREATIVEFREEDOM_13
+  - first:
+      213: 6843538373610822113
+    second: CREATIVEFREEDOM_14
+  - first:
+      213: 1667044086093390793
+    second: CREATIVEFREEDOM_15
+  - first:
+      213: 7794528190323838752
+    second: CREATIVEFREEDOM_16
+  - first:
+      213: 1624056808090696965
+    second: CREATIVEFREEDOM_17
+  - first:
+      213: -2762393597617170442
+    second: CREATIVEFREEDOM_18
+  - first:
+      213: -6896221239499486411
+    second: CREATIVEFREEDOM_19
+  - first:
+      213: 4635055572238872557
+    second: CREATIVEFREEDOM_20
+  - first:
+      213: 5185051840670592489
+    second: CREATIVEFREEDOM_21
+  - first:
+      213: 6325793533455373509
+    second: CREATIVEFREEDOM_22
+  - first:
+      213: 8091588504560346876
+    second: CREATIVEFREEDOM_23
+  - first:
+      213: 6919731206103590513
+    second: CREATIVEFREEDOM_24
+  - first:
+      213: -4448527609152420065
+    second: CREATIVEFREEDOM_25
+  - first:
+      213: 53101774497756605
+    second: CREATIVEFREEDOM_26
+  - first:
+      213: -5159880827441767250
+    second: CREATIVEFREEDOM_27
+  - first:
+      213: -7859584497942616454
+    second: CREATIVEFREEDOM_28
+  - first:
+      213: 3659183214432136135
+    second: CREATIVEFREEDOM_29
+  - first:
+      213: 4127702689969444738
+    second: CREATIVEFREEDOM_30
+  - first:
+      213: -6372024071745944385
+    second: CREATIVEFREEDOM_31
+  - first:
+      213: 667294386751636844
+    second: CREATIVEFREEDOM_32
+  - first:
+      213: 2691933343771367869
+    second: CREATIVEFREEDOM_33
+  - first:
+      213: 392179387957103132
+    second: CREATIVEFREEDOM_34
+  - first:
+      213: -7266303999164779860
+    second: CREATIVEFREEDOM_35
+  - first:
+      213: 5466774051251280368
+    second: CREATIVEFREEDOM_36
+  - first:
+      213: 1798081790520434189
+    second: CREATIVEFREEDOM_37
+  - first:
+      213: 7064789812174990846
+    second: CREATIVEFREEDOM_38
+  - first:
+      213: -3328560065333024510
+    second: CREATIVEFREEDOM_39
+  - first:
+      213: -2529551061112421088
+    second: CREATIVEFREEDOM_40
+  - first:
+      213: -8621118354051659838
+    second: CREATIVEFREEDOM_41
+  - first:
+      213: -8150698760366213002
+    second: CREATIVEFREEDOM_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd57511c4e8d22458c31234b3f9f964
+      internalID: -1151109917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978a799a656b1cc4887fbe59b6b236c8
+      internalID: -546196936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a710c80ae7d9944dbbfa4deeadcd40f
+      internalID: -505156928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b90f6abf81b112409254a4c553010c6
+      internalID: -1299523903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c1c0f376d91304394988f8ead36f5f
+      internalID: 935794905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45495e2274db854428c64dc60fca27fd
+      internalID: 1663824017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d705e2c52b8c1446b12e380cfb257ab
+      internalID: -1044069782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79382fa2fe27d94f836717116ddecec
+      internalID: 1270213499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78976454e122a524c9597f7817816346
+      internalID: -837944056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bda3542d87638c42998908e54a3b297
+      internalID: 647283696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275cc44815ab06e43b9d88d5b617562f
+      internalID: 819309207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f04395d90b52d74b9b04e9400d9bbfb
+      internalID: 1566083891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d882ac31a7d0d82419c06b3464108937
+      internalID: -585126360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b490fbbf117274db463ec3cf8faa47
+      internalID: 1337845611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CREATIVEFREEDOM_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 317db963845bdf645b2f5289554bd434
+      internalID: 1495254299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8c54b422375b11843b022df9f678d13a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CREATIVEFREEDOM_0: -1151109917
+      CREATIVEFREEDOM_1: -546196936
+      CREATIVEFREEDOM_10: 819309207
+      CREATIVEFREEDOM_11: 1566083891
+      CREATIVEFREEDOM_12: -585126360
+      CREATIVEFREEDOM_13: 1337845611
+      CREATIVEFREEDOM_14: 1495254299
+      CREATIVEFREEDOM_2: -505156928
+      CREATIVEFREEDOM_3: -1299523903
+      CREATIVEFREEDOM_4: 935794905
+      CREATIVEFREEDOM_5: 1663824017
+      CREATIVEFREEDOM_6: -1044069782
+      CREATIVEFREEDOM_7: 1270213499
+      CREATIVEFREEDOM_8: -837944056
+      CREATIVEFREEDOM_9: 647283696
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

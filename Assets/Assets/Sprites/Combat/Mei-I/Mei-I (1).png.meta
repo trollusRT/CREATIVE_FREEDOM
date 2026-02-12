@@ -1,0 +1,538 @@
+fileFormatVersion: 2
+guid: 35b38465d8d700f42ac18a71706c4ac2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2541912751625381989
+    second: Mei-I (1)_0
+  - first:
+      213: -5958787214996810056
+    second: Mei-I (1)_1
+  - first:
+      213: -2403587061261140495
+    second: Mei-I (1)_2
+  - first:
+      213: -6321679416430250927
+    second: Mei-I (1)_3
+  - first:
+      213: -6658855369505949134
+    second: Mei-I (1)_4
+  - first:
+      213: 8783773426113099291
+    second: Mei-I (1)_5
+  - first:
+      213: -5928567261313309305
+    second: Mei-I (1)_6
+  - first:
+      213: -5706942254804597421
+    second: Mei-I (1)_7
+  - first:
+      213: -6280453777943363406
+    second: Mei-I (1)_8
+  - first:
+      213: 9213221309317121564
+    second: Mei-I (1)_9
+  - first:
+      213: -5403520015521290068
+    second: Mei-I (1)_10
+  - first:
+      213: 4537007823050927475
+    second: Mei-I (1)_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mei-I (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2541
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16880b804afb7b74681d318687befb72
+      internalID: -1147876497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_1
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 2541
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3430aedd5542bf649ac433803907ac8b
+      internalID: 1358782036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_2
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 2541
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2999c8e3e7f656041a7377827902927e
+      internalID: -1077997706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 2541
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a87b407c9a5e1945bc27b7cd84ea240
+      internalID: -495415761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_4
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 2541
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999461073314ca543ab03c33ba86168f
+      internalID: 1670653586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1694
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c489054cf4cac499a6e9b51e888c80
+      internalID: -1067435865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_6
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1694
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed9f97260d05424d8764eccd4d429d1
+      internalID: 1665836081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_7
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1694
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a28e5f80f3053e4cb0355cd19f0b25c
+      internalID: 1451726563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1694
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fab8ccc4153cc343a821677294c20c3
+      internalID: -1141872333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1694
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044b17ac55c509f4699ba23dcf5f87c8
+      internalID: 1651158311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 847
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae6a7a08704c4049ad323e0a63363df
+      internalID: 1206297272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_11
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 847
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daacd6f53af8ed24a86ae189776c91cc
+      internalID: -1728038849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_12
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 847
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17f79d5fc6b0ec448ec90ebafde40d6
+      internalID: -430038082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 847
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ffbe6c0013180948a782a3fffbabd62
+      internalID: -486965313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_14
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 847
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdea671dd6974784ea8497341dcbe50a
+      internalID: -566700871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I (1)_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 462
+        height: 847
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4eddcc1b897b4548ab96aa015f4af9c
+      internalID: -2068636888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b1f94aa6efde95345b0e2dfcd910610b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mei-I (1)_0: -1147876497
+      Mei-I (1)_1: 1358782036
+      Mei-I (1)_10: 1206297272
+      Mei-I (1)_11: -1728038849
+      Mei-I (1)_12: -430038082
+      Mei-I (1)_13: -486965313
+      Mei-I (1)_14: -566700871
+      Mei-I (1)_15: -2068636888
+      Mei-I (1)_16: -2043842021
+      Mei-I (1)_17: 648439301
+      Mei-I (1)_18: 734929342
+      Mei-I (1)_19: -449024369
+      Mei-I (1)_2: -1077997706
+      Mei-I (1)_3: -495415761
+      Mei-I (1)_4: 1670653586
+      Mei-I (1)_5: -1067435865
+      Mei-I (1)_6: 1665836081
+      Mei-I (1)_7: 1451726563
+      Mei-I (1)_8: -1141872333
+      Mei-I (1)_9: 1651158311
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

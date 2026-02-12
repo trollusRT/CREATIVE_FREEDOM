@@ -1,0 +1,679 @@
+fileFormatVersion: 2
+guid: 6c7ce0e00abc6d646a0d215062944b2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8654716240531547489
+    second: poofOfPaint_0
+  - first:
+      213: 1027682627003863710
+    second: poofOfPaint_1
+  - first:
+      213: 5780224160846592403
+    second: poofOfPaint_2
+  - first:
+      213: 2150140091283752412
+    second: poofOfPaint_3
+  - first:
+      213: -4658081624659545787
+    second: poofOfPaint_4
+  - first:
+      213: -7746423586442779452
+    second: poofOfPaint_5
+  - first:
+      213: 6997955590985862426
+    second: poofOfPaint_6
+  - first:
+      213: 5465034619541754355
+    second: poofOfPaint_7
+  - first:
+      213: -381282201724328826
+    second: poofOfPaint_8
+  - first:
+      213: 2503319007583761237
+    second: poofOfPaint_9
+  - first:
+      213: -2479435989373506645
+    second: poofOfPaint_10
+  - first:
+      213: 2667991231740949310
+    second: poofOfPaint_11
+  - first:
+      213: 7770838085585816353
+    second: poofOfPaint_12
+  - first:
+      213: -5771638658057271982
+    second: poofOfPaint_13
+  - first:
+      213: -8939240883394265160
+    second: poofOfPaint_14
+  - first:
+      213: -2149253708199610753
+    second: poofOfPaint_15
+  - first:
+      213: 1677989870876203071
+    second: poofOfPaint_16
+  - first:
+      213: -2890429330249314306
+    second: poofOfPaint_17
+  - first:
+      213: 6373017177416154333
+    second: poofOfPaint_18
+  - first:
+      213: 3503682631379165975
+    second: poofOfPaint_19
+  - first:
+      213: 1337133786101927791
+    second: poofOfPaint_20
+  - first:
+      213: 3951072320510038943
+    second: poofOfPaint_21
+  - first:
+      213: 5541838689469966298
+    second: poofOfPaint_22
+  - first:
+      213: -5865548149381748668
+    second: poofOfPaint_23
+  - first:
+      213: -7388990868549818250
+    second: poofOfPaint_24
+  - first:
+      213: -6608218891024634233
+    second: poofOfPaint_25
+  - first:
+      213: 6595210896054562285
+    second: poofOfPaint_26
+  - first:
+      213: -808202743837535825
+    second: poofOfPaint_27
+  - first:
+      213: 7621386973692336859
+    second: poofOfPaint_28
+  - first:
+      213: -8376531654440910833
+    second: poofOfPaint_29
+  - first:
+      213: 4521871427200703418
+    second: poofOfPaint_30
+  - first:
+      213: -7141517559212390815
+    second: poofOfPaint_31
+  - first:
+      213: -2592332503719427097
+    second: poofOfPaint_32
+  - first:
+      213: -7599926498299077941
+    second: poofOfPaint_33
+  - first:
+      213: -3736975483401173101
+    second: poofOfPaint_34
+  - first:
+      213: -4490856103625006382
+    second: poofOfPaint_35
+  - first:
+      213: 6876991262836635245
+    second: poofOfPaint_36
+  - first:
+      213: 5961834105100313648
+    second: poofOfPaint_37
+  - first:
+      213: 8305393927240912970
+    second: poofOfPaint_38
+  - first:
+      213: -6943636063312372973
+    second: poofOfPaint_39
+  - first:
+      213: 7621513843675321708
+    second: poofOfPaint_40
+  - first:
+      213: 5145472863695675687
+    second: poofOfPaint_41
+  - first:
+      213: 2142110231838062762
+    second: poofOfPaint_42
+  - first:
+      213: -5141279434351912700
+    second: poofOfPaint_43
+  - first:
+      213: -2873603864378658717
+    second: poofOfPaint_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: poofOfPaint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2250
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3242eba75eed9a14d84d4c827763735f
+      internalID: -2109719364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2250
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b04779fd1ea274bb30fa59e8056319
+      internalID: 230444486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2250
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc5fc737bf2dd14d8e63ec8b55bcbc9
+      internalID: 65958027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf74a0a0d72ef045ba45b23e506c8b7
+      internalID: 827307886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c66c5e02ea44948ae14ca87265b9ff
+      internalID: 676788391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bdacbdfcc154d4892e910e1f09a876
+      internalID: 1052188743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424b38c7cc6c7744d88c056e8cd81e8f
+      internalID: -1434453127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353b0e00e89897048915f733373a537e
+      internalID: -570005462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bc4cca68a80804593595e52994df44
+      internalID: 162551616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a76e9b611b71a49996f02d6113bf05
+      internalID: 1064425643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_10
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47faf6bd164d8a54888cf58c742aa8ec
+      internalID: 1397208562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_11
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda40a6aac588294e8a549578b885b8c
+      internalID: -1627553557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b357aa178b99b9545b2ec100c37fb0df
+      internalID: 1756657002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_13
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1b0f2ab2ef9a74992e0d2fb6bee081
+      internalID: 2041459881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_14
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e59951363d24c2041aac3d56cc35a100
+      internalID: 516731836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d69dca68c263a439d574d68dabd278
+      internalID: 152252184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_16
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7dd792cd036a5840b90d4331a9e4e03
+      internalID: 1548810738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: poofOfPaint_17
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdec6dcf6cba04f4d987d6a5396b311c
+      internalID: 1946310671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 87941797dea17634991abadf355d1d4b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      poofOfPaint_0: -2109719364
+      poofOfPaint_1: 230444486
+      poofOfPaint_10: 1397208562
+      poofOfPaint_11: -1627553557
+      poofOfPaint_12: 1756657002
+      poofOfPaint_13: 2041459881
+      poofOfPaint_14: 516731836
+      poofOfPaint_15: 152252184
+      poofOfPaint_16: 1548810738
+      poofOfPaint_17: 1946310671
+      poofOfPaint_2: 65958027
+      poofOfPaint_3: 827307886
+      poofOfPaint_4: 676788391
+      poofOfPaint_5: 1052188743
+      poofOfPaint_6: -1434453127
+      poofOfPaint_7: -570005462
+      poofOfPaint_8: 162551616
+      poofOfPaint_9: 1064425643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

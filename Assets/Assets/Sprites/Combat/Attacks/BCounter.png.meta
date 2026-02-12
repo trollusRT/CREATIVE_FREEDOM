@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: ed80c3baae6351c4da99096fe33c39b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4444188664955130259
+    second: BCounter_0
+  - first:
+      213: -571512316337884514
+    second: BCounter_1
+  - first:
+      213: -8325130617470184520
+    second: BCounter_2
+  - first:
+      213: 108194527197710746
+    second: BCounter_3
+  - first:
+      213: 1018856628555487563
+    second: BCounter_4
+  - first:
+      213: 7813591044282540145
+    second: BCounter_5
+  - first:
+      213: -7148839514042081588
+    second: BCounter_6
+  - first:
+      213: -7454588297721083323
+    second: BCounter_7
+  - first:
+      213: -626094287406815569
+    second: BCounter_8
+  - first:
+      213: 3167167006659475785
+    second: BCounter_9
+  - first:
+      213: -5734507381593497340
+    second: BCounter_10
+  - first:
+      213: -8990116625030812920
+    second: BCounter_11
+  - first:
+      213: -1159329806479064090
+    second: BCounter_12
+  - first:
+      213: 862037524599994441
+    second: BCounter_13
+  - first:
+      213: 3940151399188388104
+    second: BCounter_14
+  - first:
+      213: -8579403279324320474
+    second: BCounter_15
+  - first:
+      213: -434779706569544207
+    second: BCounter_16
+  - first:
+      213: 4287540699588823819
+    second: BCounter_17
+  - first:
+      213: 1678781105955321528
+    second: BCounter_18
+  - first:
+      213: 2953315124438859094
+    second: BCounter_19
+  - first:
+      213: 5154568248297203607
+    second: BCounter_20
+  - first:
+      213: -4174117312373982884
+    second: BCounter_21
+  - first:
+      213: -2703764619367031835
+    second: BCounter_22
+  - first:
+      213: 9151993058586349981
+    second: BCounter_23
+  - first:
+      213: -4596981231017660460
+    second: BCounter_24
+  - first:
+      213: -6498054120498455299
+    second: BCounter_25
+  - first:
+      213: -3998705157519501466
+    second: BCounter_26
+  - first:
+      213: 9130192003930152188
+    second: BCounter_27
+  - first:
+      213: -6947076668821912693
+    second: BCounter_28
+  - first:
+      213: 6307557263226590106
+    second: BCounter_29
+  - first:
+      213: 4777996713795848502
+    second: BCounter_30
+  - first:
+      213: 7382597663762132347
+    second: BCounter_31
+  - first:
+      213: -2238728019031329707
+    second: BCounter_32
+  - first:
+      213: -6414613266629275415
+    second: BCounter_33
+  - first:
+      213: 6981995255221430993
+    second: BCounter_34
+  - first:
+      213: 4675733977821325307
+    second: BCounter_35
+  - first:
+      213: 6853574440313395649
+    second: BCounter_36
+  - first:
+      213: -495634946307357183
+    second: BCounter_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BCounter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8206a230c41b78419f252b6ea2d2beb
+      internalID: 1329062106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2281f4c1983d44c9c4c37dfd6513a9
+      internalID: 726993365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3209caaf4aaf634db7d6e4f254223e4
+      internalID: -1246536773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb850d1be651b2468922119d644e45c
+      internalID: 1263550588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6225400722027478b5c6b696a24faf
+      internalID: -197295439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b55c779a02a269143af02d4bfed8a0d8
+      internalID: 1115785023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3a54d894ea83042b1cbcbd107eb7d4
+      internalID: -1342482106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ce4c79797171d4f8c6b54e4ab7e49a
+      internalID: 667608164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe48b5c07b50e64095b5535a25ef925
+      internalID: 1765847851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9144a99ee226a4746835d8532f64319f
+      internalID: -1325329753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BCounter_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76058565394548d44b8ea042d966c5ca
+      internalID: -1194896879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: be4e242c7c62304429e9c2810a6a3481
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BCounter_0: 1329062106
+      BCounter_1: 726993365
+      BCounter_10: -1194896879
+      BCounter_2: -1246536773
+      BCounter_3: 1263550588
+      BCounter_4: -197295439
+      BCounter_5: 1115785023
+      BCounter_6: -1342482106
+      BCounter_7: 667608164
+      BCounter_8: 1765847851
+      BCounter_9: -1325329753
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

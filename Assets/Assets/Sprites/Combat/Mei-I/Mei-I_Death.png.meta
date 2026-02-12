@@ -1,0 +1,1298 @@
+fileFormatVersion: 2
+guid: ed305a42bfe8df740ac5e76e7c5356b1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1102939954333671844
+    second: Mei-I_Death_0
+  - first:
+      213: 5354868787682886473
+    second: Mei-I_Death_1
+  - first:
+      213: 2882458983106690383
+    second: Mei-I_Death_2
+  - first:
+      213: 5085262428419687300
+    second: Mei-I_Death_3
+  - first:
+      213: 3678699030084876336
+    second: Mei-I_Death_4
+  - first:
+      213: 1086362572623081842
+    second: Mei-I_Death_5
+  - first:
+      213: -1636407826442795592
+    second: Mei-I_Death_6
+  - first:
+      213: -6078630070704050524
+    second: Mei-I_Death_7
+  - first:
+      213: -457021627789189529
+    second: Mei-I_Death_8
+  - first:
+      213: -2771305276869542758
+    second: Mei-I_Death_9
+  - first:
+      213: 4080972320828611645
+    second: Mei-I_Death_10
+  - first:
+      213: -862904065432666285
+    second: Mei-I_Death_11
+  - first:
+      213: -3601867064332071265
+    second: Mei-I_Death_12
+  - first:
+      213: 1625848057661501037
+    second: Mei-I_Death_13
+  - first:
+      213: 7735832392321684467
+    second: Mei-I_Death_14
+  - first:
+      213: -5309926792955727570
+    second: Mei-I_Death_15
+  - first:
+      213: 747877185224413575
+    second: Mei-I_Death_16
+  - first:
+      213: -1618193407241427576
+    second: Mei-I_Death_17
+  - first:
+      213: -3564606524716248040
+    second: Mei-I_Death_18
+  - first:
+      213: 6615352389445607265
+    second: Mei-I_Death_19
+  - first:
+      213: -3951888601288516659
+    second: Mei-I_Death_20
+  - first:
+      213: 7528963632419408724
+    second: Mei-I_Death_21
+  - first:
+      213: -4408153083562408310
+    second: Mei-I_Death_22
+  - first:
+      213: -1009281370578552809
+    second: Mei-I_Death_23
+  - first:
+      213: 4650316591744687301
+    second: Mei-I_Death_24
+  - first:
+      213: -8984281738452201950
+    second: Mei-I_Death_25
+  - first:
+      213: -6274238601270919836
+    second: Mei-I_Death_26
+  - first:
+      213: 1621262631474903680
+    second: Mei-I_Death_27
+  - first:
+      213: -3703809651933303985
+    second: Mei-I_Death_28
+  - first:
+      213: 4136888953111784742
+    second: Mei-I_Death_29
+  - first:
+      213: 2692010111227961602
+    second: Mei-I_Death_30
+  - first:
+      213: -6268852961670833405
+    second: Mei-I_Death_31
+  - first:
+      213: 4799143930847587191
+    second: Mei-I_Death_32
+  - first:
+      213: -1808590002983296655
+    second: Mei-I_Death_33
+  - first:
+      213: -5241878262249711099
+    second: Mei-I_Death_34
+  - first:
+      213: -6675203319468698327
+    second: Mei-I_Death_35
+  - first:
+      213: -2822505604057081740
+    second: Mei-I_Death_36
+  - first:
+      213: 5357849308662322450
+    second: Mei-I_Death_37
+  - first:
+      213: -3861844366820078618
+    second: Mei-I_Death_38
+  - first:
+      213: -7908889958714683138
+    second: Mei-I_Death_39
+  - first:
+      213: 8040475928460886352
+    second: Mei-I_Death_40
+  - first:
+      213: -276594710571627800
+    second: Mei-I_Death_41
+  - first:
+      213: -7147798981556110693
+    second: Mei-I_Death_42
+  - first:
+      213: -1692633792911220385
+    second: Mei-I_Death_43
+  - first:
+      213: 6598061153707283498
+    second: Mei-I_Death_44
+  - first:
+      213: 5061472649912451685
+    second: Mei-I_Death_45
+  - first:
+      213: 2152935144241852719
+    second: Mei-I_Death_46
+  - first:
+      213: -6248513379517064035
+    second: Mei-I_Death_47
+  - first:
+      213: 8992889185003361964
+    second: Mei-I_Death_48
+  - first:
+      213: -1365559338505638678
+    second: Mei-I_Death_49
+  - first:
+      213: 2269417381074737328
+    second: Mei-I_Death_50
+  - first:
+      213: -5683636371999711564
+    second: Mei-I_Death_51
+  - first:
+      213: 5144423593118003493
+    second: Mei-I_Death_52
+  - first:
+      213: -6277140538034196150
+    second: Mei-I_Death_53
+  - first:
+      213: -2281609505576991804
+    second: Mei-I_Death_54
+  - first:
+      213: -4363351212188087760
+    second: Mei-I_Death_55
+  - first:
+      213: 1766885913622477822
+    second: Mei-I_Death_56
+  - first:
+      213: 6732302899674903072
+    second: Mei-I_Death_57
+  - first:
+      213: 5637588925123864283
+    second: Mei-I_Death_58
+  - first:
+      213: -744632789770290583
+    second: Mei-I_Death_59
+  - first:
+      213: 807656943841035539
+    second: Mei-I_Death_60
+  - first:
+      213: -1557668168955157135
+    second: Mei-I_Death_61
+  - first:
+      213: 2763739405293651709
+    second: Mei-I_Death_62
+  - first:
+      213: -6692335703993388038
+    second: Mei-I_Death_63
+  - first:
+      213: -7190831407959633987
+    second: Mei-I_Death_64
+  - first:
+      213: -7595691624008092850
+    second: Mei-I_Death_65
+  - first:
+      213: -8885693481597701003
+    second: Mei-I_Death_66
+  - first:
+      213: 2719557569514922119
+    second: Mei-I_Death_67
+  - first:
+      213: -8342455427584382432
+    second: Mei-I_Death_68
+  - first:
+      213: 8467578623196370986
+    second: Mei-I_Death_69
+  - first:
+      213: 2418491390863499844
+    second: Mei-I_Death_70
+  - first:
+      213: -288765410956280520
+    second: Mei-I_Death_71
+  - first:
+      213: -3981853569012344960
+    second: Mei-I_Death_72
+  - first:
+      213: 3297927361142856326
+    second: Mei-I_Death_73
+  - first:
+      213: -9171925672296183939
+    second: Mei-I_Death_74
+  - first:
+      213: 4230064664993328800
+    second: Mei-I_Death_75
+  - first:
+      213: -7903127044179411839
+    second: Mei-I_Death_76
+  - first:
+      213: -1641491611927551892
+    second: Mei-I_Death_77
+  - first:
+      213: 4755861560947228283
+    second: Mei-I_Death_78
+  - first:
+      213: -8776191891926276787
+    second: Mei-I_Death_79
+  - first:
+      213: 4575294028761663227
+    second: Mei-I_Death_80
+  - first:
+      213: -371037931512180495
+    second: Mei-I_Death_81
+  - first:
+      213: -6532081677092728095
+    second: Mei-I_Death_82
+  - first:
+      213: -1864178733685798112
+    second: Mei-I_Death_83
+  - first:
+      213: 4027504849781030032
+    second: Mei-I_Death_84
+  - first:
+      213: -8154005626306968427
+    second: Mei-I_Death_85
+  - first:
+      213: -3555469527850997023
+    second: Mei-I_Death_86
+  - first:
+      213: -422490046402241052
+    second: Mei-I_Death_87
+  - first:
+      213: 6736451938768325423
+    second: Mei-I_Death_88
+  - first:
+      213: 6125277775667805946
+    second: Mei-I_Death_89
+  - first:
+      213: -1150176644985856677
+    second: Mei-I_Death_90
+  - first:
+      213: -2422109444807124081
+    second: Mei-I_Death_91
+  - first:
+      213: -1438593478388971504
+    second: Mei-I_Death_92
+  - first:
+      213: -5982437874503297828
+    second: Mei-I_Death_93
+  - first:
+      213: -3593523974615502469
+    second: Mei-I_Death_94
+  - first:
+      213: 4355454809862138594
+    second: Mei-I_Death_95
+  - first:
+      213: 8872319187584143791
+    second: Mei-I_Death_96
+  - first:
+      213: -3583760174041287373
+    second: Mei-I_Death_97
+  - first:
+      213: -2181321388994290629
+    second: Mei-I_Death_98
+  - first:
+      213: -9183452935783696057
+    second: Mei-I_Death_99
+  - first:
+      213: -8335151925099093932
+    second: Mei-I_Death_100
+  - first:
+      213: -3531220085406416964
+    second: Mei-I_Death_101
+  - first:
+      213: 8311333300364318827
+    second: Mei-I_Death_102
+  - first:
+      213: 7879171846886686638
+    second: Mei-I_Death_103
+  - first:
+      213: 8841859349296987056
+    second: Mei-I_Death_104
+  - first:
+      213: -8315889558949626971
+    second: Mei-I_Death_105
+  - first:
+      213: -5482681119099562136
+    second: Mei-I_Death_106
+  - first:
+      213: -1881693631392185259
+    second: Mei-I_Death_107
+  - first:
+      213: 2130808287964392144
+    second: Mei-I_Death_108
+  - first:
+      213: -5882944401194435809
+    second: Mei-I_Death_109
+  - first:
+      213: 7838501026234076449
+    second: Mei-I_Death_110
+  - first:
+      213: 712845230338728884
+    second: Mei-I_Death_111
+  - first:
+      213: 3615086569406353907
+    second: Mei-I_Death_112
+  - first:
+      213: 4030076808653492697
+    second: Mei-I_Death_113
+  - first:
+      213: 9157255229457072516
+    second: Mei-I_Death_114
+  - first:
+      213: 1068052689348390919
+    second: Mei-I_Death_115
+  - first:
+      213: -584459939014222197
+    second: Mei-I_Death_116
+  - first:
+      213: 3370587597999411853
+    second: Mei-I_Death_117
+  - first:
+      213: 8858916185936706718
+    second: Mei-I_Death_118
+  - first:
+      213: 8715687421357317520
+    second: Mei-I_Death_119
+  - first:
+      213: 4471031579575566070
+    second: Mei-I_Death_120
+  - first:
+      213: -7076251025028554409
+    second: Mei-I_Death_121
+  - first:
+      213: -8781966906470446047
+    second: Mei-I_Death_122
+  - first:
+      213: 1086992129292611706
+    second: Mei-I_Death_123
+  - first:
+      213: -7120691677652003816
+    second: Mei-I_Death_124
+  - first:
+      213: -2311059007216544710
+    second: Mei-I_Death_125
+  - first:
+      213: 9076199475877728660
+    second: Mei-I_Death_126
+  - first:
+      213: 8957804238849188121
+    second: Mei-I_Death_127
+  - first:
+      213: 4557004527577637805
+    second: Mei-I_Death_128
+  - first:
+      213: 1567366535310247036
+    second: Mei-I_Death_129
+  - first:
+      213: -3829483143025328174
+    second: Mei-I_Death_130
+  - first:
+      213: 4059556092075746285
+    second: Mei-I_Death_131
+  - first:
+      213: -4152825715318108827
+    second: Mei-I_Death_132
+  - first:
+      213: -4302841386280156333
+    second: Mei-I_Death_133
+  - first:
+      213: 6708428050783953825
+    second: Mei-I_Death_134
+  - first:
+      213: 7023034686712525527
+    second: Mei-I_Death_135
+  - first:
+      213: -5741175292757896026
+    second: Mei-I_Death_136
+  - first:
+      213: -1907721522210089154
+    second: Mei-I_Death_137
+  - first:
+      213: 2294516435110948991
+    second: Mei-I_Death_138
+  - first:
+      213: -8802215299093071793
+    second: Mei-I_Death_139
+  - first:
+      213: -4381526998310536441
+    second: Mei-I_Death_140
+  - first:
+      213: -2228287962274507198
+    second: Mei-I_Death_141
+  - first:
+      213: 6406652604037529866
+    second: Mei-I_Death_142
+  - first:
+      213: -4940925234060911269
+    second: Mei-I_Death_143
+  - first:
+      213: -179813663272751529
+    second: Mei-I_Death_144
+  - first:
+      213: 7491225527235108765
+    second: Mei-I_Death_145
+  - first:
+      213: -3697050962660296493
+    second: Mei-I_Death_146
+  - first:
+      213: 3740837519486064323
+    second: Mei-I_Death_147
+  - first:
+      213: -7822662856389759721
+    second: Mei-I_Death_148
+  - first:
+      213: -5540343366605687089
+    second: Mei-I_Death_149
+  - first:
+      213: 7507508216264653223
+    second: Mei-I_Death_150
+  - first:
+      213: -3760361127169796964
+    second: Mei-I_Death_151
+  - first:
+      213: -1760076882995220288
+    second: Mei-I_Death_152
+  - first:
+      213: 5207146049705443930
+    second: Mei-I_Death_153
+  - first:
+      213: -2899396629519338746
+    second: Mei-I_Death_154
+  - first:
+      213: -7825296139726335634
+    second: Mei-I_Death_155
+  - first:
+      213: -4553826692909543818
+    second: Mei-I_Death_156
+  - first:
+      213: 236944574588305274
+    second: Mei-I_Death_157
+  - first:
+      213: 2033719145667583832
+    second: Mei-I_Death_158
+  - first:
+      213: -9170757500614441079
+    second: Mei-I_Death_159
+  - first:
+      213: 6892039899034766299
+    second: Mei-I_Death_160
+  - first:
+      213: -7760688927296422917
+    second: Mei-I_Death_161
+  - first:
+      213: -8383434848662468353
+    second: Mei-I_Death_162
+  - first:
+      213: -3849535406900117555
+    second: Mei-I_Death_163
+  - first:
+      213: 390224433034197740
+    second: Mei-I_Death_164
+  - first:
+      213: 7505024466420253460
+    second: Mei-I_Death_165
+  - first:
+      213: -782917823912869907
+    second: Mei-I_Death_166
+  - first:
+      213: 2143602959522600209
+    second: Mei-I_Death_167
+  - first:
+      213: -1747095558394717402
+    second: Mei-I_Death_168
+  - first:
+      213: -927554066688562104
+    second: Mei-I_Death_169
+  - first:
+      213: -8560571106545495210
+    second: Mei-I_Death_170
+  - first:
+      213: 4773867043907890997
+    second: Mei-I_Death_171
+  - first:
+      213: -4759427772288899485
+    second: Mei-I_Death_172
+  - first:
+      213: 2336703941977494371
+    second: Mei-I_Death_173
+  - first:
+      213: -3593176739474472039
+    second: Mei-I_Death_174
+  - first:
+      213: -1195215852840163037
+    second: Mei-I_Death_175
+  - first:
+      213: 3700798624344822968
+    second: Mei-I_Death_176
+  - first:
+      213: 8652426763675882777
+    second: Mei-I_Death_177
+  - first:
+      213: 8435974546219440982
+    second: Mei-I_Death_178
+  - first:
+      213: 476533787151865431
+    second: Mei-I_Death_179
+  - first:
+      213: -8185674305469617593
+    second: Mei-I_Death_180
+  - first:
+      213: -4565246826484145793
+    second: Mei-I_Death_181
+  - first:
+      213: 5572598545949791918
+    second: Mei-I_Death_182
+  - first:
+      213: -5547262080903895984
+    second: Mei-I_Death_183
+  - first:
+      213: -1702008812524183334
+    second: Mei-I_Death_184
+  - first:
+      213: 2025549234867019384
+    second: Mei-I_Death_185
+  - first:
+      213: -779740528117643330
+    second: Mei-I_Death_186
+  - first:
+      213: 8943086928287451014
+    second: Mei-I_Death_187
+  - first:
+      213: -4191363654887680341
+    second: Mei-I_Death_188
+  - first:
+      213: 8775075317240809142
+    second: Mei-I_Death_189
+  - first:
+      213: 3195963351261338389
+    second: Mei-I_Death_190
+  - first:
+      213: -1386757162043909253
+    second: Mei-I_Death_191
+  - first:
+      213: 6270227383802810498
+    second: Mei-I_Death_192
+  - first:
+      213: -5467452056817394741
+    second: Mei-I_Death_193
+  - first:
+      213: -3543396695257252911
+    second: Mei-I_Death_194
+  - first:
+      213: 5288643536346310512
+    second: Mei-I_Death_195
+  - first:
+      213: 8154916277988554649
+    second: Mei-I_Death_196
+  - first:
+      213: -7011952885059794539
+    second: Mei-I_Death_197
+  - first:
+      213: -3681301503930509418
+    second: Mei-I_Death_198
+  - first:
+      213: -1198987657456817027
+    second: Mei-I_Death_199
+  - first:
+      213: -7765984515112220469
+    second: Mei-I_Death_200
+  - first:
+      213: -5486482300304319982
+    second: Mei-I_Death_201
+  - first:
+      213: 3337128056294282804
+    second: Mei-I_Death_202
+  - first:
+      213: 1911150103975829526
+    second: Mei-I_Death_203
+  - first:
+      213: -1311678002174884858
+    second: Mei-I_Death_204
+  - first:
+      213: 4233530910063703149
+    second: Mei-I_Death_205
+  - first:
+      213: 1141472736606344510
+    second: Mei-I_Death_206
+  - first:
+      213: -152906999906977180
+    second: Mei-I_Death_207
+  - first:
+      213: 2418577414391527642
+    second: Mei-I_Death_208
+  - first:
+      213: -2757470463829892081
+    second: Mei-I_Death_209
+  - first:
+      213: -5216110775172793754
+    second: Mei-I_Death_210
+  - first:
+      213: 2775068536010396576
+    second: Mei-I_Death_211
+  - first:
+      213: 5501256504091058678
+    second: Mei-I_Death_212
+  - first:
+      213: -8604470593795784662
+    second: Mei-I_Death_213
+  - first:
+      213: -8749430623105361697
+    second: Mei-I_Death_214
+  - first:
+      213: 5591684348616766031
+    second: Mei-I_Death_215
+  - first:
+      213: 1765154672014586663
+    second: Mei-I_Death_216
+  - first:
+      213: -544959945365355812
+    second: Mei-I_Death_217
+  - first:
+      213: 2877033414739844170
+    second: Mei-I_Death_218
+  - first:
+      213: 559034543272825882
+    second: Mei-I_Death_219
+  - first:
+      213: -1309569371890207015
+    second: Mei-I_Death_220
+  - first:
+      213: 6547435802150133678
+    second: Mei-I_Death_221
+  - first:
+      213: 4265540747912156189
+    second: Mei-I_Death_222
+  - first:
+      213: -5525537045263629048
+    second: Mei-I_Death_223
+  - first:
+      213: -2798601260561013175
+    second: Mei-I_Death_224
+  - first:
+      213: 1067299554986579963
+    second: Mei-I_Death_225
+  - first:
+      213: 7294069210872321200
+    second: Mei-I_Death_226
+  - first:
+      213: 1003237412811914014
+    second: Mei-I_Death_227
+  - first:
+      213: 5789347605503861546
+    second: Mei-I_Death_228
+  - first:
+      213: -6619157527004533663
+    second: Mei-I_Death_229
+  - first:
+      213: -4574876369378316078
+    second: Mei-I_Death_230
+  - first:
+      213: 8839613331858710166
+    second: Mei-I_Death_231
+  - first:
+      213: -5997361816042968112
+    second: Mei-I_Death_232
+  - first:
+      213: 967203665603330477
+    second: Mei-I_Death_233
+  - first:
+      213: 8352131088998985040
+    second: Mei-I_Death_234
+  - first:
+      213: 2416458816718794974
+    second: Mei-I_Death_235
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mei-I_Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b82cb0bc4b58944962f011590c7042
+      internalID: -608942524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9573442e67444d449bf33f15abbfa0a
+      internalID: -515031671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c106a0ff495a4145a48d1015aee20ee
+      internalID: -1860008723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40de9776b999d814bbc52f539fb4bee1
+      internalID: -1268137983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d697cb958748c2643a4e852375f965dc
+      internalID: 82057553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_5
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 936
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a197e7935bb84498385462f4ea8c31
+      internalID: -1577915885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b0b3367f5f53d40876ddafd03db7b8
+      internalID: -374249418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_7
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e2894bf257ffb448657077613e049b
+      internalID: 1174451721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_8
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb0ace3d677842479914bb5b9ec685f
+      internalID: 222527094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab0dd40ff110504fa00529c717e6d26
+      internalID: -860485949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8dbb376e18c66439264e1ad0a8f126
+      internalID: -871014049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 624
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcd76fb88d17e542bb3ef7cf9250247
+      internalID: 404229966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62ddf3f9eb859842ad6d1c341fc8d7c
+      internalID: -955654007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aada67daac24a334bad5ef29ba17867a
+      internalID: -1394585684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5095b5200d99446905909aee020e3b
+      internalID: -291258821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a46a2672dce824bbc039b4c965dc23
+      internalID: -743999363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e1e3438a9de2149a6d63f0f267621f
+      internalID: 1007819435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 312
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74354f9d93901f4489f84aa28a1766a1
+      internalID: 165795346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43db3ca64ee23741a082fd274050b52
+      internalID: -1752326627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mei-I_Death_19
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fba93b133bd2e4da4db30b228df29a
+      internalID: 2002592387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c06ea49c17ab9c74f9de33d7af469cc1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mei-I_Death_0: -608942524
+      Mei-I_Death_1: -515031671
+      Mei-I_Death_10: -871014049
+      Mei-I_Death_11: 404229966
+      Mei-I_Death_12: -955654007
+      Mei-I_Death_13: -1394585684
+      Mei-I_Death_14: -291258821
+      Mei-I_Death_15: -743999363
+      Mei-I_Death_16: 1007819435
+      Mei-I_Death_17: 165795346
+      Mei-I_Death_18: -1752326627
+      Mei-I_Death_19: 2002592387
+      Mei-I_Death_2: -1860008723
+      Mei-I_Death_3: -1268137983
+      Mei-I_Death_4: 82057553
+      Mei-I_Death_5: -1577915885
+      Mei-I_Death_6: -374249418
+      Mei-I_Death_7: 1174451721
+      Mei-I_Death_8: 222527094
+      Mei-I_Death_9: -860485949
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,592 @@
+fileFormatVersion: 2
+guid: cb0e01efa816b65409ef3adbd8eb244f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1244113982979516669
+    second: Ms-Remember_Death_0
+  - first:
+      213: -6668735464477088142
+    second: Ms-Remember_Death_1
+  - first:
+      213: 1828993634677455103
+    second: Ms-Remember_Death_2
+  - first:
+      213: 7201219463703040113
+    second: Ms-Remember_Death_3
+  - first:
+      213: 3978170726280922171
+    second: Ms-Remember_Death_4
+  - first:
+      213: -2373042162533660282
+    second: Ms-Remember_Death_5
+  - first:
+      213: 2142296926751701167
+    second: Ms-Remember_Death_6
+  - first:
+      213: -7273756777572589419
+    second: Ms-Remember_Death_7
+  - first:
+      213: 7984194170581723087
+    second: Ms-Remember_Death_8
+  - first:
+      213: -2163916633499222420
+    second: Ms-Remember_Death_9
+  - first:
+      213: -36623421375084025
+    second: Ms-Remember_Death_10
+  - first:
+      213: -3609168522859841988
+    second: Ms-Remember_Death_11
+  - first:
+      213: 1746228402160108365
+    second: Ms-Remember_Death_12
+  - first:
+      213: -2201461281235093728
+    second: Ms-Remember_Death_13
+  - first:
+      213: 6842803309183646901
+    second: Ms-Remember_Death_14
+  - first:
+      213: 1960499015797452675
+    second: Ms-Remember_Death_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ms-Remember_Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd6e69b1619a1649a99bfc3e50d6384
+      internalID: -1860450243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 720
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75798bf8d006afd489f9be6b0b6601a3
+      internalID: 154976014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 720
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68ae3a492223794bb81a668c058d690
+      internalID: 154151869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_3
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 720
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aba929c64ea73d4a9e07b72a9576bf5
+      internalID: 844947046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_4
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 720
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31270c65c8e8a9746bb214bc8a8970ec
+      internalID: -666072611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_5
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 720
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021212f97408b004e866f47792a94236
+      internalID: 1160888472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e6c040fd9093ee4c9762f82467da779
+      internalID: -2018018581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_7
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 480
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d0c2e1cd071f549abf95849adbc560
+      internalID: -410858678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_8
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 480
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42918061622d2214db6f1c1db3688f30
+      internalID: -484083664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_9
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 480
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 882a4e10831563441adf97b4ca2819d4
+      internalID: -1039164591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_10
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 480
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5599eaa089aa75a4ebd72189699bdd38
+      internalID: 1980058649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_11
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 480
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f93a0ae50842d479e3cc1897f8846e
+      internalID: 1496897007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2177d1a425c2fc44a049985185bcb8d
+      internalID: 2037688163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 240
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4d153d548037641a82de53c4328f05
+      internalID: 1730357848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_14
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 240
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011e45994927d404c8ec50d5d1161317
+      internalID: 1357452165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_15
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 240
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84ea9563ad2331458dcc040c7ae3027
+      internalID: 1927096692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_16
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 240
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1db8b1a5369d445bb4a55b4b42f872
+      internalID: 539363478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Death_17
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 240
+        width: 162
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7581cd14ffafb4bac24b1b74c2f906
+      internalID: -343409412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f405c813a1c166d4e95d2b0f260dc057
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ms-Remember_Death_0: -1860450243
+      Ms-Remember_Death_1: 154976014
+      Ms-Remember_Death_10: 1980058649
+      Ms-Remember_Death_11: 1496897007
+      Ms-Remember_Death_12: 2037688163
+      Ms-Remember_Death_13: 1730357848
+      Ms-Remember_Death_14: 1357452165
+      Ms-Remember_Death_15: 1927096692
+      Ms-Remember_Death_16: 539363478
+      Ms-Remember_Death_17: -343409412
+      Ms-Remember_Death_2: 154151869
+      Ms-Remember_Death_3: 844947046
+      Ms-Remember_Death_4: -666072611
+      Ms-Remember_Death_5: 1160888472
+      Ms-Remember_Death_6: -2018018581
+      Ms-Remember_Death_7: -410858678
+      Ms-Remember_Death_8: -484083664
+      Ms-Remember_Death_9: -1039164591
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

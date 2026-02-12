@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: ccb8435f42211dc4d8efd6a6594e5565
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1243458155961210438
+    second: JuniorAttack_0
+  - first:
+      213: 5671518072227382006
+    second: JuniorAttack_1
+  - first:
+      213: 7421637986469478159
+    second: JuniorAttack_2
+  - first:
+      213: -3342331960519349772
+    second: JuniorAttack_3
+  - first:
+      213: 8497691227826789828
+    second: JuniorAttack_4
+  - first:
+      213: -534044550719420499
+    second: JuniorAttack_5
+  - first:
+      213: 7205524729296747978
+    second: JuniorAttack_6
+  - first:
+      213: -6054455722764949511
+    second: JuniorAttack_7
+  - first:
+      213: 5437069778155732324
+    second: JuniorAttack_8
+  - first:
+      213: 9000674573498552755
+    second: JuniorAttack_9
+  - first:
+      213: -3553134253431048947
+    second: JuniorAttack_10
+  - first:
+      213: -7259294385251346553
+    second: JuniorAttack_11
+  - first:
+      213: 2438627838174608058
+    second: JuniorAttack_12
+  - first:
+      213: 1582170592123702508
+    second: JuniorAttack_13
+  - first:
+      213: -1066428747809695158
+    second: JuniorAttack_14
+  - first:
+      213: -3070928667271902833
+    second: JuniorAttack_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JuniorAttack_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 575
+        width: 134
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9aed035695ebee0800000000000000
+      internalID: -1243458155961210438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_1
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 575
+        width: 110
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2425043a745be40800000000000000
+      internalID: 5671518072227382006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_2
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 575
+        width: 110
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ffe0b5d64fef660800000000000000
+      internalID: 7421637986469478159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_3
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 575
+        width: 110
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f92fc35ac6ad91d0800000000000000
+      internalID: -3342331960519349772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 383
+        width: 110
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd9195262ddde570800000000000000
+      internalID: 8497691227826789828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_5
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 383
+        width: 134
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7c2248f41b698f0800000000000000
+      internalID: -534044550719420499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 383
+        width: 134
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd7606909a2ff360800000000000000
+      internalID: 7205524729296747978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_7
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 383
+        width: 116
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7a34819904afba0800000000000000
+      internalID: -6054455722764949511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_8
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 191
+        width: 122
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46dfbf9082a547b40800000000000000
+      internalID: 5437069778155732324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_9
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 191
+        width: 128
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1954446d1d8ec70800000000000000
+      internalID: 9000674573498552755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_10
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 191
+        width: 128
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0538f8c83bb0bec0800000000000000
+      internalID: -3553134253431048947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_11
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 191
+        width: 128
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7871b1fc73ec14b90800000000000000
+      internalID: -7259294385251346553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 122
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abab6c1391fb7d120800000000000000
+      internalID: 2438627838174608058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_13
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 0
+        width: 116
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec4a9555cff4f510800000000000000
+      internalID: 1582170592123702508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_14
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 0
+        width: 134
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ad98c34b84331f0800000000000000
+      internalID: -1066428747809695158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JuniorAttack_15
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 0
+        width: 134
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89c1b8c5aed165d0800000000000000
+      internalID: -3070928667271902833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JuniorAttack_0: -1243458155961210438
+      JuniorAttack_1: 5671518072227382006
+      JuniorAttack_10: -3553134253431048947
+      JuniorAttack_11: -7259294385251346553
+      JuniorAttack_12: 2438627838174608058
+      JuniorAttack_13: 1582170592123702508
+      JuniorAttack_14: -1066428747809695158
+      JuniorAttack_15: -3070928667271902833
+      JuniorAttack_2: 7421637986469478159
+      JuniorAttack_3: -3342331960519349772
+      JuniorAttack_4: 8497691227826789828
+      JuniorAttack_5: -534044550719420499
+      JuniorAttack_6: 7205524729296747978
+      JuniorAttack_7: -6054455722764949511
+      JuniorAttack_8: 5437069778155732324
+      JuniorAttack_9: 9000674573498552755
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

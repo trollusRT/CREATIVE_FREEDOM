@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: f2b75134dec3f3149bc496a9fdd9075a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 773583159748566222
+    second: Y-Spray_0
+  - first:
+      213: -8321080880378559495
+    second: Y-Spray_1
+  - first:
+      213: -4502869519222614247
+    second: Y-Spray_2
+  - first:
+      213: 4201925082791034636
+    second: Y-Spray_3
+  - first:
+      213: -6958843025912957799
+    second: Y-Spray_4
+  - first:
+      213: -8042591176471317666
+    second: Y-Spray_5
+  - first:
+      213: 3156503418292426953
+    second: Y-Spray_6
+  - first:
+      213: 4100075554206852553
+    second: Y-Spray_7
+  - first:
+      213: -728857642970647860
+    second: Y-Spray_8
+  - first:
+      213: -4385038532205288368
+    second: Y-Spray_9
+  - first:
+      213: -9006445508812386746
+    second: Y-Spray_10
+  - first:
+      213: -6002636478666625303
+    second: Y-Spray_11
+  - first:
+      213: 2658005522073882985
+    second: Y-Spray_12
+  - first:
+      213: 925370258706925799
+    second: Y-Spray_13
+  - first:
+      213: 4637224862947526672
+    second: Y-Spray_14
+  - first:
+      213: 7742737244575705356
+    second: Y-Spray_15
+  - first:
+      213: -8481883225116200563
+    second: Y-Spray_16
+  - first:
+      213: -3888447317554754766
+    second: Y-Spray_17
+  - first:
+      213: 1181755479794287628
+    second: Y-Spray_18
+  - first:
+      213: -4853976387371746766
+    second: Y-Spray_19
+  - first:
+      213: -1358701178580812305
+    second: Y-Spray_20
+  - first:
+      213: 3242361794895172027
+    second: Y-Spray_21
+  - first:
+      213: 1245823481671347386
+    second: Y-Spray_22
+  - first:
+      213: 5491757275961795567
+    second: Y-Spray_23
+  - first:
+      213: -3472254150825365160
+    second: Y-Spray_24
+  - first:
+      213: -4453461905309070832
+    second: Y-Spray_25
+  - first:
+      213: -6751452724510797402
+    second: Y-Spray_26
+  - first:
+      213: 7691516263334938170
+    second: Y-Spray_27
+  - first:
+      213: 937197771330022489
+    second: Y-Spray_28
+  - first:
+      213: 8648503102159935052
+    second: Y-Spray_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Y-Spray_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d288b9cda3a2749b5641f82384b429
+      internalID: 1358534649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Spray_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdbef3f69106cf4cbe099d1afc55ad5
+      internalID: -699085995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Spray_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae66784e257aed843a8b09c751a63ed0
+      internalID: -691120734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Spray_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11f49204a16d224abad90f8e6b0c12e
+      internalID: -1015482514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Spray_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abbd42398f918a43914cf637494cb61
+      internalID: -1964386459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Spray_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecc5c68fcd8fb14090f730e61c737ab
+      internalID: -1926569453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Spray_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d1a6a7c5f62f9418caf092c3452f57
+      internalID: 1522318917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e342da497f7719b45af7674dde2da8a2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Y-Spray_0: 1358534649
+      Y-Spray_1: -699085995
+      Y-Spray_2: -691120734
+      Y-Spray_3: -1015482514
+      Y-Spray_4: -1964386459
+      Y-Spray_5: -1926569453
+      Y-Spray_6: 1522318917
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,597 @@
+fileFormatVersion: 2
+guid: c974bc041c4ff1840840816b18e45bb0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6367446205044057292
+    second: JustGiveMeASecond_0
+  - first:
+      213: -4333819300889586444
+    second: JustGiveMeASecond_1
+  - first:
+      213: -2800336548474672148
+    second: JustGiveMeASecond_2
+  - first:
+      213: -4119520037516704264
+    second: JustGiveMeASecond_3
+  - first:
+      213: 1888985340159358840
+    second: JustGiveMeASecond_4
+  - first:
+      213: -9088206410702983570
+    second: JustGiveMeASecond_5
+  - first:
+      213: -2534657628710536775
+    second: JustGiveMeASecond_6
+  - first:
+      213: -5776292279467803542
+    second: JustGiveMeASecond_7
+  - first:
+      213: -5524421316538440340
+    second: JustGiveMeASecond_8
+  - first:
+      213: -8501785849722463585
+    second: JustGiveMeASecond_9
+  - first:
+      213: -2659679130945147780
+    second: JustGiveMeASecond_10
+  - first:
+      213: -1038131231191127744
+    second: JustGiveMeASecond_11
+  - first:
+      213: 5617873619506831101
+    second: JustGiveMeASecond_12
+  - first:
+      213: 2299963050089744938
+    second: JustGiveMeASecond_13
+  - first:
+      213: -5697031739328863794
+    second: JustGiveMeASecond_14
+  - first:
+      213: 7921844532278973423
+    second: JustGiveMeASecond_15
+  - first:
+      213: -6396828377474874209
+    second: JustGiveMeASecond_16
+  - first:
+      213: -6525874758407310897
+    second: JustGiveMeASecond_17
+  - first:
+      213: 375888878147375415
+    second: JustGiveMeASecond_18
+  - first:
+      213: 2158042402771146960
+    second: JustGiveMeASecond_19
+  - first:
+      213: 6733779099594632458
+    second: JustGiveMeASecond_20
+  - first:
+      213: -2258707701565947482
+    second: JustGiveMeASecond_21
+  - first:
+      213: 3503937386851641041
+    second: JustGiveMeASecond_22
+  - first:
+      213: 7546452296297394123
+    second: JustGiveMeASecond_23
+  - first:
+      213: -5772357549512877024
+    second: JustGiveMeASecond_24
+  - first:
+      213: -5398217610434197639
+    second: JustGiveMeASecond_25
+  - first:
+      213: -884337415527069283
+    second: JustGiveMeASecond_26
+  - first:
+      213: 6756359895929171017
+    second: JustGiveMeASecond_27
+  - first:
+      213: -3289422866484692348
+    second: JustGiveMeASecond_28
+  - first:
+      213: -4719815916681883388
+    second: JustGiveMeASecond_29
+  - first:
+      213: -2377267999864273192
+    second: JustGiveMeASecond_30
+  - first:
+      213: -4284550750337525919
+    second: JustGiveMeASecond_31
+  - first:
+      213: 5678480097658431431
+    second: JustGiveMeASecond_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JustGiveMeASecond_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ddf96380c7d4e14887d547022ea1f01
+      internalID: 2048758164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a620bfee4332944998d5542c10f626
+      internalID: -35702182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2ef01a490cdfb49a4d9caf7d694c9e
+      internalID: -791795117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c555f83be61c548bc546bf87078c08
+      internalID: -1765419059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c993bdde75fc7647b789e77dd881909
+      internalID: 954674173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc022f0d984be9b4fafa49d3aba16e76
+      internalID: 1185822812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2c406e6a3e51241aee20bc8a2ddbeb
+      internalID: -284465824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4449d243eeafaac4fa2c00bf5678d3b7
+      internalID: 926443452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90941bdc5550a0f4a819faf386b45b8f
+      internalID: 137620170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b531bc8ef79e34c9d58fcfbe909bf7
+      internalID: 1194312149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69acee2cfd62c1f4b8e84e2f6b81de1d
+      internalID: -167331272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d30773866000942b466707aeb0f5ff
+      internalID: 966825864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d216c9887d4e1e42a8c568783baeac6
+      internalID: -2145961357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8775545cd864e489bc24df5f7697c8
+      internalID: -173160340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaad71dd5a19e0249a209c561b90695e
+      internalID: -562339241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JustGiveMeASecond_15
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072d966ea3d9b3f4c97a73aa2bae1004
+      internalID: 1035190964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c13e1e2f290d7c3469fc86dcab62a464
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JustGiveMeASecond_0: 2048758164
+      JustGiveMeASecond_1: -35702182
+      JustGiveMeASecond_10: -167331272
+      JustGiveMeASecond_11: 966825864
+      JustGiveMeASecond_12: -2145961357
+      JustGiveMeASecond_13: -173160340
+      JustGiveMeASecond_14: -562339241
+      JustGiveMeASecond_15: 1035190964
+      JustGiveMeASecond_2: -791795117
+      JustGiveMeASecond_3: -1765419059
+      JustGiveMeASecond_4: 954674173
+      JustGiveMeASecond_5: 1185822812
+      JustGiveMeASecond_6: -284465824
+      JustGiveMeASecond_7: 926443452
+      JustGiveMeASecond_8: 137620170
+      JustGiveMeASecond_9: 1194312149
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

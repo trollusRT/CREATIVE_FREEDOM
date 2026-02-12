@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: a762ed6ed94e4c144bb706870e5ebfa3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1418323746483928078
+    second: RedStroke_0
+  - first:
+      213: 547009660620760028
+    second: RedStroke_1
+  - first:
+      213: -1294495297850937232
+    second: RedStroke_2
+  - first:
+      213: -8634825513342732481
+    second: RedStroke_3
+  - first:
+      213: -6850525353526317670
+    second: RedStroke_4
+  - first:
+      213: 6113624143471295679
+    second: RedStroke_5
+  - first:
+      213: -6633613454079373387
+    second: RedStroke_6
+  - first:
+      213: 4883240774148305428
+    second: RedStroke_7
+  - first:
+      213: 4194156784989319202
+    second: RedStroke_8
+  - first:
+      213: -8775862418152134765
+    second: RedStroke_9
+  - first:
+      213: 4870822973754734311
+    second: RedStroke_10
+  - first:
+      213: -97279153153560448
+    second: RedStroke_11
+  - first:
+      213: 2647046582877952058
+    second: RedStroke_12
+  - first:
+      213: 1222575558364677680
+    second: RedStroke_13
+  - first:
+      213: 3365092190124668531
+    second: RedStroke_14
+  - first:
+      213: 1624525357270725254
+    second: RedStroke_15
+  - first:
+      213: 9175609662418320498
+    second: RedStroke_16
+  - first:
+      213: 2592673341637546072
+    second: RedStroke_17
+  - first:
+      213: 4520541247736952648
+    second: RedStroke_18
+  - first:
+      213: -7949561828179964249
+    second: RedStroke_19
+  - first:
+      213: 8831452340134329282
+    second: RedStroke_20
+  - first:
+      213: 3091711886262073035
+    second: RedStroke_21
+  - first:
+      213: 6221036733100757310
+    second: RedStroke_22
+  - first:
+      213: 6212682491053520449
+    second: RedStroke_23
+  - first:
+      213: 1952327596574087900
+    second: RedStroke_24
+  - first:
+      213: 5802693121771749030
+    second: RedStroke_25
+  - first:
+      213: 8571176954492127864
+    second: RedStroke_26
+  - first:
+      213: 3581588846506270707
+    second: RedStroke_27
+  - first:
+      213: -7121158498452824275
+    second: RedStroke_28
+  - first:
+      213: -7227424528297048877
+    second: RedStroke_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RedStroke_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc37df62ef0fec643a32be6355214752
+      internalID: 1190758416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_1
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 264
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8630d662c8b39a4d90590bbc0af8ec4
+      internalID: -550736855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 264
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6dc1cb47ef74224d86d97e5f697549c
+      internalID: 2141345072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 132
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3fbe800cf894f849b3bbfd7cb3a835d
+      internalID: 784407295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 132
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad6e5db0ceedd244880c8fa2b56a0fa
+      internalID: -2095343389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 132
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4982cfc6863de7d4593e46d3d4b77792
+      internalID: 2007771544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66887c56a1fe9054997e033f1fce23e0
+      internalID: -1309551512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedStroke_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 168
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9689b9b385ff3f643be1f25a8962a4ed
+      internalID: -2134822966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f46045b904b26ed4cb93ec755390c19c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RedStroke_0: 1190758416
+      RedStroke_1: -550736855
+      RedStroke_2: 2141345072
+      RedStroke_3: 784407295
+      RedStroke_4: -2095343389
+      RedStroke_5: 2007771544
+      RedStroke_6: -1309551512
+      RedStroke_7: -2134822966
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

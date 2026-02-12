@@ -1,0 +1,651 @@
+fileFormatVersion: 2
+guid: fdd184e8283356142bf05ae2b4598d04
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5982079149779091312
+    second: Plagiarize_0
+  - first:
+      213: 3939157876950368192
+    second: Plagiarize_1
+  - first:
+      213: -2455391953610182931
+    second: Plagiarize_2
+  - first:
+      213: 7431536472652399171
+    second: Plagiarize_3
+  - first:
+      213: -72436917442661301
+    second: Plagiarize_4
+  - first:
+      213: -5848872722999753159
+    second: Plagiarize_5
+  - first:
+      213: 8857112717498275811
+    second: Plagiarize_6
+  - first:
+      213: -4901558850393191489
+    second: Plagiarize_7
+  - first:
+      213: -2621304249365520155
+    second: Plagiarize_8
+  - first:
+      213: -476664243690067156
+    second: Plagiarize_9
+  - first:
+      213: -7239047684461794903
+    second: Plagiarize_10
+  - first:
+      213: -7959270633253308698
+    second: Plagiarize_11
+  - first:
+      213: 4012817514044139105
+    second: Plagiarize_12
+  - first:
+      213: -6337907555585280502
+    second: Plagiarize_13
+  - first:
+      213: 2941601963884794700
+    second: Plagiarize_14
+  - first:
+      213: 6757044608263682741
+    second: Plagiarize_15
+  - first:
+      213: -6125623464767433487
+    second: Plagiarize_16
+  - first:
+      213: -4656380876930944529
+    second: Plagiarize_17
+  - first:
+      213: -7718833405139320642
+    second: Plagiarize_18
+  - first:
+      213: 354817240793629536
+    second: Plagiarize_19
+  - first:
+      213: 3444210116821083924
+    second: Plagiarize_20
+  - first:
+      213: -3679770190810389812
+    second: Plagiarize_21
+  - first:
+      213: -5639645820576119692
+    second: Plagiarize_22
+  - first:
+      213: 8525651298326919538
+    second: Plagiarize_23
+  - first:
+      213: 5645852357454941204
+    second: Plagiarize_24
+  - first:
+      213: -6290212119370436092
+    second: Plagiarize_25
+  - first:
+      213: 6461470791637126111
+    second: Plagiarize_26
+  - first:
+      213: -5713123834328578574
+    second: Plagiarize_27
+  - first:
+      213: 8607165437068944068
+    second: Plagiarize_28
+  - first:
+      213: 4465573588231176328
+    second: Plagiarize_29
+  - first:
+      213: -6206279599190272681
+    second: Plagiarize_30
+  - first:
+      213: 8246063859447887294
+    second: Plagiarize_31
+  - first:
+      213: 4008891394968602985
+    second: Plagiarize_32
+  - first:
+      213: -5677063588542585669
+    second: Plagiarize_33
+  - first:
+      213: 2624883519408916116
+    second: Plagiarize_34
+  - first:
+      213: -5347372504699061404
+    second: Plagiarize_35
+  - first:
+      213: 2114250933197575705
+    second: Plagiarize_36
+  - first:
+      213: 7980844956402911469
+    second: Plagiarize_37
+  - first:
+      213: 4791479857699428989
+    second: Plagiarize_38
+  - first:
+      213: 2613686631618990693
+    second: Plagiarize_39
+  - first:
+      213: 311406091790705986
+    second: Plagiarize_40
+  - first:
+      213: 4211916844907994417
+    second: Plagiarize_41
+  - first:
+      213: 5384538152300739467
+    second: Plagiarize_42
+  - first:
+      213: 4150371975846507852
+    second: Plagiarize_43
+  - first:
+      213: -5886538885157755045
+    second: Plagiarize_44
+  - first:
+      213: 3954938680609003303
+    second: Plagiarize_45
+  - first:
+      213: 8195044196283406319
+    second: Plagiarize_46
+  - first:
+      213: 5357589857014662089
+    second: Plagiarize_47
+  - first:
+      213: -8374665974143027164
+    second: Plagiarize_48
+  - first:
+      213: 2184012758997844278
+    second: Plagiarize_49
+  - first:
+      213: -9130897982050942609
+    second: Plagiarize_50
+  - first:
+      213: 1155583911123699555
+    second: Plagiarize_51
+  - first:
+      213: 277469171861688517
+    second: Plagiarize_52
+  - first:
+      213: -554320364522282510
+    second: Plagiarize_53
+  - first:
+      213: 5511387057491005942
+    second: Plagiarize_54
+  - first:
+      213: 6861406711666939444
+    second: Plagiarize_55
+  - first:
+      213: 6704127810665676929
+    second: Plagiarize_56
+  - first:
+      213: -2449068349247367063
+    second: Plagiarize_57
+  - first:
+      213: -5392142186676458941
+    second: Plagiarize_58
+  - first:
+      213: -7515861873972706967
+    second: Plagiarize_59
+  - first:
+      213: -9183751846409948618
+    second: Plagiarize_60
+  - first:
+      213: 7456554824832509942
+    second: Plagiarize_61
+  - first:
+      213: -2528520515308602530
+    second: Plagiarize_62
+  - first:
+      213: -7166725277532511921
+    second: Plagiarize_63
+  - first:
+      213: -7429200263434331315
+    second: Plagiarize_64
+  - first:
+      213: -332084233467452749
+    second: Plagiarize_65
+  - first:
+      213: 4381094419774330769
+    second: Plagiarize_66
+  - first:
+      213: 5720480432444012129
+    second: Plagiarize_67
+  - first:
+      213: 949896050176773391
+    second: Plagiarize_68
+  - first:
+      213: 7089971694515949148
+    second: Plagiarize_69
+  - first:
+      213: -6216755524488288742
+    second: Plagiarize_70
+  - first:
+      213: 5146021888504167960
+    second: Plagiarize_71
+  - first:
+      213: -7022169692398580768
+    second: Plagiarize_72
+  - first:
+      213: -6166034161157095258
+    second: Plagiarize_73
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Plagiarize_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b612ef90fd8ce494b89e0c65f31d3c23
+      internalID: -1943132416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527d7f77cf562b7438c6dfee07ac7068
+      internalID: 1629189570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1800
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42ad1c6ccae38b40a2eae5872d9d151
+      internalID: -378071172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ef8cdfa977f354099d6ebcce674b9d
+      internalID: 1338617100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90f28f907df29846991346bc1759479
+      internalID: -1142801580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1350
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513966eb78f332b458d840a84b83eaca
+      internalID: -434580501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78994261b7bfd9f45bb17a2dc13a3e9c
+      internalID: -445026675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed5be052e4fd7c4b95ff51751cfb7c1
+      internalID: -1485410990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_8
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 900
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1657460e453b7c948bdd6ab7f5d39e80
+      internalID: 1900035814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b0d65bc7714274c835dc160be2fea7
+      internalID: 1050330572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_10
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7491cd0dc23af64a966c0f590739f06
+      internalID: -1524613854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_11
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 450
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bf40c5f5207594ebdb16d7b7cd78fd
+      internalID: 1172680445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plagiarize_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 750
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38be5f95de976fe47a6fc66e46b4c138
+      internalID: 1104808517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 049ade240aeb0234ca9bc9369563a959
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Plagiarize_0: -1943132416
+      Plagiarize_1: 1629189570
+      Plagiarize_10: -1524613854
+      Plagiarize_11: 1172680445
+      Plagiarize_12: 1104808517
+      Plagiarize_2: -378071172
+      Plagiarize_3: 1338617100
+      Plagiarize_4: -1142801580
+      Plagiarize_5: -434580501
+      Plagiarize_6: -445026675
+      Plagiarize_7: -1485410990
+      Plagiarize_8: 1900035814
+      Plagiarize_9: 1050330572
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

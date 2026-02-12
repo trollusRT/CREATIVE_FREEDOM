@@ -1,0 +1,34 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE / OS
+.vscode/
+.vs/
+.idea/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# Unity cache
+*.unitypackage
+
+# Crash reports
+sysinfo.txt
+
+# Addressables / StreamingAssets caches (optional)
+# Assets/AddressableAssetsData/*/BuildScript*
+# Assets/AddressableAssetsData/*/BuildPath*

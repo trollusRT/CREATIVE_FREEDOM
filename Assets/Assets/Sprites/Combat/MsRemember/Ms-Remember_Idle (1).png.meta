@@ -1,0 +1,436 @@
+fileFormatVersion: 2
+guid: b36e06c6f379fe44f80e0ae443369f9c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1266536100814160630
+    second: Ms-Remember_Idle (1)_0
+  - first:
+      213: 1568943884059638517
+    second: Ms-Remember_Idle (1)_1
+  - first:
+      213: -7461168695492216961
+    second: Ms-Remember_Idle (1)_2
+  - first:
+      213: -6941281892042465848
+    second: Ms-Remember_Idle (1)_3
+  - first:
+      213: -100043472088382864
+    second: Ms-Remember_Idle (1)_4
+  - first:
+      213: 2122031315952135804
+    second: Ms-Remember_Idle (1)_5
+  - first:
+      213: -633287648261349238
+    second: Ms-Remember_Idle (1)_6
+  - first:
+      213: -3190571305164458334
+    second: Ms-Remember_Idle (1)_7
+  - first:
+      213: 7119506689419667147
+    second: Ms-Remember_Idle (1)_8
+  - first:
+      213: -2381845904398138010
+    second: Ms-Remember_Idle (1)_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a7766c1d70eab4abe70650e0eefd5b
+      internalID: 469390028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2970ed65b0cb548b0948de0f106fd2
+      internalID: -757221352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d2c16a03ff3014ba1d80e6636a0a02
+      internalID: 1402805394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_3
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 720
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c331f59fc224ed04da1cc7a4ced97c5f
+      internalID: -584558651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b45fc1ccb0c6a4c8dfb6ac29de4bb3
+      internalID: -358115508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7025b456ec84e1843b0408bbfd35ead6
+      internalID: -1334172827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_6
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39743580f3cf0df428cfd54e5500bbf1
+      internalID: 824755191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_7
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 360
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3f62a2aa534414e93c3a8e62b1bb1b
+      internalID: 319925734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f328cd35592f244f819d959e4936d6b
+      internalID: 678841112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_9
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90e1bb2f5bfc7349a61e407f3bf96ee
+      internalID: 1024258947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_10
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd50d5d3a7bc7d46bdcbc8c06888b7b
+      internalID: 641183401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ms-Remember_Idle (1)_11
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 0
+        width: 243
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97799c1a5db754d4c9f9cc9c1b4e79cf
+      internalID: -654914163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f66465b2f993bb2419754876d85fd466
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ms-Remember_Idle (1)_0: 469390028
+      Ms-Remember_Idle (1)_1: -757221352
+      Ms-Remember_Idle (1)_10: 641183401
+      Ms-Remember_Idle (1)_11: -654914163
+      Ms-Remember_Idle (1)_2: 1402805394
+      Ms-Remember_Idle (1)_3: -584558651
+      Ms-Remember_Idle (1)_4: -358115508
+      Ms-Remember_Idle (1)_5: -1334172827
+      Ms-Remember_Idle (1)_6: 824755191
+      Ms-Remember_Idle (1)_7: 319925734
+      Ms-Remember_Idle (1)_8: 678841112
+      Ms-Remember_Idle (1)_9: 1024258947
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
