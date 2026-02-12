@@ -1,4 +1,3 @@
-# Unity generated
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -6,29 +5,20 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
-[Mm]emoryCaptures/
-[Rr]ecordings/
 
-# IDE / OS
-.vscode/
+# MemoryCaptures can get huge
+[Mm]emoryCaptures/
+
+# Visual Studio / Rider
 .vs/
+.vscode/
 .idea/
 *.csproj
 *.sln
 *.user
-*.userprefs
-*.pidb
-*.booproj
-*.svd
-*.pdb
-*.mdb
+*.suo
+*.tmp
 
-# Unity cache
-*.unitypackage
-
-# Crash reports
-sysinfo.txt
-
-# Addressables / StreamingAssets caches (optional)
-# Assets/AddressableAssetsData/*/BuildScript*
-# Assets/AddressableAssetsData/*/BuildPath*
+# OS junk
+.DS_Store
+Thumbs.db
