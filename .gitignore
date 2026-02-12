@@ -22,3 +22,8 @@
 # OS junk
 .DS_Store
 Thumbs.db
+
+#Random Stuff
+/Linux/
+/Build/
+/Builds/
