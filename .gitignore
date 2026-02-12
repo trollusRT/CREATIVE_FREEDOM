@@ -18,6 +18,8 @@
 *.user
 *.suo
 *.tmp
+*.apk
+*.aab
 
 # OS junk
 .DS_Store
@@ -27,3 +29,7 @@ Thumbs.db
 /Linux/
 /Build/
 /Builds/
+/Library/
+/Temp/
+/Obj/
+/Logs/
