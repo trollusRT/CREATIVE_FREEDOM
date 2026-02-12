@@ -40,6 +40,44 @@
 
 # 
 
+# \## Project Overview
+
+# See full file: \[PROJECT\_SUMMARY.md](PROJECT\_SUMMARY.md)
+
+# 
+
+# ---
+
+# 
+
+# \## Current Development
+
+# See full file: \[CURRENT\_TASK.md](CURRENT\_TASK.md)
+
+# 
+
+# ---
+
+# 
+
+# \## System Map
+
+# See full file: \[SYSTEM\_MAP.md](SYSTEM\_MAP.md)
+
+# 
+
+# ---
+
+# 
+
+# \## Known Issues
+
+# See full file: \[BUGLOG.md](BUGLOG.md)
+
+
+
+# 
+
 # \## Repository Structure
 
 # 
