@@ -40,7 +40,19 @@ public class BattleManager : MonoBehaviour
 
     private bool battleResolved = false;
 
-    // BattleManager fields (tweak in Inspector)
+    
+
+[Header("Action gating (turn pacing)")]
+[Tooltip("If > 0, BattleManager will wait for all registered effect animations to complete before starting the enemy turn.")]
+public bool gateEnemyTurnOnPendingEffects = true;
+
+[Tooltip("Failsafe: maximum time (seconds) to wait for pending effects before starting enemy turn anyway.")]
+public float maxEffectGateSeconds = 4.0f;
+
+private int pendingEffectCount = 0;
+private Coroutine enemyTurnGateCo;
+
+// BattleManager fields (tweak in Inspector)
     [Header("Victory Cinematic")]
     public float victoryFreeze = 0.06f;
     public float victorySlowScale = 0.2f;
@@ -53,7 +65,7 @@ public class BattleManager : MonoBehaviour
     [Range(0.3f, 1f)] public float duckPitch = 0.7f;
     [Range(0f, 1f)] public float duckVolume = 0.6f;
     public float duckAttack = 0.08f;   // how fast to drop
-    public float duckRelease = 0.0f;   // we won’t restore; victory track will reset
+    public float duckRelease = 0.0f;   // we won't restore; victory track will reset
 
 
     void Awake()
@@ -154,30 +166,53 @@ public class BattleManager : MonoBehaviour
         state = BattleState.TURN_END;
         UpdateUI();
 
-        // Start delayed transition into the enemy turn
-        StartCoroutine(BeginEnemyTurnAfterDelay());
+        // Start transition into the enemy turn (optionally gated on pending effects)
+        if (enemyTurnGateCo != null) StopCoroutine(enemyTurnGateCo);
+        enemyTurnGateCo = StartCoroutine(BeginEnemyTurnWhenReady());
     }
 
-    IEnumerator BeginEnemyTurnAfterDelay()
+    
+IEnumerator BeginEnemyTurnWhenReady()
+{
+    // Wait until all registered effect animations have finished (optional)
+    if (gateEnemyTurnOnPendingEffects)
     {
-        // Wait a bit so player's last animations/VFX can breathe
-        if (endOfPlayerDelay > 0f)
+        // Allow a frame so any last-second cards can register before we check.
+        yield return null;
+
+        float waited = 0f;
+        while (!battleResolved && state != BattleState.VICTORY && state != BattleState.DEFEAT && pendingEffectCount > 0)
         {
-            if (useUnscaledDelayForTurnGap)
-                yield return new WaitForSecondsRealtime(endOfPlayerDelay);
-            else
-                yield return new WaitForSeconds(endOfPlayerDelay);
+            waited += Time.unscaledDeltaTime;
+            if (maxEffectGateSeconds > 0f && waited >= maxEffectGateSeconds)
+            {
+                Debug.LogWarning($"[BattleManager] Pending effects gate timed out (pending={pendingEffectCount}). Continuing to enemy turn.");
+                pendingEffectCount = 0; // failsafe to prevent soft-lock
+                break;
+            }
+            yield return null;
         }
-
-        // If victory/defeat happened during the pause, bail.
-        if (battleResolved || state == BattleState.VICTORY || state == BattleState.DEFEAT) yield break;
-
-        // If delayed effects killed the last enemy during the pause, victory will kick in elsewhere
-        if (AliveEnemyCount() == 0) yield break;
-
-        state = BattleState.ENEMY_TURN;
-        StartCoroutine(EnemyTurn());
     }
+
+    // Wait a bit so the player's last animations/VFX can breathe
+    if (endOfPlayerDelay > 0f)
+    {
+        if (useUnscaledDelayForTurnGap)
+            yield return new WaitForSecondsRealtime(endOfPlayerDelay);
+        else
+            yield return new WaitForSeconds(endOfPlayerDelay);
+    }
+
+    // If victory/defeat happened during the pause, bail.
+    if (battleResolved || state == BattleState.VICTORY || state == BattleState.DEFEAT) yield break;
+
+    // If delayed effects killed the last enemy during the pause, bail (victory will trigger elsewhere).
+    if (AliveEnemyCount() == 0) yield break;
+
+    state = BattleState.ENEMY_TURN;
+    StartCoroutine(EnemyTurn());
+}
+
 
 
     IEnumerator EnemyTurn()
@@ -274,7 +309,7 @@ public class BattleManager : MonoBehaviour
         if (musicManager)
         {
             float totalHold = victoryFreeze + victorySlowDuration + victoryRestoreDuration + victoryPostDelay;
-            // We won’t restore here (victory track resets pitch/vol), so restoreAtEnd = false.
+            // We won't restore here (victory track resets pitch/vol), so restoreAtEnd = false.
             musicManager.DuckPitchAndVolume(duckPitch, duckVolume, duckAttack, totalHold, duckRelease, restoreAtEnd: false);
         }
 
@@ -351,6 +386,24 @@ public class BattleManager : MonoBehaviour
         UseAP(1);
         audioManager.PlaySound(click);
     }
+
+// ---------- Effect / action gating ----------
+public void NotifyEffectStarted()
+{
+    pendingEffectCount = Mathf.Max(0, pendingEffectCount + 1);
+    // Debug.Log($"[BattleManager] Effect started. pending={pendingEffectCount}");
+}
+
+public void NotifyEffectCompleted()
+{
+    pendingEffectCount = Mathf.Max(0, pendingEffectCount - 1);
+    // Debug.Log($"[BattleManager] Effect completed. pending={pendingEffectCount}");
+}
+
+public bool HasPendingEffects()
+{
+    return pendingEffectCount > 0;
+}
 
     // ---------- Helpers ----------
     void PruneDeadEnemies()

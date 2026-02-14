@@ -94,6 +94,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     private int hoverOriginalSiblingIndex = -1;
 
 
+
+
+private Coroutine hoverExitCo;
+
     private bool pointerDown;
     private Vector2 pointerDownPos;
     [SerializeField] float clickMaxMove = 8f; // pixels allowed to still count as a click
@@ -112,6 +116,34 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     // --- alpha/visibility guards ---
     private bool fusionSelected = false;   // true only while selected for fusion
+
+	// --- turn pacing gating helpers ---
+	private IEnumerator Co_AutoCompleteEffectGate(System.Action complete)
+	{
+		// Allow one frame so the visual Play() can at least fire before we release the gate.
+		yield return null;
+		complete?.Invoke();
+	}
+
+	private void BeginEffectGate(EffectAnimatorHost host)
+	{
+		if (BattleManager.Instance == null) return;
+		if (!BattleManager.Instance.gateEnemyTurnOnPendingEffects) return;
+
+		BattleManager.Instance.NotifyEffectStarted();
+		bool completed = false;
+		System.Action complete = () =>
+		{
+			if (completed) return;
+			completed = true;
+			BattleManager.Instance.NotifyEffectCompleted();
+		};
+
+		if (host != null)
+			host.ArmComplete(complete);
+		else
+			StartCoroutine(Co_AutoCompleteEffectGate(complete));
+	}
 
 
 
@@ -157,7 +189,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Restore":
                 {
                     var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
-                    EffectDirector.Instance.PlayPlayerHit(EffectKey.Restore, cardData.sfx, cardData.sfxVolume, tint);
+					var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
+					BeginEffectGate(_host);
+					EffectDirector.Instance.PlayPlayerHit(EffectKey.Restore, cardData.sfx, cardData.sfxVolume, tint);
+
                     player.Heal(Random.Range(cardData.minValue, cardData.maxValue + 1));
                 }
                 break;
@@ -165,7 +200,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Rejuvenate":
                 {
                     var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
-                    EffectDirector.Instance.PlayPlayerHit(EffectKey.Rejuvenate, cardData.sfx, cardData.sfxVolume, tint);
+					var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
+					BeginEffectGate(_host);
+					EffectDirector.Instance.PlayPlayerHit(EffectKey.Rejuvenate, cardData.sfx, cardData.sfxVolume, tint);
+
                     player.Heal(cardData.minValue);
                 }
                 break;
@@ -177,7 +215,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
-            // add your other self-target cases here…
+            // add your other self-target cases here...
 
             default:
                 Debug.Log($"{cardData.cardName} not implemented for player!");
@@ -199,7 +237,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (!pointerDown) return;
         pointerDown = false;
 
-        // treat as click if we didn’t actually drag far
+        // treat as click if we didn't actually drag far
         if ((eventData.position - pointerDownPos).sqrMagnitude <= clickMaxMove * clickMaxMove)
         {
             TryFusionClick();
@@ -252,29 +290,37 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         // SINGLE-TARGET: arm impact on the target's host, then PlayEnemyHit
         void STWithImpact(Enemy target, EffectKey key, System.Action onImpact)
         {
-            var host = dir.GetEnemyHost(target);
-            host.ArmImpact(() =>
-            {
-                onImpact?.Invoke();
-                BattleManager.Instance.CheckVictoryImmediate();
-            });
+			var host = dir.GetEnemyHost(target);
+			if (host != null)
+			{
+				host.ArmImpact(() =>
+				{
+					onImpact?.Invoke();
+					BattleManager.Instance.CheckVictoryImmediate();
+				});
+			}
 
-            var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
-            dir.PlayEnemyHit(target, key, cardData.sfx, cardData.sfxVolume, tint);
+			BeginEffectGate(host);
+			var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
+			dir.PlayEnemyHit(target, key, cardData.sfx, cardData.sfxVolume, tint);
         }
 
         // AOE: arm impact on the central AoE host, then PlayAoe
         void AOEWithImpact(EffectKey key, System.Action onImpact)
         {
-            var host = dir.aoeHost;
-            host.ArmImpact(() =>
-            {
-                onImpact?.Invoke();
-                BattleManager.Instance.CheckVictoryImmediate();
-            });
+			var host = dir.aoeHost;
+			if (host != null)
+			{
+				host.ArmImpact(() =>
+				{
+					onImpact?.Invoke();
+					BattleManager.Instance.CheckVictoryImmediate();
+				});
+			}
 
-            var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
-            dir.PlayAoe(key, cardData.sfx, cardData.sfxVolume, tint);
+			BeginEffectGate(host);
+			var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
+			dir.PlayAoe(key, cardData.sfx, cardData.sfxVolume, tint);
         }
 
 
@@ -308,7 +354,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                         foreach (var e in snapshot)
                         {
                             if (!IsAlive(e)) continue;
-                            int dmg = Random.Range(5, 7); // 5–6
+                            int dmg = Random.Range(5, 7); // 5-6
                             e.TakeDamage(dmg);
                         }
                     });
@@ -367,7 +413,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                         foreach (var e in snapshot)
                         {
                             if (!IsAlive(e)) continue;
-                            int dmg = Random.Range(2, 5); // 2–4
+                            int dmg = Random.Range(2, 5); // 2-4
                             e.TakeDamage(dmg);
                         }
                     });
@@ -376,7 +422,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Poison":
                 {
-                    int poisonPerTurn = Random.Range(1, 3); // 1–2
+                    int poisonPerTurn = Random.Range(1, 3); // 1-2
                     enemy.ApplyPoison(poisonPerTurn, 3);
                 }
                 break;
@@ -401,7 +447,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- GOLDEN -----
             case "Toxic Paint":
                 {
-                    int poisonPerTurn = Random.Range(3, 7); // 2–3
+                    int poisonPerTurn = Random.Range(3, 7); // 2-3
                     enemy.ApplyPoison(poisonPerTurn, 3);
                 }
                 break;
@@ -409,8 +455,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Pool of Paint":
                 {
                     // roll once so both poison & regen are consistent
-                    int poisonPerTurn = Random.Range(2, 4); // 2–3
-                    int healPerTurn = Random.Range(1, 4); // 1–3
+                    int poisonPerTurn = Random.Range(2, 4); // 2-3
+                    int healPerTurn = Random.Range(1, 4); // 1-3
 
                     // Use the mid-screen animator but apply ST effects at the animation's impact frame
                     AOEWithImpact(EffectKey.PoolOfPaint, () =>
@@ -466,7 +512,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     // ---------------------------------------------------------
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (dragging || !isDraggable) return;
+        
+        if (hoverExitCo != null) { StopCoroutine(hoverExitCo); hoverExitCo = null; }
+if (dragging || !isDraggable) return;
         ForceVisibleIfNotFusionLocked();
         if (!visualRoot) visualRoot = transform as RectTransform; // safety
 
@@ -501,29 +549,79 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 
 
-    public void OnPointerExit(PointerEventData eventData)
+    
+public void OnPointerExit(PointerEventData eventData)
+{
+    if (!isHovered) return;
+
+    // Don't immediately drop hover: when the card visually moves on hover-lift,
+    // the pointer can "exit" for a frame due to UI raycast target drift.
+    // Confirm on the next frame whether the pointer is truly no longer over this card.
+    if (hoverExitCo != null) StopCoroutine(hoverExitCo);
+    hoverExitCo = StartCoroutine(Co_ConfirmHoverExit());
+}
+
+private IEnumerator Co_ConfirmHoverExit()
+{
+    yield return null; // wait one frame for UI raycasts to stabilize
+
+    if (EventSystem.current == null)
     {
-        if (!isHovered) return;
-        ForceVisibleIfNotFusionLocked();
-        if (!visualRoot) visualRoot = transform as RectTransform;
-
-        var vr = (RectTransform)visualRoot;
-        hoverPosTw?.Kill();
-        hoverPosTw = vr.DOAnchorPos(vrPreHoverPos, hoverDuration).SetEase(hoverEase);
-
-        if (hoverOriginalSiblingIndex >= 0)
-            transform.SetSiblingIndex(hoverOriginalSiblingIndex);
-        hoverOriginalSiblingIndex = -1;
-
-        isHovered = false;
+        DoUnhover();
+        yield break;
     }
+
+    var ped = new PointerEventData(EventSystem.current)
+    {
+        position = Input.mousePosition
+    };
+
+    var results = new List<RaycastResult>();
+    EventSystem.current.RaycastAll(ped, results);
+
+    bool stillOverThisCard = false;
+    for (int i = 0; i < results.Count; i++)
+    {
+        var go = results[i].gameObject;
+        if (go == null) continue;
+
+        if (go == gameObject || go.transform.IsChildOf(transform))
+        {
+            stillOverThisCard = true;
+            break;
+        }
+    }
+
+    if (!stillOverThisCard)
+        DoUnhover();
+
+    hoverExitCo = null;
+}
+
+private void DoUnhover()
+{
+    ForceVisibleIfNotFusionLocked();
+    if (!visualRoot) visualRoot = transform as RectTransform;
+
+    var vr = (RectTransform)visualRoot;
+    hoverPosTw?.Kill();
+    hoverPosTw = vr.DOAnchorPos(vrPreHoverPos, hoverDuration).SetEase(hoverEase);
+
+    if (hoverOriginalSiblingIndex >= 0)
+        transform.SetSiblingIndex(hoverOriginalSiblingIndex);
+    hoverOriginalSiblingIndex = -1;
+
+    isHovered = false;
+}
 
 
 
 
     private void ResetHoverInstant()
     {
-        if (!isHovered) return;
+        
+        if (hoverExitCo != null) { StopCoroutine(hoverExitCo); hoverExitCo = null; }
+if (!isHovered) return;
         if (!visualRoot) visualRoot = transform as RectTransform;
 
         var vr = (RectTransform)visualRoot;
@@ -628,7 +726,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             visualRoot.localRotation = Quaternion.Euler(0, 0, dangleAngle);
         }
 
-        // (keep your UpdateHoverHighlight(eventData.position) here if you’re using it)
+        // (keep your UpdateHoverHighlight(eventData.position) here if you're using it)
         UpdateHoverHighlight(eventData.position);
     }
 
