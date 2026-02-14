@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public AudioClip attackSound;
     public AudioClip damageSound;
+    [Tooltip("Optional impact sound when Junior is hit (e.g., punch.wav). If set, this is used instead of damageSound.")]
+    public AudioClip punchImpactSound;
     public AudioClip deathSound;
     public AudioClip hurtSound;
 
@@ -43,7 +45,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        audioManager.PlaySound(hurtSound);
+        // "Hurt" is the character vocal/response. Impact is a separate layer.
+        if (audioManager && hurtSound) audioManager.PlaySound(hurtSound);
+
+        // Impact SFX: prefer punchImpactSound; fall back to damageSound if punchImpactSound isn't assigned.
+        var impact = punchImpactSound ? punchImpactSound : damageSound;
+        if (audioManager && impact) audioManager.PlaySound(impact);
+
         currentHP -= damage;
         if (currentHP <= 0)
         {
@@ -58,7 +66,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Yeouch");
             animator.SetTrigger("Hurt");
-            audioManager.PlaySound(damageSound);
             CombatVFXManager.Instance.PlayOnPlayer(VfxType.PaintSplash);
         }
 
@@ -199,7 +206,7 @@ public class Player : MonoBehaviour
                 case StatusType.Poison:
                     // apply damage this tick
                     int p = Mathf.Max(1, eff.power);
-                    TakeDamage(p);
+                    ApplyStatusDamage(p);
                     eff.duration--;
                     break;
 
