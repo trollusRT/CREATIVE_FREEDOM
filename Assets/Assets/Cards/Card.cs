@@ -184,6 +184,22 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
         BattleManager.Instance.UseAP(cardData.cardCost);
 
+        // Package E: data-driven player effects (optional)
+        if (CardEffectRegistry.TryResolvePlayer(cardData, player, out var resolvedPlayer) && resolvedPlayer.onResolve != null)
+        {
+            var dir = EffectDirector.Instance;
+            if (dir != null && resolvedPlayer.vfxKey != EffectKey.None)
+            {
+                var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
+                var host = dir.playerSingleTargetHost;
+                BeginEffectGate(host);
+                dir.PlayPlayerHit(resolvedPlayer.vfxKey, cardData.sfx, cardData.sfxVolume, tint);
+            }
+
+            resolvedPlayer.onResolve.Invoke();
+            return;
+        }
+
         switch (cardData.cardName)
         {
             case "Restore":
@@ -321,6 +337,25 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             BeginEffectGate(host);
             var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
             dir.PlayAoe(key, cardData.sfx, cardData.sfxVolume, tint);
+        }
+
+        // Package E: data-driven enemy effects (optional)
+        if (CardEffectRegistry.TryResolveEnemy(cardData, enemy, out var resolvedEnemy) && resolvedEnemy.onImpact != null)
+        {
+            if (resolvedEnemy.vfxKey == EffectKey.None)
+            {
+                // No VFX key configured; apply immediately.
+                resolvedEnemy.onImpact.Invoke();
+                BattleManager.Instance.CheckVictoryImmediate();
+                return;
+            }
+
+            if (resolvedEnemy.isAoe)
+                AOEWithImpact(resolvedEnemy.vfxKey, resolvedEnemy.onImpact);
+            else
+                STWithImpact(enemy, resolvedEnemy.vfxKey, resolvedEnemy.onImpact);
+
+            return;
         }
 
 

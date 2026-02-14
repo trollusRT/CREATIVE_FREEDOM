@@ -13,6 +13,13 @@ public class CardData : ScriptableObject
     public bool canTargetEnemy;
     public bool isConditional;
 
+    [Header("Effect Routing (Optional)")]
+    [Tooltip("Optional. If set, Card.cs will try to resolve gameplay using CardEffectRegistry instead of the name-based switch.")]
+    public string effectId;
+
+    [Tooltip("Optional. If set, EffectDirector plays this visual key (ST/AoE based on effectId / target).")]
+    public EffectKey effectKey = EffectKey.None;
+
     [Header("Art")]
     public Sprite cardSprite;
 

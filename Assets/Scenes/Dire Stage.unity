@@ -308,6 +308,8 @@ MonoBehaviour:
   handManager: {fileID: 297901111}
   audioManager: {fileID: 1864046450}
   musicManager: {fileID: 1214409399}
+  gateEnemyTurnOnPendingEffects: 1
+  maxEffectGateSeconds: 4
   victoryFreeze: 0.06
   victorySlowScale: 0.2
   victorySlowDuration: 0.35
@@ -1004,6 +1006,7 @@ MonoBehaviour:
   AP: 0
   attackSound: {fileID: 0}
   damageSound: {fileID: 8300000, guid: 006d50d45376667459bf66d9286faa32, type: 3}
+  punchImpactSound: {fileID: 0}
   deathSound: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 20c3fb19cb92e9042b5d2fdfd5f8ab68, type: 3}
   playerHPText: {fileID: 1052328862}

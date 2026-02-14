@@ -89,6 +89,23 @@ public class Enemy : MonoBehaviour
         Debug.Log($"{enemyName} sleeps for {turns} turn(s).");
     }
 
+    // Package E helpers (data-driven card effects)
+    public void ApplyAttackBreak(int power, int turns)
+    {
+        power = Mathf.Max(0, power);
+        turns = Mathf.Max(0, turns);
+        StatusEffectStacking.AddOrStack(activeEffects, StatusType.AttackBreak, power, turns);
+        Debug.Log($"{enemyName} attack broken for {turns} turn(s) (-{power}).");
+    }
+
+    public void ApplyCorrode(int power, int turns)
+    {
+        power = Mathf.Max(0, power);
+        turns = Mathf.Max(0, turns);
+        StatusEffectStacking.AddOrStack(activeEffects, StatusType.Corrode, power, turns);
+        Debug.Log($"{enemyName} corroded for {turns} turn(s) (+{power}).");
+    }
+
     public void Heal(int amount)
     {
         if (IsDead) return;
