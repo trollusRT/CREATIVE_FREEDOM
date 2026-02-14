@@ -77,22 +77,15 @@ public class Enemy : MonoBehaviour
 
     public void ApplyPoison(int dmgPerTurn, int turns)
     {
-        activeEffects.Add(new StatusEffect
-        {
-            type = StatusType.Poison,
-            power = dmgPerTurn,
-            duration = turns
-        });
-        Debug.Log($"{enemyName} is poisoned for {turns} turns ({dmgPerTurn}/turn).");
+        // Stack poison predictably: damage stacks, duration refreshes to max.
+        StatusEffectStacking.AddOrStack(activeEffects, StatusType.Poison, dmgPerTurn, turns);
+        Debug.Log($"{enemyName} is poisoned for {turns} turns (+{dmgPerTurn}/turn).");
     }
 
     public void ApplySleep(int turns)
     {
-        activeEffects.Add(new StatusEffect
-        {
-            type = StatusType.Sleep,
-            duration = turns
-        });
+        // Sleep doesn't stack power; refresh duration to max.
+        StatusEffectStacking.AddOrStack(activeEffects, StatusType.Sleep, 0, turns, stackPower: false, refreshDurationToMax: true);
         Debug.Log($"{enemyName} sleeps for {turns} turn(s).");
     }
 
@@ -138,7 +131,7 @@ public class Enemy : MonoBehaviour
             switch (eff.type)
             {
                 case StatusType.Poison:
-                    currentHP -= eff.power;
+                    currentHP -= Mathf.Max(1, eff.power);
                     Debug.Log($"{enemyName} took {eff.power} poison damage, HP = {currentHP}");
                     UpdateHPText();
 

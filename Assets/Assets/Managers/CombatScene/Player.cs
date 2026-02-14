@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public AudioClip attackSound;
     public AudioClip damageSound;
-    public AudioClip deathSound; 
+    public AudioClip deathSound;
     public AudioClip hurtSound;
 
     public TextMeshProUGUI playerHPText;
@@ -63,6 +63,43 @@ public class Player : MonoBehaviour
         }
 
         CheckHP();
+    }
+
+
+    /// <summary>
+    /// Damage applied by status effects (poison, etc.). Intentionally avoids full hurt SFX spam.
+    /// </summary>
+    private void ApplyStatusDamage(int damage)
+    {
+        damage = Mathf.Max(0, damage);
+        if (damage <= 0) return;
+
+        currentHP -= damage;
+
+        if (currentHP <= 0)
+        {
+            currentHP = 0;
+            CombatVFXManager.Instance.ShakeCamera();
+            if (animator) animator.SetTrigger("Death");
+            if (audioManager && deathSound) audioManager.PlaySound(deathSound);
+            Debug.Log("Player Defeated!");
+        }
+        else
+        {
+            if (animator) animator.SetTrigger("Hurt");
+        }
+
+        CheckHP();
+    }
+
+    public void ApplyPoison(int dmgPerTurn, int turns)
+    {
+        StatusEffectStacking.AddOrStack(activeEffects, StatusType.Poison, dmgPerTurn, turns);
+    }
+
+    public void ApplyRegen(int healPerTurn, int turns)
+    {
+        StatusEffectStacking.AddOrStack(activeEffects, StatusType.Regen, healPerTurn, turns);
     }
 
     public void Heal(int amount)

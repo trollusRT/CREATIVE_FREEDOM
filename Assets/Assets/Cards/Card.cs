@@ -96,7 +96,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 
 
-private Coroutine hoverExitCo;
+    private Coroutine hoverExitCo;
 
     private bool pointerDown;
     private Vector2 pointerDownPos;
@@ -117,33 +117,33 @@ private Coroutine hoverExitCo;
     // --- alpha/visibility guards ---
     private bool fusionSelected = false;   // true only while selected for fusion
 
-	// --- turn pacing gating helpers ---
-	private IEnumerator Co_AutoCompleteEffectGate(System.Action complete)
-	{
-		// Allow one frame so the visual Play() can at least fire before we release the gate.
-		yield return null;
-		complete?.Invoke();
-	}
+    // --- turn pacing gating helpers ---
+    private IEnumerator Co_AutoCompleteEffectGate(System.Action complete)
+    {
+        // Allow one frame so the visual Play() can at least fire before we release the gate.
+        yield return null;
+        complete?.Invoke();
+    }
 
-	private void BeginEffectGate(EffectAnimatorHost host)
-	{
-		if (BattleManager.Instance == null) return;
-		if (!BattleManager.Instance.gateEnemyTurnOnPendingEffects) return;
+    private void BeginEffectGate(EffectAnimatorHost host)
+    {
+        if (BattleManager.Instance == null) return;
+        if (!BattleManager.Instance.gateEnemyTurnOnPendingEffects) return;
 
-		BattleManager.Instance.NotifyEffectStarted();
-		bool completed = false;
-		System.Action complete = () =>
-		{
-			if (completed) return;
-			completed = true;
-			BattleManager.Instance.NotifyEffectCompleted();
-		};
+        BattleManager.Instance.NotifyEffectStarted();
+        bool completed = false;
+        System.Action complete = () =>
+        {
+            if (completed) return;
+            completed = true;
+            BattleManager.Instance.NotifyEffectCompleted();
+        };
 
-		if (host != null)
-			host.ArmComplete(complete);
-		else
-			StartCoroutine(Co_AutoCompleteEffectGate(complete));
-	}
+        if (host != null)
+            host.ArmComplete(complete);
+        else
+            StartCoroutine(Co_AutoCompleteEffectGate(complete));
+    }
 
 
 
@@ -189,9 +189,9 @@ private Coroutine hoverExitCo;
             case "Restore":
                 {
                     var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
-					var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
-					BeginEffectGate(_host);
-					EffectDirector.Instance.PlayPlayerHit(EffectKey.Restore, cardData.sfx, cardData.sfxVolume, tint);
+                    var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
+                    BeginEffectGate(_host);
+                    EffectDirector.Instance.PlayPlayerHit(EffectKey.Restore, cardData.sfx, cardData.sfxVolume, tint);
 
                     player.Heal(Random.Range(cardData.minValue, cardData.maxValue + 1));
                 }
@@ -200,9 +200,9 @@ private Coroutine hoverExitCo;
             case "Rejuvenate":
                 {
                     var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
-					var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
-					BeginEffectGate(_host);
-					EffectDirector.Instance.PlayPlayerHit(EffectKey.Rejuvenate, cardData.sfx, cardData.sfxVolume, tint);
+                    var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
+                    BeginEffectGate(_host);
+                    EffectDirector.Instance.PlayPlayerHit(EffectKey.Rejuvenate, cardData.sfx, cardData.sfxVolume, tint);
 
                     player.Heal(cardData.minValue);
                 }
@@ -290,37 +290,37 @@ private Coroutine hoverExitCo;
         // SINGLE-TARGET: arm impact on the target's host, then PlayEnemyHit
         void STWithImpact(Enemy target, EffectKey key, System.Action onImpact)
         {
-			var host = dir.GetEnemyHost(target);
-			if (host != null)
-			{
-				host.ArmImpact(() =>
-				{
-					onImpact?.Invoke();
-					BattleManager.Instance.CheckVictoryImmediate();
-				});
-			}
+            var host = dir.GetEnemyHost(target);
+            if (host != null)
+            {
+                host.ArmImpact(() =>
+                {
+                    onImpact?.Invoke();
+                    BattleManager.Instance.CheckVictoryImmediate();
+                });
+            }
 
-			BeginEffectGate(host);
-			var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
-			dir.PlayEnemyHit(target, key, cardData.sfx, cardData.sfxVolume, tint);
+            BeginEffectGate(host);
+            var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
+            dir.PlayEnemyHit(target, key, cardData.sfx, cardData.sfxVolume, tint);
         }
 
         // AOE: arm impact on the central AoE host, then PlayAoe
         void AOEWithImpact(EffectKey key, System.Action onImpact)
         {
-			var host = dir.aoeHost;
-			if (host != null)
-			{
-				host.ArmImpact(() =>
-				{
-					onImpact?.Invoke();
-					BattleManager.Instance.CheckVictoryImmediate();
-				});
-			}
+            var host = dir.aoeHost;
+            if (host != null)
+            {
+                host.ArmImpact(() =>
+                {
+                    onImpact?.Invoke();
+                    BattleManager.Instance.CheckVictoryImmediate();
+                });
+            }
 
-			BeginEffectGate(host);
-			var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
-			dir.PlayAoe(key, cardData.sfx, cardData.sfxVolume, tint);
+            BeginEffectGate(host);
+            var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
+            dir.PlayAoe(key, cardData.sfx, cardData.sfxVolume, tint);
         }
 
 
@@ -512,9 +512,9 @@ private Coroutine hoverExitCo;
     // ---------------------------------------------------------
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+
         if (hoverExitCo != null) { StopCoroutine(hoverExitCo); hoverExitCo = null; }
-if (dragging || !isDraggable) return;
+        if (dragging || !isDraggable) return;
         ForceVisibleIfNotFusionLocked();
         if (!visualRoot) visualRoot = transform as RectTransform; // safety
 
@@ -549,79 +549,79 @@ if (dragging || !isDraggable) return;
 
 
 
-    
-public void OnPointerExit(PointerEventData eventData)
-{
-    if (!isHovered) return;
 
-    // Don't immediately drop hover: when the card visually moves on hover-lift,
-    // the pointer can "exit" for a frame due to UI raycast target drift.
-    // Confirm on the next frame whether the pointer is truly no longer over this card.
-    if (hoverExitCo != null) StopCoroutine(hoverExitCo);
-    hoverExitCo = StartCoroutine(Co_ConfirmHoverExit());
-}
-
-private IEnumerator Co_ConfirmHoverExit()
-{
-    yield return null; // wait one frame for UI raycasts to stabilize
-
-    if (EventSystem.current == null)
+    public void OnPointerExit(PointerEventData eventData)
     {
-        DoUnhover();
-        yield break;
+        if (!isHovered) return;
+
+        // Don't immediately drop hover: when the card visually moves on hover-lift,
+        // the pointer can "exit" for a frame due to UI raycast target drift.
+        // Confirm on the next frame whether the pointer is truly no longer over this card.
+        if (hoverExitCo != null) StopCoroutine(hoverExitCo);
+        hoverExitCo = StartCoroutine(Co_ConfirmHoverExit());
     }
 
-    var ped = new PointerEventData(EventSystem.current)
+    private IEnumerator Co_ConfirmHoverExit()
     {
-        position = Input.mousePosition
-    };
+        yield return null; // wait one frame for UI raycasts to stabilize
 
-    var results = new List<RaycastResult>();
-    EventSystem.current.RaycastAll(ped, results);
-
-    bool stillOverThisCard = false;
-    for (int i = 0; i < results.Count; i++)
-    {
-        var go = results[i].gameObject;
-        if (go == null) continue;
-
-        if (go == gameObject || go.transform.IsChildOf(transform))
+        if (EventSystem.current == null)
         {
-            stillOverThisCard = true;
-            break;
+            DoUnhover();
+            yield break;
         }
+
+        var ped = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(ped, results);
+
+        bool stillOverThisCard = false;
+        for (int i = 0; i < results.Count; i++)
+        {
+            var go = results[i].gameObject;
+            if (go == null) continue;
+
+            if (go == gameObject || go.transform.IsChildOf(transform))
+            {
+                stillOverThisCard = true;
+                break;
+            }
+        }
+
+        if (!stillOverThisCard)
+            DoUnhover();
+
+        hoverExitCo = null;
     }
 
-    if (!stillOverThisCard)
-        DoUnhover();
+    private void DoUnhover()
+    {
+        ForceVisibleIfNotFusionLocked();
+        if (!visualRoot) visualRoot = transform as RectTransform;
 
-    hoverExitCo = null;
-}
+        var vr = (RectTransform)visualRoot;
+        hoverPosTw?.Kill();
+        hoverPosTw = vr.DOAnchorPos(vrPreHoverPos, hoverDuration).SetEase(hoverEase);
 
-private void DoUnhover()
-{
-    ForceVisibleIfNotFusionLocked();
-    if (!visualRoot) visualRoot = transform as RectTransform;
+        if (hoverOriginalSiblingIndex >= 0)
+            transform.SetSiblingIndex(hoverOriginalSiblingIndex);
+        hoverOriginalSiblingIndex = -1;
 
-    var vr = (RectTransform)visualRoot;
-    hoverPosTw?.Kill();
-    hoverPosTw = vr.DOAnchorPos(vrPreHoverPos, hoverDuration).SetEase(hoverEase);
-
-    if (hoverOriginalSiblingIndex >= 0)
-        transform.SetSiblingIndex(hoverOriginalSiblingIndex);
-    hoverOriginalSiblingIndex = -1;
-
-    isHovered = false;
-}
+        isHovered = false;
+    }
 
 
 
 
     private void ResetHoverInstant()
     {
-        
+
         if (hoverExitCo != null) { StopCoroutine(hoverExitCo); hoverExitCo = null; }
-if (!isHovered) return;
+        if (!isHovered) return;
         if (!visualRoot) visualRoot = transform as RectTransform;
 
         var vr = (RectTransform)visualRoot;
@@ -753,7 +753,7 @@ if (!isHovered) return;
         {
             ApplyCardEffectToEnemy(col.GetComponentInParent<Enemy>());
             if (cg) cg.blocksRaycasts = true;
-            dragging = false;        
+            dragging = false;
             return;
         }
 
@@ -788,35 +788,35 @@ if (!isHovered) return;
 
 
     private void ReturnToHand()
-{
-    // Back under the hand panel (no auto-rescale)
-    transform.SetParent(originalParent, false);
+    {
+        // Back under the hand panel (no auto-rescale)
+        transform.SetParent(originalParent, false);
 
-    var rt = (RectTransform)transform;
+        var rt = (RectTransform)transform;
 
-    // Where the card currently is (drag position, now in handPanel space)
-    Vector2 startPos = rt.anchoredPosition;
-    float startZ = rt.localEulerAngles.z;
+        // Where the card currently is (drag position, now in handPanel space)
+        Vector2 startPos = rt.anchoredPosition;
+        float startZ = rt.localEulerAngles.z;
 
-    // Insert back into the hand so the layout computes the target slot
-    if (handManager != null)
-        handManager.InsertCard(gameObject, originalIndexInHand);
+        // Insert back into the hand so the layout computes the target slot
+        if (handManager != null)
+            handManager.InsertCard(gameObject, originalIndexInHand);
 
-    // Capture the target slot assigned by PositionCardsInSemiCircle
-    Vector2 targetPos = rt.anchoredPosition;
-    float targetZ = rt.localEulerAngles.z;
+        // Capture the target slot assigned by PositionCardsInSemiCircle
+        Vector2 targetPos = rt.anchoredPosition;
+        float targetZ = rt.localEulerAngles.z;
 
-    // Reset to the drag position/rotation so we can tween *to* the target
-    rt.anchoredPosition = startPos;
-    rt.localRotation = Quaternion.Euler(0, 0, startZ);
+        // Reset to the drag position/rotation so we can tween *to* the target
+        rt.anchoredPosition = startPos;
+        rt.localRotation = Quaternion.Euler(0, 0, startZ);
 
-    // Re-enable raycasts immediately
-    if (cg) cg.blocksRaycasts = true;
+        // Re-enable raycasts immediately
+        if (cg) cg.blocksRaycasts = true;
 
-    // Tween to slot + restore scale
-    rt.DOAnchorPos(targetPos, 0.2f).SetEase(Ease.OutCubic);
-    rt.DORotate(new Vector3(0, 0, targetZ), 0.2f, RotateMode.Fast);
-    transform.DOScale(baseScale, 0.15f);
+        // Tween to slot + restore scale
+        rt.DOAnchorPos(targetPos, 0.2f).SetEase(Ease.OutCubic);
+        rt.DORotate(new Vector3(0, 0, targetZ), 0.2f, RotateMode.Fast);
+        transform.DOScale(baseScale, 0.15f);
 
         if (visualRoot) visualRoot.localRotation = Quaternion.identity;
     }
