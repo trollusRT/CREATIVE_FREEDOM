@@ -73,5 +73,25 @@ public class CombatVFXManager : MonoBehaviour
         }
         t.localPosition = basePos;
     }
+
+    // --- Hit-stop: a brief global freeze on impact for "weight". ---
+    [Header("Hit-stop")]
+    public bool allowHitStop = true;
+    bool hitStopActive;
+
+    public void HitStop(float duration)
+    {
+        if (!allowHitStop || hitStopActive || duration <= 0f) return;
+        StartCoroutine(HitStopCo(duration));
+    }
+
+    IEnumerator HitStopCo(float duration)
+    {
+        hitStopActive = true;
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
+        hitStopActive = false;
+    }
 }
 

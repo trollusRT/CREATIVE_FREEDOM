@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -31,13 +32,24 @@ public class Enemy : MonoBehaviour
     public List<StatusEffect> activeEffects = new List<StatusEffect>();
     public bool IsDead { get; private set; }
 
+    [Header("Hit Reaction")]
+    public float knockback = 0.15f;     // world units, punched away from the player
+    public float squash = 0.12f;        // punch-scale amount
+    public float hitStop = 0.06f;       // realtime seconds of freeze on impact
+    public float shakeMin = 0.15f;
+    public float shakeMax = 0.5f;
+    public int shakeMaxDamage = 20;     // damage that maps to shakeMax
+
     private Animator animator;
     private Collider2D col2d;
+    private Transform hitVisual;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         col2d = GetComponent<Collider2D>();
+        var sr = GetComponentInChildren<SpriteRenderer>();
+        hitVisual = sr ? sr.transform : transform;
     }
 
     void Start()
@@ -135,6 +147,8 @@ public class Enemy : MonoBehaviour
         if (animator) animator.SetTrigger("Hurt");
         if (audioManager && damageSound) audioManager.PlaySound(damageSound);
 
+        PlayHitReaction(amount);
+
         UpdatePortraitBand();
     }
 
@@ -184,6 +198,29 @@ public class Enemy : MonoBehaviour
     }
 
     // ------------------- Helpers / State -------------------
+
+    // Impact feedback when this enemy is struck by a card.
+    private void PlayHitReaction(int amount)
+    {
+        if (!hitVisual) return;
+
+        hitVisual.DOKill(true);
+        hitVisual.DOPunchScale(Vector3.one * squash, 0.25f, 8, 0.9f);
+
+        Vector3 dir = player ? (transform.position - player.transform.position) : Vector3.right;
+        dir.z = 0f;
+        if (dir.sqrMagnitude < 0.0001f) dir = Vector3.right;
+        hitVisual.DOPunchPosition(dir.normalized * knockback, 0.25f, 8, 0.9f);
+
+        if (CameraShakeManager.Instance)
+        {
+            float k = shakeMaxDamage > 0 ? Mathf.Clamp01((float)amount / shakeMaxDamage) : 1f;
+            CameraShakeManager.Instance.Shake(Mathf.Lerp(shakeMin, shakeMax, k));
+        }
+
+        if (CombatVFXManager.Instance)
+            CombatVFXManager.Instance.HitStop(hitStop);
+    }
 
     private void Die()
     {
