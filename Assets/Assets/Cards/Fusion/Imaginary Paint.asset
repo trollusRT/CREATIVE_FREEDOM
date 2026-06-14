@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7f71a0be0326d40bf08bfb639d6f5a, type: 3}
+  m_Name: Imaginary Paint
+  m_EditorClassIdentifier: 
+  recipeName: Imaginary Paint
+  result: {fileID: 11400000, guid: bd4ba725c9982ac4782f3c31164b4313, type: 2}
+  ingredientA: {fileID: 11400000, guid: 8a096e3d75913f546b5757bd423ccf3b, type: 2}
+  ingredientB: {fileID: 11400000, guid: facc220f65bf68043b47f5ff58fd176b, type: 2}
+  orderAgnostic: 1
+  isSpecial3Cost: 0

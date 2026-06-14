@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7f71a0be0326d40bf08bfb639d6f5a, type: 3}
+  m_Name: Red Splatter
+  m_EditorClassIdentifier: 
+  recipeName: Red Splatter
+  result: {fileID: 11400000, guid: d40dc41a8ad921349a40a1c7ab07fb4f, type: 2}
+  ingredientA: {fileID: 11400000, guid: 64f927ea13e39c44eb19443c8690310c, type: 2}
+  ingredientB: {fileID: 11400000, guid: 64f927ea13e39c44eb19443c8690310c, type: 2}
+  orderAgnostic: 1
+  isSpecial3Cost: 0
