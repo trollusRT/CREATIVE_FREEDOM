@@ -10,6 +10,20 @@ public class Player : MonoBehaviour
     public Animator animator;
     public int AP;
 
+    [Header("Reactive effects (non-StatusType)")]
+    [SerializeField] private int doubleDamageCharges = 0;
+    [SerializeField] private int counterTurns = 0;
+    [SerializeField] private int counterPower = 0;
+    [SerializeField] private int reflectTurns = 0;
+    [SerializeField] private bool reflectArmed = false;
+    [SerializeField] private int leechTrapTurns = 0;
+    [SerializeField] private int leechTrapPower = 0;
+    [SerializeField] private bool secondWindArmed = false;
+    [SerializeField] private int secondWindRegenPerTurn = 0;
+    [SerializeField] private int secondWindRegenTurns = 0;
+    [SerializeField] private bool creativeFreedomActive = false;
+    [SerializeField] private int creativeFreedomRemainingDamage = 0;
+
     public AudioClip attackSound;
     public AudioClip damageSound;
     [Tooltip("Optional impact sound when Junior is hit (e.g., punch.wav). If set, this is used instead of damageSound.")]
@@ -43,33 +57,82 @@ public class Player : MonoBehaviour
         playerHPText.text = currentHP + "/" + maxHP;
     }
 
-    public void TakeDamage(int damage)
-    {
-        // "Hurt" is the character vocal/response. Impact is a separate layer.
-        if (audioManager && hurtSound) audioManager.PlaySound(hurtSound);
+    public void TakeDamage(int damage) => TakeDamage(damage, null);
 
-        // Impact SFX: prefer punchImpactSound; fall back to damageSound if punchImpactSound isn't assigned.
+    public void TakeDamage(int damage, Enemy source)
+    {
+        // Apply Shield / DefensiveStance from activeEffects (if present).
+        int finalDamage = Mathf.Max(0, damage);
+
+        // Defensive Stance: reduce any incoming damage to 1 while active
+        if (HasStatus(StatusType.DefensiveStance))
+            finalDamage = Mathf.Min(finalDamage, 1);
+
+        // Shield: flat reduction of 2 while active (min 0)
+        if (HasStatus(StatusType.Shield))
+            finalDamage = Mathf.Max(0, finalDamage - 2);
+
+        // Second Wind cheat death
+        if (secondWindArmed && currentHP - finalDamage <= 0)
+        {
+            currentHP = 1;
+            secondWindArmed = false;
+            // grant regen after cheating death
+            ApplyRegen(secondWindRegenPerTurn, secondWindRegenTurns);
+            UpdateHPText();
+            if (animator) animator.SetTrigger("Buff");
+            return;
+        }
+
+        // Play audio for normal hits only (status ticks should call TakeStatusDamage instead)
+        if (audioManager && hurtSound) audioManager.PlaySound(hurtSound);
         var impact = punchImpactSound ? punchImpactSound : damageSound;
         if (audioManager && impact) audioManager.PlaySound(impact);
 
-        currentHP -= damage;
+        currentHP -= finalDamage;
+
+        if (creativeFreedomActive)
+        {
+            creativeFreedomRemainingDamage -= finalDamage;
+            if (creativeFreedomRemainingDamage <= 0)
+                creativeFreedomActive = false;
+        }
+
         if (currentHP <= 0)
         {
-
             CombatVFXManager.Instance.ShakeCamera();
             animator.SetTrigger("Death");
             audioManager.PlaySound(deathSound);
             Debug.Log("Player Defeated!");
-            // Implement Game Over Logic
         }
         else
         {
-            Debug.Log("Yeouch");
             animator.SetTrigger("Hurt");
             CombatVFXManager.Instance.PlayOnPlayer(VfxType.PaintSplash);
         }
 
-        CheckHP();
+        UpdateHPText();
+
+        // Reactive effects
+        if (source != null)
+        {
+            if (reflectTurns > 0 && reflectArmed)
+            {
+                reflectArmed = false;
+                source.TakeDamage(finalDamage);
+            }
+
+            if (counterTurns > 0)
+            {
+                source.TakeDamage(counterPower);
+            }
+
+            if (leechTrapTurns > 0)
+            {
+                source.TakeDamage(leechTrapPower);
+                Heal(leechTrapPower);
+            }
+        }
     }
 
 
@@ -127,12 +190,9 @@ public class Player : MonoBehaviour
 
     public void SpendAP(int amount)
     {
-        if (AP >= amount)
-        {
-            audioManager.PlaySound(attackSound);
-        }
-
-        CheckHP();
+        if (AP < amount) return;
+        AP -= amount;
+        if (audioManager && attackSound) audioManager.PlaySound(attackSound);
     }
 
     // e.g. for enrage: we reduce HP by X, set a status that buffs damage
@@ -189,6 +249,11 @@ public class Player : MonoBehaviour
 
     public void ProcessStatusEffects()
     {
+
+        // decay reactive-effect timers
+        if (counterTurns > 0) counterTurns--;
+        if (reflectTurns > 0) { reflectTurns--; if (reflectTurns == 0) reflectArmed = false; }
+        if (leechTrapTurns > 0) leechTrapTurns--;
         if (activeEffects == null || activeEffects.Count == 0)
         {
             UpdateHPText();
@@ -255,7 +320,6 @@ public class Player : MonoBehaviour
         // We'll do a quick pass:
         bool hasShield = false;
         bool hasDefensiveStance = false;
-        bool isCorroded = false;  // typically an Enemy effect
 
         foreach (var eff in activeEffects)
         {
@@ -277,4 +341,90 @@ public class Player : MonoBehaviour
 
         return rawDamage;
     }
+
+
+    // ------------------- Package E support helpers -------------------
+    private bool HasStatus(StatusType type)
+    {
+        if (activeEffects == null) return false;
+        for (int i = 0; i < activeEffects.Count; i++)
+        {
+            var e = activeEffects[i];
+            if (e != null && e.type == type && e.duration > 0) return true;
+        }
+        return false;
+    }
+
+    // Used by cards that trade HP for power (prevents self-KO by payment).
+    public bool PayHealth(int amount)
+    {
+        amount = Mathf.Max(0, amount);
+        if (amount <= 0) return true;
+        if (currentHP - amount <= 0) return false;
+        currentHP -= amount;
+        UpdateHPText();
+        return true;
+    }
+
+    public void AddDoubleDamageCharges(int charges)
+    {
+        doubleDamageCharges = Mathf.Max(0, doubleDamageCharges + Mathf.Max(0, charges));
+    }
+
+    public void EnableSecondWind(int regenPerTurn, int turns)
+    {
+        secondWindArmed = true;
+        secondWindRegenPerTurn = Mathf.Max(1, regenPerTurn);
+        secondWindRegenTurns = Mathf.Max(1, turns);
+    }
+
+    public void EnableCounter(int power, int turns)
+    {
+        counterPower = Mathf.Max(0, power);
+        counterTurns = Mathf.Max(counterTurns, Mathf.Max(0, turns));
+    }
+
+    public void EnableReflect(int turns)
+    {
+        reflectTurns = Mathf.Max(reflectTurns, Mathf.Max(0, turns));
+        reflectArmed = true;
+    }
+
+    public void EnableLeechTrap(int power, int turns)
+    {
+        leechTrapPower = Mathf.Max(0, power);
+        leechTrapTurns = Mathf.Max(leechTrapTurns, Mathf.Max(0, turns));
+    }
+
+    public void EnableCreativeFreedom(int damageBudget)
+    {
+        creativeFreedomActive = true;
+        creativeFreedomRemainingDamage = Mathf.Max(0, damageBudget);
+        Debug.Log("Lets get creative!");
+    }
+
+    public int ModifyOutgoingDamage(int baseDamage)
+    {
+        int dmg = Mathf.Max(0, baseDamage);
+
+        if (nextAttackIsDoubled)
+        {
+            nextAttackIsDoubled = false;
+            return dmg * 2;
+        }
+
+        if (doubleDamageCharges > 0)
+        {
+            doubleDamageCharges--;
+            return dmg * 2;
+        }
+
+        if (HasStatus(StatusType.DoubleDamage) || creativeFreedomActive)
+        {
+            return dmg * 2;
+        }
+
+        return dmg;
+    }
+
 }

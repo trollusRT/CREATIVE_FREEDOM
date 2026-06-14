@@ -109,19 +109,6 @@ public class FusionController : MonoBehaviour
         UpdateHUD();
     }
 
-    public void SelectCard(Card c)
-    {
-        if (!IsActive || !c) return;
-        if (selected.Contains(c)) return;
-        if (selected.Count >= 2) return;               // 2-card recipes
-
-        selected.Add(c);
-        // optional: visually mark in-hand selection (e.g., dim alpha)
-        var cg = c.GetComponent<CanvasGroup>() ?? c.gameObject.AddComponent<CanvasGroup>();
-        cg.alpha = 0.6f;
-
-        UpdateHUD();
-    }
 
     public void DeselectCard(Card c)
     {
@@ -182,15 +169,16 @@ public class FusionController : MonoBehaviour
         // Enable fuse if exactly two selected and recipe is valid + learned
         bool canFuse = false;
         if (selected.Count == 2 && fusionBook != null)
-            if (fusionBook.TryGetRecipe(selected[0].cardData, selected[1].cardData, out var r)
-                && fusionBook.IsLearned(r))
+        {
+            if (fusionBook.TryGetRecipe(selected[0].cardData, selected[1].cardData, out var r) &&
+                fusionBook.IsLearned(r))
             {
-                // AP + turn check
                 var bm = BattleManager.Instance;
-                canFuse = (bm != null
-                           && bm.state == BattleManager.BattleState.PLAYER_TURN
-                           && bm.playerAP >= 1);
+                canFuse = bm != null &&
+                          bm.state == BattleManager.BattleState.PLAYER_TURN &&
+                          bm.playerAP >= 1;
             }
+        }
         if (fuseButton) fuseButton.interactable = canFuse;
     }
 

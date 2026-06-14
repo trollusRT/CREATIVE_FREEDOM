@@ -21,6 +21,7 @@ public enum EffectKey
     // Player
     Restore,
     Rejuvenate,
+    CreativeFreedom,
 
     // AoE
     RedSplatter,
@@ -145,6 +146,7 @@ public class EffectDirector : MonoBehaviour
         // Player
         { EffectKey.Restore,       "Restore" },
         { EffectKey.Rejuvenate,      "Rejuvenate" },
+        { EffectKey.CreativeFreedom,      "CreativeFreedom" },
     };
 
     private string TriggerFor(EffectKey key)

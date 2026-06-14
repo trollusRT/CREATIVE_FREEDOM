@@ -2,23 +2,16 @@
 
 
 
-\## Immediate Goals
+\## Card Implementation
 
-1\) Fix hover “ratchet bump” (hover lift triggers pointer exit while moving)
-
-2\) Add “hit impact” punch.wav to Junior getting hit (play alongside hurt sound)
-
-3\) Implement proper Poison tick logic (consistent turn start tick, predictable duration)
-
-4\) Implement “wait before enemy turn” so player animations finish before enemies act
-
-5\) Confirm fusion costs 1 AP and fusion slots discard/clear at end of player turn
+* Currently working on implementing the cards and hooking them up with the placeholder(?) effect animations.
+* Polishing up combat, balancing maybe?
 
 
 
 \## Project State
 
-\- Repo: CREATIVE\_FREEDOM (private)
+\- Repo: CREATIVE\_FREEDOM (public)
 
 \- Branch being used: dev
 
@@ -31,6 +24,4 @@
 \- Cards use EffectDirector + EffectAnimatorHost for visual timing.
 
 \- Enemy turn currently starts immediately after AP reaches 0 / hand empty → needs pacing delay or action queue.
-
-
 

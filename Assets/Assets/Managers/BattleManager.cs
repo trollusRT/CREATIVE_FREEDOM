@@ -40,19 +40,110 @@ public class BattleManager : MonoBehaviour
 
     private bool battleResolved = false;
 
-    
 
-[Header("Action gating (turn pacing)")]
-[Tooltip("If > 0, BattleManager will wait for all registered effect animations to complete before starting the enemy turn.")]
-public bool gateEnemyTurnOnPendingEffects = true;
 
-[Tooltip("Failsafe: maximum time (seconds) to wait for pending effects before starting enemy turn anyway.")]
-public float maxEffectGateSeconds = 4.0f;
+    [Header("Action gating (turn pacing)")]
+    [Tooltip("If > 0, BattleManager will wait for all registered effect animations to complete before starting the enemy turn.")]
+    public bool gateEnemyTurnOnPendingEffects = true;
 
-private int pendingEffectCount = 0;
-private Coroutine enemyTurnGateCo;
+    [Tooltip("Failsafe: maximum time (seconds) to wait for pending effects before starting enemy turn anyway.")]
+    public float maxEffectGateSeconds = 4.0f;
 
-// BattleManager fields (tweak in Inspector)
+    private int pendingEffectCount = 0;
+    private Coroutine enemyTurnGateCo;
+
+    [Header("Card replay bookkeeping")]
+    public CardData lastResolvedCard;
+    public GameObject lastResolvedTarget; // Enemy GameObject or null
+    private bool usedAgainThisTurn = false;
+    private bool usedReiterateThisTurn = false;
+    private int cardsResolvedThisTurn = 0;
+
+    public void NotifyCardResolved(CardData resolved, GameObject target)
+    {
+        if (resolved == null) return;
+        if (resolved.cardName == "Again!" || resolved.cardName == "Reiterate")
+        {
+            cardsResolvedThisTurn++;
+            return;
+        }
+        lastResolvedCard = resolved;
+        lastResolvedTarget = target;
+        cardsResolvedThisTurn++;
+    }
+
+    public bool CanUseAgainThisTurn() => !usedAgainThisTurn && cardsResolvedThisTurn > 0 && lastResolvedCard != null;
+    public bool CanUseReiterateThisTurn() => !usedReiterateThisTurn && cardsResolvedThisTurn == 0;
+    public void MarkUsedAgain() => usedAgainThisTurn = true;
+    public void MarkUsedReiterate() => usedReiterateThisTurn = true;
+
+    public void ReiterateHandAndAP()
+    {
+        if (handManager != null)
+        {
+            handManager.DiscardHand();
+            handManager.DrawHand();
+        }
+        playerAP = AP_PER_TURN;
+        UpdateUI();
+    }
+
+    public void PlayLastResolvedCard()
+    {
+        if (lastResolvedCard == null) return;
+
+        // Try to resolve against last target if it's still a living enemy.
+        Enemy targetEnemy = null;
+        if (lastResolvedTarget != null)
+        {
+            targetEnemy = lastResolvedTarget.GetComponent<Enemy>();
+            if (targetEnemy != null && targetEnemy.IsDead) targetEnemy = null;
+        }
+
+        // Replay subset of effects supported by CurrentCards. (Does not spend AP; Again! already did.)
+        switch (lastResolvedCard.cardName)
+        {
+            case "Restore":
+                player.Heal(Random.Range(lastResolvedCard.minValue, lastResolvedCard.maxValue + 1));
+                break;
+            case "Rejuvenate":
+                player.Heal(lastResolvedCard.minValue);
+                break;
+            case "Shield":
+                player.activeEffects.Add(new StatusEffect { type = StatusType.Shield, duration = 2 });
+                break;
+            case "Defensive Stance":
+                player.activeEffects.Add(new StatusEffect { type = StatusType.DefensiveStance, duration = 2 });
+                break;
+            case "Red Stroke":
+                if (targetEnemy != null) targetEnemy.TakeDamage(player.ModifyOutgoingDamage(lastResolvedCard.minValue));
+                break;
+            case "Siphon":
+                if (targetEnemy != null)
+                {
+                    targetEnemy.TakeDamage(player.ModifyOutgoingDamage(lastResolvedCard.minValue));
+                    player.Heal(Mathf.Max(1, lastResolvedCard.minValue / 2));
+                }
+                break;
+            case "Attack Break":
+                if (targetEnemy != null) targetEnemy.ApplyAttackBreak(lastResolvedCard.minValue, 2);
+                break;
+            case "Poison":
+                if (targetEnemy != null) targetEnemy.ApplyPoison(lastResolvedCard.minValue, 3);
+                break;
+            case "Sleep":
+                if (targetEnemy != null) targetEnemy.ApplySleep(2);
+                break;
+            case "Corrode":
+                if (targetEnemy != null) targetEnemy.ApplyCorrode(lastResolvedCard.minValue, 2);
+                break;
+            default:
+                // If a card isn't supported here yet, it simply won't replay.
+                break;
+        }
+    }
+
+    // BattleManager fields (tweak in Inspector)
     [Header("Victory Cinematic")]
     public float victoryFreeze = 0.06f;
     public float victorySlowScale = 0.2f;
@@ -91,8 +182,14 @@ private Coroutine enemyTurnGateCo;
 
     void StartPlayerTurn()
     {
-        
+
         if (battleResolved) return;
+
+        usedAgainThisTurn = false;
+        usedReiterateThisTurn = false;
+        cardsResolvedThisTurn = 0;
+        lastResolvedCard = null;
+        lastResolvedTarget = null;
 
         // Tick statuses at the start of the player's turn (use a snapshot to avoid collection changes mid-iteration)
         player.ProcessStatusEffects();
@@ -111,12 +208,6 @@ private Coroutine enemyTurnGateCo;
             StartCoroutine(HandleVictoryCinematic());
             return;                 // or yield break; if you're inside an IEnumerator
         }
-        if (!battleResolved && enemies.Count == 0)
-        {
-            // Poison might have wiped the board
-            StartCoroutine(HandleVictoryCinematic());
-            return;
-        }
 
         state = BattleState.PLAYER_TURN;
         playerAP = AP_PER_TURN;
@@ -133,8 +224,7 @@ private Coroutine enemyTurnGateCo;
         if (state != BattleState.PLAYER_TURN || battleResolved) return;
 
         player.SpendAP(amount);
-        playerAP -= amount;
-
+        playerAP--;
         // Some cards may have killed enemies mid-turn
         if (!battleResolved && AliveEnemyCount() == 0)
         {
@@ -171,47 +261,47 @@ private Coroutine enemyTurnGateCo;
         enemyTurnGateCo = StartCoroutine(BeginEnemyTurnWhenReady());
     }
 
-    
-IEnumerator BeginEnemyTurnWhenReady()
-{
-    // Wait until all registered effect animations have finished (optional)
-    if (gateEnemyTurnOnPendingEffects)
-    {
-        // Allow a frame so any last-second cards can register before we check.
-        yield return null;
 
-        float waited = 0f;
-        while (!battleResolved && state != BattleState.VICTORY && state != BattleState.DEFEAT && pendingEffectCount > 0)
+    IEnumerator BeginEnemyTurnWhenReady()
+    {
+        // Wait until all registered effect animations have finished (optional)
+        if (gateEnemyTurnOnPendingEffects)
         {
-            waited += Time.unscaledDeltaTime;
-            if (maxEffectGateSeconds > 0f && waited >= maxEffectGateSeconds)
-            {
-                Debug.LogWarning($"[BattleManager] Pending effects gate timed out (pending={pendingEffectCount}). Continuing to enemy turn.");
-                pendingEffectCount = 0; // failsafe to prevent soft-lock
-                break;
-            }
+            // Allow a frame so any last-second cards can register before we check.
             yield return null;
+
+            float waited = 0f;
+            while (!battleResolved && state != BattleState.VICTORY && state != BattleState.DEFEAT && pendingEffectCount > 0)
+            {
+                waited += Time.unscaledDeltaTime;
+                if (maxEffectGateSeconds > 0f && waited >= maxEffectGateSeconds)
+                {
+                    Debug.LogWarning($"[BattleManager] Pending effects gate timed out (pending={pendingEffectCount}). Continuing to enemy turn.");
+                    pendingEffectCount = 0; // failsafe to prevent soft-lock
+                    break;
+                }
+                yield return null;
+            }
         }
+
+        // Wait a bit so the player's last animations/VFX can breathe
+        if (endOfPlayerDelay > 0f)
+        {
+            if (useUnscaledDelayForTurnGap)
+                yield return new WaitForSecondsRealtime(endOfPlayerDelay);
+            else
+                yield return new WaitForSeconds(endOfPlayerDelay);
+        }
+
+        // If victory/defeat happened during the pause, bail.
+        if (battleResolved || state == BattleState.VICTORY || state == BattleState.DEFEAT) yield break;
+
+        // If delayed effects killed the last enemy during the pause, bail (victory will trigger elsewhere).
+        if (AliveEnemyCount() == 0) yield break;
+
+        state = BattleState.ENEMY_TURN;
+        StartCoroutine(EnemyTurn());
     }
-
-    // Wait a bit so the player's last animations/VFX can breathe
-    if (endOfPlayerDelay > 0f)
-    {
-        if (useUnscaledDelayForTurnGap)
-            yield return new WaitForSecondsRealtime(endOfPlayerDelay);
-        else
-            yield return new WaitForSeconds(endOfPlayerDelay);
-    }
-
-    // If victory/defeat happened during the pause, bail.
-    if (battleResolved || state == BattleState.VICTORY || state == BattleState.DEFEAT) yield break;
-
-    // If delayed effects killed the last enemy during the pause, bail (victory will trigger elsewhere).
-    if (AliveEnemyCount() == 0) yield break;
-
-    state = BattleState.ENEMY_TURN;
-    StartCoroutine(EnemyTurn());
-}
 
 
 
@@ -231,12 +321,6 @@ IEnumerator BeginEnemyTurnWhenReady()
             yield break;                 // or yield break; if you're inside an IEnumerator
         }
 
-        // this one was already correct
-        if (!battleResolved && enemies.Count == 0)
-        {
-            StartCoroutine(HandleVictoryCinematic());
-            yield break;
-        }
 
         // Iterate a snapshot so deaths during the loop don't explode the foreach
         var snapshot = new List<Enemy>(enemies);
@@ -387,23 +471,23 @@ IEnumerator BeginEnemyTurnWhenReady()
         audioManager.PlaySound(click);
     }
 
-// ---------- Effect / action gating ----------
-public void NotifyEffectStarted()
-{
-    pendingEffectCount = Mathf.Max(0, pendingEffectCount + 1);
-    // Debug.Log($"[BattleManager] Effect started. pending={pendingEffectCount}");
-}
+    // ---------- Effect / action gating ----------
+    public void NotifyEffectStarted()
+    {
+        pendingEffectCount = Mathf.Max(0, pendingEffectCount + 1);
+        // Debug.Log($"[BattleManager] Effect started. pending={pendingEffectCount}");
+    }
 
-public void NotifyEffectCompleted()
-{
-    pendingEffectCount = Mathf.Max(0, pendingEffectCount - 1);
-    // Debug.Log($"[BattleManager] Effect completed. pending={pendingEffectCount}");
-}
+    public void NotifyEffectCompleted()
+    {
+        pendingEffectCount = Mathf.Max(0, pendingEffectCount - 1);
+        // Debug.Log($"[BattleManager] Effect completed. pending={pendingEffectCount}");
+    }
 
-public bool HasPendingEffects()
-{
-    return pendingEffectCount > 0;
-}
+    public bool HasPendingEffects()
+    {
+        return pendingEffectCount > 0;
+    }
 
     // ---------- Helpers ----------
     void PruneDeadEnemies()

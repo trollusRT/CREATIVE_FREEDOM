@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
     public int baseAttackDamage = 4;
 
     [Header("Portrait Sprites (HP bands)")]
-    public Sprite stableSprite;   // 66–100%
-    public Sprite hurtSprite;     // 33–66%
-    public Sprite criticalSprite; // 1–33%
+    public Sprite stableSprite;   // 66ï¿½100%
+    public Sprite hurtSprite;     // 33ï¿½66%
+    public Sprite criticalSprite; // 1ï¿½33%
     private Sprite currentSprite;
 
     [Header("Refs")]
@@ -43,7 +43,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         IsDead = false;
-        currentHP = Mathf.Clamp(currentHP <= 0 ? maxHP : currentHP, 0, maxHP);
+        if (currentHP <= 0) currentHP = maxHP;
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
         currentSprite = stableSprite;
         UpdateHPText();
         UpdatePortraitBand();
@@ -69,7 +70,7 @@ public class Enemy : MonoBehaviour
         // Optional: your attack VFX
         // CombatVFXManager.Instance.PlayOnEnemy(VfxType.Slash, player.transform.position);
 
-        player.TakeDamage(damage);
+        player.TakeDamage(damage, this);
 
         if (audioManager && attackSound) audioManager.PlaySound(attackSound);
         if (animator) animator.SetTrigger("Attack");
@@ -213,7 +214,7 @@ public class Enemy : MonoBehaviour
             if (eff.type == StatusType.AttackBreak)
                 damage = Mathf.Max(0, damage - eff.power);
             if (eff.type == StatusType.DefensiveStance)
-                damage = Mathf.Min(damage, 1); // “all damage = 1” style
+                damage = Mathf.Min(damage, 1); // ï¿½all damage = 1ï¿½ style
             // add more if needed
         }
 
@@ -262,9 +263,9 @@ public class Enemy : MonoBehaviour
         if (ratio > 0.66f) currentSprite = stableSprite;
         else if (ratio > 0.33f) currentSprite = hurtSprite;
         else if (ratio > 0f) currentSprite = criticalSprite;
-        // else: dead – portrait often handled by death anim / keep last
+        // else: dead ï¿½ portrait often handled by death anim / keep last
 
-        // If you want an immediate portrait refresh while this enemy is “active” in UI,
+        // If you want an immediate portrait refresh while this enemy is ï¿½activeï¿½ in UI,
         // you could ping BattleManager to update the portrait here conditionally.
     }
 

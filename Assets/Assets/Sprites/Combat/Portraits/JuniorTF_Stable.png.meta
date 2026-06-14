@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6b674888adae59142ba0c3eadbf7d603
+guid: bcd873ffee749db49b12f3c4a86f2680
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4081036728342690704
-    second: JuniorTF_Stable_0
+      213: -3825439309670514104
+    second: JuniorTF_Stable 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JuniorTF_Stable_0
+      name: JuniorTF_Stable 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 074cfc3c7be3d57c0800000000000000
-      internalID: -4081036728342690704
+      spriteID: 8420645473f49eac0800000000000000
+      internalID: -3825439309670514104
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      JuniorTF_Stable_0: -4081036728342690704
+      JuniorTF_Stable 1_0: -3825439309670514104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

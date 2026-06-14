@@ -1,23 +1,6 @@
 \# Bug Log
 
 
-
-\## High Priority
-
-\- Hover ratchet bump:
-
-&nbsp; - Card lifts on hover, pointer exits mid-tween, card returns down, then re-enters and repeats.
-
-&nbsp; - Likely caused by collider / raycast area moving relative to pointer.
-
-
-
-\- Turn pacing:
-
-&nbsp; - Enemy turn begins while player animations still playing → overlaps/queues visuals.
-
-
-
 \## Previously Resolved
 
 \- Card fading to invisible on hover (alpha interference)
@@ -28,6 +11,9 @@
 
 \- Status tick removal bug (out-of-range from list removal during iteration)
 
+\- Enemy turn begins while player animations still playing → overlaps/queues visuals.
+
+\- Card lifts on hover, pointer exits mid-tween, card returns down, then re-enters and repeats.
 
 
 \## Git / Repo Notes

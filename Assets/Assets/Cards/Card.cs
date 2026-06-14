@@ -50,7 +50,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     // Original transform data to restore
     private Transform originalParent;
-    private Vector2 originalPosition;
     private Vector3 originalScale;   // <-- keep only this one
     private int originalIndexInHand;
     private Vector2 dragOffset;
@@ -84,33 +83,23 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     // --- Hover (rollover) settings ---
     [Header("Hover")]
-    [SerializeField] float hoverLift = 28f;
-    [SerializeField] float hoverDuration = 0.12f;
-    [SerializeField] Ease hoverEase = Ease.OutQuad;
+
+    [SerializeField] AudioClip hoverSfx;
+
+    [SerializeField] private float hoverLift = 28f;
+    [SerializeField] private float hoverDuration = 0.12f;
+    [SerializeField] private Ease hoverEase = Ease.OutQuad;
 
     private bool isHovered;
-    private Vector2 vrPreHoverPos;   // <-- store the visualRoot's original pos
-    private Tweener hoverPosTw;
-    private int hoverOriginalSiblingIndex = -1;
-
-
-
-
-    private Coroutine hoverExitCo;
+    private Vector2 hoverBaseAnchoredPos;
+    private Tweener hoverTween;
+    private bool hoverInitialized;
 
     private bool pointerDown;
     private Vector2 pointerDownPos;
     [SerializeField] float clickMaxMove = 8f; // pixels allowed to still count as a click
 
 
-    [Header("Hover SFX")]
-    [SerializeField] AudioClip hoverSfx;
-    [SerializeField] float hoverSfxVolume = 1f;
-
-    // hover reparenting state
-    private Transform hoverOriginalParent;
-    private Vector2 hoverOriginalAnchoredPos;   // in original parent space
-    private bool hoverLiftedToDragLayer;
     // at top of Card
     private Vector3 baseScale;   // never overwrite after Start()
 
@@ -175,6 +164,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     // Inside Card class (same level as ApplyCardEffectToEnemy / OnEndDrag)
     private void ApplyCardEffectToPlayer(Player player)
     {
+
+        bool didResolve = false;
         if (BattleManager.Instance.playerAP < cardData.cardCost)
         {
             Debug.LogWarning($"Not enough AP to play {cardData.cardName}!");
@@ -197,6 +188,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             }
 
             resolvedPlayer.onResolve.Invoke();
+            didResolve = true;
+            BattleManager.Instance?.NotifyCardResolved(cardData, null);
             return;
         }
 
@@ -204,6 +197,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             case "Restore":
                 {
+                    didResolve = true;
                     var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
                     var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
                     BeginEffectGate(_host);
@@ -215,6 +209,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Rejuvenate":
                 {
+                    didResolve = true;
                     var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
                     var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
                     BeginEffectGate(_host);
@@ -226,12 +221,117 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Shield":
                 {
+                    didResolve = true;
                     player.animator.SetTrigger("Buff");
                     player.activeEffects.Add(new StatusEffect { type = StatusType.Shield, duration = 2 });
                 }
                 break;
 
             // add your other self-target cases here...
+
+
+            case "Cleanse":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.activeEffects.Clear();
+                }
+                break;
+
+            case "Just Give Me a Second":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.activeEffects.Clear();
+                    player.Heal(10);
+                }
+                break;
+
+            case "Enrage":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    // Pay a small HP cost, then gain two double-damage charges.
+                    player.PayHealth(3);
+                    player.AddDoubleDamageCharges(2);
+                }
+                break;
+
+            case "Vengeance":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.Heal(Random.Range(cardData.minValue, cardData.maxValue + 1));
+                    player.AddDoubleDamageCharges(1);
+                }
+                break;
+
+            case "Second Wind":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.EnableSecondWind(regenPerTurn: 3, turns: 2);
+                }
+                break;
+
+            case "Counter":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.EnableCounter(power: Mathf.Max(1, cardData.minValue), turns: 3);
+                }
+                break;
+
+            case "Reflect":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.EnableReflect(turns: 3);
+                }
+                break;
+
+            case "Leech Trap":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    player.EnableLeechTrap(power: Mathf.Max(1, cardData.minValue), turns: 2);
+                }
+                break;
+
+            case "CREATIVE FREEDOM":
+                {
+                    didResolve = true;
+                    var tint = EffectDirector.Instance.ResolveTypeColor(cardData.cardType, Color.white);
+                    var _host = EffectDirector.Instance ? EffectDirector.Instance.playerSingleTargetHost : null;
+                    BeginEffectGate(_host);
+                    EffectDirector.Instance.PlayPlayerHit(EffectKey.CreativeFreedom, cardData.sfx, cardData.sfxVolume, tint);
+
+                    player.animator.SetTrigger("Buff");
+                    player.EnableCreativeFreedom(10);
+                }
+                break;
+
+            case "Reiterate":
+                {
+                    if (!BattleManager.Instance || !BattleManager.Instance.CanUseReiterateThisTurn())
+                        break;
+
+                    didResolve = true;
+                    BattleManager.Instance.MarkUsedReiterate();
+                    BattleManager.Instance.ReiterateHandAndAP();
+                }
+                break;
+
+            case "Again!":
+                {
+                    if (!BattleManager.Instance || !BattleManager.Instance.CanUseAgainThisTurn())
+                        break;
+
+                    didResolve = true;
+                    BattleManager.Instance.MarkUsedAgain();
+                    BattleManager.Instance.PlayLastResolvedCard();
+                }
+                break;
 
             default:
                 Debug.Log($"{cardData.cardName} not implemented for player!");
@@ -240,6 +340,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
         player.UpdateHPText();
         Destroy(gameObject);
+
+        if (didResolve)
+            BattleManager.Instance?.NotifyCardResolved(cardData, null);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -277,6 +380,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         // local guard
         bool IsAlive(Enemy e) => e != null && !e.IsDead && e.GetHP() > 0;
+        bool didResolve = false;
+
 
         // Do not spend AP on dead/invalid targets
         if (!IsAlive(enemy))
@@ -364,6 +469,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- RED -----
             case "Red Stroke":
                 {
+                    didResolve = true;
                     int dmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
                     STWithImpact(enemy, EffectKey.RedStroke, () => enemy.TakeDamage(dmg));
                 }
@@ -371,6 +477,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Siphon":
                 {
+                    didResolve = true;
                     int dmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
                     STWithImpact(enemy, EffectKey.Siphon, () =>
                     {
@@ -383,6 +490,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- CRIMSON -----
             case "Red Splatter":
                 {
+                    didResolve = true;
                     AOEWithImpact(EffectKey.RedSplatter, () =>
                     {
                         var snapshot = new List<Enemy>(BattleManager.Instance.enemies);
@@ -398,6 +506,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Reckless Stroke":
                 {
+                    didResolve = true;
                     float hpRatio = (float)BattleManager.Instance.player.currentHP / BattleManager.Instance.player.maxHP;
                     float mult = (hpRatio < 0.25f) ? 4f : (hpRatio < 0.5f ? 2f : 1f);
                     int baseDmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
@@ -409,6 +518,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Finishing Touch":
                 {
+                    didResolve = true;
                     int finalDmg = (enemy.currentHP < 30) ? enemy.currentHP : 30;
                     STWithImpact(enemy, EffectKey.FinishingTouch, () => enemy.TakeDamage(finalDmg));
                 }
@@ -417,6 +527,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- BLUE -----
             case "Attack Break":
                 {
+                    didResolve = true;
                     int dmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
                     STWithImpact(enemy, EffectKey.AttackBreak, () =>
                     {
@@ -429,6 +540,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- ULTRAMARINE -----
             case "Defensive Stance":
                 {
+                    didResolve = true;
                     int dmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
                     STWithImpact(enemy, EffectKey.AttackBreak /* or your own DefensiveStance key if you add one */, () =>
                     {
@@ -442,6 +554,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Yellow Spray":
             case "Y-Spray":
                 {
+                    didResolve = true;
                     AOEWithImpact(EffectKey.YSpray, () =>
                     {
                         var snapshot = new List<Enemy>(BattleManager.Instance.enemies);
@@ -457,6 +570,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Poison":
                 {
+                    didResolve = true;
                     int poisonPerTurn = Random.Range(1, 3); // 1-2
                     enemy.ApplyPoison(poisonPerTurn, 3);
                 }
@@ -464,12 +578,14 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Sleep":
                 {
+                    didResolve = true;
                     STWithImpact(enemy, EffectKey.Sleep, () => enemy.ApplySleep(1));
                 }
                 break;
 
             case "Corrode":
                 {
+                    didResolve = true;
                     int dmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
                     STWithImpact(enemy, EffectKey.Corrode, () =>
                     {
@@ -482,6 +598,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- GOLDEN -----
             case "Toxic Paint":
                 {
+                    didResolve = true;
                     int poisonPerTurn = Random.Range(3, 7); // 2-3
                     enemy.ApplyPoison(poisonPerTurn, 3);
                 }
@@ -489,6 +606,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
             case "Pool of Paint":
                 {
+                    didResolve = true;
                     // roll once so both poison & regen are consistent
                     int poisonPerTurn = Random.Range(2, 4); // 2-3
                     int healPerTurn = Random.Range(1, 4); // 1-3
@@ -515,8 +633,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- PURPLE -----
             case "Imaginary Paint":
                 {
+                    didResolve = true;
                     int dmg = cardData.minValue; // fixed nuke
                                                  // If you visually treat it as an AoE blast, keep AoE host; else use STWithImpact
+                    dmg = BattleManager.Instance.player.ModifyOutgoingDamage(dmg);
                     AOEWithImpact(EffectKey.ImaginaryPaint, () => enemy.TakeDamage(dmg));
                 }
                 break;
@@ -524,6 +644,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             // ----- ORANGE -----
             case "Crushing Paint":
                 {
+                    didResolve = true;
                     int dmg = cardData.minValue;
                     STWithImpact(enemy, EffectKey.CrushingPaint, () =>
                     {
@@ -538,139 +659,98 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 break;
         }
 
+        if (didResolve)
+            BattleManager.Instance?.NotifyCardResolved(cardData, enemy != null ? enemy.gameObject : null);
+
         // Destroy the card right away; the armed impact will still fire from the effect host.
         Destroy(gameObject);
     }
-
     // ---------------------------------------------------------
     // HOVER EFFECTS
     // ---------------------------------------------------------
+
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-
-        if (hoverExitCo != null) { StopCoroutine(hoverExitCo); hoverExitCo = null; }
         if (dragging || !isDraggable) return;
+        if (BattleManager.Instance == null) return;
+
         ForceVisibleIfNotFusionLocked();
-        if (!visualRoot) visualRoot = transform as RectTransform; // safety
 
-        // bring whole card in front (doesn't move hitbox)
-        hoverOriginalSiblingIndex = transform.GetSiblingIndex();
-        transform.SetAsLastSibling();
+        if (visualRoot == null)
+            visualRoot = transform as RectTransform;
 
-        // SFX
-        var am = BattleManager.Instance ? BattleManager.Instance.audioManager : null;
-        if (hoverSfx && am != null) am.PlaySound(hoverSfx);
-
-        // position tween on visual only
         var vr = (RectTransform)visualRoot;
-        vrPreHoverPos = vr.anchoredPosition;
 
-        hoverPosTw?.Kill();
-        hoverPosTw = vr.DOAnchorPosY(vrPreHoverPos.y + hoverLift, hoverDuration).SetEase(hoverEase);
+        // Record the base position only once, before any hover movement
+        if (!hoverInitialized)
+        {
+            hoverBaseAnchoredPos = vr.anchoredPosition;
+            hoverInitialized = true;
+        }
+
+        // Stop any return tween before lifting again
+        hoverTween?.Kill();
+
+        // Move only the visual root
+        hoverTween = vr.DOAnchorPosY(hoverBaseAnchoredPos.y + hoverLift, hoverDuration)
+            .SetEase(hoverEase)
+            .SetUpdate(true);
 
         isHovered = true;
 
-        // ---- OSC hover pulse ----
+        // SFX
+        var am = BattleManager.Instance.audioManager;
+        if (hoverSfx && am != null)
+            am.PlaySound(hoverSfx);
+
+        // OSC hover pulse
         if (enableOsc &&
             oscTransmitter != null &&
-            BattleManager.Instance != null &&
             BattleManager.Instance.state == BattleManager.BattleState.PLAYER_TURN)
         {
             StartCoroutine(OscHoverPulseCo());
         }
     }
 
-
-
-
-
-
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!isHovered) return;
+        if (dragging) return;
 
-        // Don't immediately drop hover: when the card visually moves on hover-lift,
-        // the pointer can "exit" for a frame due to UI raycast target drift.
-        // Confirm on the next frame whether the pointer is truly no longer over this card.
-        if (hoverExitCo != null) StopCoroutine(hoverExitCo);
-        hoverExitCo = StartCoroutine(Co_ConfirmHoverExit());
-    }
-
-    private IEnumerator Co_ConfirmHoverExit()
-    {
-        yield return null; // wait one frame for UI raycasts to stabilize
-
-        if (EventSystem.current == null)
-        {
-            DoUnhover();
-            yield break;
-        }
-
-        var ped = new PointerEventData(EventSystem.current)
-        {
-            position = Input.mousePosition
-        };
-
-        var results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(ped, results);
-
-        bool stillOverThisCard = false;
-        for (int i = 0; i < results.Count; i++)
-        {
-            var go = results[i].gameObject;
-            if (go == null) continue;
-
-            if (go == gameObject || go.transform.IsChildOf(transform))
-            {
-                stillOverThisCard = true;
-                break;
-            }
-        }
-
-        if (!stillOverThisCard)
-            DoUnhover();
-
-        hoverExitCo = null;
+        DoUnhover();
     }
 
     private void DoUnhover()
     {
         ForceVisibleIfNotFusionLocked();
-        if (!visualRoot) visualRoot = transform as RectTransform;
+
+        if (visualRoot == null)
+            visualRoot = transform as RectTransform;
 
         var vr = (RectTransform)visualRoot;
-        hoverPosTw?.Kill();
-        hoverPosTw = vr.DOAnchorPos(vrPreHoverPos, hoverDuration).SetEase(hoverEase);
 
-        if (hoverOriginalSiblingIndex >= 0)
-            transform.SetSiblingIndex(hoverOriginalSiblingIndex);
-        hoverOriginalSiblingIndex = -1;
+        hoverTween?.Kill();
+        hoverTween = vr.DOAnchorPos(hoverBaseAnchoredPos, hoverDuration)
+            .SetEase(hoverEase)
+            .SetUpdate(true);
 
         isHovered = false;
     }
-
-
-
 
     private void ResetHoverInstant()
     {
+        hoverTween?.Kill();
 
-        if (hoverExitCo != null) { StopCoroutine(hoverExitCo); hoverExitCo = null; }
-        if (!isHovered) return;
-        if (!visualRoot) visualRoot = transform as RectTransform;
+        if (visualRoot == null)
+            visualRoot = transform as RectTransform;
 
         var vr = (RectTransform)visualRoot;
-        hoverPosTw?.Kill();
-        vr.anchoredPosition = vrPreHoverPos;
-
-        if (hoverOriginalSiblingIndex >= 0)
-            transform.SetSiblingIndex(hoverOriginalSiblingIndex);
-        hoverOriginalSiblingIndex = -1;
+        vr.anchoredPosition = hoverBaseAnchoredPos;
 
         isHovered = false;
     }
-
-
 
     // ---------------------------------------------------------
     // DRAG & DROP IMPLEMENTATION
@@ -680,13 +760,11 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (!isDraggable) return;
 
         ResetHoverInstant();        // already in your code, good
-        hoverPosTw?.Kill();
 
         var canvas = GetComponentInParent<Canvas>();
         Camera uiCamera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
         originalParent = transform.parent;
-        originalPosition = ((RectTransform)transform).anchoredPosition;
         // REMOVE THIS LINE if you still have it:
         // originalScale = transform.localScale;
 
@@ -1194,4 +1272,4 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         return (midiNote - 60) / 12f;
     }
 
-}
+} //Hi! If you're seeing this, you've reached the end, my friend!
