@@ -26,6 +26,16 @@ public enum EffectKey
     // AoE
     RedSplatter,
     YSpray,
+
+    // Player buffs / utility (appended at end to preserve serialized effectKey indices)
+    Counter,
+    Reflect,
+    LeechTrap,
+    Again,
+    JustGiveMeASecond,
+    DefensiveStance,
+    Vengeance,
+    SecondWind,
 }
 
 [Serializable]
@@ -147,6 +157,16 @@ public class EffectDirector : MonoBehaviour
         { EffectKey.Restore,       "Restore" },
         { EffectKey.Rejuvenate,      "Rejuvenate" },
         { EffectKey.CreativeFreedom,      "CreativeFreedom" },
+
+        // Player buffs / utility
+        { EffectKey.Counter,           "BCounter" },
+        { EffectKey.Reflect,           "Reflect" },
+        { EffectKey.LeechTrap,         "Leech Trap" },
+        { EffectKey.Again,             "Again" },
+        { EffectKey.JustGiveMeASecond, "Just Give Me A Second" },
+        { EffectKey.DefensiveStance,   "Defensive Stance" },
+        { EffectKey.Vengeance,         "Vengeance" },
+        { EffectKey.SecondWind,        "Second Wind" },
     };
 
     private string TriggerFor(EffectKey key)

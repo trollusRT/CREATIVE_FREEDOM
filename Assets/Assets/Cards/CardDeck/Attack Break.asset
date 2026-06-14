@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Attack Break
   cardType: Blue
   cardEffect: Light damage, half damage dealt
-  cardCost: 2
+  cardCost: 1
   minValue: 2
   maxValue: 4
   canTargetPlayer: 0

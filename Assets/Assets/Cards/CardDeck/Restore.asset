@@ -16,8 +16,8 @@ MonoBehaviour:
   cardType: Yellow
   cardEffect: Light heal
   cardCost: 1
-  minValue: 4
-  maxValue: 4
+  minValue: 1
+  maxValue: 3
   canTargetPlayer: 1
   canTargetEnemy: 0
   isConditional: 0

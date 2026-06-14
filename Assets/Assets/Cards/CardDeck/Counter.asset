@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Counter
   cardType: Blue
   cardEffect: Counterattack 3 turns
-  cardCost: 2
+  cardCost: 1
   minValue: 0
   maxValue: 0
   canTargetPlayer: 1

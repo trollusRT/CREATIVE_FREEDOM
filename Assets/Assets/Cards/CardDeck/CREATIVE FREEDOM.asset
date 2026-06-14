@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: CREATIVE FREEDOM
   cardType: Purple
   cardEffect: Doubles damage until you lose up to 10 damage
-  cardCost: 1
+  cardCost: 3
   minValue: 0
   maxValue: 0
   canTargetPlayer: 1

@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12dd9147cedd6ab41b1830b2c54e1f82, type: 3}
-  m_Name: Cleanse
+  m_Name: Reflect
   m_EditorClassIdentifier: 
-  cardName: Cleanse
+  cardName: Reflect
   cardType: Blue
-  cardEffect: Status Effect Removal
-  cardCost: 1
+  cardEffect: Reflect back the next attack at the attacker
+  cardCost: 2
   minValue: 0
   maxValue: 0
   canTargetPlayer: 1
   canTargetEnemy: 0
   isConditional: 0
-  cardSprite: {fileID: 21300000, guid: 2bde725e8b9565c449b92e62301aa0ee, type: 3}
+  cardSprite: {fileID: 21300000, guid: 15b8680fd938a934fab42ce6816738fb, type: 3}
+  sfx: {fileID: 0}
+  sfxVolume: 1

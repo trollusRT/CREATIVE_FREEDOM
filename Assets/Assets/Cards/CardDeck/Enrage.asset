@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Enrage
   cardType: Red
   cardEffect: 2 Self DMG, double your attack
-  cardCost: 2
+  cardCost: 1
   minValue: 2
   maxValue: 2
   canTargetPlayer: 1

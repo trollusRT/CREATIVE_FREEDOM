@@ -15,9 +15,9 @@ MonoBehaviour:
   cardName: Imaginary Paint
   cardType: Purple
   cardEffect: Single-Target High Damage
-  cardCost: 1
-  minValue: 12
-  maxValue: 16
+  cardCost: 2
+  minValue: 10
+  maxValue: 10
   canTargetPlayer: 0
   canTargetEnemy: 1
   isConditional: 0

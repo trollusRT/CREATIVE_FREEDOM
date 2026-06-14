@@ -6,6 +6,7 @@ public class EffectAnimatorHost : MonoBehaviour
 {
     public AudioSource audioSource; // optional
     private Animator anim;
+    private HashSet<string> paramNames; // trigger/param names the controller actually defines
 
 	private System.Action pendingImpact; // For animation impact events
 
@@ -26,6 +27,12 @@ public class EffectAnimatorHost : MonoBehaviour
         anim = GetComponent<Animator>();
         if (!audioSource) audioSource = GetComponent<AudioSource>();
 
+        // Cache the controller's parameter names so Play() can skip triggers that don't exist
+        // (avoids "Parameter X does not exist" warnings and lets effects degrade gracefully).
+        paramNames = new HashSet<string>();
+        if (anim != null)
+            foreach (var p in anim.parameters) paramNames.Add(p.name);
+
         spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>(includeInactive: true));
         particleSystems = new List<ParticleSystem>(GetComponentsInChildren<ParticleSystem>(includeInactive: true));
     }
@@ -33,10 +40,21 @@ public class EffectAnimatorHost : MonoBehaviour
     
     public void Play(string triggerName, AudioClip sfx = null, float volume = 1f, Color? tint = null)
 {
-	    // If a caller armed a completion callback but we have no trigger to play,
-	    // complete immediately so turn gating cannot soft-lock.
-	    if (string.IsNullOrEmpty(triggerName))
+	    // No usable trigger — empty, or the animator's controller doesn't define this parameter.
+	    // Skip SetTrigger (which would log "Parameter X does not exist") and fire the armed impact +
+	    // completion now, so damage / enemy Hurt / turn gating still happen even without a VFX clip.
+	    if (string.IsNullOrEmpty(triggerName) || paramNames == null || !paramNames.Contains(triggerName))
 	    {
+	        if (sfx)
+	        {
+	            if (audioSource) audioSource.PlayOneShot(sfx, volume);
+	            else if (AudioManager.Instance) AudioManager.Instance.PlaySound(sfx);
+	        }
+
+	        var impact = pendingImpact;
+	        pendingImpact = null;
+	        impact?.Invoke();
+
 	        nextComplete?.Invoke();
 	        nextComplete = null;
 	        return;

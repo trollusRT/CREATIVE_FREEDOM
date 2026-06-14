@@ -161,6 +161,16 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         // If you also have text fields for cost/name, update them here.
     }
 
+    // Plays a player-side overlay VFX on the FXPlayer host (tint + turn-gating), mirroring the Restore/CreativeFreedom pattern.
+    private void PlayPlayerVfx(EffectKey key)
+    {
+        var dir = EffectDirector.Instance;
+        if (dir == null || key == EffectKey.None) return;
+        var tint = dir.ResolveTypeColor(cardData.cardType, Color.white);
+        BeginEffectGate(dir.playerSingleTargetHost);
+        dir.PlayPlayerHit(key, cardData.sfx, cardData.sfxVolume, tint);
+    }
+
     // Inside Card class (same level as ApplyCardEffectToEnemy / OnEndDrag)
     private void ApplyCardEffectToPlayer(Player player)
     {
@@ -227,6 +237,15 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
+            case "Defensive Stance":
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.DefensiveStance);
+                    player.activeEffects.Add(new StatusEffect { type = StatusType.DefensiveStance, duration = 2 });
+                }
+                break;
+
             // add your other self-target cases here...
 
 
@@ -242,6 +261,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.JustGiveMeASecond);
                     player.activeEffects.Clear();
                     player.Heal(10);
                 }
@@ -261,6 +281,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.Vengeance);
                     player.Heal(Random.Range(cardData.minValue, cardData.maxValue + 1));
                     player.AddDoubleDamageCharges(1);
                 }
@@ -270,6 +291,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.SecondWind);
                     player.EnableSecondWind(regenPerTurn: 3, turns: 2);
                 }
                 break;
@@ -278,6 +300,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.Counter);
                     player.EnableCounter(power: Mathf.Max(1, cardData.minValue), turns: 3);
                 }
                 break;
@@ -286,6 +309,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.Reflect);
                     player.EnableReflect(turns: 3);
                 }
                 break;
@@ -294,6 +318,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     player.animator.SetTrigger("Buff");
+                    PlayPlayerVfx(EffectKey.LeechTrap);
                     player.EnableLeechTrap(power: Mathf.Max(1, cardData.minValue), turns: 2);
                 }
                 break;
@@ -328,6 +353,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                         break;
 
                     didResolve = true;
+                    PlayPlayerVfx(EffectKey.Again);
                     BattleManager.Instance.MarkUsedAgain();
                     BattleManager.Instance.PlayLastResolvedCard();
                 }
@@ -537,19 +563,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
-            // ----- ULTRAMARINE -----
-            case "Defensive Stance":
-                {
-                    didResolve = true;
-                    int dmg = Random.Range(cardData.minValue, cardData.maxValue + 1);
-                    STWithImpact(enemy, EffectKey.AttackBreak /* or your own DefensiveStance key if you add one */, () =>
-                    {
-                        enemy.activeEffects.Add(new StatusEffect { type = StatusType.DefensiveStance, duration = 2 });
-                        enemy.TakeDamage(dmg);
-                    });
-                }
-                break;
-
             // ----- YELLOW -----
             case "Yellow Spray":
             case "Y-Spray":
@@ -572,7 +585,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     int poisonPerTurn = Random.Range(1, 3); // 1-2
-                    enemy.ApplyPoison(poisonPerTurn, 3);
+                    STWithImpact(enemy, EffectKey.PoisonST, () => enemy.ApplyPoison(poisonPerTurn, 3));
                 }
                 break;
 
@@ -600,7 +613,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 {
                     didResolve = true;
                     int poisonPerTurn = Random.Range(3, 7); // 2-3
-                    enemy.ApplyPoison(poisonPerTurn, 3);
+                    STWithImpact(enemy, EffectKey.ToxicPaint, () => enemy.ApplyPoison(poisonPerTurn, 3));
                 }
                 break;
 

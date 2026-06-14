@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Reiterate
   cardType: Crimson
   cardEffect: Reshuffle deck
-  cardCost: 2
+  cardCost: 3
   minValue: 0
   maxValue: 0
   canTargetPlayer: 1

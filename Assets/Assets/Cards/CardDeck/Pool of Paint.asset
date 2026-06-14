@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Pool of Paint
   cardType: Golden
   cardEffect: AoE light poison + heal over time
-  cardCost: 1
+  cardCost: 2
   minValue: 0
   maxValue: 0
   canTargetPlayer: 0
