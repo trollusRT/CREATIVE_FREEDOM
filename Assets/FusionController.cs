@@ -44,6 +44,8 @@ public class FusionController : MonoBehaviour
     [SerializeField] Canvas ritualCanvas;
     [SerializeField, Range(0f, 1f)] float flashPeakAlpha = 0.45f;
     [SerializeField] float flashDuration = 0.4f;
+    [SerializeField] AudioClip fuseSfx;
+    [SerializeField, Range(0f, 1f)] float fuseSfxVolume = 1f;
 
     // Current selection
     private readonly List<Card> selected = new();
@@ -335,6 +337,8 @@ public class FusionController : MonoBehaviour
 
     void PlayFuseRitual(CardData result, GameObject resultGO)
     {
+        if (fuseSfx && AudioManager.Instance) AudioManager.Instance.PlaySound(fuseSfx, fuseSfxVolume);
+
         var canvas = ritualCanvas ? ritualCanvas
                    : (hud ? hud.GetComponentInParent<Canvas>() : null);
         if (canvas) SpawnFlash(canvas, ResolveResultColor(result));

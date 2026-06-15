@@ -56,9 +56,21 @@ public class EffectDirector : MonoBehaviour
     [Header("Type Colors")]
     public List<TypeColor> typeColors = new();        // fill in Inspector
 
+    [Header("Glow")]
+    [Tooltip("Multiplies effect tint into HDR so Bloom makes colored VFX pop against the grayscale world.")]
+    public float effectColorIntensity = 3f;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
+    }
+
+    // Push a tint into HDR so Bloom makes it glow against the grayscale world.
+    public Color Boost(Color? tint)
+    {
+        Color c = tint ?? Color.white;
+        float i = Mathf.Max(0f, effectColorIntensity);
+        return new Color(c.r * i, c.g * i, c.b * i, c.a);
     }
 
     /// <summary>
@@ -76,7 +88,7 @@ public class EffectDirector : MonoBehaviour
             Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}. Host={host.name}");
             return;
         }
-        host.Play(trig, sfx, volume, tint);
+        host.Play(trig, sfx, volume, Boost(tint));
     }
 
     /// <summary>
@@ -91,7 +103,7 @@ public class EffectDirector : MonoBehaviour
             Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}. Host={playerSingleTargetHost.name}");
             return;
         }
-        playerSingleTargetHost.Play(trig, sfx, volume, tint);
+        playerSingleTargetHost.Play(trig, sfx, volume, Boost(tint));
 
     }
 
@@ -107,7 +119,7 @@ public class EffectDirector : MonoBehaviour
             Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}. Host={aoeHost.name}");
             return;
         }
-        aoeHost.Play(trig, sfx, volume, tint);
+        aoeHost.Play(trig, sfx, volume, Boost(tint));
     }
 
     /// <summary>

@@ -123,6 +123,7 @@ public class Enemy : MonoBehaviour
     {
         if (IsDead) return;
         currentHP = Mathf.Min(currentHP + amount, maxHP);
+        DamageNumbers.ShowHeal(transform.position, amount);
         Debug.Log($"{enemyName} healed by {amount}, HP = {currentHP}");
         UpdateHPText();
         UpdatePortraitBand();
@@ -134,6 +135,7 @@ public class Enemy : MonoBehaviour
 
         amount = CalculateIncomingDamage(amount);
         currentHP -= amount;
+        DamageNumbers.ShowDamage(transform.position, amount);
         Debug.Log($"{enemyName} took {amount} damage, HP = {currentHP}");
 
         UpdateHPText();
@@ -164,6 +166,7 @@ public class Enemy : MonoBehaviour
             {
                 case StatusType.Poison:
                     currentHP -= Mathf.Max(1, eff.power);
+                    DamageNumbers.ShowDamage(transform.position, Mathf.Max(1, eff.power));
                     Debug.Log($"{enemyName} took {eff.power} poison damage, HP = {currentHP}");
                     UpdateHPText();
 

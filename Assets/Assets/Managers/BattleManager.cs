@@ -38,6 +38,10 @@ public class BattleManager : MonoBehaviour
     public AudioManager audioManager;
     public MusicManager musicManager;
 
+    [Header("Intro")]
+    [Tooltip("Optional map→battle faceoff stinger. Auto-found in the scene if left empty.")]
+    public BattleIntroStinger introStinger;
+
     private bool battleResolved = false;
 
 
@@ -168,8 +172,26 @@ public class BattleManager : MonoBehaviour
     {
         battleResolved = false;
         if (passButton) passButton.onClick.AddListener(PassTurn);
-        musicManager.PlayBattleMusic();
         UpdateUI();
+
+        if (introStinger == null)
+            introStinger = FindFirstObjectByType<BattleIntroStinger>(FindObjectsInactive.Include);
+
+        if (introStinger != null)
+        {
+            // Stinger covers the screen, then parts to reveal the live fight.
+            // Kick off music + the battle exactly on the reveal beat.
+            introStinger.Play(onReveal: BeginBattle);
+        }
+        else
+        {
+            BeginBattle();
+        }
+    }
+
+    void BeginBattle()
+    {
+        if (musicManager) musicManager.PlayBattleMusic();
         StartCoroutine(StartBattle());
     }
 

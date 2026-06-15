@@ -90,6 +90,7 @@ public class Player : MonoBehaviour
         if (audioManager && impact) audioManager.PlaySound(impact);
 
         currentHP -= finalDamage;
+        DamageNumbers.ShowDamage(transform.position, finalDamage);
 
         if (creativeFreedomActive)
         {
@@ -145,6 +146,7 @@ public class Player : MonoBehaviour
         if (damage <= 0) return;
 
         currentHP -= damage;
+        DamageNumbers.ShowDamage(transform.position, damage);
 
         if (currentHP <= 0)
         {
@@ -178,6 +180,7 @@ public class Player : MonoBehaviour
         CombatVFXManager.Instance.PlayOnPlayer(VfxType.HealBurst);
         currentHP += amount;
         if (currentHP > maxHP) currentHP = maxHP;
+        DamageNumbers.ShowHeal(transform.position, amount);
         Debug.Log($"Player healed {amount}, HP now {currentHP}");
 
         CheckHP();
