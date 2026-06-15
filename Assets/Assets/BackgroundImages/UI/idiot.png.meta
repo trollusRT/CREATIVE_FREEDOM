@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9fcb00e2d27c439469d8356f89954c8d
+guid: 2f9f58109bc67af4aacbb4b0c55f3939
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1889537702765113337
-    second: Fuse_0
+      213: 4530551475942936357
+    second: idiot_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fuse_0
+      name: idiot_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 199
-        height: 93
+        x: 969
+        y: 30
+        width: 1947
+        height: 3766
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ffa50b878cf83a10800000000000000
-      internalID: 1889537702765113337
+      spriteID: 52f43304090cfde30800000000000000
+      internalID: 4530551475942936357
       vertices: []
       indices: 
       edges: []

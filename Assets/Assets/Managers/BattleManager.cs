@@ -174,6 +174,15 @@ public class BattleManager : MonoBehaviour
         if (passButton) passButton.onClick.AddListener(PassTurn);
         UpdateUI();
 
+        // Hold on the start menu (if present) until the player presses Start.
+        if (TestFlowController.Instance != null && TestFlowController.Instance.gateBattleStart)
+            return;
+
+        BeginIntroAndBattle();
+    }
+
+    public void BeginIntroAndBattle()
+    {
         if (introStinger == null)
             introStinger = FindFirstObjectByType<BattleIntroStinger>(FindObjectsInactive.Include);
 
@@ -399,7 +408,11 @@ public class BattleManager : MonoBehaviour
 
         Debug.Log("Player Wins!");
         musicManager.PlayVictoryMusic();
-        yield return new WaitForSeconds(2f);
+
+        if (TestFlowController.Instance != null)
+            yield return StartCoroutine(TestFlowController.Instance.Co_EndFight(true));
+        else
+            yield return new WaitForSeconds(2f);
         // TODO: next scene / rewards
     }
 
@@ -447,8 +460,16 @@ public class BattleManager : MonoBehaviour
 
         Debug.Log("Player Defeated!");
         musicManager.PlayDefeatMusic();
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(FadeToBlack());
+
+        if (TestFlowController.Instance != null)
+        {
+            yield return StartCoroutine(TestFlowController.Instance.Co_EndFight(false));
+        }
+        else
+        {
+            yield return new WaitForSeconds(2f);
+            StartCoroutine(FadeToBlack());
+        }
     }
 
     IEnumerator FadeToBlack()

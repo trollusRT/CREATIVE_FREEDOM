@@ -1,421 +1,710 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using DG.Tweening;
 
+/// <summary>
+/// Fusion as a dynamic centre-stage ritual instead of a static tray.
+///
+/// Hidden until used. Click a card and the stage fades in over a translucent, ebbing dark
+/// cloud: the first ingredient sits on the left, the second on the right, each lit with its
+/// type colour, with the result card vaguely glowing between them. FUSE floats above the
+/// result, CANCEL below. On fuse, the ingredients spin into the centre and join, the result
+/// pops up glowing its colour, then drops down into the deck.
+///
+/// The whole presentation is built in code (like BattleIntroStinger / DamageNumbers), so the
+/// only scene wiring it needs is the FusionBook + HandManager it already had. The old static
+/// tray/buttons are auto-hidden on Awake.
+/// </summary>
 public class FusionController : MonoBehaviour
 {
     public static FusionController Instance;
 
     [Header("Data")]
-    public FusionBook fusionBook;             // assign your FusionBook asset
-
-    [Header("UI (fusion tray)")]
-    public CanvasGroup hud;                   // the fusion panel (move it to bottom-center for the tray look)
-    public Image slotAImage;
-    public Image slotBImage;
-    public Button fuseButton;
-    public Button clearButton;
+    public FusionBook fusionBook;
 
     [Header("Refs")]
     public HandManager handManager;
 
+    [Header("Legacy UI to retire (optional)")]
+    [Tooltip("Old static tray + buttons. Auto-hidden on start so they stop cluttering the field.")]
+    public CanvasGroup hud;
+    public Button fuseButton;          // legacy — hidden on start
+    public Button clearButton;         // legacy — hidden on start
+    public GameObject resultPreviewRoot;
+
     [Header("Input")]
-    public KeyCode toggleKey = KeyCode.Space;
     public KeyCode cancelKey = KeyCode.Escape;
 
-    [Header("HUD placeholders")]
-    [SerializeField] Sprite emptySlotSpriteA;   // optional; can use one for both
-    [SerializeField] Sprite emptySlotSpriteB;
+    [Header("Stage layout (reference 800x600)")]
+    public float cardHeight = 230f;
+    [Tooltip("Horizontal distance of each ingredient from centre.")]
+    public float ingredientSpread = 215f;
+    [Range(0.4f, 1f)] public float resultScale = 0.8f;
+    [Tooltip("How faint the result card sits in the middle before fusing.")]
+    [Range(0.1f, 1f)] public float resultAlpha = 0.45f;
+    public float buttonOffsetY = 172f;
 
-    [Header("Result preview (optional)")]
-    [Tooltip("Image that shows the fused result's card art once a valid recipe is selected.")]
-    [SerializeField] Image resultPreviewImage;
-    [Tooltip("Optional container (e.g. the preview + an arrow) toggled with the preview.")]
-    [SerializeField] GameObject resultPreviewRoot;
+    [Header("Dark cloud")]
+    public Vector2 cloudSize = new Vector2(880f, 540f);
+    [Range(0f, 1f)] public float cloudAlpha = 0.22f;
+    public Color cloudColor = Color.black;
 
-    [Header("Tray animation")]
-    [SerializeField] float trayTweenDuration = 0.2f;
-    [SerializeField] Ease trayShowEase = Ease.OutBack;
+    [Header("Glow")]
+    [Range(0f, 1f)] public float glowAlpha = 0.75f;
 
-    [Header("Fuse ritual")]
-    [Tooltip("Canvas the full-screen flash is parented to. Auto-resolved from the HUD if left empty.")]
-    [SerializeField] Canvas ritualCanvas;
-    [SerializeField, Range(0f, 1f)] float flashPeakAlpha = 0.45f;
-    [SerializeField] float flashDuration = 0.4f;
-    [SerializeField] AudioClip fuseSfx;
-    [SerializeField, Range(0f, 1f)] float fuseSfxVolume = 1f;
+    [Header("Buttons")]
+    [Tooltip("Button art. If set, replaces the coloured fallback + label. Pick the Fuse_0 / Cancel_0 sub-sprite.")]
+    public Sprite fuseSprite;
+    public Sprite cancelSprite;
+    public float buttonHeight = 74f;
+    [Tooltip("Fallback button colours used only when no sprite is assigned.")]
+    public Color fuseColor = new Color(0.20f, 0.75f, 0.35f);
+    public Color cancelColor = new Color(0.78f, 0.22f, 0.22f);
 
-    // Current selection
+    [Header("Timings (unscaled)")]
+    public float showDur = 0.22f;
+    public float hideDur = 0.16f;
+    public float spinDur = 0.34f;
+    public float popDur = 0.24f;
+    public float dropDur = 0.40f;
+
+    [Header("Audio")]
+    [Tooltip("Played when a card is added to the fusion stage.")]
+    public AudioClip addCardSfx;
+    [Range(0f, 1f)] public float addCardSfxVolume = 1f;
+    public AudioClip fuseSfx;
+    [Range(0f, 1f)] public float fuseSfxVolume = 1f;
+
+    // ---- selection state ----
     private readonly List<Card> selected = new();
 
-    // Empty slots
-    private Sprite defaultSlotASprite, defaultSlotBSprite;
+    // ---- runtime stage ----
+    GameObject overlayGO;
+    RectTransform overlayRT;
+    RectTransform stageRoot;
+    CanvasGroup stageGroup;
+    RectTransform cloudRoot;
 
-    // Edge-trackers for one-shot flair (preview entrance) vs continuous state (fuse pulse).
-    private bool wasFusable;
-    private bool previewShowing;
-    private Tween fusePulseTween;
+    CardVisual slotA, slotB, slotR;
+    Button fuseBtn;
+
+    Sprite radialSprite;
+    Tween fusePulse;
+    bool idleRunning;
+    readonly List<Tween> idle = new();
+
+    class CardVisual
+    {
+        public RectTransform rt;     // positioned container (show/hide + scale)
+        public CanvasGroup cg;
+        public RectTransform bob;    // idle sway
+        public Image glow;
+        public Image card;
+        public Vector2 basePos;
+        public float baseScale = 1f;
+        public bool isResult;
+        public bool shown;
+    }
 
     void Awake()
     {
         Instance = this;
 
-        defaultSlotASprite = slotAImage ? slotAImage.sprite : null;
-        defaultSlotBSprite = slotBImage ? slotBImage.sprite : null;
-
-        SetHUD(false, instant: true);
-        if (fuseButton) fuseButton.onClick.AddListener(TryFuse);
-        if (clearButton) clearButton.onClick.AddListener(ClearSelection);
+        // Retire the old static presentation.
+        if (hud) hud.gameObject.SetActive(false);
+        if (fuseButton) fuseButton.gameObject.SetActive(false);
+        if (clearButton) clearButton.gameObject.SetActive(false);
+        if (resultPreviewRoot) resultPreviewRoot.SetActive(false);
     }
 
     void Update()
     {
-        // Only allow while it's the player's turn
         if (BattleManager.Instance == null ||
             BattleManager.Instance.state != BattleManager.BattleState.PLAYER_TURN)
             return;
-
-        if (Input.GetKeyDown(toggleKey))
-            ToggleFusionMode();
 
         if (Input.GetKeyDown(cancelKey) && IsActive)
             ExitFusionMode();
     }
 
-    public bool IsActive => hud && hud.alpha > 0.5f;
+    public bool IsActive => stageGroup != null && stageGroup.alpha > 0.5f;
 
-    public void EnterFusionMode()
-    {
-        ClearSelection();
-        SetHUD(true);
-    }
-
-    public void ExitFusionMode()
-    {
-        ClearSelection();
-        SetHUD(false);
-    }
-
-    public void ToggleFusionMode()
-    {
-        if (IsActive) ExitFusionMode();
-        else EnterFusionMode();
-    }
+    // ----------------------------------------------------------------- public API
 
     public bool TrySelectCard(Card c)
     {
         if (!c) return false;
-
-        // Auto-enter fusion mode if HUD is hidden
-        if (!IsActive) EnterFusionMode();
-
         if (!c.IsFusionSelectable()) return false;
+
         if (selected.Contains(c)) { DeselectCard(c); return true; }
-        if (selected.Count >= 2) { ShakeHUD(); return false; }
+        if (selected.Count >= 2) { ShakeStage(); return false; }
 
         selected.Add(c);
         c.SetFusionSelected(true);
-        UpdateHUD();
-        PopSlot(selected.Count);   // bounce the slot that just filled
+
+        if (addCardSfx && AudioManager.Instance)
+            AudioManager.Instance.PlaySound(addCardSfx, addCardSfxVolume);
+
+        EnsureStage();
+        ShowStage();
+        RefreshStage();
         return true;
-    }
-
-    void SetHUD(bool on, bool instant = false)
-    {
-        if (!hud) return;
-
-        hud.blocksRaycasts = on;
-        hud.interactable = on;
-
-        var rt = hud.transform as RectTransform;
-        hud.DOKill();
-        if (rt) rt.DOKill();
-
-        if (instant)
-        {
-            hud.alpha = on ? 1f : 0f;
-            if (rt) rt.localScale = Vector3.one;
-        }
-        else if (on)
-        {
-            hud.alpha = 0f;
-            if (rt) rt.localScale = Vector3.one * 0.9f;
-            hud.DOFade(1f, trayTweenDuration).SetUpdate(true);
-            if (rt) rt.DOScale(1f, trayTweenDuration).SetEase(trayShowEase).SetUpdate(true);
-        }
-        else
-        {
-            hud.DOFade(0f, trayTweenDuration * 0.7f).SetUpdate(true);
-        }
-
-        UpdateHUD();
     }
 
     public void DeselectCard(Card c)
     {
         if (!c) return;
-        if (selected.Remove(c))
-        {
-            c.SetFusionSelected(false);
-            UpdateHUD();
-        }
+        if (!selected.Remove(c)) return;
+
+        c.SetFusionSelected(false);
+        if (selected.Count == 0) ExitFusionMode();
+        else RefreshStage();
     }
 
-    // Public so BattleManager can call it.
     public void ClearSelection()
     {
         foreach (var c in selected)
         {
             if (!c) continue;
+            c.SetFusionSelected(false);
             var cg = c.GetComponent<CanvasGroup>();
             if (cg) cg.alpha = 1f;
-            c.SetFusionSelected(false);   // optional: re-enable drag
         }
         selected.Clear();
-        UpdateHUD(); // this clears the slot images
     }
 
-    public void OnTurnEnded(bool hideHud = true)
+    public void EnterFusionMode() => EnsureStage();
+
+    public void ExitFusionMode()
     {
-        // Deselect any cards (safe even if they were destroyed by discard)
         ClearSelection();
-
-        // Optionally hide the HUD between turns
-        if (hideHud) SetHUD(false);
+        HideStage();
     }
 
-    void UpdateHUD()
+    public void ToggleFusionMode()
     {
-        var emptyA = emptySlotSpriteA ? emptySlotSpriteA : defaultSlotASprite;
-        var emptyB = emptySlotSpriteB ? emptySlotSpriteB : defaultSlotBSprite;
+        if (IsActive) ExitFusionMode();
+    }
 
-        if (slotAImage)
+    public void OnTurnEnded(bool hide = true)
+    {
+        ClearSelection();
+        if (hide) HideStage();
+    }
+
+    // ----------------------------------------------------------------- stage build
+
+    void EnsureStage()
+    {
+        if (overlayGO) return;
+
+        overlayGO = new GameObject("FusionStage (runtime)", typeof(RectTransform));
+        overlayRT = (RectTransform)overlayGO.transform;
+        overlayRT.SetParent(null, false);          // root overlay -> always full-screen
+        Stretch(overlayRT);
+
+        var canvas = overlayGO.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = 900;                 // above hand, below DamageNumbers(9999)/intro(10000)
+        var scaler = overlayGO.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(800, 600);
+        scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+        scaler.matchWidthOrHeight = 0.5f;
+        overlayGO.AddComponent<GraphicRaycaster>();
+
+        stageRoot = NewRect("StageRoot", overlayRT, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f));
+        stageGroup = stageRoot.gameObject.AddComponent<CanvasGroup>();
+        stageGroup.alpha = 0f;
+        stageGroup.blocksRaycasts = false;
+
+        // Dark ebbing cloud (three overlapping soft blobs).
+        cloudRoot = NewRect("Cloud", stageRoot, Half(), Half(), Half());
+        for (int i = 0; i < 3; i++)
         {
-            slotAImage.sprite = (selected.Count > 0)
-                ? selected[0].cardData.cardSprite
-                : emptyA;
-            slotAImage.preserveAspect = true;
+            var blob = NewImage($"Blob_{i}", cloudRoot, new Color(cloudColor.r, cloudColor.g, cloudColor.b, cloudAlpha),
+                Half(), Half(), Half());
+            blob.sprite = GetRadial();
+            blob.rectTransform.sizeDelta = cloudSize * Random.Range(0.85f, 1.15f);
+            blob.raycastTarget = false;
         }
 
-        if (slotBImage)
-        {
-            slotBImage.sprite = (selected.Count > 1)
-                ? selected[1].cardData.cardSprite
-                : emptyB;
-            slotBImage.preserveAspect = true;
-        }
+        // Card slots.
+        slotR = MakeCardVisual("ResultSlot", new Vector2(0f, 0f), resultScale, isResult: true);
+        slotA = MakeCardVisual("IngredientA", new Vector2(-ingredientSpread, 0f), 1f, isResult: false);
+        slotB = MakeCardVisual("IngredientB", new Vector2(ingredientSpread, 0f), 1f, isResult: false);
 
-        // Resolve the recipe (also used to drive the result preview).
+        // Buttons.
+        fuseBtn = MakeButton("FuseButton", "FUSE", fuseSprite, fuseColor, new Vector2(0f, buttonOffsetY), TryFuse);
+        MakeButton("CancelButton", "CANCEL", cancelSprite, cancelColor, new Vector2(0f, -buttonOffsetY), ExitFusionMode);
+
+        stageRoot.gameObject.SetActive(false);
+    }
+
+    CardVisual MakeCardVisual(string name, Vector2 basePos, float baseScale, bool isResult)
+    {
+        var rt = NewRect(name, stageRoot, Half(), Half(), Half());
+        rt.anchoredPosition = basePos;
+        rt.localScale = Vector3.one * baseScale;
+        var cg = rt.gameObject.AddComponent<CanvasGroup>();
+        cg.alpha = 0f;
+
+        var bob = NewRect("Bob", rt, Half(), Half(), Half());
+
+        var glow = NewImage("Glow", bob, new Color(1f, 1f, 1f, 0f), Half(), Half(), Half());
+        glow.sprite = GetRadial();
+        glow.raycastTarget = false;
+
+        var card = NewImage("Card", bob, Color.white, Half(), Half(), Half());
+        card.preserveAspect = true;
+        card.raycastTarget = false;
+
+        return new CardVisual { rt = rt, cg = cg, bob = bob, glow = glow, card = card, basePos = basePos, baseScale = baseScale, isResult = isResult };
+    }
+
+    // ----------------------------------------------------------------- refresh
+
+    void RefreshStage()
+    {
+        var a = selected.Count > 0 ? selected[0].cardData : null;
+        var b = selected.Count > 1 ? selected[1].cardData : null;
+
+        SetSlot(slotA, a, ResolveColor(a));
+        SetSlot(slotB, b, ResolveColor(b));
+
         FusionRecipe recipe = null;
-        bool canFuse = false;
-        if (selected.Count == 2 && fusionBook != null &&
-            fusionBook.TryGetRecipe(selected[0].cardData, selected[1].cardData, out recipe) &&
-            fusionBook.IsLearned(recipe))
-        {
-            var bm = BattleManager.Instance;
-            canFuse = bm != null &&
-                      bm.state == BattleManager.BattleState.PLAYER_TURN &&
-                      bm.playerAP >= 1;
-        }
+        bool valid = a != null && b != null && fusionBook != null &&
+                     fusionBook.TryGetRecipe(a, b, out recipe) && fusionBook.IsLearned(recipe);
 
-        if (fuseButton) fuseButton.interactable = canFuse;
+        var result = valid ? recipe.result : null;
+        SetSlot(slotR, result, ResolveColor(result));
 
-        ShowResultPreview(canFuse && recipe != null ? recipe.result : null);
+        var bm = BattleManager.Instance;
+        bool canFuse = valid && bm != null &&
+                       bm.state == BattleManager.BattleState.PLAYER_TURN && bm.playerAP >= 1;
 
-        // Start/stop the FUSE button's breathing pulse on the fusable edge.
-        if (canFuse && !wasFusable) StartFusePulse();
-        else if (!canFuse && wasFusable) StopFusePulse();
-        wasFusable = canFuse;
+        if (fuseBtn) fuseBtn.interactable = canFuse;
+        if (canFuse) StartFusePulse(); else StopFusePulse();
     }
 
-    void ShowResultPreview(CardData result)
+    void SetSlot(CardVisual cv, CardData data, Color color)
     {
-        if (resultPreviewRoot) resultPreviewRoot.SetActive(result != null);
-        if (!resultPreviewImage) return;
+        bool show = data != null && data.cardSprite != null;
 
-        if (result != null)
+        if (show)
         {
-            resultPreviewImage.sprite = result.cardSprite;
-            resultPreviewImage.preserveAspect = true;
-            resultPreviewImage.enabled = true;
+            SetCardSprite(cv, data.cardSprite);
+            cv.glow.color = new Color(color.r, color.g, color.b, glowAlpha);
+            var cc = cv.card.color; cc.a = cv.isResult ? resultAlpha : 1f; cv.card.color = cc;
 
-            if (!previewShowing)   // scale-in the instant it first appears
+            if (!cv.shown)
             {
-                previewShowing = true;
-                var rt = resultPreviewImage.transform as RectTransform;
-                if (rt)
-                {
-                    rt.DOKill();
-                    rt.localScale = Vector3.one * 0.4f;
-                    rt.DOScale(1f, 0.28f).SetEase(Ease.OutBack).SetUpdate(true);
-                }
+                cv.shown = true;
+                AnimateSlotIn(cv);
+                StartBob(cv);
+                StartGlowPulse(cv);
             }
         }
-        else
+        else if (cv.shown)
         {
-            resultPreviewImage.enabled = false;
-            previewShowing = false;
+            cv.shown = false;
+            cv.cg.DOKill();
+            cv.cg.DOFade(0f, hideDur).SetUpdate(true);
         }
     }
 
-    void PopSlot(int slotNumber)
+    void AnimateSlotIn(CardVisual cv)
     {
-        var img = slotNumber == 1 ? slotAImage : (slotNumber == 2 ? slotBImage : null);
-        if (!img) return;
-        var rt = img.transform as RectTransform;
-        if (!rt) return;
-        rt.DOKill(true);
-        rt.DOPunchScale(Vector3.one * 0.3f, 0.3f, 8, 0.9f).SetUpdate(true);
+        cv.rt.DOKill();
+        cv.cg.DOKill();
+        cv.cg.alpha = 0f;
+        cv.rt.localScale = Vector3.one * (cv.baseScale * 0.7f);
+        cv.cg.DOFade(1f, showDur).SetUpdate(true);
+        cv.rt.DOScale(cv.baseScale, showDur * 1.3f).SetEase(Ease.OutBack).SetUpdate(true);
+    }
+
+    // ----------------------------------------------------------------- show / hide
+
+    void ShowStage()
+    {
+        EnsureStage();
+        stageRoot.gameObject.SetActive(true);
+
+        stageGroup.DOKill();
+        stageGroup.blocksRaycasts = true;
+        if (stageGroup.alpha < 0.99f)
+        {
+            stageGroup.alpha = 0f;
+            stageRoot.localScale = Vector3.one * 0.96f;
+            stageGroup.DOFade(1f, showDur).SetUpdate(true);
+            stageRoot.DOScale(1f, showDur).SetEase(Ease.OutBack).SetUpdate(true);
+        }
+
+        StartCloudEbb();
+    }
+
+    void HideStage()
+    {
+        if (overlayGO == null) return;
+
+        KillIdle();
+        StopFusePulse();
+
+        if (stageGroup)
+        {
+            stageGroup.DOKill();
+            stageGroup.blocksRaycasts = false;
+            stageGroup.DOFade(0f, hideDur).SetUpdate(true)
+                .OnComplete(() => { if (stageRoot) stageRoot.gameObject.SetActive(false); });
+        }
+
+        ResetSlot(slotA);
+        ResetSlot(slotB);
+        ResetSlot(slotR);
+    }
+
+    void ResetSlot(CardVisual cv)
+    {
+        if (cv == null) return;
+        cv.shown = false;
+        cv.rt.DOKill();
+        cv.cg.DOKill();
+        cv.bob.DOKill();
+        cv.glow.DOKill();
+        cv.cg.alpha = 0f;
+        cv.bob.anchoredPosition = Vector2.zero;
+        cv.bob.localRotation = Quaternion.identity;
+    }
+
+    // ----------------------------------------------------------------- idle motion
+
+    void StartCloudEbb()
+    {
+        if (idleRunning || cloudRoot == null) return;
+        idleRunning = true;
+
+        for (int i = 0; i < cloudRoot.childCount; i++)
+        {
+            var blob = cloudRoot.GetChild(i) as RectTransform;
+            if (!blob) continue;
+            float dur = Random.Range(2.2f, 3.4f);
+            float drift = Random.Range(18f, 40f);
+            blob.localRotation = Quaternion.identity;
+            blob.localScale = Vector3.one * Random.Range(0.85f, 0.95f);
+
+            Idle(blob.DOScale(Random.Range(1.08f, 1.22f), dur)
+                .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+            Idle(blob.DOAnchorPosX(Random.Range(-drift, drift), dur * 1.1f)
+                .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+            Idle(blob.DOAnchorPosY(Random.Range(-drift, drift) * 0.6f, dur * 0.9f)
+                .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+            Idle(blob.DORotate(new Vector3(0, 0, Random.Range(-8f, 8f)), dur * 1.3f)
+                .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+        }
+    }
+
+    void StartBob(CardVisual cv)
+    {
+        cv.bob.DOKill();
+        cv.bob.anchoredPosition = Vector2.zero;
+        cv.bob.localRotation = Quaternion.identity;
+        float phase = Random.Range(0f, 0.5f);
+
+        Idle(cv.bob.DOAnchorPosY(7f, 1.1f).SetDelay(phase)
+            .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+        Idle(cv.bob.DOLocalRotate(new Vector3(0, 0, cv.isResult ? 0f : 3f), 1.4f).SetDelay(phase)
+            .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+    }
+
+    void StartGlowPulse(CardVisual cv)
+    {
+        cv.glow.DOKill();
+        var c = cv.glow.color; c.a = glowAlpha; cv.glow.color = c;
+        Idle(cv.glow.DOFade(glowAlpha * 0.5f, 0.85f)
+            .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo).SetUpdate(true));
+    }
+
+    Tween Idle(Tween t) { if (t != null) idle.Add(t); return t; }
+
+    void KillIdle()
+    {
+        for (int i = 0; i < idle.Count; i++) idle[i]?.Kill();
+        idle.Clear();
+        idleRunning = false;
     }
 
     void StartFusePulse()
     {
-        var rt = fuseButton ? fuseButton.transform as RectTransform : null;
-        if (!rt) return;
-        fusePulseTween?.Kill();
+        if (fusePulse != null && fusePulse.IsActive()) return;
+        if (!fuseBtn) return;
+        var rt = fuseBtn.transform as RectTransform;
         rt.localScale = Vector3.one;
-        fusePulseTween = rt.DOScale(1.08f, 0.6f)
-            .SetEase(Ease.InOutSine)
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetUpdate(true);
+        fusePulse = rt.DOScale(1.1f, 0.55f).SetEase(Ease.InOutSine)
+            .SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
     }
 
     void StopFusePulse()
     {
-        fusePulseTween?.Kill();
-        fusePulseTween = null;
-        if (fuseButton)
+        fusePulse?.Kill();
+        fusePulse = null;
+        if (fuseBtn) (fuseBtn.transform as RectTransform).localScale = Vector3.one;
+    }
+
+    // ----------------------------------------------------------------- fuse
+
+    void TryFuse()
+    {
+        if (selected.Count != 2 || fusionBook == null) { ShakeStage(); return; }
+
+        var bm = BattleManager.Instance;
+        if (bm == null || bm.state != BattleManager.BattleState.PLAYER_TURN || bm.playerAP < 1) { ShakeStage(); return; }
+
+        if (!fusionBook.TryGetRecipe(selected[0].cardData, selected[1].cardData, out var recipe) ||
+            !fusionBook.IsLearned(recipe))
         {
-            var rt = fuseButton.transform as RectTransform;
-            if (rt) rt.localScale = Vector3.one;
+            ShakeStage();
+            ExitFusionMode();
+            return;
         }
+
+        // Capture visuals before we tear the stage down.
+        var a = selected[0];
+        var b = selected[1];
+        Sprite spriteA = a.cardData.cardSprite, spriteB = b.cardData.cardSprite, spriteR = recipe.result.cardSprite;
+        Color colorA = ResolveColor(a.cardData), colorB = ResolveColor(b.cardData), colorR = ResolveColor(recipe.result);
+
+        // Gameplay resolution (unchanged from before).
+        handManager.RemoveCard(a);
+        handManager.RemoveCard(b);
+        handManager.SpawnCard(recipe.result);
+        bm.UseAP(1);                 // may end the turn
+
+        ExitFusionMode();            // clears selection + fades the stage
+
+        // Independent payoff animation so it survives the stage teardown / turn end.
+        PlayFuseAnimation(spriteA, colorA, spriteB, colorB, spriteR, colorR);
+    }
+
+    void PlayFuseAnimation(Sprite a, Color ca, Sprite b, Color cb, Sprite res, Color cr)
+    {
+        EnsureStage();
+        if (fuseSfx && AudioManager.Instance) AudioManager.Instance.PlaySound(fuseSfx, fuseSfxVolume);
+
+        var root = NewRect("FuseAnim", overlayRT, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f));
+
+        var left = MakeLooseCard(root, a, ca, new Vector2(-ingredientSpread, 0f), 1f);
+        var right = MakeLooseCard(root, b, cb, new Vector2(ingredientSpread, 0f), 1f);
+        var result = MakeLooseCard(root, res, cr, Vector2.zero, resultScale);
+        result.cg.alpha = 0f;
+        result.rt.localScale = Vector3.zero;
+
+        var seq = DOTween.Sequence().SetUpdate(true);
+
+        // 1 — ingredients spin into the centre and join.
+        seq.Append(left.rt.DOAnchorPos(Vector2.zero, spinDur).SetEase(Ease.InBack));
+        seq.Join(left.rt.DORotate(new Vector3(0, 0, 360f), spinDur, RotateMode.FastBeyond360));
+        seq.Join(left.rt.DOScale(0.35f, spinDur));
+        seq.Join(left.cg.DOFade(0f, spinDur).SetEase(Ease.InQuad));
+        seq.Join(right.rt.DOAnchorPos(Vector2.zero, spinDur).SetEase(Ease.InBack));
+        seq.Join(right.rt.DORotate(new Vector3(0, 0, -360f), spinDur, RotateMode.FastBeyond360));
+        seq.Join(right.rt.DOScale(0.35f, spinDur));
+        seq.Join(right.cg.DOFade(0f, spinDur).SetEase(Ease.InQuad));
+
+        // join flash + camera punch
+        seq.AppendCallback(() =>
+        {
+            SpawnFlash(cr);
+            if (CameraShakeManager.Instance) CameraShakeManager.Instance.Shake();
+        });
+
+        // 2 — result pops up, glowing its colour.
+        seq.Append(result.rt.DOScale(resultScale * 1.18f, popDur).SetEase(Ease.OutBack));
+        seq.Join(result.cg.DOFade(1f, popDur));
+        seq.Join(result.rt.DOAnchorPosY(48f, popDur).SetEase(Ease.OutBack));
+        seq.Join(result.glow.DOFade(0.95f, popDur));
+        seq.Append(result.rt.DOScale(resultScale, popDur * 0.6f).SetEase(Ease.OutSine));
+        seq.AppendInterval(0.10f);
+
+        // 3 — drops down into the deck.
+        float dropY = -360f;
+        seq.Append(result.rt.DOAnchorPos(new Vector2(0f, dropY), dropDur).SetEase(Ease.InCubic));
+        seq.Join(result.rt.DOScale(resultScale * 0.5f, dropDur));
+        seq.Join(result.cg.DOFade(0f, dropDur).SetDelay(dropDur * 0.35f));
+        seq.Join(result.glow.DOFade(0f, dropDur));
+
+        seq.OnComplete(() => { if (root) Destroy(root.gameObject); });
+    }
+
+    // A standalone card (glow + face) for the fuse payoff, not tracked by the slot system.
+    CardVisual MakeLooseCard(RectTransform parent, Sprite sprite, Color color, Vector2 pos, float scale)
+    {
+        var rt = NewRect("Loose", parent, Half(), Half(), Half());
+        rt.anchoredPosition = pos;
+        rt.localScale = Vector3.one * scale;
+        var cg = rt.gameObject.AddComponent<CanvasGroup>();
+
+        var glow = NewImage("Glow", rt, new Color(color.r, color.g, color.b, glowAlpha), Half(), Half(), Half());
+        glow.sprite = GetRadial();
+        glow.raycastTarget = false;
+
+        var card = NewImage("Card", rt, Color.white, Half(), Half(), Half());
+        card.preserveAspect = true;
+        card.raycastTarget = false;
+
+        var cv = new CardVisual { rt = rt, cg = cg, bob = rt, glow = glow, card = card, basePos = pos, baseScale = scale };
+        SetCardSprite(cv, sprite);
+        return cv;
+    }
+
+    void SpawnFlash(Color color)
+    {
+        var img = NewImage("FuseFlash", overlayRT, new Color(color.r, color.g, color.b, 1f),
+            Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f));
+        img.raycastTarget = false;
+        img.transform.SetAsLastSibling();
+        var cg = img.gameObject.AddComponent<CanvasGroup>();
+        cg.alpha = 0f;
+        DOTween.Sequence().SetUpdate(true)
+            .Append(cg.DOFade(0.5f, 0.10f))
+            .Append(cg.DOFade(0f, 0.30f))
+            .OnComplete(() => { if (img) Destroy(img.gameObject); });
+    }
+
+    void ShakeStage()
+    {
+        if (stageRoot == null) return;
+        stageRoot.DOComplete();
+        stageRoot.DOShakeAnchorPos(0.3f, new Vector2(18f, 0f), 14, 0f).SetUpdate(true);
+    }
+
+    // ----------------------------------------------------------------- helpers
+
+    Color ResolveColor(CardData d)
+    {
+        if (d == null) return Color.white;
+        if (EffectDirector.Instance != null) return EffectDirector.Instance.ResolveTypeColor(d.cardType, Color.white);
+        return Color.white;
+    }
+
+    void SetCardSprite(CardVisual cv, Sprite sprite)
+    {
+        cv.card.sprite = sprite;
+        float aspect = (sprite != null && sprite.rect.height > 0f) ? sprite.rect.width / sprite.rect.height : 0.68f;
+        float h = cardHeight, w = h * aspect;
+        cv.card.rectTransform.sizeDelta = new Vector2(w, h);
+        float g = Mathf.Max(w, h) * 1.7f;
+        cv.glow.rectTransform.sizeDelta = new Vector2(g, g);
+    }
+
+    Button MakeButton(string name, string label, Sprite sprite, Color fallback, Vector2 pos, UnityEngine.Events.UnityAction onClick)
+    {
+        var rt = NewRect(name, stageRoot, Half(), Half(), Half());
+        rt.anchoredPosition = pos;
+
+        var img = rt.gameObject.AddComponent<Image>();
+        img.raycastTarget = true;
+
+        if (sprite != null)
+        {
+            // Use the supplied art (which already carries its own label/styling).
+            img.sprite = sprite;
+            img.color = Color.white;
+            img.preserveAspect = true;
+            float aspect = sprite.rect.height > 0f ? sprite.rect.width / sprite.rect.height : 2.1f;
+            rt.sizeDelta = new Vector2(buttonHeight * aspect, buttonHeight);
+        }
+        else
+        {
+            // Fallback: plain coloured button with a text label.
+            img.color = fallback;
+            rt.sizeDelta = new Vector2(168f, buttonHeight);
+            var t = NewText(rt, label, 26f, Color.white, TextAlignmentOptions.Center);
+            t.fontStyle = FontStyles.Bold;
+        }
+
+        var btn = rt.gameObject.AddComponent<Button>();
+        btn.targetGraphic = img;
+        btn.onClick.AddListener(onClick);
+        return btn;
+    }
+
+    Sprite GetRadial()
+    {
+        if (radialSprite) return radialSprite;
+        const int s = 128;
+        var tex = new Texture2D(s, s, TextureFormat.RGBA32, false)
+        {
+            filterMode = FilterMode.Bilinear,
+            wrapMode = TextureWrapMode.Clamp
+        };
+        var px = new Color[s * s];
+        float r = s * 0.5f;
+        for (int y = 0; y < s; y++)
+            for (int x = 0; x < s; x++)
+            {
+                float d = Mathf.Sqrt((x - r) * (x - r) + (y - r) * (y - r)) / r;
+                float a = Mathf.Clamp01(1f - d);
+                a = Mathf.Pow(a, 1.7f);
+                px[y * s + x] = new Color(1f, 1f, 1f, a);
+            }
+        tex.SetPixels(px);
+        tex.Apply();
+        radialSprite = Sprite.Create(tex, new Rect(0, 0, s, s), new Vector2(0.5f, 0.5f), 100f);
+        return radialSprite;
+    }
+
+    RectTransform NewRect(string name, Transform parent, Vector2 aMin, Vector2 aMax, Vector2 pivot)
+    {
+        var go = new GameObject(name, typeof(RectTransform));
+        var rt = (RectTransform)go.transform;
+        rt.SetParent(parent, false);
+        rt.anchorMin = aMin;
+        rt.anchorMax = aMax;
+        rt.pivot = pivot;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
+        rt.anchoredPosition = Vector2.zero;
+        rt.localScale = Vector3.one;
+        return rt;
+    }
+
+    Image NewImage(string name, Transform parent, Color c, Vector2 aMin, Vector2 aMax, Vector2 pivot)
+    {
+        var rt = NewRect(name, parent, aMin, aMax, pivot);
+        var img = rt.gameObject.AddComponent<Image>();
+        img.color = c;
+        img.raycastTarget = false;
+        return img;
+    }
+
+    TextMeshProUGUI NewText(Transform parent, string text, float size, Color color, TextAlignmentOptions align)
+    {
+        var rt = NewRect("Label", parent, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f));
+        var t = rt.gameObject.AddComponent<TextMeshProUGUI>();
+        t.text = text;
+        t.fontSize = size;
+        t.color = color;
+        t.alignment = align;
+        t.raycastTarget = false;
+        return t;
+    }
+
+    static Vector2 Half() => new Vector2(0.5f, 0.5f);
+
+    static void Stretch(RectTransform rt)
+    {
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
     }
 
     void OnDisable()
     {
-        fusePulseTween?.Kill();
-        fusePulseTween = null;
-    }
-
-    void TryFuse()
-    {
-        // Must have exactly 2 cards selected and a book
-        if (selected.Count != 2 || fusionBook == null) { ShakeHUD(); return; }
-
-        // Must be player's turn and have at least 1 AP
-        var bm = BattleManager.Instance;
-        if (bm == null || bm.state != BattleManager.BattleState.PLAYER_TURN) { ShakeHUD(); return; }
-        if (bm.playerAP < 1) { ShakeHUD(); return; }
-
-        // Must be a valid + learned recipe
-        if (!fusionBook.TryGetRecipe(selected[0].cardData, selected[1].cardData, out var recipe)
-            || !fusionBook.IsLearned(recipe))
-        {
-            ShakeHUD();
-            ClearSelection();
-            return;
-        }
-
-        // --- Gameplay resolution (unchanged) ---
-        var a = selected[0];
-        var b = selected[1];
-        handManager.RemoveCard(a);
-        handManager.RemoveCard(b);
-
-        var resultGO = handManager.SpawnCard(recipe.result);
-
-        bm.UseAP(1);   // may end the turn if AP hits 0
-
-        ClearSelection();
-        ExitFusionMode();
-
-        // --- Visual payoff (additive; runs after the fuse is already resolved) ---
-        PlayFuseRitual(recipe.result, resultGO);
-    }
-
-    void PlayFuseRitual(CardData result, GameObject resultGO)
-    {
-        if (fuseSfx && AudioManager.Instance) AudioManager.Instance.PlaySound(fuseSfx, fuseSfxVolume);
-
-        var canvas = ritualCanvas ? ritualCanvas
-                   : (hud ? hud.GetComponentInParent<Canvas>() : null);
-        if (canvas) SpawnFlash(canvas, ResolveResultColor(result));
-
-        if (resultGO) StartCoroutine(Co_PopResult(resultGO));
-
-        if (CombatVFXManager.Instance)
-        {
-            CombatVFXManager.Instance.PlayOnPlayer(VfxType.BuffGlow);
-            CombatVFXManager.Instance.PlayOnPlayer(VfxType.PaintSplash);
-        }
-        if (CameraShakeManager.Instance) CameraShakeManager.Instance.Shake();
-    }
-
-    Color ResolveResultColor(CardData result)
-    {
-        if (result != null && EffectDirector.Instance != null)
-            return EffectDirector.Instance.ResolveTypeColor(result.cardType, Color.white);
-        return Color.white;
-    }
-
-    // Brief full-screen colour flash, parented to the canvas, tinted to the result's type colour.
-    void SpawnFlash(Canvas canvas, Color color)
-    {
-        var go = new GameObject("FuseFlash",
-            typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(CanvasGroup));
-        go.transform.SetParent(canvas.transform, false);
-
-        var rt = (RectTransform)go.transform;
-        rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one;
-        rt.offsetMin = Vector2.zero; rt.offsetMax = Vector2.zero;
-        rt.SetAsLastSibling();
-
-        var img = go.GetComponent<Image>();
-        img.color = new Color(color.r, color.g, color.b, 1f);
-        img.raycastTarget = false;
-
-        var cg = go.GetComponent<CanvasGroup>();
-        cg.alpha = 0f; cg.blocksRaycasts = false; cg.interactable = false;
-
-        DOTween.Sequence().SetUpdate(true)
-            .Append(cg.DOFade(flashPeakAlpha, flashDuration * 0.25f))
-            .Append(cg.DOFade(0f, flashDuration * 0.75f))
-            .OnComplete(() => { if (go) Destroy(go); });
-    }
-
-    // Pops the freshly-spawned result card. Waits a couple frames so Card.Start()
-    // captures its baseScale at 1 before we punch (avoids corrupting hover/return scaling).
-    IEnumerator Co_PopResult(GameObject go)
-    {
-        yield return null;
-        yield return null;
-        if (!go) yield break;
-        var rt = go.transform as RectTransform;
-        if (rt) rt.DOPunchScale(Vector3.one * 0.35f, 0.4f, 7, 0.8f).SetUpdate(true);
-    }
-
-    void ShakeHUD()
-    {
-        if (!hud) return;
-        var rt = hud.transform as RectTransform;
-        if (!rt) return;
-        StartCoroutine(Shake(rt, 12f, 0.15f));
-    }
-
-    System.Collections.IEnumerator Shake(RectTransform rt, float dist, float dur)
-    {
-        Vector2 start = rt.anchoredPosition;
-        float t = 0f;
-        while (t < dur)
-        {
-            t += Time.unscaledDeltaTime;
-            float k = t / dur;
-            float offs = Mathf.Sin(k * Mathf.PI * 4f) * dist * (1f - k);
-            rt.anchoredPosition = start + new Vector2(offs, 0f);
-            yield return null;
-        }
-        rt.anchoredPosition = start;
+        KillIdle();
+        StopFusePulse();
     }
 }

@@ -933,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &299391857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1664,7 +1664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &616019712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2146,6 +2146,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1864046452}
+--- !u!1 &736574320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736574321}
+  - component: {fileID: 736574322}
+  m_Layer: 0
+  m_Name: TestFlowController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &736574321
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736574320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1374790714}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &736574322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736574320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7256eeb8cd1f648a6d419a2c147e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColor: {r: 0.05, g: 0.05, b: 0.06, a: 1}
+  backgroundImage: {fileID: -2721221791572053541, guid: d955e32502ae27947817187217b9ce9f, type: 3}
+  title: click card to add to fusion click idiot to start
+  titleColor: {r: 1, g: 1, b: 1, a: 1}
+  startButtonSprite: {fileID: 4530551475942936357, guid: 2f9f58109bc67af4aacbb4b0c55f3939, type: 3}
+  startButtonHeight: 170
+  quitButtonSprite: {fileID: -101614602811014737, guid: 84ae9e6680fa01d48a37f4226922a3ac, type: 3}
+  quitLabel: QUIT
+  quitButtonHeight: 70
+  quitBottomMargin: 70
+  quitColor: {r: 0.5, g: 0.5, b: 0.55, a: 1}
+  clickSfx: {fileID: 8300000, guid: 91c0415ede48b5b46a2d348e638d2a6c, type: 3}
+  clickVolume: 1
+  curtainColor: {r: 0, g: 0, b: 0, a: 1}
+  chimeExtraDelay: 0.2
+  maxChimeWait: 12
+  curtainSlideDur: 0.5
+  curtainEase: 10
+  curtainFrom: 0
+  gateBattleStart: 1
 --- !u!1 &745688487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,7 +2481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1025824905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2899,8 +2967,8 @@ RectTransform:
   m_GameObject: {fileID: 1200166053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.035994537}
-  m_LocalScale: {x: 1.35125, y: 1.35125, z: 1.35125}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.03, y: 1.03, z: 1.03}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1912485736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2922,24 +2990,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fusionBook: {fileID: 11400000, guid: bcaba57b70fd47f4494111c5f7396dc2, type: 2}
+  handManager: {fileID: 297901111}
   hud: {fileID: 1091218841}
-  slotAImage: {fileID: 616019713}
-  slotBImage: {fileID: 1025824906}
   fuseButton: {fileID: 1305026935}
   clearButton: {fileID: 1935790494}
-  handManager: {fileID: 297901111}
-  toggleKey: 32
-  cancelKey: 27
-  emptySlotSpriteA: {fileID: -319469171194908686, guid: 2da1aa873d546b04e8bcb330a2e4c088, type: 3}
-  emptySlotSpriteB: {fileID: -319469171194908686, guid: 2da1aa873d546b04e8bcb330a2e4c088, type: 3}
-  resultPreviewImage: {fileID: 299391858}
   resultPreviewRoot: {fileID: 299391856}
-  trayTweenDuration: 0.2
-  trayShowEase: 27
-  ritualCanvas: {fileID: 0}
-  flashPeakAlpha: 0.45
-  flashDuration: 0.4
-  fuseSfx: {fileID: 0}
+  cancelKey: 27
+  cardHeight: 230
+  ingredientSpread: 215
+  resultScale: 0.8
+  resultAlpha: 0.45
+  buttonOffsetY: 172
+  cloudSize: {x: 880, y: 540}
+  cloudAlpha: 0.594
+  cloudColor: {r: 0, g: 0, b: 0, a: 1}
+  glowAlpha: 0.869
+  fuseSprite: {fileID: 1889537702765113337, guid: 9fcb00e2d27c439469d8356f89954c8d, type: 3}
+  cancelSprite: {fileID: -2357659898952462716, guid: 39e64e6cfeffd054ba35b02ed03612bb, type: 3}
+  buttonHeight: 74
+  fuseColor: {r: 0.2, g: 0.75, b: 0.35, a: 1}
+  cancelColor: {r: 0.78, g: 0.22, b: 0.22, a: 1}
+  showDur: 0.22
+  hideDur: 0.16
+  spinDur: 0.34
+  popDur: 0.24
+  dropDur: 0.4
+  addCardSfx: {fileID: 8300000, guid: 2da842650da4e33479535c37eb1d74f4, type: 3}
+  addCardSfxVolume: 0.554
+  fuseSfx: {fileID: 8300000, guid: e494ac100b3c385438c92216a2d97839, type: 3}
   fuseSfxVolume: 1
 --- !u!1 &1214409396
 GameObject:
@@ -3429,7 +3507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1305026932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3696,6 +3774,7 @@ RectTransform:
   - {fileID: 289874803}
   - {fileID: 1146169292}
   - {fileID: 1923022002}
+  - {fileID: 736574321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5941,7 +6020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1935790491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6173,7 +6252,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989539043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 295e96d63ae73aa4dbe606803601bc84, type: 3}
   m_Name: 
