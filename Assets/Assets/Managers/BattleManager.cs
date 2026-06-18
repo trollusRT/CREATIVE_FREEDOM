@@ -38,6 +38,10 @@ public class BattleManager : MonoBehaviour
     public AudioManager audioManager;
     public MusicManager musicManager;
 
+    [Header("Enemy spawning (optional)")]
+    [Tooltip("Phase 1: if set, builds the enemy list from encounter data at battle start. Leave null to use scene-placed enemies.")]
+    public EnemySpawner enemySpawner;
+
     [Header("Intro")]
     [Tooltip("Optional map→battle faceoff stinger. Auto-found in the scene if left empty.")]
     public BattleIntroStinger introStinger;
@@ -204,6 +208,11 @@ public class BattleManager : MonoBehaviour
 
     public void BeginIntroAndBattle()
     {
+        // Spawn first so the live enemies exist (hidden behind the stinger's backdrop) and the
+        // faceoff stinger can build its cast from their EnemyData. The battle logic itself still
+        // doesn't start until the reveal beat (BeginBattle).
+        SpawnEncounterIfNeeded();
+
         if (introStinger == null)
             introStinger = FindFirstObjectByType<BattleIntroStinger>(FindObjectsInactive.Include);
 
@@ -211,6 +220,7 @@ public class BattleManager : MonoBehaviour
         {
             // Stinger covers the screen, then parts to reveal the live fight.
             // Kick off music + the battle exactly on the reveal beat.
+            introStinger.BuildCastFromEnemies(enemies);
             introStinger.Play(onReveal: BeginBattle);
         }
         else
@@ -223,6 +233,18 @@ public class BattleManager : MonoBehaviour
     {
         if (musicManager) musicManager.PlayBattleMusic();
         StartCoroutine(StartBattle());
+    }
+
+    // Phase 1: if a spawner is wired, build the enemy list from encounter data.
+    // Backward compatible: if the scene already placed enemies (list non-empty), keep them.
+    void SpawnEncounterIfNeeded()
+    {
+        if (enemySpawner == null) return;
+        if (enemies != null && enemies.Count > 0) return; // scene already placed enemies
+
+        var spawned = enemySpawner.SpawnForBattle();
+        if (spawned != null && spawned.Count > 0)
+            enemies = spawned;
     }
 
     IEnumerator StartBattle()

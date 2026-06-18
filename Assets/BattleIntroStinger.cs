@@ -194,6 +194,36 @@ public class BattleIntroStinger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Replace the faceoff cast with the actual fight: portraits + names pulled from each
+    /// enemy's EnemyData. Call this before <see cref="Play"/>.
+    ///
+    /// No-op when none of the live enemies carry EnemyData, so a hand-authored cast (e.g. a
+    /// scene placed without the spawner) is preserved. Enemies whose EnemyData has no
+    /// slidePortrait simply show no portrait but still contribute a name to the banner.
+    /// </summary>
+    public void BuildCastFromEnemies(List<Enemy> liveEnemies)
+    {
+        if (liveEnemies == null || liveEnemies.Count == 0) return;
+
+        bool anyData = false;
+        foreach (var e in liveEnemies)
+            if (e != null && e.data != null) { anyData = true; break; }
+        if (!anyData) return;
+
+        enemies.Clear();
+        foreach (var e in liveEnemies)
+        {
+            if (e == null) continue;
+            var d = e.data;
+            enemies.Add(new EnemyIntro
+            {
+                displayName = (d != null && !string.IsNullOrWhiteSpace(d.enemyName)) ? d.enemyName : e.enemyName,
+                portrait = d != null ? d.slidePortrait : null
+            });
+        }
+    }
+
     // ----------------------------------------------------------------- build
 
     void BuildUI()

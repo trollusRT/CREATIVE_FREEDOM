@@ -6,6 +6,10 @@ using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Data (optional)")]
+    [Tooltip("If set (by EnemySpawner, or assigned in the Inspector), these values override the fields below at Start.")]
+    public EnemyData data;
+
     [Header("Stats")]
     public string enemyName;
     public int maxHP = 20;
@@ -24,8 +28,6 @@ public class Enemy : MonoBehaviour
     [Tooltip("Ms. Remember: chance, each of her turns, to inflict a Decaying Mind stack (replaces a hand card with Forgotten).")]
     public bool appliesDecayingMind = false;
     [Range(0f, 1f)] public float decayingMindChance = 0.5f;
-
-    private bool panicHealUsed = false;
 
     [Header("Portrait Sprites (HP bands)")]
     public Sprite stableSprite;   // 66�100%
@@ -46,6 +48,15 @@ public class Enemy : MonoBehaviour
     [Header("Runtime")]
     public List<StatusEffect> activeEffects = new List<StatusEffect>();
     public bool IsDead { get; private set; }
+
+    // Pluggable special mechanics (Phase 2): collected from EnemyAbility components on this
+    // enemy at battle start, plus any bridged from legacy EnemyData flags. See EnemyAbility.
+    private readonly List<EnemyAbility> abilities = new List<EnemyAbility>();
+    private bool abilitiesReady = false;
+
+    // What this enemy intends to do this turn — exposed for a future telegraph UI.
+    public EnemyIntent CurrentIntent { get; private set; }
+    public void SetIntent(EnemyIntent intent) => CurrentIntent = intent;
 
     [Header("Hit Reaction")]
     public float knockback = 0.15f;     // world units, punched away from the player
@@ -71,12 +82,95 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        if (data != null) ApplyData();   // data-driven enemies override Inspector defaults
         IsDead = false;
         if (currentHP <= 0) currentHP = maxHP;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
         currentSprite = stableSprite;
         UpdateHPText();
         UpdatePortraitBand();
+        EnsureAbilities();
+    }
+
+    // ------------------- Data init -------------------
+
+    // Populate this enemy from an EnemyData asset and wire scene refs. Called by
+    // EnemySpawner right after Instantiate (after Awake, before Start), so Start()'s
+    // setup runs against the data-driven values.
+    public void Init(EnemyData source, Player player, AudioManager audioManager)
+    {
+        data = source;
+        if (player != null) this.player = player;
+        if (audioManager != null) this.audioManager = audioManager;
+        ApplyData();
+    }
+
+    // Copies EnemyData values into the runtime fields. Separate from Init so Start() can
+    // also apply data when an enemy is placed in the scene with a data asset assigned.
+    private void ApplyData()
+    {
+        if (data == null) return;
+
+        enemyName = data.enemyName;
+        maxHP = data.maxHP;
+        currentHP = data.maxHP;
+        baseAttackDamage = data.baseAttackDamage;
+
+        stableSprite = data.stableSprite;
+        hurtSprite = data.hurtSprite;
+        criticalSprite = data.criticalSprite;
+
+        attackSound = data.attackSound;
+        damageSound = data.damageSound;
+        deathSound = data.deathSound;
+
+        // Special mechanics (Phase 1: still flag-based; migrates to abilities in Phase 2).
+        panicHealOnBigHit = data.panicHealOnBigHit;
+        panicHealThreshold = data.panicHealThreshold;
+        panicHealOncePerBattle = data.panicHealOncePerBattle;
+        panicSfx = data.panicSfx;
+
+        appliesDecayingMind = data.appliesDecayingMind;
+        decayingMindChance = data.decayingMindChance;
+    }
+
+    // ------------------- Abilities (Phase 2) -------------------
+
+    // Collect ability components (bridging legacy EnemyData flags into abilities first),
+    // then initialise them. Idempotent and lazy, so it's safe to call from Start or from
+    // the first hook that fires.
+    private void EnsureAbilities()
+    {
+        if (abilitiesReady) return;
+        abilitiesReady = true;
+
+        // Bridge: legacy flag config becomes an ability component when one isn't already
+        // attached to the prefab. Lets Phase 1 EnemyData assets keep working unchanged.
+        if (panicHealOnBigHit && GetComponent<PanicHealAbility>() == null)
+        {
+            var ab = gameObject.AddComponent<PanicHealAbility>();
+            ab.threshold = panicHealThreshold;
+            ab.oncePerBattle = panicHealOncePerBattle;
+            ab.healSfx = panicSfx;
+        }
+        if (appliesDecayingMind && GetComponent<DecayingMindAbility>() == null)
+        {
+            var ab = gameObject.AddComponent<DecayingMindAbility>();
+            ab.chance = decayingMindChance;
+        }
+
+        abilities.Clear();
+        GetComponents(abilities);          // every EnemyAbility on this enemy
+        for (int i = 0; i < abilities.Count; i++) abilities[i].Initialize(this);
+        for (int i = 0; i < abilities.Count; i++) abilities[i].OnBattleStart();
+    }
+
+    // Fan a "survived a hit" event out to reactive abilities (e.g. MEI-I's panic heal).
+    private void NotifyDamaged(int amount)
+    {
+        EnsureAbilities();
+        for (int i = 0; i < abilities.Count; i++)
+            abilities[i].OnTookDamage(amount, survived: true);
     }
 
     // ------------------- Turn / Actions -------------------
@@ -93,20 +187,36 @@ public class Enemy : MonoBehaviour
             return;
         }
 
+        EnsureAbilities();
+
+        // An ability may fully own the turn (e.g. Critical Eye criticising or unleashing).
+        bool handled = false;
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            if (abilities[i].TryTakeTurn()) { handled = true; break; }
+        }
+
+        if (!handled) DefaultAttack();
+
+        // Post-action hooks (e.g. Ms. Remember rolling a Decaying Mind stack).
+        for (int i = 0; i < abilities.Count; i++)
+            abilities[i].OnActed();
+    }
+
+    // The basic "swing at the player" turn, used when no ability takes over.
+    private void DefaultAttack()
+    {
         int damage = CalculateOutgoingDamage();
+        SetIntent(new EnemyIntent { kind = IntentKind.Attack, amount = damage });
         Debug.Log(enemyName + " attacks!");
 
         // Optional: your attack VFX
         // CombatVFXManager.Instance.PlayOnEnemy(VfxType.Slash, player.transform.position);
 
-        player.TakeDamage(damage, this);
+        if (player) player.TakeDamage(damage, this);
 
         if (audioManager && attackSound) audioManager.PlaySound(attackSound);
         if (animator) animator.SetTrigger("Attack");
-
-        // Ms. Remember: chance to fog Junior's memory with a Decaying Mind stack.
-        if (appliesDecayingMind && Random.value < decayingMindChance)
-            BattleManager.Instance?.ApplyDecayingMindToPlayer();
     }
 
     public void ApplyPoison(int dmgPerTurn, int turns)
@@ -172,21 +282,8 @@ public class Enemy : MonoBehaviour
 
         PlayHitReaction(amount);
 
-        // MEI-I: freak out and heal to full if she SURVIVES a single big hit.
-        if (panicHealOnBigHit && amount >= panicHealThreshold &&
-            !(panicHealOncePerBattle && panicHealUsed))
-        {
-            panicHealUsed = true;
-            int healed = maxHP - currentHP;
-            if (healed > 0)
-            {
-                currentHP = maxHP;
-                DamageNumbers.ShowHeal(transform.position, healed);
-                UpdateHPText();
-            }
-            if (panicSfx && audioManager) audioManager.PlaySound(panicSfx);
-            Debug.Log($"{enemyName} freaks out and heals to full after a {amount}-damage hit!");
-        }
+        // Reactive abilities (e.g. MEI-I's panic heal) respond to surviving the hit.
+        NotifyDamaged(amount);
 
         UpdatePortraitBand();
     }
@@ -306,27 +403,32 @@ public class Enemy : MonoBehaviour
         if (audioManager && deathSound) audioManager.PlaySound(deathSound);
         if (animator) animator.SetTrigger("Death");
 
+        // Let abilities react to death (cleanup / on-death effects).
+        for (int i = 0; i < abilities.Count; i++)
+            abilities[i].OnDied();
+
         // Inform manager immediately (triggers instant victory if last)
         if (BattleManager.Instance) BattleManager.Instance.OnEnemyDied(this);
     }
 
     private int CalculateOutgoingDamage()
     {
-        int damage = baseAttackDamage;
+        if (IsAsleepOrStunned()) return 0;
+        return ApplyOutgoingModifiers(baseAttackDamage);
+    }
 
-        // Debuffs, etc.
+    // Applies the enemy's outgoing-damage debuffs (AttackBreak, DefensiveStance). Public so
+    // abilities (e.g. Critical Eye's big hit) route their damage through the same modifiers.
+    public int ApplyOutgoingModifiers(int damage)
+    {
         foreach (var eff in activeEffects)
         {
             if (eff.type == StatusType.AttackBreak)
                 damage = Mathf.Max(0, damage - eff.power);
             if (eff.type == StatusType.DefensiveStance)
-                damage = Mathf.Min(damage, 1); // �all damage = 1� style
-            // add more if needed
+                damage = Mathf.Min(damage, 1); // "all damage = 1" style
         }
-
-        if (IsAsleepOrStunned()) return 0;
-
-        return damage;
+        return Mathf.Max(0, damage);
     }
 
     private int CalculateIncomingDamage(int rawDamage)
@@ -375,8 +477,14 @@ public class Enemy : MonoBehaviour
         // you could ping BattleManager to update the portrait here conditionally.
     }
 
-    // ------------------- Public getters -------------------
+    // ------------------- Public getters / ability helpers -------------------
 
     public Sprite getSprite() => currentSprite;
     public int GetHP() => currentHP;
+
+    // Lets abilities drive this enemy's Animator (which is private).
+    public void PlayAnimTrigger(string trigger)
+    {
+        if (animator && !string.IsNullOrEmpty(trigger)) animator.SetTrigger(trigger);
+    }
 }

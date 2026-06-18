@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6ff48d7070f194f8e220a620aded0c, type: 3}
+  m_Name: MsRemember
+  m_EditorClassIdentifier: 
+  enemyName: Enemy
+  prefab: {fileID: 0}
+  maxHP: 20
+  baseAttackDamage: 4
+  stableSprite: {fileID: 0}
+  hurtSprite: {fileID: 0}
+  criticalSprite: {fileID: 0}
+  attackSound: {fileID: 0}
+  damageSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  panicHealOnBigHit: 0
+  panicHealThreshold: 8
+  panicHealOncePerBattle: 0
+  panicSfx: {fileID: 0}
+  appliesDecayingMind: 0
+  decayingMindChance: 0.5
