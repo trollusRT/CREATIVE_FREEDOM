@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6ff48d7070f194f8e220a620aded0c, type: 3}
   m_Name: MsRemember
   m_EditorClassIdentifier: 
-  enemyName: Enemy
-  prefab: {fileID: 0}
+  enemyName: OH GOD ITS MS REMEMBER
+  prefab: {fileID: 3178436469699123427, guid: e333bb50a9ca86740bad74e7bdc06458, type: 3}
   maxHP: 20
   baseAttackDamage: 4
-  stableSprite: {fileID: 0}
-  hurtSprite: {fileID: 0}
-  criticalSprite: {fileID: 0}
-  attackSound: {fileID: 0}
-  damageSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  stableSprite: {fileID: -6620316648419199843, guid: 07e76e0252186014b9ebf3abf2cce856, type: 3}
+  hurtSprite: {fileID: -6192847923617183197, guid: bfb3e14db1d171643bade1eb4d04cbea, type: 3}
+  criticalSprite: {fileID: 4072817855947854109, guid: 9e3fc43ac5861444699e1f95bfa2a80d, type: 3}
+  slidePortrait: {fileID: 7007778129770718511, guid: b72778c8e01bf564db64a6be2896de2d, type: 3}
+  attackSound: {fileID: 8300000, guid: 5625329f3b8fdc34b816db50494b3c55, type: 3}
+  damageSound: {fileID: 8300000, guid: 7f1aaecc0ed773645b5d7d41d4b5985d, type: 3}
+  deathSound: {fileID: 8300000, guid: daf3560529ca3de42bb9860e0023600e, type: 3}
   panicHealOnBigHit: 0
   panicHealThreshold: 8
   panicHealOncePerBattle: 0
   panicSfx: {fileID: 0}
-  appliesDecayingMind: 0
+  appliesDecayingMind: 1
   decayingMindChance: 0.5

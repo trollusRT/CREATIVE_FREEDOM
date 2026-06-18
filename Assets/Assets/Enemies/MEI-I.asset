@@ -19,6 +19,7 @@ MonoBehaviour:
   stableSprite: {fileID: 2303356085165439819, guid: 0b0f22fc996c36043acaa39eae84e4cd, type: 3}
   hurtSprite: {fileID: 5153882840681297138, guid: 749b37bdcb5fe044498b2e54ff713dd2, type: 3}
   criticalSprite: {fileID: -6055857264867618840, guid: c2f1f48e7f46bcc408f4c60ca4df6aab, type: 3}
+  slidePortrait: {fileID: -5338544938850868015, guid: 03846c4b4ae92b1438570e2ccb636ce3, type: 3}
   attackSound: {fileID: 8300000, guid: 45d73793a7f69a14891eaa265261c214, type: 3}
   damageSound: {fileID: 8300000, guid: 45d73793a7f69a14891eaa265261c214, type: 3}
   deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}

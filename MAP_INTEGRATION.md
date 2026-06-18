@@ -5,7 +5,7 @@ existing data-driven combat system. The combat/receiving side is already built (
 the enemy-loading work); this doc is about the map/sending side that doesn't exist yet.
 
 > TL;DR — the entire handoff is one call:
-> `RunManager.Instance.GoToEncounter(encounterAsset, "Dire Stage")`.
+> `RunManager.Instance.GoToEncounter(encounterAsset, "Combat")`.
 > A map node picks an `EncounterData`, that loads the combat scene, and `EnemySpawner` builds
 > the fight. You mostly need to author nodes and decide how combat returns to the map.
 
@@ -32,9 +32,9 @@ The `fallbackEncounter` is only for Playing the combat scene standalone (no map)
 ```
 [Map scene]
   player clicks a node
-    → RunManager.Instance.GoToEncounter(node.encounter, "Dire Stage")
+    → RunManager.Instance.GoToEncounter(node.encounter, "Combat")
         sets RunManager.nextEncounter
-        SceneManager.LoadScene("Dire Stage")   (RunManager persists)
+        SceneManager.LoadScene("Combat")   (RunManager persists)
 
 [Combat scene]
   BattleManager.BeginIntroAndBattle
@@ -58,7 +58,7 @@ Start **authored, not procedural**: a scene with hand-placed node objects, each 
 
 ### 3a. Scene + persistence
 
-- Make a `Map` scene. Add both `Map` and `Dire Stage` to **File → Build Settings**.
+- Make a `Map` scene. Add both `Map` and `Combat` to **File → Build Settings**.
 - Put a `RunManager` in the map scene (or a tiny bootstrap scene loaded first). It survives the
   jump into combat. The singleton guard means a stray copy elsewhere harmlessly self-destructs.
 - Today `TestFlowController` shows a start screen and reloads the combat scene on win/lose. When
@@ -80,7 +80,7 @@ public class MapNode : MonoBehaviour
     public NodeKind kind = NodeKind.Combat;
     public EncounterData encounter;          // which fight this node starts
     [Tooltip("Combat scene to load. Must be in Build Settings.")]
-    public string combatScene = "Dire Stage";
+    public string combatScene = "Combat";
 
     [Header("State")]
     public bool cleared;                     // set true after you win this node
@@ -171,11 +171,11 @@ Open questions to settle when you get here:
 
 ## 6. First milestone checklist
 
-1. Create a `Map` scene; add `Map` + `Dire Stage` to Build Settings.
+1. Create a `Map` scene; add `Map` + `Combat` to Build Settings.
 2. Add a `RunManager` to the map scene.
 3. Make 2 `EncounterData` assets (one fixed boss, one `RandomFromPool` mob room).
 4. Add 2 `MapNode` buttons, assign their encounters.
-5. Click a node → it loads `Dire Stage` and the right fight spawns (faceoff + HUD already work).
+5. Click a node → it loads `Combat` and the right fight spawns (faceoff + HUD already work).
 6. Wire the victory return (§5) so winning comes back to `Map`.
 
 After that you have a working loop and can iterate on map shape, rewards, and run-state.

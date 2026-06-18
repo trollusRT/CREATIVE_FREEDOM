@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: NewEncounter
   m_EditorClassIdentifier: 
   encounterId: 
-  enemies: []
-  musicOverride: {fileID: 0}
+  mode: 0
+  enemies:
+  - {fileID: 11400000, guid: ce46e015b43822c4494e4818dbebcc54, type: 2}
+  - {fileID: 11400000, guid: d0ad59ef29378da41b22857f06234ba7, type: 2}
+  - {fileID: 11400000, guid: 09f96159186e1da4481c4a93b94323f1, type: 2}
+  pool: {fileID: 0}
+  minCount: 1
+  maxCount: 3
+  musicOverride: {fileID: 8300000, guid: a4270517bb4721d43bfcdddfc8c529b2, type: 3}

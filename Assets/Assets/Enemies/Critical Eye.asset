@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6ff48d7070f194f8e220a620aded0c, type: 3}
   m_Name: Critical Eye
   m_EditorClassIdentifier: 
-  enemyName: Enemy
-  prefab: {fileID: 0}
+  enemyName: Critical Eye
+  prefab: {fileID: 351983718962468111, guid: 63f8892969bd27549b897eb06fc0916a, type: 3}
   maxHP: 20
   baseAttackDamage: 4
-  stableSprite: {fileID: 0}
-  hurtSprite: {fileID: 0}
-  criticalSprite: {fileID: 0}
-  slidePortrait: {fileID: 0}
-  attackSound: {fileID: 0}
-  damageSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  stableSprite: {fileID: -8049219917001886313, guid: 1c8f6734bcf0b7b4d8d6174fa5705040, type: 3}
+  hurtSprite: {fileID: 8453807217881113561, guid: f4ad4889c0d08b04d84a27ed88347474, type: 3}
+  criticalSprite: {fileID: -372615691203432467, guid: 8b4a7dfa1c5f212458f801ccd2f93c3d, type: 3}
+  slidePortrait: {fileID: -8049219917001886313, guid: 1c8f6734bcf0b7b4d8d6174fa5705040, type: 3}
+  attackSound: {fileID: 8300000, guid: 717fe0cd15a7e1644ab0f9b82b624bda, type: 3}
+  damageSound: {fileID: 8300000, guid: 36d2df216daee2b4bb3685b31f521489, type: 3}
+  deathSound: {fileID: 8300000, guid: 63fc443b14c14a742aaa9cce8033a6eb, type: 3}
   panicHealOnBigHit: 0
   panicHealThreshold: 8
   panicHealOncePerBattle: 0
