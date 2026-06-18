@@ -73,6 +73,12 @@ public class TestFlowController : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        // When a run is active (we came from the map), the map drives the flow: no start screen and
+        // don't gate the battle — combat begins immediately and victory/defeat return to the map.
+        if (RunManager.Instance != null && RunManager.Instance.runActive)
+            gateBattleStart = false;
+
         EnsureOverlay();
         if (gateBattleStart) ShowStartScreen();
         else if (startGroup) startGroup.alpha = 0f;

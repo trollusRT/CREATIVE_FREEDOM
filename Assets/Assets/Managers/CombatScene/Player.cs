@@ -47,11 +47,40 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        currentHP = maxHP;
+        ApplyRunHP();
         animator = GetComponent<Animator>();
         currentSprite = stableSprite;
         AP = 6;
         hitFlash = HitFlash.EnsureOn(gameObject);
+    }
+
+    /// <summary>
+    /// Initialise HP for this fight. With an active run, carry maxHP/currentHP from RunManager so
+    /// damage persists between map fights; otherwise start at full (standalone combat testing).
+    /// </summary>
+    void ApplyRunHP()
+    {
+        var rm = RunManager.Instance;
+        if (rm != null && rm.runActive)
+        {
+            if (rm.playerMaxHP > 0) maxHP = rm.playerMaxHP;
+            currentHP = (rm.playerCurrentHP >= 0) ? Mathf.Clamp(rm.playerCurrentHP, 1, maxHP) : maxHP;
+        }
+        else
+        {
+            currentHP = maxHP;
+        }
+    }
+
+    /// <summary>Write Junior's current HP back to the run so it carries to the next fight.</summary>
+    public void SaveHPToRun()
+    {
+        var rm = RunManager.Instance;
+        if (rm != null && rm.runActive)
+        {
+            rm.playerMaxHP = maxHP;
+            rm.playerCurrentHP = Mathf.Max(0, currentHP);
+        }
     }
 
     public void UpdateHPText()

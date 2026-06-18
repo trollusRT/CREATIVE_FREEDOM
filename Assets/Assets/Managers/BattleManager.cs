@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -464,6 +465,20 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Player Wins!");
         musicManager.PlayVictoryMusic();
 
+        // Persistent run: save HP, mark the node cleared, and return to the map we came from.
+        var rm = RunManager.Instance;
+        if (rm != null && rm.runActive && !string.IsNullOrEmpty(rm.mapReturnScene))
+        {
+            if (player != null) player.SaveHPToRun();
+            rm.MarkNodeCleared(rm.currentNodeId);
+            // TODO: rewards (recipe / Insight choice) before returning to the map.
+            yield return new WaitForSeconds(2f);
+            yield return StartCoroutine(FadeToBlack());
+            SceneManager.LoadScene(rm.mapReturnScene);
+            yield break;
+        }
+
+        // No active run (standalone combat): keep the existing test-flow / wait behaviour.
         if (TestFlowController.Instance != null)
             yield return StartCoroutine(TestFlowController.Instance.Co_EndFight(true));
         else
@@ -515,6 +530,23 @@ public class BattleManager : MonoBehaviour
 
         Debug.Log("Player Defeated!");
         musicManager.PlayDefeatMusic();
+
+        // Persistent run: defeat ends the run. Go to the game-over scene if one is set; until that
+        // exists, bounce back to the map (which starts a fresh run) so the loop stays testable.
+        var rm = RunManager.Instance;
+        if (rm != null && rm.runActive)
+        {
+            rm.runActive = false;   // end the run; HP/rewards are not carried over
+            string dest = !string.IsNullOrEmpty(rm.gameOverScene) ? rm.gameOverScene : rm.mapReturnScene;
+            if (!string.IsNullOrEmpty(dest))
+            {
+                yield return new WaitForSeconds(2f);
+                yield return StartCoroutine(FadeToBlack());
+                SceneManager.LoadScene(dest);
+                yield break;
+            }
+            // No destination available (standalone): fall through to the presentation below.
+        }
 
         if (TestFlowController.Instance != null)
         {
