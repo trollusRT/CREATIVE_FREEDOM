@@ -54,24 +54,38 @@ public class CombatVFXManager : MonoBehaviour
         pools[type].Enqueue(go);
     }
 
+    Coroutine shakeCo;
+
     public void ShakeCamera()
     {
-        // simple local shake on main camera
-        var cam = Camera.main.transform;
-        StopAllCoroutines();
-        StartCoroutine(ShakeCo(cam));
+        // Prefer the dedicated DOTween shake — it manages its own lifecycle safely.
+        if (CameraShakeManager.Instance != null)
+        {
+            CameraShakeManager.Instance.Shake(cameraShakeAmt, cameraShakeDur);
+            return;
+        }
+
+        // Fallback: a self-contained shake. IMPORTANT: only cancel our *own* shake,
+        // never StopAllCoroutines() — that would kill HitStopCo mid-freeze and leave
+        // Time.timeScale stuck at 0 (soft-locking the defeat/death sequence).
+        var cam = Camera.main ? Camera.main.transform : null;
+        if (cam == null) return;
+        if (shakeCo != null) StopCoroutine(shakeCo);
+        shakeCo = StartCoroutine(ShakeCo(cam));
     }
+
     IEnumerator ShakeCo(Transform t)
     {
         Vector3 basePos = t.localPosition;
         float tmr = 0f;
         while (tmr < cameraShakeDur)
         {
-            tmr += Time.deltaTime;
+            tmr += Time.unscaledDeltaTime; // survive hit-stop (timeScale 0)
             t.localPosition = basePos + (Vector3)Random.insideUnitCircle * cameraShakeAmt;
             yield return null;
         }
         t.localPosition = basePos;
+        shakeCo = null;
     }
 
     // --- Hit-stop: a brief global freeze on impact for "weight". ---

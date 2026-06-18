@@ -70,7 +70,8 @@ A turn-based roguelike deckbuilder where paint-themed cards (colors) can be fuse
 
 ### Status Effects
 - Both Player and Enemy maintain `activeEffects` list.
-- Status ticking occurs in `ProcessStatusEffects()` at turn start.
+- Player statuses tick in `Player.ProcessStatusEffects()` at the start of the player's turn.
+- Enemy statuses tick in `Enemy.TickTurnStartStatuses()` at the start of each enemy's own turn (so DoT "ticks before actions" and can kill before the enemy attacks). Sleep/Stun are NOT decayed there — they're consumed on the action attempt via `Enemy.ConsumeSleepOrStunIfPresent()`.
 - Known prior bug: list removal during iteration caused out-of-range. (Use reverse for loop or snapshot.)
 
 ---

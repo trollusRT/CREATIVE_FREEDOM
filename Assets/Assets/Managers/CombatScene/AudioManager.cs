@@ -23,10 +23,14 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        // Per-scene singleton (NOT DontDestroyOnLoad). The test flow reloads the scene
+        // between fights; persisting this object would make the reloaded scene's
+        // AudioManager self-destroy on the duplicate guard, leaving every inspector
+        // `audioManager` reference pointing at a destroyed object (silent SFX, and a
+        // MissingReferenceException on the unguarded Pass-button click).
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

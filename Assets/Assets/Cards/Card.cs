@@ -25,20 +25,37 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public Button cardButton;
     public Image cardArtwork;
 
-    // Dangle (tilt) settings
+    // Dangle (pendulum) settings — while dragging, the card hangs from the exact
+    // point you grabbed and swings like a fidget toy. Whip it fast and it spins.
     [Header("Dangle")]
-    public RectTransform visualRoot;     // assign in prefab
     public bool dangle = true;
-    public float maxTilt = 15f;          // degrees
-    public float tiltSensitivity = 0.06f;// deg per px/s
-    public float spring = 40f;           // higher = snappier
-    public float damping = 8f;           // higher = less overshoot
+    public RectTransform visualRoot;     // assign in prefab (used by hover)
+    [Tooltip("Normalized point treated as the card's weight / centre of mass " +
+             "(0,0 = bottom-left, 1,1 = top-right). Lower = dangles more eagerly.")]
+    public Vector2 weightCenter = new Vector2(0.5f, 0.3f);
+    [Tooltip("Downward pull in parent units/sec^2. Higher = snappier swing & faster settle.")]
+    public float dangleGravity = 3000f;
+    [Tooltip("Fraction of swing velocity kept each frame. ~0.92 feels lively; lower settles sooner.")]
+    [Range(0f, 1f)] public float dangleDamping = 0.92f;
+    [Tooltip("Let a hard flick wind the card all the way around.")]
+    public bool allowFullSpin = true;
+    [Tooltip("Used only when full spin is off — clamps the swing to +/- this many degrees.")]
+    public float maxTilt = 75f;
+    [Tooltip("Cap on swing speed (deg/sec) so flicks stay readable. 0 = uncapped.")]
+    public float maxSpinSpeed = 1440f;
 
-    // internal state
-    private float dangleAngle = 0f;
-    private float dangleVel = 0f;
-    private Vector2 lastMousePos;
+    // internal pendulum state
     private bool dragging = false;
+    private Vector2 grabLocal;          // root pivot -> grab point, local (unscaled)
+    private Vector2 leverDir;           // unit dir grab -> weight centre, at rest
+    private float rodLength;            // |grab -> weight centre| in parent units (scaled)
+    private Vector2 bobPos;             // Verlet weight position (parent space)
+    private Vector2 prevBobPos;
+    private float currentAngleDeg;      // accumulated swing angle (can exceed 360 for spins)
+    private Vector2 lastPointerScreenPos;
+    private RectTransform dragParent;   // parent during drag (= dragLayer)
+    private Camera dragUiCamera;
+    private Vector2 dragAnchorRef;      // anchor origin offset, so the pin is parent-config agnostic
 
     [Header("Drag Settings")]
     public bool isDraggable = true;
@@ -52,7 +69,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     private Transform originalParent;
     private Vector3 originalScale;   // <-- keep only this one
     private int originalIndexInHand;
-    private Vector2 dragOffset;
 
     // CanvasGroup for drag behavior
     private CanvasGroup cg;
@@ -174,16 +190,19 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     // Inside Card class (same level as ApplyCardEffectToEnemy / OnEndDrag)
     private void ApplyCardEffectToPlayer(Player player)
     {
+        // Forgotten (Decaying Mind): costs no AP, does nothing — Junior forgot what it did.
+        if (cardData.cardName == "Forgotten") { Destroy(gameObject); return; }
 
         bool didResolve = false;
-        if (BattleManager.Instance.playerAP < cardData.cardCost)
+        // Every card costs 1 AP to play (cardCost only gates draw/fusion availability).
+        if (BattleManager.Instance.playerAP < 1)
         {
             Debug.LogWarning($"Not enough AP to play {cardData.cardName}!");
             ReturnToHand();
             return;
         }
 
-        BattleManager.Instance.UseAP(cardData.cardCost);
+        BattleManager.Instance.UseAP(1);
 
         // Package E: data-driven player effects (optional)
         if (CardEffectRegistry.TryResolvePlayer(cardData, player, out var resolvedPlayer) && resolvedPlayer.onResolve != null)
@@ -359,6 +378,16 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
+            // ----- TIER 1 COMMONS (cost 1) -----
+            case "Streaking Medium":
+                {
+                    didResolve = true;
+                    PlayPlayerVfx(EffectKey.Rejuvenate);
+                    player.ApplyRegen(1, 3);   // Regen 1/turn for 3 turns
+                    player.ReducePoison(1);    // shed 1 Poison stack if any
+                }
+                break;
+
             default:
                 Debug.Log($"{cardData.cardName} not implemented for player!");
                 break;
@@ -404,6 +433,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     private void ApplyCardEffectToEnemy(Enemy enemy)
     {
+        // Forgotten (Decaying Mind): costs no AP, does nothing — Junior forgot what it did.
+        if (cardData.cardName == "Forgotten") { Destroy(gameObject); return; }
+
         // local guard
         bool IsAlive(Enemy e) => e != null && !e.IsDead && e.GetHP() > 0;
         bool didResolve = false;
@@ -416,8 +448,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             return;
         }
 
-        // Enough AP?
-        if (BattleManager.Instance.playerAP < cardData.cardCost)
+        // Every card costs 1 AP to play (cardCost only gates draw/fusion availability).
+        if (BattleManager.Instance.playerAP < 1)
         {
             Debug.LogWarning($"Not enough AP to play {cardData.cardName}!");
             ReturnToHand();
@@ -429,7 +461,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             TriggerPlayerSwing();
 
         // Spend AP now (visual still plays, effects will be armed to the impact frame)
-        BattleManager.Instance.UseAP(cardData.cardCost);
+        BattleManager.Instance.UseAP(1);
 
         // Helpers
         var dir = EffectDirector.Instance;
@@ -667,6 +699,49 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
+            // ----- TIER 1 COMMONS (cost 1) -----
+            case "Ink Needle":
+                {
+                    didResolve = true;
+                    int dmg = Mathf.Max(0, cardData.minValue);      // headline hit (1)
+                    STWithImpact(enemy, EffectKey.PoisonST, () =>
+                    {
+                        enemy.TakeDamage(dmg);
+                        enemy.ApplyPoison(2, 2);                     // 2 poison/turn for 2 turns
+                    });
+                }
+                break;
+
+            case "Smudge":
+                {
+                    didResolve = true;
+                    int dmg = Mathf.Max(0, cardData.minValue);      // 2
+                    STWithImpact(enemy, EffectKey.Corrode, () =>
+                    {
+                        enemy.TakeDamage(dmg);
+                        enemy.ApplyCorrode(1, 2);                    // +25% dmg taken; lasts into your next turn
+                    });
+                }
+                break;
+
+            case "Rage Mark":
+                {
+                    didResolve = true;
+                    var rm = BattleManager.Instance.player;
+                    int dmg = Mathf.Max(0, cardData.minValue);      // base 2
+                    if (rm != null && rm.currentHP * 2 < rm.maxHP)  // Junior below 50% HP
+                        dmg += 3;
+                    STWithImpact(enemy, EffectKey.RedStroke, () => enemy.TakeDamage(dmg));
+                }
+                break;
+
+            case "Critic's Note":
+                {
+                    didResolve = true;                              // pure debuff, no damage
+                    STWithImpact(enemy, EffectKey.AttackBreak, () => enemy.ApplyAttackBreak(3, 2));
+                }
+                break;
+
             default:
                 Debug.Log($"{cardData.cardName} not implemented for enemy!");
                 break;
@@ -775,33 +850,53 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         ResetHoverInstant();        // already in your code, good
 
         var canvas = GetComponentInParent<Canvas>();
-        Camera uiCamera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        dragUiCamera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
         originalParent = transform.parent;
-        // REMOVE THIS LINE if you still have it:
-        // originalScale = transform.localScale;
+
+        var rt = (RectTransform)transform;
+
+        // Record where on the card we grabbed it (root pivot -> grab point, local space).
+        // Captured before re-parenting; local coords are intrinsic to the card.
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            rt, eventData.position, dragUiCamera, out grabLocal);
 
         if (handManager != null)
             originalIndexInHand = handManager.RemoveCard(gameObject);
 
         transform.SetParent(dragLayer, false);
         transform.SetAsLastSibling();
+        dragParent = dragLayer as RectTransform;
+        dragAnchorRef = AnchorReferenceLocal(rt, dragParent);
 
         if (cg) cg.blocksRaycasts = false;
 
         // always start drag from baseScale, then apply dragScale
         transform.localScale = baseScale * dragScale;
+        float s = rt.localScale.x;
 
+        // The card's "weight" (centre of mass) as a local offset from its pivot,
+        // and the rigid rod running from the grab point down to that weight.
+        Vector2 size = rt.rect.size;
+        Vector2 comLocal = new Vector2((weightCenter.x - rt.pivot.x) * size.x,
+                                       (weightCenter.y - rt.pivot.y) * size.y);
+        Vector2 lever = comLocal - grabLocal;
+        leverDir = (lever.sqrMagnitude > 0.0001f) ? lever.normalized : Vector2.down;
+        rodLength = lever.magnitude * s;
+
+        // Seed the pendulum upright and at rest, hanging from the cursor.
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            transform.parent as RectTransform, eventData.position, uiCamera, out Vector2 localMousePos
-        );
-        dragOffset = ((RectTransform)transform).anchoredPosition - localMousePos;
+            dragParent, eventData.position, dragUiCamera, out Vector2 pivot);
+        currentAngleDeg = 0f;
+        bobPos = pivot + leverDir * rodLength;
+        prevBobPos = bobPos;
+        lastPointerScreenPos = eventData.position;
 
         dragging = true;
-        lastMousePos = eventData.position;
-        dangleAngle = 0f;
-        dangleVel = 0f;
-        if (visualRoot) visualRoot.localRotation = Quaternion.identity;
+
+        // Place immediately so the first frame doesn't pop.
+        rt.localRotation = Quaternion.identity;
+        rt.anchoredPosition = pivot - dragAnchorRef - grabLocal * s;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -826,34 +921,102 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if (!isDraggable) return;
 
-        var rtParent = transform.parent as RectTransform;
-        var canvas = GetComponentInParent<Canvas>();
-        Camera uiCamera = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
+        // Movement, rotation and pendulum physics all happen in Update(), so the card
+        // keeps swinging and settling even on frames where the cursor holds still.
+        lastPointerScreenPos = eventData.position;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rtParent, eventData.position, uiCamera, out Vector2 localMousePos);
-        (transform as RectTransform).anchoredPosition = localMousePos + dragOffset;
+        UpdateHoverHighlight(eventData.position);
+    }
 
-        // --- Dangle simulate (spring towards a tilt based on cursor velocity)
-        if (dangle && visualRoot)
+    // ---------------------------------------------------------
+    // DANGLE — the card hangs from the grabbed point and swings
+    // like a fidget toy. Modelled as a Verlet pendulum (a weight
+    // on a rigid rod) so a hard flick can wind it into full spins.
+    // Runs every frame while dragging, independent of OnDrag.
+    // ---------------------------------------------------------
+    void Update()
+    {
+        if (!dragging || dragParent == null) return;
+
+        float dt = Mathf.Min(Time.unscaledDeltaTime, 1f / 30f);
+        if (dt <= 0f) return;
+
+        // Pivot = the point the card hangs from = the cursor, in drag-layer space.
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                dragParent, lastPointerScreenPos, dragUiCamera, out Vector2 pivot))
+            return;
+
+        var rt = (RectTransform)transform;
+
+        if (dangle && rodLength > 0.01f)
         {
-            // cursor velocity in px/sec
-            Vector2 v = (eventData.position - lastMousePos) / Mathf.Max(Time.unscaledDeltaTime, 0.0001f);
-            lastMousePos = eventData.position;
+            // Verlet integration: weight is pulled down by gravity, carrying its inertia.
+            Vector2 vel = (bobPos - prevBobPos) * dangleDamping;
+            prevBobPos = bobPos;
+            bobPos += vel + new Vector2(0f, -dangleGravity) * (dt * dt);
 
-            // target angle from horizontal velocity (left/right swing)
-            float targetAngle = Mathf.Clamp(-v.x * tiltSensitivity, -maxTilt, maxTilt);
+            // Rigid-rod constraint: keep the weight exactly rodLength from the cursor.
+            // Moving the cursor yanks the weight around this circle, which is the swing.
+            Vector2 d = bobPos - pivot;
+            float len = d.magnitude;
+            bobPos = (len > 0.0001f) ? pivot + d * (rodLength / len)
+                                     : pivot + Vector2.down * rodLength;
 
-            // spring-damper
-            float dt = Time.unscaledDeltaTime;
-            float force = spring * (targetAngle - dangleAngle) - damping * dangleVel;
-            dangleVel += force * dt;
-            dangleAngle += dangleVel * dt;
+            // Angle that rotates the rest lever onto the current rod direction.
+            Vector2 rodDir = (bobPos - pivot) / rodLength;
+            float target = UnwrapToward(currentAngleDeg, SignedAngleDeg(leverDir, rodDir));
 
-            visualRoot.localRotation = Quaternion.Euler(0, 0, dangleAngle);
+            if (!allowFullSpin)
+                target = Mathf.Clamp(target, -maxTilt, maxTilt);
+            if (maxSpinSpeed > 0f)
+            {
+                float maxStep = maxSpinSpeed * dt;
+                target = Mathf.Clamp(target, currentAngleDeg - maxStep, currentAngleDeg + maxStep);
+            }
+            currentAngleDeg = target;
+        }
+        else
+        {
+            currentAngleDeg = 0f;
         }
 
-        // (keep your UpdateHoverHighlight(eventData.position) here if you're using it)
-        UpdateHoverHighlight(eventData.position);
+        // Apply the swing, then pin the grabbed point back under the cursor.
+        rt.localRotation = Quaternion.Euler(0f, 0f, currentAngleDeg);
+        float s = rt.localScale.x;
+        rt.anchoredPosition = pivot - dragAnchorRef - RotateDeg(grabLocal * s, currentAngleDeg);
+    }
+
+    // Offset of a point-anchored child's anchor reference from the parent's pivot,
+    // in parent-local coords (the same origin ScreenPointToLocalPointInRectangle uses).
+    private static Vector2 AnchorReferenceLocal(RectTransform child, RectTransform parent)
+    {
+        Vector2 anc = (child.anchorMin + child.anchorMax) * 0.5f;
+        Rect pr = parent.rect;
+        return new Vector2((anc.x - parent.pivot.x) * pr.width,
+                           (anc.y - parent.pivot.y) * pr.height);
+    }
+
+    // Signed 2D angle (degrees) from one vector to another.
+    private static float SignedAngleDeg(Vector2 from, Vector2 to)
+    {
+        float cross = from.x * to.y - from.y * to.x;
+        float dot = from.x * to.x + from.y * to.y;
+        return Mathf.Atan2(cross, dot) * Mathf.Rad2Deg;
+    }
+
+    // Rotate a 2D vector by an angle in degrees (CCW).
+    private static Vector2 RotateDeg(Vector2 v, float deg)
+    {
+        float r = deg * Mathf.Deg2Rad;
+        float c = Mathf.Cos(r), s = Mathf.Sin(r);
+        return new Vector2(v.x * c - v.y * s, v.x * s + v.y * c);
+    }
+
+    // Lift a wrapped (-180..180) target onto the accumulated angle so a hard flick
+    // winds continuously past 180 into a full spin instead of snapping back.
+    private static float UnwrapToward(float current, float target)
+    {
+        return current + Mathf.DeltaAngle(current, target);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -1163,6 +1326,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Finishing Touch":
             case "Toxic Paint":
             case "Poison":
+            case "Ink Needle":
+            case "Smudge":
+            case "Rage Mark":
                 return true;
 
             // AoE attacks (call once per play)

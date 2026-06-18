@@ -1339,7 +1339,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467004035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.035994537}
   m_LocalScale: {x: 1.195, y: 1.195, z: 1.195}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1348,11 +1348,11 @@ RectTransform:
   - {fileID: 1377077094}
   - {fileID: 1722783393}
   - {fileID: 275943706}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1912485736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.4161731, y: -0.7278063}
   m_SizeDelta: {x: 799.99994, y: 476.1506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &467004037
@@ -3836,6 +3836,12 @@ MonoBehaviour:
   maxHP: 25
   currentHP: 0
   baseAttackDamage: 3
+  panicHealOnBigHit: 0
+  panicHealThreshold: 8
+  panicHealOncePerBattle: 0
+  panicSfx: {fileID: 0}
+  appliesDecayingMind: 1
+  decayingMindChance: 0.5
   stableSprite: {fileID: -6620316648419199843, guid: 07e76e0252186014b9ebf3abf2cce856, type: 3}
   hurtSprite: {fileID: -6192847923617183197, guid: bfb3e14db1d171643bade1eb4d04cbea, type: 3}
   criticalSprite: {fileID: 4072817855947854109, guid: 9e3fc43ac5861444699e1f95bfa2a80d, type: 3}
@@ -5044,6 +5050,12 @@ MonoBehaviour:
   maxHP: 25
   currentHP: 0
   baseAttackDamage: 3
+  panicHealOnBigHit: 0
+  panicHealThreshold: 8
+  panicHealOncePerBattle: 0
+  panicSfx: {fileID: 0}
+  appliesDecayingMind: 0
+  decayingMindChance: 0.5
   stableSprite: {fileID: -8049219917001886313, guid: 1c8f6734bcf0b7b4d8d6174fa5705040, type: 3}
   hurtSprite: {fileID: 8453807217881113561, guid: f4ad4889c0d08b04d84a27ed88347474, type: 3}
   criticalSprite: {fileID: -372615691203432467, guid: 8b4a7dfa1c5f212458f801ccd2f93c3d, type: 3}
@@ -5766,6 +5778,12 @@ MonoBehaviour:
   maxHP: 25
   currentHP: 0
   baseAttackDamage: 4
+  panicHealOnBigHit: 1
+  panicHealThreshold: 8
+  panicHealOncePerBattle: 0
+  panicSfx: {fileID: 8300000, guid: be1eeb3709b37024f978fd704e37ecd7, type: 3}
+  appliesDecayingMind: 0
+  decayingMindChance: 0.5
   stableSprite: {fileID: 2303356085165439819, guid: 0b0f22fc996c36043acaa39eae84e4cd, type: 3}
   hurtSprite: {fileID: 5153882840681297138, guid: 749b37bdcb5fe044498b2e54ff713dd2, type: 3}
   criticalSprite: {fileID: -6055857264867618840, guid: c2f1f48e7f46bcc408f4c60ca4df6aab, type: 3}
@@ -5895,6 +5913,7 @@ Transform:
   - {fileID: 444074302}
   - {fileID: 1200166054}
   - {fileID: 1859507428}
+  - {fileID: 467004036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923022001
@@ -5993,7 +6012,7 @@ MonoBehaviour:
   namesDelay: 0.06
   nameSlideDur: 0.26
   nameStagger: 0.09
-  hold: 0.01
+  hold: 0
   revealDur: 0.5
   slideInEase: 18
   bannerEase: 27
@@ -6501,7 +6520,6 @@ SceneRoots:
   - {fileID: 1657265337}
   - {fileID: 81846531}
   - {fileID: 1374790714}
-  - {fileID: 467004036}
   - {fileID: 1912485736}
   - {fileID: 2014969693}
   - {fileID: 1989539045}

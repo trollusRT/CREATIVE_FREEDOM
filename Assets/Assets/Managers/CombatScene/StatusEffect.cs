@@ -15,6 +15,7 @@ public enum StatusType
     LeechTrap,
     DoubleDamage,   // Ongoing effect that doubles outgoing damage
     AttackBreak,    // Attack -X% or -some amount
+    DecayingMind,   // Ms. Remember debuff: power = # of hand cards replaced by Forgotten; duration = turns of grace left
     // etc.
 }
 

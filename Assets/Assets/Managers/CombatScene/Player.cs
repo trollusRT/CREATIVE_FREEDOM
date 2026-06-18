@@ -43,13 +43,15 @@ public class Player : MonoBehaviour
     public Sprite criticalSprite; // Reference to the portrait sprite
     public Sprite currentSprite;
 
+    private HitFlash hitFlash;
+
     void Start()
     {
         currentHP = maxHP;
         animator = GetComponent<Animator>();
         currentSprite = stableSprite;
         AP = 6;
-
+        hitFlash = HitFlash.EnsureOn(gameObject);
     }
 
     public void UpdateHPText()
@@ -68,9 +70,10 @@ public class Player : MonoBehaviour
         if (HasStatus(StatusType.DefensiveStance))
             finalDamage = Mathf.Min(finalDamage, 1);
 
-        // Shield: flat reduction of 2 while active (min 0)
+        // Shield: halves incoming damage while active (matches the card text
+        // "Halves all damage taken for 2 turns"). Rounds up so a 1 stays 1.
         if (HasStatus(StatusType.Shield))
-            finalDamage = Mathf.Max(0, finalDamage - 2);
+            finalDamage = Mathf.CeilToInt(finalDamage / 2f);
 
         // Second Wind cheat death
         if (secondWindArmed && currentHP - finalDamage <= 0)
@@ -110,6 +113,7 @@ public class Player : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
             CombatVFXManager.Instance.PlayOnPlayer(VfxType.PaintSplash);
+            if (hitFlash) hitFlash.Flash(0.07f, Color.white);
         }
 
         UpdateHPText();
@@ -146,7 +150,7 @@ public class Player : MonoBehaviour
         if (damage <= 0) return;
 
         currentHP -= damage;
-        DamageNumbers.ShowDamage(transform.position, damage);
+        DamageNumbers.ShowPoison(transform.position, damage);
 
         if (currentHP <= 0)
         {
@@ -159,6 +163,7 @@ public class Player : MonoBehaviour
         else
         {
             if (animator) animator.SetTrigger("Hurt");
+            if (hitFlash) hitFlash.Flash(0.06f, new Color(0.6f, 1f, 0.5f)); // poison-green
         }
 
         CheckHP();
@@ -172,6 +177,65 @@ public class Player : MonoBehaviour
     public void ApplyRegen(int healPerTurn, int turns)
     {
         StatusEffectStacking.AddOrStack(activeEffects, StatusType.Regen, healPerTurn, turns);
+    }
+
+    // Reduce the player's Poison by 'amount' of power (one "stack"), removing it if depleted.
+    // Poison uses the "sum power, max duration" model, so a stack == one point of power.
+    public void ReducePoison(int amount = 1)
+    {
+        if (activeEffects == null) return;
+        amount = Mathf.Max(0, amount);
+        for (int i = activeEffects.Count - 1; i >= 0; i--)
+        {
+            var e = activeEffects[i];
+            if (e == null || e.type != StatusType.Poison) continue;
+            e.power -= amount;
+            if (e.power <= 0 || e.duration <= 0) activeEffects.RemoveAt(i);
+            UpdateHPText();
+            return;
+        }
+    }
+
+    // ---------------- Decaying Mind (Ms. Remember boss debuff) ----------------
+    // Lives in activeEffects so Cleanse / Just Give Me a Second remove it.
+    // power = number of hand cards replaced by Forgotten; duration = turns of grace
+    // remaining (reset to 2 each time a new stack is added; decays at end of player turn).
+
+    public void AddDecayingMind(int maxStacks)
+    {
+        maxStacks = Mathf.Max(1, maxStacks);
+        for (int i = 0; i < activeEffects.Count; i++)
+        {
+            var e = activeEffects[i];
+            if (e != null && e.type == StatusType.DecayingMind)
+            {
+                e.power = Mathf.Min(e.power + 1, maxStacks);
+                e.duration = 2;            // reset the 2-turn grace
+                return;
+            }
+        }
+        activeEffects.Add(new StatusEffect { type = StatusType.DecayingMind, power = 1, duration = 2 });
+    }
+
+    public int GetDecayingMindStacks()
+    {
+        for (int i = 0; i < activeEffects.Count; i++)
+            if (activeEffects[i] != null && activeEffects[i].type == StatusType.DecayingMind)
+                return Mathf.Max(0, activeEffects[i].power);
+        return 0;
+    }
+
+    // Decays the 2-turn grace at the END of the player's turn; clears when it lapses.
+    public void TickDecayingMindEndOfTurn()
+    {
+        for (int i = activeEffects.Count - 1; i >= 0; i--)
+        {
+            var e = activeEffects[i];
+            if (e == null || e.type != StatusType.DecayingMind) continue;
+            e.duration--;
+            if (e.duration <= 0) activeEffects.RemoveAt(i);
+            return;
+        }
     }
 
     public void Heal(int amount)
@@ -289,6 +353,11 @@ public class Player : MonoBehaviour
                 // case StatusType.AttackBreak:
                 // case StatusType.DefensiveStance:
                 //   eff.duration--;
+
+                case StatusType.DecayingMind:
+                    // Grace timer is decayed at END of the player's turn (TickDecayingMindEndOfTurn),
+                    // not here, so the freshly drawn hand is still corrupted on its final turn.
+                    break;
 
                 default:
                     // non-ticking or generic decay

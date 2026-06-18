@@ -17,6 +17,13 @@ public class DamageNumbers : MonoBehaviour
     [SerializeField] float fontSize = 36f;
     [SerializeField] Color damageColor = new Color(1f, 0.45f, 0.4f);
     [SerializeField] Color healColor = new Color(0.55f, 1f, 0.55f);
+    [SerializeField] Color poisonColor = new Color(0.62f, 0.9f, 0.32f);
+
+    [Header("Punch (big hits read bigger)")]
+    [Tooltip("Damage at/above this lands at the maximum size with extra emphasis.")]
+    [SerializeField] int bigHitThreshold = 12;
+    [Tooltip("Size multiplier applied to a max-size hit.")]
+    [SerializeField] float bigHitScale = 1.45f;
 
     [Header("Motion")]
     [SerializeField] Vector3 worldOffset = new Vector3(0f, 1f, 0f);
@@ -46,13 +53,23 @@ public class DamageNumbers : MonoBehaviour
     public static void ShowDamage(Vector3 worldPos, int amount)
     {
         if (amount <= 0 || !Bootstrap()) return;
-        Instance.Spawn(worldPos, amount.ToString(), Instance.damageColor);
+        float t = Mathf.InverseLerp(1f, Mathf.Max(2, Instance.bigHitThreshold), amount);
+        float scale = Mathf.Lerp(1f, Instance.bigHitScale, t);
+        bool emphasize = amount >= Instance.bigHitThreshold;
+        Instance.Spawn(worldPos, amount.ToString(), Instance.damageColor, scale, emphasize);
+    }
+
+    // Poison / damage-over-time ticks — distinct colour so they read as DoT, not a fresh hit.
+    public static void ShowPoison(Vector3 worldPos, int amount)
+    {
+        if (amount <= 0 || !Bootstrap()) return;
+        Instance.Spawn(worldPos, amount.ToString(), Instance.poisonColor, 0.9f, false);
     }
 
     public static void ShowHeal(Vector3 worldPos, int amount)
     {
         if (amount <= 0 || !Bootstrap()) return;
-        Instance.Spawn(worldPos, "+" + amount, Instance.healColor);
+        Instance.Spawn(worldPos, "+" + amount, Instance.healColor, 1f, false);
     }
 
     void EnsureCanvas()
@@ -67,7 +84,7 @@ public class DamageNumbers : MonoBehaviour
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
     }
 
-    void Spawn(Vector3 worldPos, string text, Color color)
+    void Spawn(Vector3 worldPos, string text, Color color, float scaleMul = 1f, bool emphasize = false)
     {
         if (!cam) cam = Camera.main;
         if (!cam) return;
@@ -77,19 +94,25 @@ public class DamageNumbers : MonoBehaviour
         tmp.text = text;
         color.a = 1f;
         tmp.color = color;
+        tmp.transform.localEulerAngles = Vector3.zero;
 
         var rt = tmp.rectTransform;
         Vector3 screen = cam.WorldToScreenPoint(worldPos + worldOffset);
         Vector2 start = new Vector2(screen.x + Random.Range(-spread, spread), screen.y);
         rt.anchoredPosition = start;
-        rt.localScale = Vector3.one * 0.5f;
+        rt.localScale = Vector3.one * (0.5f * scaleMul);
 
-        DOTween.Sequence().SetUpdate(true).SetTarget(tmp)
-            .Append(rt.DOScale(1f, 0.15f).SetEase(Ease.OutBack))
+        var seq = DOTween.Sequence().SetUpdate(true).SetTarget(tmp)
+            .Append(rt.DOScale(scaleMul, 0.15f).SetEase(Ease.OutBack))
             .Join(rt.DOAnchorPosY(start.y + riseDistance, lifetime).SetEase(Ease.OutQuad))
             .Insert(lifetime * 0.45f,
-                DOTween.To(() => tmp.alpha, a => tmp.alpha = a, 0f, lifetime * 0.55f).SetTarget(tmp))
-            .OnComplete(() => Release(tmp));
+                DOTween.To(() => tmp.alpha, a => tmp.alpha = a, 0f, lifetime * 0.55f).SetTarget(tmp));
+
+        // Big hits get a little rotational kick for extra "oomph".
+        if (emphasize)
+            seq.Insert(0f, rt.DOPunchRotation(new Vector3(0f, 0f, Random.Range(-12f, 12f)), 0.3f, 12, 1f));
+
+        seq.OnComplete(() => Release(tmp));
     }
 
     TextMeshProUGUI Get()

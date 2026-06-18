@@ -84,10 +84,9 @@ public class EffectDirector : MonoBehaviour
 
         var trig = TriggerFor(key);
         if (string.IsNullOrEmpty(trig))
-        {
-            Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}. Host={host.name}");
-            return;
-        }
+            Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}; playing impact instantly. Host={host.name}");
+        // Always call Play: with an empty/unknown trigger the host fires the armed impact +
+        // completion (and sfx) immediately, so gameplay still resolves and the turn gate releases.
         host.Play(trig, sfx, volume, Boost(tint));
     }
 
@@ -99,12 +98,9 @@ public class EffectDirector : MonoBehaviour
         if (!playerSingleTargetHost) return;
         var trig = TriggerFor(key);
         if (string.IsNullOrEmpty(trig))
-        {
-            Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}. Host={playerSingleTargetHost.name}");
-            return;
-        }
+            Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}; playing impact instantly. Host={playerSingleTargetHost.name}");
+        // Always call Play so the host fires the armed impact + completion even without a clip.
         playerSingleTargetHost.Play(trig, sfx, volume, Boost(tint));
-
     }
 
     /// <summary>
@@ -115,10 +111,8 @@ public class EffectDirector : MonoBehaviour
         if (!aoeHost) return;
         var trig = TriggerFor(key);
         if (string.IsNullOrEmpty(trig))
-        {
-            Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}. Host={aoeHost.name}");
-            return;
-        }
+            Debug.LogWarning($"[EffectDirector] No trigger mapped for {key}; playing impact instantly. Host={aoeHost.name}");
+        // Always call Play so the host fires the armed impact + completion even without a clip.
         aoeHost.Play(trig, sfx, volume, Boost(tint));
     }
 

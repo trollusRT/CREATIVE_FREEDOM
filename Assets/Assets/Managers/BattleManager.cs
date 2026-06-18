@@ -141,6 +141,27 @@ public class BattleManager : MonoBehaviour
             case "Corrode":
                 if (targetEnemy != null) targetEnemy.ApplyCorrode(lastResolvedCard.minValue, 2);
                 break;
+            case "Ink Needle":
+                if (targetEnemy != null) { targetEnemy.TakeDamage(lastResolvedCard.minValue); targetEnemy.ApplyPoison(2, 2); }
+                break;
+            case "Smudge":
+                if (targetEnemy != null) { targetEnemy.TakeDamage(lastResolvedCard.minValue); targetEnemy.ApplyCorrode(1, 2); }
+                break;
+            case "Rage Mark":
+                if (targetEnemy != null)
+                {
+                    int rmDmg = lastResolvedCard.minValue;
+                    if (player != null && player.currentHP * 2 < player.maxHP) rmDmg += 3;
+                    targetEnemy.TakeDamage(rmDmg);
+                }
+                break;
+            case "Critic's Note":
+                if (targetEnemy != null) targetEnemy.ApplyAttackBreak(3, 2);
+                break;
+            case "Streaking Medium":
+                player.ApplyRegen(1, 3);
+                player.ReducePoison(1);
+                break;
             default:
                 // If a card isn't supported here yet, it simply won't replay.
                 break;
@@ -222,26 +243,21 @@ public class BattleManager : MonoBehaviour
         lastResolvedCard = null;
         lastResolvedTarget = null;
 
-        // Tick statuses at the start of the player's turn (use a snapshot to avoid collection changes mid-iteration)
+        // Tick the player's own statuses at the start of their turn (poison/regen).
+        // Enemy statuses now tick at the start of each enemy's own turn (see EnemyTurn),
+        // so enemy poison "ticks before actions" instead of a turn late.
         player.ProcessStatusEffects();
 
-        var enemySnapshot = new List<Enemy>(enemies);
-        for (int i = 0; i < enemySnapshot.Count; i++)
+        // Damage-over-time (poison) can be lethal; resolve defeat before the turn proceeds.
+        if (!battleResolved && player.GetHP() <= 0)
         {
-            var e = enemySnapshot[i];
-            if (e != null && !e.IsDead) e.ProcessStatusEffects();
-        }
-
-        // Clean dead (poison tick etc.)
-        PruneDeadEnemies();
-        if (!battleResolved && AliveEnemyCount() == 0)
-        {
-            StartCoroutine(HandleVictoryCinematic());
-            return;                 // or yield break; if you're inside an IEnumerator
+            StartCoroutine(HandleDefeat());
+            return;
         }
 
         state = BattleState.PLAYER_TURN;
         playerAP = AP_PER_TURN;
+        if (player != null) player.AP = AP_PER_TURN; // keep the secondary counter (SpendAP sound gate) in sync
 
         if (passButton) passButton.interactable = true;
 
@@ -274,6 +290,9 @@ public class BattleManager : MonoBehaviour
     void EndPlayerTurn()
     {
         if (battleResolved) return;
+
+        // Decaying Mind grace counts down once per player turn; clears after 2 stack-free turns.
+        if (player != null) player.TickDecayingMindEndOfTurn();
 
         if (passButton) passButton.interactable = false;
 
@@ -359,6 +378,20 @@ public class BattleManager : MonoBehaviour
         {
             if (battleResolved) yield break;
             if (enemy == null || enemy.IsDead || enemy.GetHP() <= 0) continue;
+
+            // Statuses tick at the START of this enemy's turn, before it acts:
+            // poison "ticks before actions" and can kill it before it attacks.
+            enemy.TickTurnStartStatuses();
+            if (enemy.IsDead || enemy.GetHP() <= 0)
+            {
+                PruneDeadEnemies();
+                if (!battleResolved && AliveEnemyCount() == 0)
+                {
+                    StartCoroutine(HandleVictoryCinematic());
+                    yield break;
+                }
+                continue; // died to poison; it doesn't get to act
+            }
 
             UpdateCharacterPortrait(enemy.getSprite());
             enemy.TakeTurn();
@@ -511,7 +544,7 @@ public class BattleManager : MonoBehaviour
     {
         if (state != BattleState.PLAYER_TURN || battleResolved) return;
         UseAP(1);
-        audioManager.PlaySound(click);
+        if (audioManager && click) audioManager.PlaySound(click);
     }
 
     // ---------- Effect / action gating ----------
@@ -556,6 +589,16 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(HandleVictoryCinematic());
         }
 
+    }
+
+    // Ms. Remember boss mechanic: add one Decaying Mind stack to the player (capped at hand size).
+    // Manifests as Forgotten cards the next time the hand is drawn.
+    public void ApplyDecayingMindToPlayer()
+    {
+        if (player == null) return;
+        int cap = handManager != null ? handManager.HandSize : 6;
+        player.AddDecayingMind(cap);
+        Debug.Log("Ms. Remember inflicts Decaying Mind on Junior.");
     }
 
     public void CheckVictoryImmediate()

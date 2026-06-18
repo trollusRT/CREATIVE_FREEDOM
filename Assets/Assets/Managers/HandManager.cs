@@ -42,26 +42,33 @@ public class HandManager : MonoBehaviour
 
         for (int i = 0; i < handSize; i++)
         {
-            // 3) Pick a random cost-one card
+            // 3) Pick a random cost-one card, 4) instantiate it
             CardData randomData = costOneCards[Random.Range(0, costOneCards.Count)];
-
-            // 4) Instantiate the card
-            var cardObj = Instantiate(cardPrefab, handPanel);
-            var card = cardObj.GetComponent<Card>();
-
-            card.dragLayer = dragLayerTransform;
-            card.cardData = randomData;
-            card.UpdateCardVisuals();
-            card.handManager = this;
-            card.fieldSpellAnimator = fAnimator;
-            card.playerSpellAnimator = pAnimator;
-            card.oscTransmitter = oscTransmit;
-
-            currentHand.Add(cardObj);
+            currentHand.Add(CreateCardObject(randomData));
         }
 
         // 5) Fan them out
         PositionCardsInSemiCircle();
+
+        // 6) Decaying Mind (Ms. Remember): replace part of the freshly drawn hand with Forgotten cards.
+        var p = BattleManager.Instance != null ? BattleManager.Instance.player : null;
+        int stacks = p != null ? p.GetDecayingMindStacks() : 0;
+        if (stacks > 0) CorruptHandWithForgotten(stacks);
+    }
+
+    // Shared card spawn used by DrawHand / SpawnCard / CorruptHandWithForgotten.
+    GameObject CreateCardObject(CardData data)
+    {
+        var cardObj = Instantiate(cardPrefab, handPanel);
+        var card = cardObj.GetComponent<Card>();
+        card.dragLayer = dragLayerTransform;
+        card.cardData = data;
+        card.UpdateCardVisuals();
+        card.handManager = this;
+        card.fieldSpellAnimator = fAnimator;
+        card.playerSpellAnimator = pAnimator;
+        card.oscTransmitter = oscTransmit;
+        return cardObj;
     }
 
     public void DiscardHand()
@@ -132,18 +139,48 @@ public class HandManager : MonoBehaviour
 
     public GameObject SpawnCard(CardData data)
     {
-        var cardObj = Instantiate(cardPrefab, handPanel);
-        var card = cardObj.GetComponent<Card>();
-        card.dragLayer = dragLayerTransform;
-        card.cardData = data;
-        card.UpdateCardVisuals();
-        card.handManager = this;
-        card.fieldSpellAnimator = fAnimator;
-        card.playerSpellAnimator = pAnimator;
-
+        var cardObj = CreateCardObject(data);
         currentHand.Add(cardObj);
         PositionCardsInSemiCircle();
         return cardObj;
+    }
+
+    public int HandSize => handSize;
+
+    // ---------------- Decaying Mind (Ms. Remember) ----------------
+    private CardData forgottenCardCached;
+
+    private CardData GetForgottenCard()
+    {
+        if (forgottenCardCached != null) return forgottenCardCached;
+        if (cardDatabase != null && cardDatabase.allCards != null)
+            forgottenCardCached = cardDatabase.allCards.Find(c => c != null && c.cardName == "Forgotten");
+        if (forgottenCardCached == null)
+            Debug.LogWarning("[HandManager] 'Forgotten' CardData not found in the database; Decaying Mind can't corrupt the hand.");
+        return forgottenCardCached;
+    }
+
+    // Replace `count` random cards in the current hand with Forgotten cards.
+    public void CorruptHandWithForgotten(int count)
+    {
+        var forgotten = GetForgottenCard();
+        if (forgotten == null || count <= 0 || currentHand.Count == 0) return;
+        count = Mathf.Min(count, currentHand.Count);
+
+        var candidates = new List<GameObject>(currentHand);
+        for (int n = 0; n < count && candidates.Count > 0; n++)
+        {
+            int pick = Random.Range(0, candidates.Count);
+            var victim = candidates[pick];
+            candidates.RemoveAt(pick);
+
+            int idx = currentHand.IndexOf(victim);
+            if (idx < 0) continue;
+            currentHand.RemoveAt(idx);
+            Destroy(victim);
+            currentHand.Insert(idx, CreateCardObject(forgotten));
+        }
+        PositionCardsInSemiCircle();
     }
 
     // Optional helper for removing a specific Card (component)

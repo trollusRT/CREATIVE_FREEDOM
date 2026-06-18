@@ -10,9 +10,9 @@
 
 \- Calls:
 
-&nbsp; - Player.ProcessStatusEffects()
+&nbsp; - Player.ProcessStatusEffects() (at player-turn start)
 
-&nbsp; - Enemy.ProcessStatusEffects()
+&nbsp; - Enemy.TickTurnStartStatuses() (at each enemy's own turn start; Sleep/Stun consumed on action attempt)
 
 &nbsp; - HandManager.DrawHand() / DiscardHand()
 
