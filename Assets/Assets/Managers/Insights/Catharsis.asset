@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2380d44b1d76384d83f71831e7d253f, type: 3}
+  m_Name: Catharsis
+  m_EditorClassIdentifier: 
+  id: catharsis
+  displayName: Catharsis
+  rarity: 0
+  trigger: 7
+  description: 
+  effectId: HEAL
+  amount: 2
+  amount2: 0
+  param: 
+  stacks: 0
+  perCopyAmount: 0

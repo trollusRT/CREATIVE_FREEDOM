@@ -95,6 +95,15 @@ public class RunManager : MonoBehaviour
             unlockedRecipes.Add(recipeName);
     }
 
+    /// <summary>
+    /// Add an Insight to the run by id (mirrors <see cref="LearnRecipe"/>; for the future reward screen).
+    /// Duplicates are intentionally allowed — the InsightHost counts copies for stacking Insights.
+    /// </summary>
+    public void AddInsight(string insightId)
+    {
+        if (!string.IsNullOrEmpty(insightId)) insights.Add(insightId);
+    }
+
     /// <summary>Pick the encounter and jump to the combat scene. Call this from a map node.</summary>
     public void GoToEncounter(EncounterData encounter, string combatSceneName, string nodeId = null)
     {

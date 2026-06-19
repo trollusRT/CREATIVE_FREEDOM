@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22632fbe9ea74a4bb19bc31e5216015, type: 3}
+  m_Name: InsightDatabase
+  m_EditorClassIdentifier: 
+  allInsights:
+  - {fileID: 11400000, guid: 123a0461c5dc83144b56dce7c679b63b, type: 2}
+  - {fileID: 11400000, guid: 81e6a274a15c36147b286a69739d5adf, type: 2}
+  - {fileID: 11400000, guid: 01bcf2b26cbf7814a906fd790a49d44b, type: 2}
+  - {fileID: 11400000, guid: a0a29eddf65857d4b8fd92462e9c5282, type: 2}
+  - {fileID: 11400000, guid: ea6e5257946482d42ab27d6bf4be9a06, type: 2}

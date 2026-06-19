@@ -145,6 +145,26 @@ public class HandManager : MonoBehaviour
         return cardObj;
     }
 
+    /// <summary>Draw `count` extra random cost-1 cards into the current hand (e.g. Insight 'Second Palette').</summary>
+    public void DrawExtra(int count)
+    {
+        if (count <= 0 || cardDatabase == null) return;
+
+        List<CardData> costOneCards = cardDatabase.allCards.FindAll(c => c.cardCost == 1);
+        if (costOneCards.Count == 0)
+        {
+            Debug.LogWarning("No cost=1 cards found in the database!");
+            return;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            CardData randomData = costOneCards[Random.Range(0, costOneCards.Count)];
+            currentHand.Add(CreateCardObject(randomData));
+        }
+        PositionCardsInSemiCircle();
+    }
+
     public int HandSize => handSize;
 
     // ---------------- Decaying Mind (Ms. Remember) ----------------

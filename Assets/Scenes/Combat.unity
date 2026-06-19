@@ -204,6 +204,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &90731268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90731269}
+  - component: {fileID: 90731270}
+  m_Layer: 0
+  m_Name: InsightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90731269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90731268}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0821084, y: -0.68092865, z: -2.6717815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912485736}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90731270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90731268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdba9c6e6ebe5948af10994a0bc4e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 386061805}
+  database: {fileID: 11400000, guid: 2120310c4e52cf249ba0f83448a0f808, type: 2}
+  debugInsights:
+  - {fileID: 11400000, guid: 123a0461c5dc83144b56dce7c679b63b, type: 2}
+  - {fileID: 11400000, guid: 81e6a274a15c36147b286a69739d5adf, type: 2}
+  - {fileID: 11400000, guid: 01bcf2b26cbf7814a906fd790a49d44b, type: 2}
+  - {fileID: 11400000, guid: a0a29eddf65857d4b8fd92462e9c5282, type: 2}
+  - {fileID: 11400000, guid: ea6e5257946482d42ab27d6bf4be9a06, type: 2}
+  - {fileID: 11400000, guid: 81e6a274a15c36147b286a69739d5adf, type: 2}
 --- !u!1 &100755943
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +359,7 @@ MonoBehaviour:
   handManager: {fileID: 297901111}
   audioManager: {fileID: 1864046450}
   musicManager: {fileID: 1214409399}
+  insightHost: {fileID: 90731270}
   enemySpawner: {fileID: 1001784377}
   introStinger: {fileID: 1923022003}
   gateEnemyTurnOnPendingEffects: 1
@@ -890,6 +944,7 @@ MonoBehaviour:
   secondWindRegenTurns: 0
   creativeFreedomActive: 0
   creativeFreedomRemainingDamage: 0
+  shieldPoints: 0
   attackSound: {fileID: 0}
   damageSound: {fileID: 8300000, guid: 006d50d45376667459bf66d9286faa32, type: 3}
   punchImpactSound: {fileID: 0}
@@ -4926,6 +4981,7 @@ Transform:
   - {fileID: 1200166054}
   - {fileID: 1859507428}
   - {fileID: 467004036}
+  - {fileID: 90731269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923022001

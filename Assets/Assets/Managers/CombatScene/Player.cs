@@ -24,6 +24,10 @@ public class Player : MonoBehaviour
     [SerializeField] private bool creativeFreedomActive = false;
     [SerializeField] private int creativeFreedomRemainingDamage = 0;
 
+    [Header("Flat Shield (Insight 'Block' pool)")]
+    [Tooltip("Flat damage absorbed before HP. Separate from the halving Shield status; granted by Insights (Sturdy Easel, Loose Grip, ...). Persists for the combat and depletes as it absorbs.")]
+    [SerializeField] private int shieldPoints = 0;
+
     public AudioClip attackSound;
     public AudioClip damageSound;
     [Tooltip("Optional impact sound when Junior is hit (e.g., punch.wav). If set, this is used instead of damageSound.")]
@@ -104,6 +108,14 @@ public class Player : MonoBehaviour
         if (HasStatus(StatusType.Shield))
             finalDamage = Mathf.CeilToInt(finalDamage / 2f);
 
+        // Flat Shield pool (Insight 'Block'): absorb before HP, separate from the halving status above.
+        if (shieldPoints > 0 && finalDamage > 0)
+        {
+            int absorbed = Mathf.Min(shieldPoints, finalDamage);
+            shieldPoints -= absorbed;
+            finalDamage -= absorbed;
+        }
+
         // Second Wind cheat death
         if (secondWindArmed && currentHP - finalDamage <= 0)
         {
@@ -167,6 +179,10 @@ public class Player : MonoBehaviour
                 Heal(leechTrapPower);
             }
         }
+
+        // Insight hook: react to a hit Junior survived (e.g. Loose Grip grants Shield for the next hit).
+        if (currentHP > 0)
+            InsightHost.Instance?.OnTookDamage(finalDamage);
     }
 
 
@@ -503,6 +519,17 @@ public class Player : MonoBehaviour
         creativeFreedomRemainingDamage = Mathf.Max(0, damageBudget);
         Debug.Log("Lets get creative!");
     }
+
+    // ---------------- Flat Shield (Insight 'Block') ----------------
+    /// <summary>Add flat Shield points that absorb incoming hit damage before HP (granted by Insights).</summary>
+    public void AddShield(int amount)
+    {
+        if (amount <= 0) return;
+        shieldPoints += amount;
+        Debug.Log($"Junior gains {amount} Shield (total {shieldPoints}).");
+    }
+
+    public int GetShield() => shieldPoints;
 
     public int ModifyOutgoingDamage(int baseDamage)
     {

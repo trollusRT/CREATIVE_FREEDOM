@@ -1,43 +1,58 @@
 # Current Task
 
-## 🎯 Goal: Build the Insights runtime system
+## 🎯 Goal: Insights runtime — first slice (CODE-COMPLETE, awaiting Unity wiring)
 
-**Start the Insights system — the runtime that makes Inspirations actually fire in combat.**
-Do this **before** the reward system that grants them (an Insight reward is meaningless until
-Insights can *do* something).
+The runtime that makes Inspirations fire in combat. Built **before** the reward system that grants
+them (an Insight reward is meaningless until Insights can *do* something).
 
-**What Insights are:** permanent, passive, per-run buffs (relics). They're one of Junior's two
-power axes alongside learned fusion recipes. See the **"How Insights work"** section of
-[MAP_DESIGN.md](MAP_DESIGN.md) for the full design. Content (~230 designed) lives in the
-**"Inspirations"** tab of `Cards.xlsx` (rarity, trigger, effect, stacking, etc.).
+**What Insights are:** permanent, passive, per-run buffs (relics). One of Junior's two power axes
+alongside learned fusion recipes. See **"How Insights work"** in [MAP_DESIGN.md](MAP_DESIGN.md).
+Content (~186 designed) lives in the **"Inspirations"** tab of `Cards.xlsx`.
 
-### Approach (proposed — mirrors `EnemyAbility`)
-The cleanest fit is the pattern already in the codebase. `EnemyAbility` is an abstract
-MonoBehaviour with lifecycle hooks that `Enemy` collects and broadcasts. Insights want the mirror
-image for the player:
+### Architecture (mirrors `EnemyAbility`, but data-driven)
+- **`Insight` SO** = the data (id, rarity, `trigger`, `effectId`, `amount`, stacking). Authored from
+  the sheet. (`Assets/Assets/Managers/CombatScene/Insights/Insight.cs`)
+- **`InsightDatabase` SO** = id→asset registry (mirrors `CardDatabase`).
+- **`InsightHost`** (singleton, in the Combat scene) collects the run's Insights via
+  `InsightDatabase.Find(id)` and broadcasts hooks; each `effectId` is one case in `Resolve` (same
+  shape as `CardEffectRegistry`). Scales to all ~186 as assets + one case each.
+- **`RunManager.insights`** (`List<string>`, duplicates allowed = stacking) holds the run's set;
+  `ApplyFromRun()` re-applies them each combat. Falls back to the host's `debugInsights` when no run.
 
-1. **`Insight` ScriptableObject** = the data (name, rarity, trigger, tuning numbers), authored from the sheet.
-2. **Insight host** the player owns — collects active Insights and broadcasts hooks at the moments
-   the sheet's triggers describe:
-   `OnCombatStart`, `OnTurnStart` / `OnTurnEnd`, `OnPlayCard(card)`, `OnFuse(a, b, result)`,
-   `OnTookDamage`, `OnDealtDamage`, `OnKill`, `OnHeal`, `OnApplyStatus`.
-3. **`RunManager.insights`** (already a `List<string>`) holds the run's set; each combat **re-applies**
-   them, so they persist across the map↔combat boundary.
+### Done (code, this slice)
+- New files: `Insight.cs`, `InsightDatabase.cs`, `InsightHost.cs`.
+- **Flat Shield pool** on `Player` (`shieldPoints` + `AddShield`/`GetShield`) — a Slay-the-Spire block
+  that absorbs direct hits before HP, **separate** from the halving `Shield` *status* (so "Gain N
+  Shield" honors N). Direct hits only (not poison ticks); persists for the combat (per-turn reset = a knob).
+- Broadcasts wired: `OnCombatStart`/`OnTurnStart`/`OnTurnEnd`/`OnKill`/`OnPlayCard` (BattleManager,
+  incl. new `GrantAP`), `OnTookDamage` (Player), `OnFuse` (FusionController). `HandManager.DrawExtra`,
+  `RunManager.AddInsight`. All broadcasts null-guarded → combat unchanged if no host present.
+- 4 first-slice Insights (effectIds `GAIN_AP_THIS_TURN`/`GAIN_SHIELD`/`HEAL`/`DRAW_CARDS`):
+  Quick Drying, Sturdy Easel, Audience Clap, Loose Grip (+ bonus Second Palette).
 
-### Where it plugs in
-- `BattleManager` broadcasts the hooks at the right moments (turn start/end, card played, kill, etc.).
-- `Player` already has reactive-effect fields (doubleDamage charges, counters, reflect…) — a good
-  pattern to mirror for Insight effects.
-- `FusionController` is the place for the `OnFuse` hook.
-- Most sheet effects reuse systems that already exist (AP, HP/maxHP, Shield, Regen, Poison, Corrode,
-  AttackBreak, DoubleDamage, Counter/Reflect, fusion, card color via `cardType`). A minority need
-  systems not built yet (draw pile for *Scry*, "Paint" temp HP) — skip those for the first pass.
+### TODO — Unity wiring (do on recompile)
+1. Recompile; confirm no errors.
+2. Create an `InsightDatabase` asset + the 4 Insight assets (`Assets > Create > Insights > …`):
 
-### Suggested first slice
-Stand up the `Insight` SO + host + a couple of hooks (`OnCombatStart`, `OnTurnStart`, `OnPlayCard`),
-implement **3–4 simple Insights end-to-end** (e.g. Quick Drying = +1 AP at turn start; Sturdy Easel =
-3 Shield at combat start; Critique = +1 damage above 66% HP), and verify they fire. Then widen hook
-coverage.
+   | displayName | id | trigger | effectId | amount | stacks/perCopy |
+   |---|---|---|---|---|---|
+   | Quick Drying | `quick_drying` | TurnStart | `GAIN_AP_THIS_TURN` | 1 | ✓ / 1 |
+   | Sturdy Easel | `sturdy_easel` | CombatStart | `GAIN_SHIELD` | 3 | ✓ / 3 |
+   | Audience Clap | `audience_clap` | Kill | `HEAL` | 2 | — |
+   | Loose Grip | `loose_grip` | TookDamage | `GAIN_SHIELD` | 1 | ✓ / 1 |
+
+3. Add Insights to the database; create an `InsightHost` GameObject (assign `Player` + database; drop
+   the assets into `debugInsights` for standalone testing). `BattleManager.insightHost` auto-finds it.
+4. Verify: Quick Drying → AP `7/6` at turn start; Sturdy Easel → first 3 dmg absorbed; Loose Grip →
+   shield builds per hit; Audience Clap → heal on kill. Duplicate in `debugInsights` to confirm stacking.
+
+### Pass 2 — widen coverage (next)
+- Broadcast `OnHeal` / `OnDealtDamage` / `ApplyStatus` (host methods/enums for the first two exist;
+  not broadcast yet). `OnPlayCard`/`OnFuse` already fire — just no effects authored on them.
+- Add a target-aware `ModifyOutgoingDamage(enemy, dmg)` hook for damage-modifier Insights
+  (Critique, Palette Knife, Deep Pigment).
+- Then author the rest of the ~186 from the Inspirations tab.
+- Systems still unbuilt for a minority: draw pile (*Scry* / "top of deck"), "Paint" temp HP, shop economy.
 
 ---
 

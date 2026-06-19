@@ -39,6 +39,10 @@ public class BattleManager : MonoBehaviour
     public AudioManager audioManager;
     public MusicManager musicManager;
 
+    [Header("Insights (player relics)")]
+    [Tooltip("The player's Insight host. Auto-found in the scene at Awake if left empty.")]
+    public InsightHost insightHost;
+
     [Header("Enemy spawning (optional)")]
     [Tooltip("Phase 1: if set, builds the enemy list from encounter data at battle start. Leave null to use scene-placed enemies.")]
     public EnemySpawner enemySpawner;
@@ -76,6 +80,10 @@ public class BattleManager : MonoBehaviour
     public void NotifyCardResolved(CardData resolved, GameObject target)
     {
         if (resolved == null) return;
+
+        // Play-card Insights fire for every resolved card (hook wired now; effects land in pass 2).
+        insightHost?.OnPlayCard(resolved);
+
         if (resolved.cardName == "Again!" || resolved.cardName == "Reiterate")
         {
             cardsResolvedThisTurn++;
@@ -197,6 +205,7 @@ public class BattleManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null) Instance = this;
+        if (insightHost == null) insightHost = FindFirstObjectByType<InsightHost>();
     }
 
     void Start()
@@ -237,6 +246,14 @@ public class BattleManager : MonoBehaviour
 
     void BeginBattle()
     {
+        // Apply the run's Insights and fire their combat-start effects once, before the first turn.
+        // (Not in StartBattle — that re-runs every round.)
+        if (insightHost != null)
+        {
+            insightHost.ApplyFromRun();
+            insightHost.OnCombatStart();
+        }
+
         if (musicManager) musicManager.PlayBattleMusic();
         StartCoroutine(StartBattle());
     }
@@ -294,6 +311,10 @@ public class BattleManager : MonoBehaviour
 
         UpdateCharacterPortrait(player.GetSprite());
         handManager.DrawHand();
+
+        // Start-of-turn Insights fire after AP reset + draw (e.g. Quick Drying +AP, Second Palette +draw).
+        if (insightHost != null) insightHost.OnTurnStart();
+
         UpdateUI();
     }
 
@@ -318,12 +339,24 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    /// <summary>Grant the player extra AP this turn (Insight effect). Keeps the SpendAP sound-gate counter in sync.</summary>
+    public void GrantAP(int amount)
+    {
+        if (amount <= 0) return;
+        playerAP += amount;
+        if (player != null) player.AP += amount;
+        UpdateUI();
+    }
+
     void EndPlayerTurn()
     {
         if (battleResolved) return;
 
         // Decaying Mind grace counts down once per player turn; clears after 2 stack-free turns.
         if (player != null) player.TickDecayingMindEndOfTurn();
+
+        // End-of-turn Insights.
+        if (insightHost != null) insightHost.OnTurnEnd();
 
         if (passButton) passButton.interactable = false;
 
@@ -687,6 +720,11 @@ public class BattleManager : MonoBehaviour
     public void OnEnemyDied(Enemy e)
     {
         if (e != null) enemies.Remove(e);
+
+        // Kill-triggered Insights (e.g. Audience Clap heals) — fire even when this is the last enemy.
+        if (state != BattleState.VICTORY && state != BattleState.DEFEAT)
+            insightHost?.OnKill(e);
+
         if (state == BattleState.VICTORY || state == BattleState.DEFEAT) return;
 
         if (AliveEnemyCount() == 0)

@@ -470,17 +470,21 @@ public class FusionController : MonoBehaviour
             return;
         }
 
-        // Capture visuals before we tear the stage down.
+        // Capture visuals + data before we tear the stage down (RemoveCard destroys the ingredient cards).
         var a = selected[0];
         var b = selected[1];
-        Sprite spriteA = a.cardData.cardSprite, spriteB = b.cardData.cardSprite, spriteR = recipe.result.cardSprite;
-        Color colorA = ResolveColor(a.cardData), colorB = ResolveColor(b.cardData), colorR = ResolveColor(recipe.result);
+        CardData dataA = a.cardData, dataB = b.cardData, dataR = recipe.result;
+        Sprite spriteA = dataA.cardSprite, spriteB = dataB.cardSprite, spriteR = dataR.cardSprite;
+        Color colorA = ResolveColor(dataA), colorB = ResolveColor(dataB), colorR = ResolveColor(dataR);
 
         // Gameplay resolution (unchanged from before).
         handManager.RemoveCard(a);
         handManager.RemoveCard(b);
         handManager.SpawnCard(recipe.result);
         bm.UseAP(1);                 // may end the turn
+
+        // Fusion Insights (hook wired now; effects land in pass 2).
+        InsightHost.Instance?.OnFuse(dataA, dataB, dataR);
 
         ExitFusionMode();            // clears selection + fades the stage
 
