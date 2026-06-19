@@ -45,6 +45,12 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>Set by a map / RunManager before the combat scene loads. Wins over the fallback.</summary>
     public EncounterData PendingEncounter { get; set; }
 
+    /// <summary>The encounter most recently spawned. BattleManager uses it to walk wave chains.</summary>
+    public EncounterData CurrentEncounter { get; private set; }
+
+    // Enemies spawned for the current wave, tracked so they can be cleared before the next wave.
+    private readonly List<GameObject> _spawned = new List<GameObject>();
+
     public EncounterData ResolveEncounter()
     {
         // Priority: an explicit override, then the run's chosen encounter (set by the map via
@@ -59,9 +65,17 @@ public class EnemySpawner : MonoBehaviour
     /// Instantiates the resolved encounter and returns the spawned enemies, or null if
     /// there is nothing to spawn (so the caller can fall back to scene-placed enemies).
     /// </summary>
-    public List<Enemy> SpawnForBattle()
+    public List<Enemy> SpawnForBattle() => SpawnEncounter(ResolveEncounter());
+
+    /// <summary>
+    /// Instantiate a specific encounter into the slots and return the spawned enemies (or null if
+    /// there is nothing to spawn). Used for the opening fight and to advance a Dire stage's waves.
+    /// Records the spawned objects so <see cref="ClearSpawned"/> can remove them before the next wave.
+    /// </summary>
+    public List<Enemy> SpawnEncounter(EncounterData encounter)
     {
-        var encounter = ResolveEncounter();
+        CurrentEncounter = encounter;
+
         var roster = encounter != null ? encounter.ResolveEnemies() : null;
         if (roster == null || roster.Count == 0)
         {
@@ -111,10 +125,25 @@ public class EnemySpawner : MonoBehaviour
 
             enemy.Init(data, p, am);   // runs before Start(), so Start()'s UpdateHPText sees the wired text
             WireSlotHud(slot, enemy);
+            _spawned.Add(go);
             spawned.Add(enemy);
         }
 
         return spawned;
+    }
+
+    /// <summary>
+    /// Destroy the current wave's spawned enemies and hide their HUD. Call before spawning the
+    /// next wave so the previous wave's corpses (death-posed, not auto-destroyed) don't linger.
+    /// </summary>
+    public void ClearSpawned()
+    {
+        for (int i = 0; i < _spawned.Count; i++)
+            if (_spawned[i] != null) Destroy(_spawned[i]);
+        _spawned.Clear();
+
+        if (slots != null)
+            foreach (var s in slots) HideSlotHud(s);
     }
 
     // Point this slot's shared HUD at the freshly spawned enemy.

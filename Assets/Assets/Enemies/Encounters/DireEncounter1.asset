@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022b37229bc6eb746a20ad65942742f9, type: 3}
+  m_Name: DireEncounter1
+  m_EditorClassIdentifier: 
+  encounterId: dire
+  mode: 0
+  enemies:
+  - {fileID: 11400000, guid: ce46e015b43822c4494e4818dbebcc54, type: 2}
+  pool: {fileID: 0}
+  minCount: 1
+  maxCount: 3
+  nextWave: {fileID: 11400000, guid: acba3ed8dc3de734ca00de3b0eba8132, type: 2}
+  musicOverride: {fileID: 8300000, guid: a4270517bb4721d43bfcdddfc8c529b2, type: 3}

@@ -27,6 +27,10 @@ public class EncounterData : ScriptableObject
     [Min(0)] public int minCount = 1;
     [Min(0)] public int maxCount = 3;
 
+    [Header("Waves (optional)")]
+    [Tooltip("If set, clearing this fight spawns the next wave instead of ending the battle. Chain these EncounterData assets for multi-wave Dire stages. Don't loop them back on each other.")]
+    public EncounterData nextWave;
+
     [Header("Misc")]
     [Tooltip("Optional music override for this encounter (reserved; unused).")]
     public AudioClip musicOverride;

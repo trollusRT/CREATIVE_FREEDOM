@@ -49,6 +49,11 @@ public class BattleManager : MonoBehaviour
 
     private bool battleResolved = false;
 
+    // Multi-wave (Dire stages): the encounter currently being fought, plus a guard so concurrent
+    // victory triggers don't double-advance. See EncounterData.nextWave.
+    private EncounterData currentEncounter;
+    private bool advancingWave = false;
+
 
 
     [Header("Action gating (turn pacing)")]
@@ -245,7 +250,10 @@ public class BattleManager : MonoBehaviour
 
         var spawned = enemySpawner.SpawnForBattle();
         if (spawned != null && spawned.Count > 0)
+        {
             enemies = spawned;
+            currentEncounter = enemySpawner.CurrentEncounter;
+        }
     }
 
     IEnumerator StartBattle()
@@ -452,9 +460,50 @@ public class BattleManager : MonoBehaviour
         UpdateUI();
     }
 
+    // ---------- Multi-wave (Dire stages) ----------
+
+    // If the current encounter chains into another wave, spawn it and keep fighting instead of
+    // declaring victory. Called at the top of the victory coroutines, so every victory path is
+    // covered. Returns true if a new wave was started (the caller should bail).
+    bool TryAdvanceToNextWave()
+    {
+        if (battleResolved || advancingWave) return false;
+        if (enemySpawner == null || currentEncounter == null || currentEncounter.nextWave == null)
+            return false;
+
+        advancingWave = true;
+        enemySpawner.ClearSpawned();                      // remove the cleared wave's corpses + HUD
+        var next = enemySpawner.SpawnEncounter(currentEncounter.nextWave);
+        if (next == null || next.Count == 0)
+        {
+            advancingWave = false;                        // misconfigured wave: let the real victory happen
+            return false;
+        }
+
+        currentEncounter = enemySpawner.CurrentEncounter; // == the wave we just spawned
+        enemies = next;
+        StartCoroutine(NextWaveSequence());
+        return true;
+    }
+
+    IEnumerator NextWaveSequence()
+    {
+        if (passButton) passButton.interactable = false;
+        if (FusionController.Instance) FusionController.Instance.OnTurnEnded(); // clear any mid-turn fusion selection
+        yield return new WaitForSeconds(0.6f);
+        if (!battleResolved)
+        {
+            state = BattleState.TURN_END;
+            StartCoroutine(StartBattle());                // -> StartPlayerTurn: full AP, fresh hand vs the new wave
+        }
+        advancingWave = false;
+    }
+
     IEnumerator HandleVictory()
     {
         if (state == BattleState.VICTORY || state == BattleState.DEFEAT) yield break;
+        if (advancingWave) yield break;
+        if (TryAdvanceToNextWave()) yield break;   // Dire stage: spawn the next wave instead of winning
 
         battleResolved = true;                 // set it here
         state = BattleState.VICTORY;
@@ -490,6 +539,8 @@ public class BattleManager : MonoBehaviour
     {
         // Block duplicate starts
         if (state == BattleState.VICTORY || state == BattleState.DEFEAT) yield break;
+        if (advancingWave) yield break;
+        if (TryAdvanceToNextWave()) yield break;   // Dire stage: spawn the next wave instead of winning
 
         // Optional: block pass input right away
         if (passButton) passButton.interactable = false;
