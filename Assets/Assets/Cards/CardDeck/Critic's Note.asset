@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12dd9147cedd6ab41b1830b2c54e1f82, type: 3}
   m_Name: Critic's Note
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   cardName: Critic's Note
   cardType: Blue
   cardEffect: Apply AttackBreak 3 for 2 turns. No damage.
@@ -21,3 +21,8 @@ MonoBehaviour:
   canTargetPlayer: 0
   canTargetEnemy: 1
   isConditional: 0
+  effectId: 
+  effectKey: 0
+  cardSprite: {fileID: 6992689792929163174, guid: 3abfb181fe4ecd04aab51c3ace335466, type: 3}
+  sfx: {fileID: 0}
+  sfxVolume: 1

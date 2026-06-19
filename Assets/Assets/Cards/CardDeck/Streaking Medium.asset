@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12dd9147cedd6ab41b1830b2c54e1f82, type: 3}
   m_Name: Streaking Medium
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   cardName: Streaking Medium
   cardType: Golden
   cardEffect: Gain Regen 1 for 3 turns. If you have Poison, remove 1 stack.
@@ -21,3 +21,8 @@ MonoBehaviour:
   canTargetPlayer: 1
   canTargetEnemy: 0
   isConditional: 0
+  effectId: 
+  effectKey: 0
+  cardSprite: {fileID: 7810034949220024407, guid: 09106d984da8f3648adc67617e7a186c, type: 3}
+  sfx: {fileID: 0}
+  sfxVolume: 1
