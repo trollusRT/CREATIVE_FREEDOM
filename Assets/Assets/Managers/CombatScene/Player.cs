@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     [Tooltip("Flat damage absorbed before HP. Separate from the halving Shield status; granted by Insights (Sturdy Easel, Loose Grip, ...). Persists for the combat and depletes as it absorbs.")]
     [SerializeField] private int shieldPoints = 0;
 
+    [Tooltip("Flat damage added to Junior's NEXT attack this turn (Bloodletting, Warm Embrace, ...). Consumed by ModifyOutgoingDamage; cleared at the start of each player turn.")]
+    [SerializeField] private int pendingAttackBonus = 0;
+
     public AudioClip attackSound;
     public AudioClip damageSound;
     [Tooltip("Optional impact sound when Junior is hit (e.g., punch.wav). If set, this is used instead of damageSound.")]
@@ -293,6 +296,9 @@ public class Player : MonoBehaviour
         Debug.Log($"Player healed {amount}, HP now {currentHP}");
 
         CheckHP();
+
+        // Insight hook: "whenever you heal" (e.g. Restorative Wash). Guarded against heal-from-heal recursion.
+        InsightHost.Instance?.OnHeal(amount);
     }
 
     public void AttackAnimation()
@@ -531,9 +537,23 @@ public class Player : MonoBehaviour
 
     public int GetShield() => shieldPoints;
 
+    // ---------------- Next-attack bonus (e.g. Bloodletting, Warm Embrace) ----------------
+    /// <summary>Add flat damage to Junior's next attack this turn (applied in ModifyOutgoingDamage).</summary>
+    public void AddNextAttackBonus(int amount)
+    {
+        if (amount > 0) pendingAttackBonus += amount;
+    }
+
+    /// <summary>Clear any unspent next-attack bonus (called at the start of each player turn).</summary>
+    public void ClearNextAttackBonus() => pendingAttackBonus = 0;
+
     public int ModifyOutgoingDamage(int baseDamage)
     {
         int dmg = Mathf.Max(0, baseDamage);
+
+        // Flat "+N to your next attack this turn" (Bloodletting, Warm Embrace, ...). Consumed on this attack,
+        // before any doubling so the bonus is doubled too.
+        if (pendingAttackBonus > 0) { dmg += pendingAttackBonus; pendingAttackBonus = 0; }
 
         if (nextAttackIsDoubled)
         {

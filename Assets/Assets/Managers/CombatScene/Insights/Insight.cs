@@ -70,4 +70,11 @@ public class Insight : ScriptableObject
 
     [Tooltip("Extra effect added per copy beyond the first (only used when 'stacks' is true).")]
     public int perCopyAmount;
+
+    [Header("Gating")]
+    [Tooltip("If true, this Insight fires at most once per player turn (e.g. 'Once per turn' on the sheet).")]
+    public bool oncePerTurn;
+
+    [Tooltip("If true, this Insight fires at most once per combat (e.g. 'Once per battle / Once per combat').")]
+    public bool oncePerCombat;
 }

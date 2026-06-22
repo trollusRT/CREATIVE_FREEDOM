@@ -21,6 +21,18 @@ public class BattleManager : MonoBehaviour
     public const int AP_PER_TURN = 6;
     public int playerAP = AP_PER_TURN;
 
+    [Header("Focus (The Script)")]
+    [Tooltip("Turn-level agency resource. +1 at the start of each player turn, plus floor(spare AP / 2) banked when you End Turn with AP to spare. Persists between turns; caps at focusCap. Spent by the Remember/Prime/Foresee verbs and future Focus-cost cards.")]
+    public int focus = 0;
+    [Tooltip("Maximum stored Focus.")]
+    public int focusCap = 3;
+    [Tooltip("Flat Focus granted at the start of each player turn.")]
+    public int focusPerTurn = 1;
+    [Tooltip("Optional UI counter for Focus (e.g. \"2/3\"), shown next to AP. Null-safe: leave it unassigned and combat is unaffected. Paint-blip visuals come later.")]
+    public TextMeshProUGUI focusText;
+    [Tooltip("Optional UI label showing the currently Primed colour (e.g. \"Primed: Yellow\"). Null-safe.")]
+    public TextMeshProUGUI primeText;
+
     public List<Enemy> enemies;
     public Player player;
 
@@ -42,6 +54,9 @@ public class BattleManager : MonoBehaviour
     [Header("Insights (player relics)")]
     [Tooltip("The player's Insight host. Auto-found in the scene at Awake if left empty.")]
     public InsightHost insightHost;
+
+    // Distinct card colours (cardType) played this combat — read by Full Palette (Rainbow). Reset in BeginBattle.
+    [HideInInspector] public HashSet<string> colorsPlayedThisCombat = new HashSet<string>();
 
     [Header("Enemy spawning (optional)")]
     [Tooltip("Phase 1: if set, builds the enemy list from encounter data at battle start. Leave null to use scene-placed enemies.")]
@@ -83,6 +98,9 @@ public class BattleManager : MonoBehaviour
 
         // Play-card Insights fire for every resolved card (hook wired now; effects land in pass 2).
         insightHost?.OnPlayCard(resolved);
+
+        // Track distinct colours played this combat (Full Palette scales off this).
+        if (!string.IsNullOrEmpty(resolved.cardType)) colorsPlayedThisCombat.Add(resolved.cardType);
 
         if (resolved.cardName == "Again!" || resolved.cardName == "Reiterate")
         {
@@ -246,6 +264,8 @@ public class BattleManager : MonoBehaviour
 
     void BeginBattle()
     {
+        colorsPlayedThisCombat.Clear();
+
         // Apply the run's Insights and fire their combat-start effects once, before the first turn.
         // (Not in StartBattle — that re-runs every round.)
         if (insightHost != null)
@@ -306,6 +326,10 @@ public class BattleManager : MonoBehaviour
         state = BattleState.PLAYER_TURN;
         playerAP = AP_PER_TURN;
         if (player != null) player.AP = AP_PER_TURN; // keep the secondary counter (SpendAP sound gate) in sync
+        if (player != null) player.ClearNextAttackBonus(); // "+N next attack this turn" expires each turn
+
+        // Focus income: +1 at the start of each player turn (persists between turns, capped at focusCap).
+        GrantFocus(focusPerTurn);
 
         if (passButton) passButton.interactable = true;
 
@@ -348,9 +372,62 @@ public class BattleManager : MonoBehaviour
         UpdateUI();
     }
 
+    // ---------- Focus (The Script) ----------
+    /// <summary>Grant Focus (turn-start income, AP banking, future Insights), clamped to focusCap.</summary>
+    public void GrantFocus(int amount)
+    {
+        if (amount <= 0) return;
+        focus = Mathf.Clamp(focus + amount, 0, focusCap);
+        UpdateUI();
+    }
+
+    /// <summary>True if the player currently has at least `amount` Focus to spend.</summary>
+    public bool CanSpendFocus(int amount) => focus >= Mathf.Max(0, amount);
+
+    /// <summary>Spend Focus for a verb / Focus-cost card. Returns false and spends nothing if short.</summary>
+    public bool SpendFocus(int amount)
+    {
+        amount = Mathf.Max(0, amount);
+        if (focus < amount) return false;
+        focus -= amount;
+        UpdateUI();
+        return true;
+    }
+
+    /// <summary>Prime next turn's draw toward a colour (wire HUD colour buttons' onClick to this with the
+    /// colour string). Toggle/swap: the first Prime costs 1 Focus; clicking the same colour again toggles
+    /// it off and refunds; switching to a different colour is free (you already paid for the active Prime).</summary>
+    public void PrimeColor(string color)
+    {
+        if (state != BattleState.PLAYER_TURN || battleResolved) return;
+        if (handManager == null || string.IsNullOrEmpty(color)) return;
+
+        string current = handManager.PrimedColor;
+        if (current == color)
+        {
+            handManager.ClearPrime();   // toggle off
+            GrantFocus(1);              // refund (also refreshes UI)
+            UpdateUI();
+            return;
+        }
+        if (!string.IsNullOrEmpty(current))
+        {
+            handManager.SetPrime(color); // swap — already paid for the active Prime
+            UpdateUI();
+            return;
+        }
+        if (!SpendFocus(1)) return;      // first Prime this turn — costs 1 Focus
+        handManager.SetPrime(color);
+        UpdateUI();
+    }
+
     void EndPlayerTurn()
     {
         if (battleResolved) return;
+
+        // Bank unspent AP into Focus before the turn closes: 2 spare AP -> 1 Focus.
+        // Ending your turn early (End Turn) is the only way to leave AP unspent.
+        GrantFocus(playerAP / 2);
 
         // Decaying Mind grace counts down once per player turn; clears after 2 stack-free turns.
         if (player != null) player.TickDecayingMindEndOfTurn();
@@ -675,14 +752,19 @@ public class BattleManager : MonoBehaviour
     {
         playerHPText.text = $"{player.GetHP()}/{player.maxHP}";
         playerAPText.text = $"{playerAP}/{AP_PER_TURN}";
+        if (focusText) focusText.text = $"{focus}/{focusCap}";
+        if (primeText) primeText.text = (handManager != null && !string.IsNullOrEmpty(handManager.PrimedColor))
+            ? $"Primed: {handManager.PrimedColor}" : "";
         stageNameText.text = "DIRE STAGE"; // TODO
     }
 
+    // The "Pass" button now ends the player's turn immediately (was: spend 1 AP).
+    // Any unspent AP is banked into Focus inside EndPlayerTurn. Relabel the button "End Turn" in the scene.
     void PassTurn()
     {
         if (state != BattleState.PLAYER_TURN || battleResolved) return;
-        UseAP(1);
         if (audioManager && click) audioManager.PlaySound(click);
+        EndPlayerTurn();
     }
 
     // ---------- Effect / action gating ----------

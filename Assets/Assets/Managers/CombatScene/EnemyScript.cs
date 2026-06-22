@@ -224,6 +224,7 @@ public class Enemy : MonoBehaviour
         // Stack poison predictably: damage stacks, duration refreshes to max.
         StatusEffectStacking.AddOrStack(activeEffects, StatusType.Poison, dmgPerTurn, turns);
         Debug.Log($"{enemyName} is poisoned for {turns} turns (+{dmgPerTurn}/turn).");
+        InsightHost.Instance?.OnApplyStatus(this, StatusType.Poison);
     }
 
     public void ApplySleep(int turns)
@@ -231,6 +232,7 @@ public class Enemy : MonoBehaviour
         // Sleep doesn't stack power; refresh duration to max.
         StatusEffectStacking.AddOrStack(activeEffects, StatusType.Sleep, 0, turns, stackPower: false, refreshDurationToMax: true);
         Debug.Log($"{enemyName} sleeps for {turns} turn(s).");
+        InsightHost.Instance?.OnApplyStatus(this, StatusType.Sleep);
     }
 
     // Package E helpers (data-driven card effects)
@@ -240,6 +242,7 @@ public class Enemy : MonoBehaviour
         turns = Mathf.Max(0, turns);
         StatusEffectStacking.AddOrStack(activeEffects, StatusType.AttackBreak, power, turns);
         Debug.Log($"{enemyName} attack broken for {turns} turn(s) (-{power}).");
+        InsightHost.Instance?.OnApplyStatus(this, StatusType.AttackBreak);
     }
 
     public void ApplyCorrode(int power, int turns)
@@ -248,6 +251,7 @@ public class Enemy : MonoBehaviour
         turns = Mathf.Max(0, turns);
         StatusEffectStacking.AddOrStack(activeEffects, StatusType.Corrode, power, turns);
         Debug.Log($"{enemyName} corroded for {turns} turn(s) (+{power}).");
+        InsightHost.Instance?.OnApplyStatus(this, StatusType.Corrode);
     }
 
     public void Heal(int amount)
@@ -265,11 +269,22 @@ public class Enemy : MonoBehaviour
         if (IsDead) return;
 
         amount = CalculateIncomingDamage(amount);
+
+        // Player card hit: let Insights modify the outgoing damage before it lands (Critique, Deep
+        // Pigment, Fine Detail, ...). Poison ticks / reflect / counter don't set this flag, so they're
+        // unaffected.
+        if (InsightHost.DealingCardDamage && InsightHost.Instance != null)
+            amount = InsightHost.Instance.ModifyDamageToEnemy(this, amount, InsightHost.DealingCardDamageIsAoe);
+
         currentHP -= amount;
         DamageNumbers.ShowDamage(transform.position, amount);
         Debug.Log($"{enemyName} took {amount} damage, HP = {currentHP}");
 
         UpdateHPText();
+
+        // Post-hit Insight reactions, player card hits only (hook wired; reaction effects land later).
+        if (InsightHost.DealingCardDamage)
+            InsightHost.Instance?.OnDealtDamage(this, amount);
 
         if (currentHP <= 0)
         {

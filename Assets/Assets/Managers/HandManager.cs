@@ -26,31 +26,71 @@ public class HandManager : MonoBehaviour
     public List<GameObject> currentHand = new List<GameObject>();
     private int handSize = 6;
 
+    [Header("Prime (The Script)")]
+    [Tooltip("Colour the next draw is biased toward (set via BattleManager.PrimeColor; consumed by DrawHand). Empty = no Prime.")]
+    [SerializeField] private string primedColor = "";
+    [Tooltip("Chance each non-guaranteed fresh slot also rolls the primed colour. The first fresh slot is always the primed colour (the guarantee); 0 = guarantee only, 1 = the whole fresh refill is the primed colour.")]
+    [Range(0f, 1f)] public float primeBias = 0.5f;
+
+    // Foresee (The Script): next turn's fresh draws, locked in + rerolled by the player this turn via
+    // ForeseeController. Empty = none (normal draw). Consumed by DrawHand.
+    private readonly List<CardData> foreseenFresh = new List<CardData>();
+
     public void DrawHand()
     {
-        ClearHand();
+        // Remembered cards were kept by DiscardHand and are already in currentHand. They revert to
+        // normal cards now (a Remember lasts one turn); we only draw enough fresh cost-1 cards to top up.
+        int kept = currentHand.Count;
+        for (int i = 0; i < kept; i++)
+        {
+            var keptCard = currentHand[i] ? currentHand[i].GetComponent<Card>() : null;
+            if (keptCard != null) keptCard.SetRemembered(false);
+        }
 
-        // 1) Filter out only cost-1 cards
+        // Filter out only cost-1 cards
         List<CardData> costOneCards = cardDatabase.allCards.FindAll(c => c.cardCost == 1);
-
-        // 2) If no cost-1 cards exist, handle gracefully
         if (costOneCards.Count == 0)
         {
             Debug.LogWarning("No cost=1 cards found in the database!");
+            PositionCardsInSemiCircle();
             return;
         }
 
-        for (int i = 0; i < handSize; i++)
+        // Draw fresh cards into the remaining slots (Remembered carry-overs already occupy some — this
+        // is the built-in cost of Remember: you draw fewer fresh cards).
+        int slotsToFill = Mathf.Max(0, handSize - currentHand.Count);
+
+        // Foresee (The Script): if the player locked in next turn's fresh draws last turn, use them.
+        bool useForeseen = foreseenFresh.Count > 0;
+
+        // Prime (The Script): bias this refill toward a chosen colour — guarantee >=1, weight the rest.
+        // (Skipped when a Foreseen hand is in play; Prime was already baked into it when computed.)
+        List<CardData> primedPool = null;
+        if (!useForeseen && !string.IsNullOrEmpty(primedColor))
         {
-            // 3) Pick a random cost-one card, 4) instantiate it
-            CardData randomData = costOneCards[Random.Range(0, costOneCards.Count)];
-            currentHand.Add(CreateCardObject(randomData));
+            primedPool = costOneCards.FindAll(c => c != null && c.cardType == primedColor);
+            if (primedPool.Count == 0) primedPool = null; // no cost-1 card of that colour; ignore the Prime
         }
 
-        // 5) Fan them out
+        for (int i = 0; i < slotsToFill; i++)
+        {
+            CardData data;
+            if (useForeseen && i < foreseenFresh.Count)
+                data = foreseenFresh[i];                                   // exactly what the player foresaw/rerolled
+            else if (primedPool != null && (i == 0 || Random.value < primeBias))
+                data = primedPool[Random.Range(0, primedPool.Count)];     // primed colour: guaranteed first, then weighted
+            else
+                data = costOneCards[Random.Range(0, costOneCards.Count)];
+            currentHand.Add(CreateCardObject(data));
+        }
+
+        if (useForeseen) foreseenFresh.Clear();
+        primedColor = ""; // Prime / Foresee are consumed by the draw they shape
+
+        // Fan them out
         PositionCardsInSemiCircle();
 
-        // 6) Decaying Mind (Ms. Remember): replace part of the freshly drawn hand with Forgotten cards.
+        // Decaying Mind (Ms. Remember): replace part of the freshly drawn hand with Forgotten cards.
         var p = BattleManager.Instance != null ? BattleManager.Instance.player : null;
         int stacks = p != null ? p.GetDecayingMindStacks() : 0;
         if (stacks > 0) CorruptHandWithForgotten(stacks);
@@ -71,9 +111,24 @@ public class HandManager : MonoBehaviour
         return cardObj;
     }
 
-    public void DiscardHand()
+    /// <summary>
+    /// End-of-turn erase that KEEPS any Remembered cards (they carry into next turn — the player spent
+    /// Focus to pin them). Returns how many cards were actually discarded (Blank Canvas reads this).
+    /// </summary>
+    public int DiscardHand()
     {
-        ClearHand();
+        int destroyed = 0;
+        for (int i = currentHand.Count - 1; i >= 0; i--)
+        {
+            var obj = currentHand[i];
+            var card = obj ? obj.GetComponent<Card>() : null;
+            if (card != null && card.Remembered) continue;   // keep Remembered cards
+            if (obj) Destroy(obj);
+            currentHand.RemoveAt(i);
+            destroyed++;
+        }
+        PositionCardsInSemiCircle();
+        return destroyed;
     }
 
     public int RemoveCard(GameObject card)
@@ -94,15 +149,6 @@ public class HandManager : MonoBehaviour
 
         currentHand.Insert(index, card);
         PositionCardsInSemiCircle();
-    }
-
-    private void ClearHand()
-    {
-        foreach (var cardObj in currentHand)
-        {
-            Destroy(cardObj);
-        }
-        currentHand.Clear();
     }
 
     public void PositionCardsInSemiCircle()
@@ -166,6 +212,63 @@ public class HandManager : MonoBehaviour
     }
 
     public int HandSize => handSize;
+
+    // ---------------- Prime (The Script) ----------------
+    public string PrimedColor => primedColor;
+    public void SetPrime(string color) => primedColor = color ?? "";
+    public void ClearPrime() => primedColor = "";
+
+    // ---------------- Foresee (The Script) ----------------
+    public IReadOnlyList<CardData> ForeseenFresh => foreseenFresh;
+
+    /// <summary>How many Remembered cards are currently in hand (they carry into next turn).</summary>
+    public int RememberedCount()
+    {
+        int n = 0;
+        for (int i = 0; i < currentHand.Count; i++)
+        {
+            var c = currentHand[i] ? currentHand[i].GetComponent<Card>() : null;
+            if (c != null && c.Remembered) n++;
+        }
+        return n;
+    }
+
+    /// <summary>How many fresh cards next turn will draw (the Foresee-able slots): hand size minus Remembered carry-overs.</summary>
+    public int ForeseeSlotCount() => Mathf.Max(0, handSize - RememberedCount());
+
+    /// <summary>Roll next turn's fresh draws now (respecting Prime) and store them so the player can preview/reroll.</summary>
+    public void ComputeForeseenFresh()
+    {
+        foreseenFresh.Clear();
+        if (cardDatabase == null) return;
+        var costOneCards = cardDatabase.allCards.FindAll(c => c.cardCost == 1);
+        if (costOneCards.Count == 0) return;
+
+        List<CardData> primedPool = null;
+        if (!string.IsNullOrEmpty(primedColor))
+        {
+            primedPool = costOneCards.FindAll(c => c != null && c.cardType == primedColor);
+            if (primedPool.Count == 0) primedPool = null;
+        }
+
+        int slots = ForeseeSlotCount();
+        for (int i = 0; i < slots; i++)
+        {
+            List<CardData> pool = (primedPool != null && (i == 0 || Random.value < primeBias)) ? primedPool : costOneCards;
+            foreseenFresh.Add(pool[Random.Range(0, pool.Count)]);
+        }
+    }
+
+    /// <summary>Reroll one foreseen card to a fresh random cost-1 pick. Returns the new card (or null if invalid).</summary>
+    public CardData RerollForeseen(int index)
+    {
+        if (index < 0 || index >= foreseenFresh.Count) return null;
+        if (cardDatabase == null) return foreseenFresh[index];
+        var costOneCards = cardDatabase.allCards.FindAll(c => c.cardCost == 1);
+        if (costOneCards.Count == 0) return foreseenFresh[index];
+        foreseenFresh[index] = costOneCards[Random.Range(0, costOneCards.Count)];
+        return foreseenFresh[index];
+    }
 
     // ---------------- Decaying Mind (Ms. Remember) ----------------
     private CardData forgottenCardCached;

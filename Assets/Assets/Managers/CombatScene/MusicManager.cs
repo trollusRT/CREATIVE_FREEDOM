@@ -117,5 +117,44 @@ public class MusicManager : MonoBehaviour
 
         duckCo = null;
     }
+
+    /// <summary>Ramp pitch & volume to targets over `duration` and hold there (no auto-restore). Realtime.</summary>
+    public void RampMusic(float targetPitch, float targetVolume, float duration)
+    {
+        if (duckCo != null) StopCoroutine(duckCo);
+        duckCo = StartCoroutine(RampCo(targetPitch, targetVolume, duration));
+    }
+
+    /// <summary>Ramp pitch & volume back to the configured defaults over `duration`. Realtime.</summary>
+    public void RestoreMusicDefaults(float duration) => RampMusic(defaultPitch, defaultVolume, duration);
+
+    IEnumerator RampCo(float targetPitch, float targetVolume, float duration)
+    {
+        if (!musicSource) { duckCo = null; yield break; }
+
+        float startPitch = musicSource.pitch;
+        float startVol = musicSource.volume;
+
+        if (duration <= 0f)
+        {
+            musicSource.pitch = targetPitch;
+            musicSource.volume = targetVolume;
+            duckCo = null;
+            yield break;
+        }
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.unscaledDeltaTime;
+            float k = Mathf.Clamp01(t / duration);
+            musicSource.pitch = Mathf.Lerp(startPitch, targetPitch, k);
+            musicSource.volume = Mathf.Lerp(startVol, targetVolume, k);
+            yield return null;
+        }
+        musicSource.pitch = targetPitch;
+        musicSource.volume = targetVolume;
+        duckCo = null;
+    }
 }
 

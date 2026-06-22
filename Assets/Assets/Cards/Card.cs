@@ -122,6 +122,12 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     // --- alpha/visibility guards ---
     private bool fusionSelected = false;   // true only while selected for fusion
 
+    // --- Remember (The Script): right-click a hand card to carry it into next turn for 1 Focus ---
+    [Header("Remember (The Script)")]
+    [Tooltip("Optional visual shown while this card is Remembered (carried to next turn). Null-safe; a gold tint on tintImages is the fallback so the state still reads without wiring. Keep it inactive by default in the prefab.")]
+    public GameObject rememberedIndicator;
+    public bool Remembered { get; private set; }
+
     // --- turn pacing gating helpers ---
     private IEnumerator Co_AutoCompleteEffectGate(System.Action complete)
     {
@@ -164,6 +170,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         cg.alpha = fusionSelected ? 0.6f : 1f;
         cg.interactable = true;
         cg.blocksRaycasts = true;
+
+        if (rememberedIndicator) rememberedIndicator.SetActive(false); // fresh cards start un-Remembered
     }
 
 
@@ -388,6 +396,20 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
+            case "Blank Canvas": // White, 2 AP — dump the hand for AP + Shield
+                {
+                    didResolve = true;
+                    player.animator.SetTrigger("Buff");
+                    // DiscardHand keeps Remembered cards and returns how many were actually dumped.
+                    int discarded = (handManager != null) ? handManager.DiscardHand() : 0;
+                    if (discarded > 0)
+                    {
+                        BattleManager.Instance.GrantAP(discarded);   // 1 AP per discarded card
+                        player.AddShield(discarded);                 // 1 flat Shield per discarded card
+                    }
+                }
+                break;
+
             default:
                 Debug.Log($"{cardData.cardName} not implemented for player!");
                 break;
@@ -474,7 +496,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             {
                 host.ArmImpact(() =>
                 {
-                    onImpact?.Invoke();
+                    // Mark this as a player card hit so Enemy.TakeDamage applies Insight damage modifiers.
+                    InsightHost.BeginCardDamage(false);
+                    try { onImpact?.Invoke(); }
+                    finally { InsightHost.EndCardDamage(); }
                     BattleManager.Instance.CheckVictoryImmediate();
                 });
             }
@@ -492,7 +517,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             {
                 host.ArmImpact(() =>
                 {
-                    onImpact?.Invoke();
+                    // Mark this as a player AoE card hit so Enemy.TakeDamage applies Insight damage modifiers.
+                    InsightHost.BeginCardDamage(true);
+                    try { onImpact?.Invoke(); }
+                    finally { InsightHost.EndCardDamage(); }
                     BattleManager.Instance.CheckVictoryImmediate();
                 });
             }
@@ -742,6 +770,107 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 }
                 break;
 
+            // ----- HEAVY HITTERS (brainstorm batch) -----
+            case "Astral Nuke": // Purple, 3 AP
+                {
+                    didResolve = true;
+                    int dmg = cardData.minValue;                    // 14
+                    STWithImpact(enemy, EffectKey.ImaginaryPaint, () =>
+                        enemy.TakeDamage(BattleManager.Instance.player.ModifyOutgoingDamage(dmg)));
+                    BattleManager.Instance.player.PayHealth(3);      // recoil (PayHealth won't self-KO)
+                }
+                break;
+
+            case "Vermillion Spear": // Red, 2 AP
+                {
+                    didResolve = true;
+                    int dmg = cardData.minValue;                    // 6
+                    if (enemy.currentHP >= enemy.maxHP) dmg += 4;    // first-strike spike vs a full-HP target
+                    STWithImpact(enemy, EffectKey.RedStroke, () =>
+                        enemy.TakeDamage(BattleManager.Instance.player.ModifyOutgoingDamage(dmg)));
+                }
+                break;
+
+            case "Bleed Out": // Crimson, 3 AP — turns the target's Poison into burst
+                {
+                    didResolve = true;
+                    int basePart = cardData.minValue;               // 8
+                    STWithImpact(enemy, EffectKey.FinishingTouch, () =>
+                    {
+                        int poison = 0;
+                        for (int i = 0; i < enemy.activeEffects.Count; i++)
+                        {
+                            var ef = enemy.activeEffects[i];
+                            if (ef != null && ef.type == StatusType.Poison) poison += Mathf.Max(0, ef.power);
+                        }
+                        enemy.activeEffects.RemoveAll(ef => ef != null && ef.type == StatusType.Poison);
+                        enemy.TakeDamage(BattleManager.Instance.player.ModifyOutgoingDamage(basePart + poison));
+                    });
+                }
+                break;
+
+            case "Void Siphon": // Purple, 2 AP — lifesteal, full heal on kill
+                {
+                    didResolve = true;
+                    int dmg = cardData.minValue;                    // 4
+                    STWithImpact(enemy, EffectKey.Siphon, () =>
+                    {
+                        int dealt = BattleManager.Instance.player.ModifyOutgoingDamage(dmg);
+                        enemy.TakeDamage(dealt);
+                        int heal = enemy.IsDead ? dealt : Mathf.Max(1, dealt / 2);
+                        BattleManager.Instance.player.Heal(heal);
+                    });
+                }
+                break;
+
+            case "Full Palette": // Rainbow, 3 AP — scales with colours played this combat
+                {
+                    didResolve = true;
+                    int per = Mathf.Max(1, cardData.minValue);      // 2 dmg per distinct colour
+                    STWithImpact(enemy, EffectKey.ImaginaryPaint, () =>
+                    {
+                        var set = BattleManager.Instance.colorsPlayedThisCombat;
+                        int colours = Mathf.Max(4, set != null ? set.Count : 0);
+                        enemy.TakeDamage(BattleManager.Instance.player.ModifyOutgoingDamage(per * colours));
+                    });
+                }
+                break;
+
+            // ----- AoE (raw damage, like Red Splatter — not routed through ModifyOutgoingDamage) -----
+            case "Bloodbath": // Crimson, 2 AP — AoE + heal per kill
+                {
+                    didResolve = true;
+                    int each = Mathf.Max(0, cardData.minValue);     // 4 to all
+                    AOEWithImpact(EffectKey.RedSplatter, () =>
+                    {
+                        var snapshot = new List<Enemy>(BattleManager.Instance.enemies);
+                        int kills = 0;
+                        foreach (var e in snapshot)
+                        {
+                            if (!IsAlive(e)) continue;
+                            e.TakeDamage(each);
+                            if (e.IsDead) kills++;
+                        }
+                        if (kills > 0) BattleManager.Instance.player.Heal(3 * kills);
+                    });
+                }
+                break;
+
+            case "The Nothing": // Black, 3 AP — erasure: Corrode all (enemy buff-wipe is a no-op until enemies have buffs)
+                {
+                    didResolve = true;
+                    AOEWithImpact(EffectKey.YSpray, () =>
+                    {
+                        var snapshot = new List<Enemy>(BattleManager.Instance.enemies);
+                        foreach (var e in snapshot)
+                        {
+                            if (!IsAlive(e)) continue;
+                            e.ApplyCorrode(2, 2);
+                        }
+                    });
+                }
+                break;
+
             default:
                 Debug.Log($"{cardData.cardName} not implemented for enemy!");
                 break;
@@ -846,6 +975,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!isDraggable) return;
+        // Only allow playing cards on the player's own turn (Remembered cards now persist into the enemy turn).
+        if (BattleManager.Instance == null || BattleManager.Instance.state != BattleManager.BattleState.PLAYER_TURN) return;
 
         ResetHoverInstant();        // already in your code, good
 
@@ -904,6 +1035,9 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         // ignore clicks that are actually part of a drag
         if (dragging) return;
 
+        // Right-click is reserved for Remember (handled in Update); only left-click selects for fusion.
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+
         // only allow during player's turn
         if (BattleManager.Instance == null ||
             BattleManager.Instance.state != BattleManager.BattleState.PLAYER_TURN)
@@ -936,6 +1070,10 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     // ---------------------------------------------------------
     void Update()
     {
+        // Right-click while hovering a hand card toggles Remember (1 Focus to carry it into next turn).
+        if (isHovered && Input.GetMouseButtonDown(1))
+            ToggleRemember();
+
         if (!dragging || dragParent == null) return;
 
         float dt = Mathf.Min(Time.unscaledDeltaTime, 1f / 30f);
@@ -1257,6 +1395,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Y-Spray":
             case "Yellow Spray":
             case "Toxic Paint":
+            case "Bloodbath":
+            case "The Nothing":
                 return true;
             default: return false;
         }
@@ -1291,6 +1431,48 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
         EnsureCanvasGroup();
         cg.alpha = selected ? 0.6f : 1f;    // only dim here
+    }
+
+    // ---------------------------------------------------------
+    // REMEMBER (The Script) — carry a card into next turn for 1 Focus
+    // ---------------------------------------------------------
+
+    // Toggle Remember on this card. Costs 1 Focus to pin; right-click again to refund and release.
+    public void ToggleRemember()
+    {
+        var bm = BattleManager.Instance;
+        if (bm == null || bm.state != BattleManager.BattleState.PLAYER_TURN) return;
+        if (dragging) return;
+        if (cardData != null && cardData.cardName == "Forgotten") return; // can't pin a Forgotten card
+
+        if (Remembered)
+        {
+            SetRemembered(false);
+            bm.GrantFocus(1);              // refund the Focus
+        }
+        else
+        {
+            if (!bm.SpendFocus(1))         // costs 1 Focus
+            {
+                ShowInvalidDropFeedback(); // not enough Focus — shake/flash for feedback
+                return;
+            }
+            SetRemembered(true);
+        }
+    }
+
+    // Sets the Remembered flag + visual only. Focus is handled by ToggleRemember; this does NOT spend/refund,
+    // so HandManager can clear the flag on carry-over without touching Focus.
+    public void SetRemembered(bool on)
+    {
+        Remembered = on;
+        if (rememberedIndicator) rememberedIndicator.SetActive(on);
+
+        // Fallback tint so the state reads even without a wired indicator.
+        Color tint = on ? new Color(1f, 0.9f, 0.5f) : Color.white;
+        if (tintImages != null)
+            foreach (var img in tintImages)
+                if (img) img.color = new Color(tint.r, tint.g, tint.b, img.color.a);
     }
 
     private void EnsureCanvasGroup()
@@ -1329,11 +1511,18 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             case "Ink Needle":
             case "Smudge":
             case "Rage Mark":
+            case "Astral Nuke":
+            case "Vermillion Spear":
+            case "Bleed Out":
+            case "Void Siphon":
+            case "Full Palette":
                 return true;
 
             // AoE attacks (call once per play)
             case "Red Splatter":
             case "Y-Spray":
+            case "Bloodbath":
+            case "The Nothing":
                 return true;
 
             default:
