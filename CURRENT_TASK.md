@@ -75,9 +75,10 @@ Content (~186 designed) lives in the **"Inspirations"** tab of `Cards.xlsx`.
 
 ## 🔭 Review later: fusion combos / economy
 
-The 8 heavy-hitter cards are coded + have `CardData` assets in `CardDatabase`, but have **no fusion
-recipes yet** — so they're cost-2/3 = unobtainable in play until recipes are wired. Hold for a balance
-pass on the whole fusion table. Context when we come back to it:
+The 8 heavy-hitter cards are coded, have `CardData` assets, and now have **fusion recipes wired** (8
+`FusionRecipe` assets in `Assets/Assets/Cards/Fusion/`, registered in `FusionBook`). They fuse correctly,
+but **still need art** — the fusion preview + spawned card key off `cardSprite`, so they render blank until
+each card's sprite is assigned. Balance of the whole fusion table is still a later pass. Context:
 
 - **Convention:** 18 of 19 recipes are **cost-1 + cost-1** (e.g. Imaginary Paint = Red Stroke + Attack
   Break). The lone exception is **CREATIVE FREEDOM = Reckless Stroke + Restore** — a deliberate 2-step
@@ -86,11 +87,11 @@ pass on the whole fusion table. Context when we come back to it:
   `unlockAllForTesting`).
 - **Headroom:** 13 cost-1 cards → 91 possible pairs, only 18 used. The newer commons **Ink Needle,
   Smudge, Rage Mark, Critic's Note, Streaking Medium** are in **zero** recipes — good free ingredients.
-- **Proposed cost-1 pairings** (verified collision-free; not yet created): Astral Nuke = Rage Mark + Ink
-  Needle · Bleed Out = Ink Needle + Smudge · Vermillion Spear = Red Stroke + Critic's Note · Void Siphon
-  = Red Stroke + Streaking Medium · Full Palette = Y-Spray + Ink Needle · Bloodbath = Enrage + Y-Spray ·
-  The Nothing = Smudge + Y-Spray · Blank Canvas = Cleanse + Streaking Medium. (Optional "ultimate"
-  2-step: Astral Nuke = Imaginary Paint + Enrage.)
+- **Wired cost-1 pairings** (✅ created as FusionRecipe assets, order-agnostic): Astral Nuke = Rage Mark +
+  Ink Needle · Bleed Out = Ink Needle + Smudge · Vermillion Spear = Red Stroke + Critic's Note · Void
+  Siphon = Red Stroke + Streaking Medium · Full Palette = Y-Spray + Ink Needle · Bloodbath = Enrage +
+  Y-Spray · The Nothing = Smudge + Y-Spray · Blank Canvas = Cleanse + Streaking Medium. (Not used: the
+  optional "ultimate" 2-step Astral Nuke = Imaginary Paint + Enrage.)
 - Also worth reviewing: why mid-tier fusions feel rare (draw-RNG over 13 commons + limited fuses/turn,
   not fusion depth).
 

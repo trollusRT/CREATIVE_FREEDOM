@@ -32,4 +32,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37bab4fc971745f8b22ba247f8874086, type: 2}
   - {fileID: 11400000, guid: 53a3c740352b49a7b9b80ee6c76d2395, type: 2}
   - {fileID: 11400000, guid: a7b66da85ee04cbca361536c5fe0c096, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4001, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4002, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4003, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4004, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4005, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4006, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4007, type: 2}
+  - {fileID: 11400000, guid: a1c5e7f0b2d34e6f8a9c0b1d2e3f4008, type: 2}
   unlockAllForTesting: 1
