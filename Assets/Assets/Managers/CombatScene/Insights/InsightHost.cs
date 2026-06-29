@@ -32,6 +32,9 @@ public class InsightHost : MonoBehaviour
     [Tooltip("All authored Insights, so the run's id list can be resolved into assets.")]
     [SerializeField] private InsightDatabase database;
 
+    /// <summary>The authored Insight database (read by the reward screen to offer Insight choices).</summary>
+    public InsightDatabase Database => database;
+
     [Header("Testing (no active run)")]
     [Tooltip("Insights granted when there's no active run (standalone combat). Mirrors EnemySpawner.fallbackEncounter / FusionBook.unlockAllForTesting.")]
     [SerializeField] private List<Insight> debugInsights = new();

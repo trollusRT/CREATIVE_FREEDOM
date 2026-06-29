@@ -3192,6 +3192,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1190494990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1190494991}
+  - component: {fileID: 1190494992}
+  m_Layer: 0
+  m_Name: RewardController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1190494991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190494990}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1912485736}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190494992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190494990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebce316811c7acf40b3308ba2a946575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fusionBook: {fileID: 11400000, guid: bcaba57b70fd47f4494111c5f7396dc2, type: 2}
+  insightDatabase: {fileID: 11400000, guid: 2120310c4e52cf249ba0f83448a0f808, type: 2}
+  optionCount: 3
+  allowSkip: 1
+  cardWidth: 210
+  cardHeight: 300
+  cardSpacing: 240
+  titleY: 220
+  skipY: -235
+  dimAlpha: 0.78
+  recipeColor: {r: 0.85, g: 0.55, b: 0.3, a: 1}
+  commonColor: {r: 0.55, g: 0.55, b: 0.58, a: 1}
+  uncommonColor: {r: 0.35, g: 0.7, b: 0.4, a: 1}
+  rareColor: {r: 0.35, g: 0.55, b: 0.85, a: 1}
+  epicColor: {r: 0.62, g: 0.4, b: 0.82, a: 1}
+  showDur: 0.3
+  hideDur: 0.2
+  showSfx: {fileID: 8300000, guid: 31615b54c7c750d46bc5e32749104d8b, type: 3}
+  pickSfx: {fileID: 8300000, guid: 56f382449bbe0c34bb55e9b9c60bbfe3, type: 3}
+  sfxVolume: 1
 --- !u!1 &1198138152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,13 +3332,13 @@ MonoBehaviour:
   hideDur: 0.18
   revealStagger: 0.07
   revealDur: 0.3
-  enterSfx: {fileID: 0}
-  foreseeSfx: {fileID: 0}
-  rerollSfx: {fileID: 0}
+  enterSfx: {fileID: 8300000, guid: 1f417dfe497712145a6a001bd5326896, type: 3}
+  foreseeSfx: {fileID: 8300000, guid: f68061ca23ce95f479e93e291fd53435, type: 3}
+  rerollSfx: {fileID: 8300000, guid: 35bfab43c9f848149834bb918d7b9cc2, type: 3}
   sfxVolume: 1
   distortMusic: 1
   eeriePitch: 0.7
-  eerieVolume: 0.7
+  eerieVolume: 0.857
   musicRampDuration: 0.5
   onEnter:
     m_PersistentCalls:
@@ -5515,6 +5579,7 @@ Transform:
   - {fileID: 467004036}
   - {fileID: 90731269}
   - {fileID: 1198138153}
+  - {fileID: 1190494991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923022001
@@ -5609,8 +5674,8 @@ MonoBehaviour:
   namesDelay: 0.06
   nameSlideDur: 0.26
   nameStagger: 0.09
-  hold: 0
-  revealDur: 0.5
+  hold: 0.18
+  revealDur: 0.71
   slideInEase: 18
   bannerEase: 27
   revealEase: 26

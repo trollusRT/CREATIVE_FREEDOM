@@ -1,5 +1,34 @@
 # Current Task
 
+## 📌 Next session — START HERE (handoff from 2026-06-29)
+
+**Done this session (committed):**
+- **The Script — full first slice built & wired in Unity:** Focus economy (+ End Turn banking), **Remember**
+  (right-click hand persistence), **Prime** (colour-biased draw via HUD buttons), **Foresee**
+  (`ForeseeController` — right-click Junior → camera push-in, looping Thinking pose, pitch-bent music,
+  hidden HUD, optional art border; preview & reroll next turn's hand). Full detail in [FOCUS_DESIGN.md](FOCUS_DESIGN.md).
+- **Heavy-hitter fusion recipes wired:** 8 `FusionRecipe` assets in `Assets/Assets/Cards/Fusion/` + registered
+  in `FusionBook` (see the fusion section below). Placeholder art added; **final art still TODO**.
+- **Post-fight reward screen:** new `RewardController` (code-built) — victory shows a recipe-or-Insight choice,
+  applied to the run; `FusionBook.ApplyRunRecipes()` completes recipe persistence. Needs a `RewardController`
+  GameObject placed in the Combat scene.
+
+**Pick up next session (roughly in order):**
+1. ⭐ **Junior sprite effect during Foresee** *(new request)* — give Junior a visual effect while she's
+   zoomed-in / Thinking in the Foresee focus (e.g. glow / outline / paint aura / shimmer). Hook it on in
+   `ForeseeController.EnterForesee` (next to `SetThinking(true)` / `ZoomIn()`) and off in `ExitForesee`.
+   Candidate tools already in the project: `CombatVFXManager.PlayOnPlayer(VfxType.…)`, the `HitFlash`
+   component on the Player, or a toggled child VFX object / material swap. **Decide the look with the user first.**
+2. **Wire the Insights runtime in Unity** so the reward screen can offer Insights (not just recipes): create
+   the `InsightDatabase` asset + the first Insight assets + an `InsightHost` GameObject — exact table/steps in
+   the "Insights runtime" goal section just below.
+3. **Place the `RewardController` GameObject** in the Combat scene + verify the reward flow end-to-end.
+4. **Finish heavy-hitter art** (placeholder → final) — then those 8 cards are fully done.
+5. **Continue the Focus arc:** Focus-cost cards (`CardData.focusCost`, the spend sink) → enemy anti-Focus
+   debuffs → cape-pose polish. **Open call:** roguelike vs roguelite (does The Script persist across runs).
+
+---
+
 ## 🎯 Goal: Insights runtime — first slice + pass 2 (CODE-COMPLETE, awaiting Unity wiring)
 
 The runtime that makes Inspirations fire in combat. Built **before** the reward system that grants
@@ -105,11 +134,18 @@ each card's sprite is assigned. Balance of the whole fusion table is still a lat
 - `TestFlowController` is run-aware (start screen skipped when arriving from the map).
 - **Multi-wave Dire** stages (`EncounterData.nextWave`).
 
-**Deferred (after Insights):**
-- **Post-fight reward screen** (the recipe-vs-Insight choice) — the natural next step once Insights fire.
+**Post-fight reward screen — ✅ code-complete (this session):** `RewardController` (code-built overlay like
+FusionController) — on victory, `BattleManager.HandleVictory` shows a choice of a fusion recipe **or** an
+Insight (mix of up to 3 options + optional Skip); the pick is applied to the run (`RunManager.LearnRecipe`
+/ `AddInsight`) so it carries forward. **Wiring:** add a `RewardController` GameObject to the Combat scene
+(auto-finds FusionBook via FusionController + InsightDatabase via InsightHost). Insight *options* appear
+once the InsightDatabase is populated; recipe rewards *gate* once `unlockAllForTesting` is off.
+
+**Still deferred:**
 - Shop & Rest/Snack panels.
 - A real `GameOver` scene (defeat currently bounces to the map as a fresh run).
-- Recipe unlocking wired through `FusionBook.learned` (machinery exists; currently bypassed by `unlockAllForTesting`).
+- Recipe unlocking: `FusionBook.ApplyRunRecipes()` now applies the run's `unlockedRecipes` each combat
+  (called in `BeginBattle`); still bypassed by `unlockAllForTesting` (flip it off to make recipe rewards gate).
 
 ---
 

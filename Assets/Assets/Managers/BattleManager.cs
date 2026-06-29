@@ -274,6 +274,10 @@ public class BattleManager : MonoBehaviour
             insightHost.OnCombatStart();
         }
 
+        // Apply the run's learned fusion recipes to the book (mirrors Insights' ApplyFromRun).
+        if (FusionController.Instance != null && FusionController.Instance.fusionBook != null)
+            FusionController.Instance.fusionBook.ApplyRunRecipes();
+
         if (musicManager) musicManager.PlayBattleMusic();
         StartCoroutine(StartBattle());
     }
@@ -624,14 +628,18 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Player Wins!");
         musicManager.PlayVictoryMusic();
 
+        // Reward: a choice of a fusion recipe or an Insight. Shown on every victory; the pick is applied
+        // to the active run (LearnRecipe / AddInsight) so it carries to the next fight.
+        yield return new WaitForSeconds(0.5f);
+        if (RewardController.Instance != null)
+            yield return StartCoroutine(RewardController.Instance.Co_ShowAndAwaitChoice());
+
         // Persistent run: save HP, mark the node cleared, and return to the map we came from.
         var rm = RunManager.Instance;
         if (rm != null && rm.runActive && !string.IsNullOrEmpty(rm.mapReturnScene))
         {
             if (player != null) player.SaveHPToRun();
             rm.MarkNodeCleared(rm.currentNodeId);
-            // TODO: rewards (recipe / Insight choice) before returning to the map.
-            yield return new WaitForSeconds(2f);
             yield return StartCoroutine(FadeToBlack());
             SceneManager.LoadScene(rm.mapReturnScene);
             yield break;

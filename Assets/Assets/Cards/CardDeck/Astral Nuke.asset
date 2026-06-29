@@ -21,6 +21,8 @@ MonoBehaviour:
   canTargetPlayer: 0
   canTargetEnemy: 1
   isConditional: 0
-  cardSprite: {fileID: 0}
-  sfx: {fileID: 0}
+  effectId: 
+  effectKey: 0
+  cardSprite: {fileID: -4961123813722752346, guid: ce0b6f89bc141204f80d9462c180b8d3, type: 3}
+  sfx: {fileID: 8300000, guid: 249a7a8aae996d84ebdc06bb3aa5b4a2, type: 3}
   sfxVolume: 1

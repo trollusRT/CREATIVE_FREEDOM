@@ -6,7 +6,7 @@ public class FusionBook : ScriptableObject
 {
     public List<FusionRecipe> allRecipes = new();
 
-    // Learned set (by recipeName). (Not serialized—runtime only)
+    // Learned set (by recipeName). (Not serializedï¿½runtime only)
     public HashSet<string> learned = new();
 
     // Dev / testing
@@ -73,5 +73,21 @@ public class FusionBook : ScriptableObject
             if (!r) continue;
             learned.Add(r.recipeName);
         }
+    }
+
+    /// <summary>
+    /// Apply the active run's learned recipes (RunManager.unlockedRecipes) to this book at combat start,
+    /// mirroring InsightHost.ApplyFromRun. No-op while unlockAllForTesting is on (everything's already
+    /// learned); when it's off, `learned` becomes exactly the run's recipes so reward-granted recipes gate.
+    /// </summary>
+    public void ApplyRunRecipes()
+    {
+        if (unlockAllForTesting) return;
+
+        learned.Clear();
+        var rm = RunManager.Instance;
+        if (rm == null || rm.unlockedRecipes == null) return;
+        foreach (var name in rm.unlockedRecipes)
+            if (!string.IsNullOrEmpty(name)) learned.Add(name);
     }
 }
